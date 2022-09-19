@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form-register">
+      <label>uuid</label>
+      <input type="text" name="uuid" id="uuid" />
+      <br />
+      <label>stack</label>
+      <select name="stack" id="stack">
+        <option value="react">react</option>
+        <option value="javascript">javascript</option>
+        <option value="node">node.js</option>
+        <option value="html">html</option>
+        <option value="css">css</option>
+      </select>
+      <br />
+      <label>career</label>
+      <input type="range" name="career" min="0" , max="100" id="range" />
+      <br />
+      <label>port folio</label>
+      <input type="text" name="link" value="" id="link" />
+      <br />
+      <label etc>짧은 자기소개</label>
+      <input type="text" name="etc" value="" id="etc" />
+      <br />
+      <button type="button" id="submit">제출</button>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      $("#submit").on("click", function () {
+        var name = $("#uuid").val();
+        var choose = $("#stack").val();
+        var career = $("#link").val();
+        var etc = $("#etc").val();
+        var range = $("#range").val();
+
+        data = {
+          name: name,
+          stack: choose,
+          link: career,
+          etc: etc,
+          range: range,
+        };
+        console.log(data);
+      });
+    </script>
+  </body>
+</html>
