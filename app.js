@@ -7,10 +7,6 @@ app.use("/static", express.static("static"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", function (req, res) {
-  res.render("form");
-});
-
 const router = require("./routes");
 app.use('/', router);
 
