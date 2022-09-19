@@ -1,9 +1,15 @@
 {
-    "development": {
-        "host": "localhost",
-        "database": "",
-        "username": "",
-        "password": "",
-        "dialect": "mysql"
-    }
+  "development": {
+    "host": "localhost",
+    "database": "",
+    "username": "",
+    "password": "",
+    "dialect": "mysql"
+  },
+  "Introduce": {
+    "host": "localhost",
+    "user": "",
+    "password": "",
+    "dialect": "mysql"
+  }
 }
