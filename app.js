@@ -10,6 +10,10 @@ app.use(express.json());
 const router = require("./routes");
 app.use('/', router);
 
+app.get("/", function(req,res){
+  res.render("login");
+});
+
 app.listen(port, function () {
   console.log("Server open :", port);
 });
