@@ -3,11 +3,20 @@ const app = express();
 const port = 8000;
 const session = require("express-session");
 
-
 app.set("view engine", "ejs");
 app.use("/static", express.static("static"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(session({
+  secret: '1234',
+  resave: false,
+  saveUninitialized: true,
+  // secure: true,               // https에서만 사용 - 로컬에서는 사용 불가능
+  cookie: {
+    maxAge: 500,
+    httpOnly: true
+  }
+}))
 
 const router = require("./routes");
 app.use('/', router);

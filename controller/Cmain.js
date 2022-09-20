@@ -21,9 +21,26 @@ exports.getJoinMember = (req, res) => {
 
 // save join member data in db
 exports.postJoinMember = (req, res) => {
-    console.log(req.body);
-    Main.postJoinMember(req.body, function(result){
-        res.send(true);
+    Main.postJoinMember(req.body, function (result) {
+        res.send(result);
     });
 }
 // -------------------------------
+
+// user try login
+exports.userLogin = (req, res) => {
+    Main.userLogin(req.body, function (result, u_id) {
+        console.log(result)
+
+        console.log(req.session)
+        if (result != 0) {
+            if (!req.session.user) {
+                req.session.user = u_id;
+            }
+        }
+        console.log("----------------")
+        console.log(req.session)
+        res.send(`number : ${req.session.user}`);
+        // res.send({ result: result });
+    })
+}
