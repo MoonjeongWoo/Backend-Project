@@ -1,8 +1,7 @@
 const Main = require("../model/Main");
 
-
-// get main page
-exports.getMain = (req, res) => {
-    res.render("main");
+// get joinmember page
+exports.getJoinMember = (req, res) => {
+    res.render("joinmember");
 }
 // -------------------------------
