@@ -6,7 +6,7 @@ const session = require("express-session");
 
 app.set("view engine", "ejs");
 app.use("/static", express.static("static"));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 const router = require("./routes");
