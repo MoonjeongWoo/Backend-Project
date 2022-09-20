@@ -44,7 +44,7 @@
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">ID</span>
         <input id="id" type="text" class="form-control" placeholder="Nickname">
-        <button type="button" class="btn btn-secondary btn-sm">중복 확인</button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="idCheck()">중복 확인</button>
     </div>
 
     <!-- Password -->
@@ -92,10 +92,30 @@
 
 </form>
 <script>
+
+    function idCheck() {
+        var idInput = $("#id").val();
+        data = {
+            id: idInput
+        };
+
+        console.log(data)
+
+        axios({
+            url:"/joinMember/idcheck",
+            method: "POST",
+            data: data
+        }).then((response) => {
+            console.log("아디체크", response.data);
+            return response.data
+        });
+    }
+
  function sendInfo() {
     // var uuid = $("#uuid").val();
     var id = $("#id").val();
     var pw = $("#pw").val();
+    var name = $("#name").val();
     var email = $("#email").val();
     var location = $("#location").val();
 
@@ -106,7 +126,7 @@
     data = {
         id: id,
         pw: pw,
-        name, name,
+        name: name,
         email: email,
         location: location
     };
@@ -119,7 +139,7 @@
         data: data
     }).then((response) => {
         console.log(response.data);
-        return rep.data
+        return response.data;
     });
 }
 
