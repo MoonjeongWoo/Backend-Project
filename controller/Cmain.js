@@ -27,3 +27,11 @@ exports.postJoinMember = (req, res) => {
     });
 }
 // -------------------------------
+
+exports.idCheck = (req, res) => {
+    console.log(req.body);
+    Main.idCheck (req.body, function(result){
+        res.send(result);
+        // result 값이 0이면 중복 id 없음, 1 이면 중복 아이디 있음
+    });
+}
