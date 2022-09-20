@@ -12,11 +12,6 @@
     <script src="https://kit.fontawesome.com/9376e8eed8.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <style>
-        .nav {
-            width: 100%;
-            height: 100px;
-            background-color: aquamarine;
-        }
     
         .main-img {
             width: 100%;
@@ -30,7 +25,7 @@
             margin: auto;
             background-color: rgb(228, 228, 225);
         }
-    
+        
         /* .log-box {
             position: absolute;
             z-index: 999;
@@ -45,17 +40,15 @@
     </head>
     <body>
     <form>
-        <%-include("login.ejs") %>
+        <%-include("navbar.ejs") %>
 
-        <div class="nav">
-            Navbar
-        </div>
         <div>
             <img class="main-img" src="./static/img/main_img.jpg">
         </div>
         <div class="main-back"></div>
         <!-- <div class="log-box"></div> -->
-        
+
+        <div class="login"><%-include("login.ejs") %></div>
     
     
     </form>
