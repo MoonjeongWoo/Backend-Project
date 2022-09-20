@@ -37,21 +37,20 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      .main-img {
+        width: 100%;
+        /* position: fixed; */
+      }
 
-        .main-img {
-            width: 100%;
-            /* position: fixed; */
-        }
-    
-        .main-back {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            margin: auto;
-            background-color: rgb(228, 228, 225);
-        }
-        
-        /* .log-box {
+      .main-back {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        margin: auto;
+        background-color: rgb(228, 228, 225);
+      }
+
+      /* .log-box {
             position: absolute;
             z-index: 999;
             margin: auto;
@@ -60,25 +59,20 @@
             margin: auto;
             background-color: rgb(179, 62, 62);
         } */
-    
     </style>
   </head>
   <body>
     <form>
+      <%-include("navbar.ejs") %>
 
-        <%-include("navbar.ejs") %>
+      <div>
+        <img class="main-img" src="./static/img/main_img.jpg" />
+      </div>
+      <div class="main-back"></div>
+      <!-- <div class="log-box"></div> -->
 
-        <div>
-            <img class="main-img" src="./static/img/main_img.jpg">
-        </div>
-        <div class="main-back"></div>
-        <!-- <div class="log-box"></div> -->
-
-        <div class="login"><%-include("login.ejs") %></div>
-    
-    
+      <div class="login"><%-include("login.ejs") %></div>
     </form>
     <script></script>
   </body>
 </html>
-
