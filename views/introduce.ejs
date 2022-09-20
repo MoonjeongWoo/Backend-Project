@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-    crossorigin="anonymous"></script>
-  <title>Document</title>
-  <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-  <!-- axios -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
-    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+  <body>
+    <%-include("navbar.ejs")%>
+    <form id="form-register" action="/user/saveIntroudce" method="post">
+      <label>stack</label>
+      <select name="stack" id="stack">
+        <option value="react">react</option>
+        <option value="javascript">javascript</option>
+        <option value="node">node.js</option>
+        <option value="html">html</option>
+        <option value="css">css</option></select
+      ><br />
+      <label>career</label>
+      <input type="range" name="career" min="0" , max="100" id="range" /><br />
+      <label>port folio</label>
+      <input type="text" name="link" value="" id="link" /><br />
+      <label etc>짧은 자기소개</label>
+      <input type="text" name="etc" value="" id="etc" /><br />
+      <button type="button" id="submit" onclick="aaa()">제출</button>
+    </form>
+    <script>
+      function aaa() {
+        var choose = $("#stack").val();
+        var career = $("#link").val();
+        var etc = $("#etc").val();
+        var range = $("#range").val();
 
-<body>
-  <form id="form-register" action="/user/saveIntroudce" method="post">
-    <label>stack</label>
-    <select name="stack" id="stack">
-      <option value="react">react</option>
-      <option value="javascript">javascript</option>
-      <option value="node">node.js</option>
-      <option value="html">html</option>
-      <option value="css">css</option>
-    </select><br>
-    <label>career</label>
-    <input type="range" name="career" min="0" , max="100" id="range" /><br>
-    <label>port folio</label>
-    <input type="text" name="link" value="" id="link" /><br>
-    <label etc>짧은 자기소개</label>
-    <input type="text" name="etc" value="" id="etc" /><br>
-    <button type="button" id="submit" onclick="aaa()">제출</button>
-  </form>
-  <script>
-    function aaa() {
-      var choose = $("#stack").val();
-      var career = $("#link").val();
-      var etc = $("#etc").val();
-      var range = $("#range").val();
-
-      data = {
-        stack: choose,
-        link: career,
-        etc: etc,
-        range: range,
-      };
-      console.log(data);
-      axios({
-        url: "/user/saveIntroudce",
-        method: "post",
-        data: data
-      }).then((response) => { console.log(response.data) } )
-    }
-  </script>
-</body>
-
+        data = {
+          stack: choose,
+          link: career,
+          etc: etc,
+          range: range,
+        };
+        console.log(data);
+        axios({
+          url: "/user/saveIntroudce",
+          method: "post",
+          data: data,
+        }).then((response) => {
+          console.log(response.data);
+        });
+      }
+    </script>
+  </body>
 </html>
