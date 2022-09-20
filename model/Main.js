@@ -1,3 +1,5 @@
+
+const { kMaxLength } = require("buffer");
 const cnn = require("./index");
 
 exports.idCheck = (data, cb) => {
@@ -15,15 +17,25 @@ exports.idCheck = (data, cb) => {
     });
 }
 
-
+// 회원가입
 exports.postJoinMember = (data, cb) => {
-    // let sql = `select * from users`;
-    let sql = `INSERT INTO users VALUES(unhex(replace(uuid(),'-','')), '${data.id}','${data.pw}','${data.name}','${data.email}','${data.location}');`;
-    // console.log(sql);
+
+    var sql = `INSERT INTO Users VALUES(unhex(replace(uuid(),'-','')), '${data.id}','${data.pw}','${data.name}','${data.email}','${data.location}');`;
+
     cnn.query( sql, function(err, rows){
-        console.log(rows);
         if ( err ) throw err;
         cb(rows);
     });
-    
 }
+
+// 로그인
+exports.userLogin = (data, cb) => {
+    var sql = `SELECT id FROM Users Where id = "${data.id}" and pw = "${data.pw}"`
+
+    cnn.query( sql, function(err, result) {
+        if ( err ) throw err;
+        cb(result.length, data.id);
+    });
+}
+// -----------------------
+

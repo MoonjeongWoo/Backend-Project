@@ -6,7 +6,11 @@ const devel = require("../controller/Cdevel");
 
 router.get("/", main.getMain);
 router.get("/login", main.getLogin);
+
+router.post("/login/userLogin", main.userLogin);
+
 router.get("/developer", devel.getDevel);
+
 router.get("/joinMember", main.getJoinMember);
 router.post("/joinMember/idcheck", main.idCheck);
 router.post("/joinMember/user", main.postJoinMember);
