@@ -6,7 +6,7 @@ router.get("/joinMember", main.getJoinMember);
 
 router.get("/introduce", user.getIntroduce);
 
-
+router.post("/user/saveIntroudce", user.saveIntroudce)
 
 
 
