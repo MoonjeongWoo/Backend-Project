@@ -2,10 +2,11 @@ const router = require("express").Router();
 const main = require("../controller/Cmain");
 const user = require("../controller/Cuser");
 const navbar = require("../controller/Cnavbar");
+const devel = require("../controller/Cdevel");
 
 router.get("/", main.getMain);
 router.get("/login", main.getLogin);
-
+router.get("/developer", devel.getDevel);
 router.get("/joinMember", main.getJoinMember);
 router.post("/joinMember/user", main.postJoinMember);
 

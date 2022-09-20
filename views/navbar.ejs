@@ -26,7 +26,14 @@
     text-decoration: none;
     font-size: 17px;
   }
-
+  #login {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
   /* Change the color of links on hover */
   .topnav a:hover {
     background-color: darkgray;
@@ -45,7 +52,7 @@
     <a href="#Resume" class="user">Resume</a>
     <a href="#Watch" class="user">Watch Other</a>
     <a href="#Mypage" class="Corp">Mypage</a>
-    <a href="#login" class="Corp">login</a>
+    <a href="#login" id="login">login</a>
     <a href="#Devel" class="Corp">Developer</a>
     <a href="#Bucket" class="Corp">Bucket</a>
   </div>
@@ -55,6 +62,8 @@
   integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
   crossorigin="anonymous"
 ></script>
+
+<!-- scroll 시 navbar 배경 화면 보이기 필요시 복붙-->
 <script>
   window.addEventListener("scroll", function () {
     if (scrollY <= 350 && scrollY >= 0) {
