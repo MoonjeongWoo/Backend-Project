@@ -1,7 +1,12 @@
 const router = require("express").Router();
-const user = require("../controller/UserController");
+const main = require("../controller/Cmain")
+const user = require("../controller/Cuser");
 
-router.get("/", user.index);
+router.get("/", main.getMain);
+
+router.get("/introduce", user.getIntroduce);
+
+
 
 
 
