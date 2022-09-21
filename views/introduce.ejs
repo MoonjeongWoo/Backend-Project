@@ -26,22 +26,22 @@
   </head>
 
   <body>
-    <%-include("navbar.ejs")%>
+    <%#-include("navbar.ejs")%>
     <form id="form-register" action="/user/saveIntroudce" method="post">
-      <label>stack</label>
+      <!-- <label>stack</label>
       <select name="stack" id="stack">
         <option value="react">react</option>
         <option value="javascript">javascript</option>
         <option value="node">node.js</option>
         <option value="html">html</option>
         <option value="css">css</option></select
-      ><br />
-      <label>career</label>
+      ><br /> -->
+      <!-- <label>career</label>
       <input type="range" name="career" min="0" , max="100" id="range" /><br />
       <label>port folio</label>
       <input type="text" name="link" value="" id="link" /><br />
       <label etc>짧은 자기소개</label>
-      <input type="text" name="etc" value="" id="etc" /><br />
+      <input type="text" name="etc" value="" id="etc" /><br /> -->
       <button type="button" id="submit" onclick="aaa()">제출</button>
     </form>
     <script>
@@ -51,11 +51,17 @@
         var etc = $("#etc").val();
         var range = $("#range").val();
 
+        // data = {
+        //   stack: choose,
+        //   link: career,
+        //   etc: etc,
+        //   range: range,
+        // };
         data = {
-          stack: choose,
-          link: career,
-          etc: etc,
-          range: range,
+          stack: 'react',
+          link: 'gogo.com',
+          etc: 'hihihihi',
+          range: '39393939',
         };
         console.log(data);
         axios({
