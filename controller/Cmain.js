@@ -58,18 +58,18 @@ exports.idCheck = (req, res) => {
 
 // 시퀄 전환 시작
 
-const { Main } = require("../model");
+// const { Main } = require("../model");
 
-exports.idCheck = (req, res) => {
-    var data = {
-        id: req.body.id // testing...
-    };
-    Main.findAll({
-        where: {
-            id: data[id]
-        }
-    }).then((result)=>)
-}
+// exports.idCheck = (req, res) => {
+//     var data = {
+//         id: req.body.id // testing...
+//     };
+//     Main.findAll({
+//         where: {
+//             id: data[id]
+//         }
+//     }).then((result)=>)
+// }
 
 
 
