@@ -3,7 +3,7 @@ div{
     padding: 0px;
 }
 .test{
-    height: 1500px;
+    height: 3500px;
     padding-top: 80px;
     display: flex;
     text-align: center;
@@ -19,6 +19,8 @@ div{
     height: 500px;
     border: 1px solid #eeee;
     border-radius: 15px;
+    position: relative;
+    background-color: bisque;
 }
 .bucket:hover{
     box-shadow: 1px 1px 5px;
