@@ -29,12 +29,15 @@ exports.postJoinMember = (data, cb) => {
 
 // 로그인
 exports.userLogin = (data, cb) => {
-  var sql = `SELECT * FROM Users Where id = "${data.id}" and pw = "${data.pw}";`;
-  cnn.query(sql, function (err, result) {
-    if (err) throw err;
-    cb(result.length, data.id);
-  });
-};
+
+    var sql = `SELECT * FROM Users Where id = "${data.id}" and pw = "${data.pw}";`;
+    cnn.query( sql, function(err, result) {
+        if ( err ) throw err;
+        cb(result.length, data.id);
+    });
+}
+// -----------------------
+
 
 // if login success get uuid
 exports.getUuid = (userId, cb) => {
