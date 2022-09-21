@@ -8,17 +8,8 @@ div{
     display: flex;
     text-align: center;
 }
-.watch{
-    width: 20%;
-    height: 500px;
-    border: 1px solid #eeee;
-    border-radius: 15px;
-}
-.watch:hover{
-    box-shadow: 1px 1px 5px;
-}
 .main_list{
-    width: 60%;
+    width: 80%;
     height: 500px;
     border: 1px solid #eeee;
     border-radius: 15px;
@@ -34,4 +25,12 @@ div{
 }
 .bucket:hover{
     box-shadow: 1px 1px 5px;
+}
+.main_list input{
+    width: 80%;
+    height: 40px;
+    float: left;
+    border: none;
+    border-bottom: 1px solid black;
+    padding-left: 15px;
 }
