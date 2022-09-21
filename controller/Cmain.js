@@ -1,4 +1,3 @@
-const exp = require("constants");
 const Main = require("../model/Main");
 
 // get main page

@@ -36,7 +36,7 @@ exports.userLogin = (data, cb) => {
         cb(result.length, data.id);
     });
 }
------------------------
+// -----------------------
 
 // if login success get uuid
 exports.getUuid = (userId, cb) => {
