@@ -57,7 +57,16 @@
           transform: translate(-50%, -50%);
           color: white;
           z-index: 99;
-
+          
+      .content {
+        position: absolute;
+        font-size: 70px;
+        margin-top: 30%;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
       }
 
       .main-back {
@@ -66,8 +75,9 @@
           height: 600px;
           margin: auto;
           background: linear-gradient(rgb(36, 34, 34), rgb(206, 199, 189));
+
       }
-      
+
       .login-back {
           position: absolute;
           width: 40%;
@@ -79,27 +89,27 @@
           transform: translate(-50%, -50%);
           background-color: white;
           border-radius: 0px 10px 10px 10px;
+
       }
-  
+
       .login {
-          position: absolute;
-          width: 40%;
-          top: 100%;
-          margin: auto;
-          left: 50%;
-          z-index: 999;
-          transform: translate(-50%, -50%);
+        position: absolute;
+        width: 40%;
+        top: 100%;
+        margin: auto;
+        left: 50%;
+        z-index: 999;
+        transform: translate(-50%, -50%);
       }
 
       .log-input {
-          /* scale: 1.5; */
-          margin-left: 30%;
-          margin-top: 10%;
-
+        /* scale: 1.5; */
+        margin-left: 30%;
+        margin-top: 10%;
       }
-
-  </style>
+    </style>
   </head>
+
   <body>
   <form>
     <div class="main-nav">
@@ -107,8 +117,8 @@
     </div>
 
       <div>
-          <div class="content">Your Success<br>Begins With Us</div>
-          <img class="main-img" src="./static/img/main_img.jpg">
+        <div class="content">Your Success<br />Begins With Us</div>
+        <img class="main-img" src="./static/img/main_img.jpg" />
       </div>
       <div class="main-back"></div>
       <div class="login-back"></div>
@@ -138,4 +148,4 @@
   
   </script>
   </body>
-  </html>
+</html>

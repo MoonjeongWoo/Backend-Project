@@ -1,12 +1,31 @@
 <table>
-    <tr>
-        <td>ID&nbsp;</td>
-        <td><input type="text"></td>
-    </tr>
-    <tr>
-        <td>PW&nbsp;</td>
-        <td><input type="text"></td>
-        <td><button type="button">LOGIN</button></td>
-    </tr>
+            <tr>
+                <td>ID&nbsp;</td>
+                <td><input type="text" value="d" id="id"></td>
+            </tr>
+            <tr>
+                <td>PW&nbsp;</td>
+                <td><input type="text" value="d" id="pw"></td>
+                <td><button type="button" onclick="aaa()">LOGIN</button></td>
+            </tr>
 
-</table>
+        </table>
+    </form>
+    <script>
+        function aaa() {
+            var id = $("#id").val();
+            var pw = $("#pw").val();
+            var data = {
+                id: id,
+                pw: pw
+            }
+
+            axios({
+                url: "/userLogin",
+                method: "POST",
+                data: data
+            }).then((response) => {
+                console.log(response.data);
+            });
+        }
+    </script>
