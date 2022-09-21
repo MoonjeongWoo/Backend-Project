@@ -1,8 +1,7 @@
 const {cnn} = require("./index");
 
 exports.saveIntroudce = (data, cb) => {
-    console.log('introduce data: ', data);
-
+    // sql = `SELECT uuid from users`
 
     cb({result: 1})
 }

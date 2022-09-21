@@ -12,10 +12,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   // secure: true,               // https에서만 사용 - 로컬에서는 사용 불가능
-  cookie: {
-    maxAge: 5000,
-    httpOnly: true
-  }
+  // cookie: {
+  //   maxAge: 30000,
+  //   httpOnly: true
+  // }
 }))
 
 const router = require("./routes");

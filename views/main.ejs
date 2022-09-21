@@ -12,6 +12,7 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -36,6 +37,7 @@
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
       crossorigin="anonymous"
     ></script>
+
     <script 
       src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
     </script>
@@ -105,39 +107,55 @@
   </head>
 
   <body>
-  <form>
-    <div class="main-nav">
-      <%-include("navbar.ejs") %>
-    </div>
+    <form>
+      <div class="main-nav"><%-include("navbar.ejs") %></div>
 
       <div class="all">
         <img class="main-img" src="./static/img/main_img.jpg" />
-        <div class="content">Your Success<br />Begins With Us</div>
-        <div class="main-back"></div>
-        <div class="login-back"></div>
-        <div class="login">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item col-6" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">&nbsp;USER&nbsp;</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">&nbsp;USER&nbsp;</button>
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel">
-                  <div class="log-input"><%-include("login.ejs") %></div>
-              </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel">
-                  <div class="log-input"><%-include("login.ejs") %></div>
-              </div>
-            </div>
       </div>
+      <div class="main-back"></div>
+      <div class="login-back"></div>
+      <div class="login">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#home"
+              type="button"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >
+              &nbsp;USER&nbsp;
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile"
+              type="button"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >
+              &nbsp;USER&nbsp;
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel">
+            <div class="log-input"><%-include("login.ejs") %></div>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel">
+            <div class="log-input"><%-include("login.ejs") %></div>
+          </div>
+        </div>
       </div>
-  
-  </form>
-  <script>
-
-  </script>
+    </form>
+    <script></script>
   </body>
 </html>
