@@ -6,8 +6,10 @@ exports.getIntroduce = (req, res) => {
 }
 // ----------------
 
+// save introduce
 exports.saveIntroudce = (req, res) => {
     User.saveIntroudce(req.body, (data) => {
         res.send(data)
     })
 }
+// ----------------

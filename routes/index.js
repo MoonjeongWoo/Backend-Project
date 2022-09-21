@@ -1,22 +1,36 @@
 const router = require("express").Router();
 const main = require("../controller/Cmain");
 const user = require("../controller/Cuser");
-const navbar = require("../controller/Cnavbar");
-const devel = require("../controller/Cdevel");
+const company = require("../controller/Ccompany");
 
-router.get("/", main.getMain);
-router.get("/login", main.getLogin);
+// main
+//---------------------------------------
+    // get main page
+    router.get("/", main.getMain);
 
-router.post("/login/userLogin", main.userLogin);
+    // try login
+    router.post("/userLogin", main.userLogin);
 
-router.get("/developer", devel.getDevel);
+    // joim membership
+    router.get("/joinMember", main.getJoinMember);
+    router.post("/joinMember/idcheck", main.idCheck);
+    router.post("/joinMember/user", main.postJoinMember);
+//---------------------------------------
 
-router.get("/joinMember", main.getJoinMember);
-router.post("/joinMember/idcheck", main.idCheck);
-router.post("/joinMember/user", main.postJoinMember);
 
-router.get("/introduce", user.getIntroduce);
-router.get("/navbar", navbar.getNavbar);
-router.post("/user/saveIntroudce", user.saveIntroudce);
+// user
+//---------------------------------------
+    // get introduce
+    router.get("/introduce", user.getIntroduce);
+    router.post("/user/saveIntroudce", user.saveIntroudce);
+//---------------------------------------
+
+
+// company
+//---------------------------------------
+    // get company page
+    router.get("/company", company.getCompany);
+//---------------------------------------
+
 
 module.exports = router;
