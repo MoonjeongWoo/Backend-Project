@@ -10,10 +10,10 @@ app.use(express.json());
 app.use(session({
   secret: '1234',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   // secure: true,               // https에서만 사용 - 로컬에서는 사용 불가능
   cookie: {
-    maxAge: 500,
+    maxAge: 5000,
     httpOnly: true
   }
 }))

@@ -1,1 +1,0 @@
-const { cnn } = require("./index");

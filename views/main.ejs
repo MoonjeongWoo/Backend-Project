@@ -1,133 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/9376e8eed8.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-    <style>
-    
-      .main-img {
-          width: 100%;
-          /* position: fixed; */
-      }
-      .content {
-          position: absolute;
-          font-size: 70px;
-          margin-top: 30%;
-          font-family: Georgia, 'Times New Roman', Times, serif;
-          text-align: center;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          color: white;
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main</title>
 
-      }
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/9376e8eed8.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <style>
+    .main-img {
+      width: 100%;
+      /* position: fixed; */
+    }
 
-      .main-back {
-          position: relative;
-          width: 100%;
-          height: 400px;
-          margin: auto;
-          background-color: rgb(186, 186, 184);
-      }
-      
-      .login-back {
-          position: absolute;
-          width: 40%;
-          height: 250px;
-          top: 110%;
-          margin: auto;
-          left: 50%;
-          z-index: 99;
-          transform: translate(-50%, -50%);
-          background-color: white;
-          border-radius: 0px 10px 10px 10px;
-      }
-  
-      .login {
-          position: absolute;
-          width: 40%;
-          top: 100%;
-          margin: auto;
-          left: 50%;
-          z-index: 999;
-          transform: translate(-50%, -50%);
-      }
+    .content {
+      position: absolute;
+      font-size: 70px;
+      margin-top: 30%;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
 
-      .log-input {
-          /* scale: 1.5; */
-          margin-left: 30%;
-          margin-top: 10%;
+    }
 
-      }
+    .main-back {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      margin: auto;
+      background-color: rgb(186, 186, 184);
+    }
 
+    .login-back {
+      position: absolute;
+      width: 40%;
+      height: 250px;
+      top: 110%;
+      margin: auto;
+      left: 50%;
+      z-index: 99;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border-radius: 0px 10px 10px 10px;
+    }
+
+    .login {
+      position: absolute;
+      width: 40%;
+      top: 100%;
+      margin: auto;
+      left: 50%;
+      z-index: 999;
+      transform: translate(-50%, -50%);
+    }
+
+    .log-input {
+      /* scale: 1.5; */
+      margin-left: 30%;
+      margin-top: 10%;
+
+    }
   </style>
-  </head>
-  <body>
+</head>
+
+<body>
   <form>
-      <%-include("navbar.ejs") %>
+    <%-include("navbar.ejs") %>
 
       <div>
-          <div class="content">Your Success<br>Begins With Us</div>
-          <img class="main-img" src="./static/img/main_img.jpg">
+        <div class="content">Your Success<br>Begins With Us</div>
+        <img class="main-img" src="./static/img/main_img.jpg">
       </div>
       <div class="main-back"></div>
       <div class="login-back"></div>
 
-      
+
       <div class="login">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">&nbsp;USER&nbsp;</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">&nbsp;USER&nbsp;</button>
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel">
-                  <div class="log-input"><%-include("login.ejs") %></div>
-              </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel">
-                  <div class="log-input"><%-include("login.ejs") %></div>
-              </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+              role="tab" aria-controls="home" aria-selected="true">&nbsp;USER&nbsp;</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+              role="tab" aria-controls="profile" aria-selected="false">&nbsp;USER&nbsp;</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel">
+            <div class="log-input">
+              <%-include("login.ejs") %>
             </div>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel">
+            <div class="log-input">
+              <%-include("login.ejs") %>
+            </div>
+          </div>
+        </div>
       </div>
-  
+
   </form>
   <script>
-  
+
   </script>
-  </body>
-  </html>
+</body>
+
+</html>
