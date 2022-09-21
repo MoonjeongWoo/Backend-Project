@@ -1,0 +1,37 @@
+div{
+    margin: 0px;
+    padding: 0px;
+}
+.test{
+    height: 1500px;
+    padding-top: 80px;
+    display: flex;
+    text-align: center;
+}
+.watch{
+    width: 20%;
+    height: 500px;
+    border: 1px solid #eeee;
+    border-radius: 15px;
+}
+.watch:hover{
+    box-shadow: 1px 1px 5px;
+}
+.main_list{
+    width: 60%;
+    height: 500px;
+    border: 1px solid #eeee;
+    border-radius: 15px;
+}
+.main_list:hover{
+    box-shadow: 1px 1px 5px;
+}
+.bucket{
+    width: 20%;
+    height: 500px;
+    border: 1px solid #eeee;
+    border-radius: 15px;
+}
+.bucket:hover{
+    box-shadow: 1px 1px 5px;
+}
