@@ -1,5 +1,6 @@
 
 const { kMaxLength } = require("buffer");
+const { threadId } = require("./index");
 const cnn = require("./index");
 
 exports.idCheck = (data, cb) => {
@@ -34,6 +35,17 @@ exports.userLogin = (data, cb) => {
         if ( err ) throw err;
         cb(result.length, data.id);
     });
+}
+// -----------------------
+
+// if login success get uuid
+exports.getUuid = (userId, cb) => {
+    var sql = `SELECT uuid from Users WHERE id = "${userId}";`
+    cnn.query( sql, function(err, uuid) {
+        if ( err ) throw err;
+        uuid = '0x'+uuid[0].uuid.toString("hex")
+        cb(uuid);
+    })
 }
 // -----------------------
 
