@@ -35,7 +35,7 @@ exports.userLogin = (data, cb) => {
         cb(result.length, data.id);
     });
 }
-// -----------------------
+-----------------------
 
 // 시퀄 컨버젼 시작.
 
@@ -48,7 +48,7 @@ exports.userLogin = (data, cb) => {
 //                 priamryKey: true,
 //             },
 //             id: {
-//                 type: STRING(10),
+//                 type: DataTypes.STRING(10),
 //                 allowNull: false
 //             },
 //             pw: {
