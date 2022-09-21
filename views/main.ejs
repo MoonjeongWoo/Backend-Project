@@ -12,6 +12,7 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -44,22 +45,22 @@
       }
 
       .main-img {
-          width: 100%;
-          position: relative;
-          /* opacity: 0.9; */
+        width: 100%;
+        position: relative;
+        /* opacity: 0.9; */
       }
       .content {
-          position: absolute;
-          font-size: 5vw;
-          margin-top: 35%;
-          font-family: Georgia, 'Times New Roman', Times, serif;
-          text-align: center;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          color: white;
-          z-index: 99;
-          
-      .content {
+        position: absolute;
+        font-size: 5vw;
+        margin-top: 35%;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        z-index: 99;
+      }
+      /*  .content {
         position: absolute;
         font-size: 70px;
         margin-top: 30%;
@@ -68,29 +69,27 @@
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
-      }
-
+      
+*/
       .main-back {
-          position: relative;
-          width: 100%;
-          height: 600px;
-          margin: auto;
-          background: linear-gradient(rgb(36, 34, 34), rgb(206, 199, 189));
-
+        position: relative;
+        width: 100%;
+        height: 600px;
+        margin: auto;
+        background: linear-gradient(rgb(36, 34, 34), rgb(206, 199, 189));
       }
 
       .login-back {
-          position: absolute;
-          width: 40%;
-          height: 250px;
-          top: 1000px;
-          margin: auto;
-          left: 50%;
-          z-index: 99;
-          transform: translate(-50%, -50%);
-          background-color: white;
-          border-radius: 0px 10px 10px 10px;
-
+        position: absolute;
+        width: 40%;
+        height: 250px;
+        top: 1000px;
+        margin: auto;
+        left: 50%;
+        z-index: 99;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border-radius: 0px 10px 10px 10px;
       }
 
       .login {
@@ -112,10 +111,8 @@
   </head>
 
   <body>
-  <form>
-    <div class="main-nav">
-      <%-include("navbar.ejs") %>
-    </div>
+    <form>
+      <div class="main-nav"><%-include("navbar.ejs") %></div>
 
       <div>
         <div class="content">Your Success<br />Begins With Us</div>
@@ -123,30 +120,47 @@
       </div>
       <div class="main-back"></div>
       <div class="login-back"></div>
-
-      
       <div class="login">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">&nbsp;USER&nbsp;</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">&nbsp;USER&nbsp;</button>
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel">
-                  <div class="log-input"><%-include("login.ejs") %></div>
-              </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel">
-                  <div class="log-input"><%-include("login.ejs") %></div>
-              </div>
-            </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#home"
+              type="button"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >
+              &nbsp;USER&nbsp;
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile"
+              type="button"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >
+              &nbsp;USER&nbsp;
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel">
+            <div class="log-input"><%-include("login.ejs") %></div>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel">
+            <div class="log-input"><%-include("login.ejs") %></div>
+          </div>
+        </div>
       </div>
-  
-  </form>
-  <script>
-  
-  </script>
+    </form>
+    <script></script>
   </body>
 </html>
