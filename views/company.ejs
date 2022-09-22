@@ -37,13 +37,29 @@
             "C++" , "C#" , "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" ,
             "Dart" , "Go" ];%>
 
-              <div class="stack_style">
+
+          <div class="stack_style">
                 <% for ( var i=0; i < stackList.length; i++ ) { %>
                   <button type="button" class="normal_btn" onclick="addStack(this.id)" id="<%= stackList[i] %>">
                     <%= stackList[i] %>
                   </button>
                   <% } %>
               </div>
+            <div class="career_style">
+              <h1>carrer</h1>
+              <hr />
+              <div class="slidecontainer">
+                <input
+                  type="range"
+                  min="1"
+                  max="50"
+                  value="1"
+                  class="slider"
+                  id="myRange"
+                />
+                <p>Year: <span id="range"></span></p>
+              </div>
+            </div>
           </div>
 
           <!-- 클릭하면 추가되는 자리 -->
@@ -66,6 +82,7 @@
       </div>
     </div>
     <script>
+      //arcodian
       var acc = document.getElementsByClassName("accordion");
       var i;
 
@@ -80,6 +97,8 @@
           }
         });
       }
+
+      //bucket
       var currentPosition = parseInt($(".bucket").css("top"));
       $(window).scroll(function () {
         var position = $(window).scrollTop();
@@ -87,6 +106,15 @@
           .stop()
           .animate({ top: position + currentPosition + "px" }, 500);
       });
+
+      //carrer range
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("range");
+      output.innerHTML = slider.value;
+
+      slider.oninput = function () {
+        output.innerHTML = this.value;
+      };
     </script>
 
     <script>
