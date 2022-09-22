@@ -27,6 +27,7 @@ module.exports = cnn;
 // db.sequelize = sequelize;
 // db.Sequelize = Sequelize;
 
-// db.Main = require("./Main")(sequelize, Sequelize);
+db.Main = require("./Main")(sequelize, Sequelize);
+db.User = require("./User")(sequelize, Sequelize);
 
 // module.exports = db;
