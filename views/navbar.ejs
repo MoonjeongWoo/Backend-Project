@@ -1,71 +1,13 @@
-<style>
-  /* Add a black background color to the top navigation */
-
-  .topnav {
-    width: 100%;
-    margin: 0px;
-    padding: 5px;
-    overflow: hidden;
-    position: fixed;
-  }
-  .topnav #myLinks {
-    display: none;
-  }
-
-  /* Style the links inside the navigation bar */
-  .topnav a.user {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-  }
-  .topnav a.Corp {
-    float: right;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-  }
-  #login {
-    float: right;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: darkgray;
-    color: black;
-  }
-
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: #04aa6d;
-    color: white;
-  }
-</style>
+<link rel="stylesheet" href="/static/css/navbar.css" />
 <nav>
   <div class="topnav">
-    <div id="myLinks">
-      <a href="/" class="user">Home</a>
-      <a href="#Resume" class="user">Resume</a>
-      <a href="#Watch" class="user">Watch Other</a>
-      <a href="#Mypage" class="Corp">Mypage</a>
-      <a href="#login" id="login">login</a>
-      <a href="/company" class="Corp">Developer</a>
-      <a href="#Bucket" class="Corp">Bucket</a>
-    </div>
-    <!-- hamburger menu   -->
-    <a href="" class="icon" onclick="myFunction();">
-      <i class="fa fa-bars"></i>
-    </a>
+    <a href="/" class="user">Home</a>
+    <a href="#Resume" class="user">Resume</a>
+    <a href="#Watch" class="user">Watch Other</a>
+    <a href="#Mypage" class="Corp">Mypage</a>
+    <a href="#login" id="login">login</a>
+    <a href="/company" class="Corp">Developer</a>
+    <a href="#Bucket" class="Corp">Bucket</a>
   </div>
 </nav>
 <script
