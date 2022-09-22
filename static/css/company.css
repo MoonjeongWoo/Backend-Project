@@ -94,6 +94,11 @@ div{
     cursor: pointer;
     margin: 5px;
 }
+.normal_btn:hover{
+  color: white;
+  transition: 0.4s;
+  background-color: #444;
+}
 .slidecontainer {
   width: 100%;
 }
