@@ -126,10 +126,6 @@
             var email = $("#email").val();
             var location = $("#location").val();
 
-            console.log(
-                // "uuid:", uuid,
-                "id:", id);
-
             data = {
                 id: id,
                 pw: pw,
@@ -137,8 +133,6 @@
                 email: email,
                 location: location
             };
-
-            console.log(data)
 
             axios({
                 url: "/joinMember/user",

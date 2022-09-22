@@ -5,10 +5,11 @@ const config = require("../config/config.json")["conv_test"];
 const db = {};
 
 const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config
+
+    config.database,
+    config.username,
+    config.password,
+    config
 );
 
 db.sequelize = sequelize;
