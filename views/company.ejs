@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.js"
-      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="/static/css/company.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <%-include("navbar.ejs")%>
 
-    <div class="test">
-      <div class="main_list">
-        <div class="choose_stack">
-          <h1>스택 탐색</h1>
-          <hr />
-          <div class="stack_style">
-            <button type="button" class="stack_all">전체</button>
-            <button type="button" class="normal_btn">JAVA</button>
-            <button type="button" class="normal_btn">Javascript</button>
-            <button type="button" class="normal_btn">Python</button>
-            <button type="button" class="normal_btn">R</button>
-            <button type="button" class="normal_btn">C++</button>
-            <button type="button" class="normal_btn">C</button>
-            <button type="button" class="normal_btn">PHP</button>
-            <button type="button" class="normal_btn">Cobol</button>
-            <button type="button" class="normal_btn">html</button>
-            <button type="button" class="normal_btn">C#</button>
-            <button type="button" class="normal_btn">Linux</button>
-            <button type="button" class="normal_btn">Kotlin</button>
-            <button type="button" class="normal_btn">Dart</button>
-            <button type="button" class="normal_btn">Go</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="/static/css/company.css" />
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <%-include("navbar.ejs")%>
+
+    <div class="test row">
+      <div id="left" class="col-11">
+
+
+        <div class="main_list">
+          <div class="choose_stack">
+            <h1>스택 탐색</h1>
+            <hr />
+            <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" , "C#" , "PHP" , "Cobol" , "HTML"
+              , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
+
+              <div class="stack_style">
+                <% for ( var i=0; i < stackList.length; i++ ) { %>
+                  <button type="button" class="normal_btn">
+                    <%= stackList[i] %>
+                  </button>
+                  <% } %>
+              </div>
           </div>
-        </div>
-        <div class="develop_list">
-          <p>Developers</p>
-          <% for(var i =0 ; i < 10 ; i++) { %>
-          <button class="accordion">name</button>
-          <div class="panel">
-            <p>stack: &nbsp; career: &nbsp; age:</p>
-          </div>
-          <% }%>
-          <button class="accordion">name</button>
-          <div class="panel">
-            <p>stack: &nbsp; career: &nbsp; age:</p>
-          </div>
-          <button class="accordion">name</button>
-          <div class="panel">
-            <p>stack: &nbsp; career: &nbsp; age:</p>
+          <div class="develop_list">
+            <p>Developers</p>
+            <% for(var i=0 ; i < 10 ; i++) { %>
+              <button class="accordion">name</button>
+              <div class="panel">
+                <p>stack: &nbsp; career: &nbsp; age:</p>
+              </div>
+              <% }%>
+                <button class="accordion">name</button>
+                <div class="panel">
+                  <p>stack: &nbsp; career: &nbsp; age:</p>
+                </div>
+                <button class="accordion">name</button>
+                <div class="panel">
+                  <p>stack: &nbsp; career: &nbsp; age:</p>
+                </div>
           </div>
         </div>
       </div>
-      <div class="bucket_wrap">
+      <div id="right" class="col-1">
         <div class="bucket">Bucket</div>
       </div>
     </div>
@@ -84,5 +86,6 @@
           .animate({ top: position + currentPosition + "px" }, 500);
       });
     </script>
-  </body>
+</body>
+
 </html>
