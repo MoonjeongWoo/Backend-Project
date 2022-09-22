@@ -9,6 +9,7 @@
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="/static/css/company.css" />
     <title>Document</title>
   </head>
@@ -22,25 +23,47 @@
           <button>asd</button>
         </div>
         <div class="develop_list">
-          developers
-          <button class="accordion">Section 1</button>
+          <p>Developers</p>
+          <% for(var i =0 ; i < 10 ; i++) { %>
+          <button class="accordion">name</button>
           <div class="panel">
-            <p>Lorem ipsum...</p>
+            <p>stack: &nbsp; career: &nbsp; age:</p>
           </div>
-
-          <button class="accordion">Section 2</button>
+          <% }%>
+          <button class="accordion">name</button>
           <div class="panel">
-            <p>Lorem ipsum...</p>
+            <p>stack: &nbsp; career: &nbsp; age:</p>
           </div>
-
-          <button class="accordion">Section 3</button>
+          <button class="accordion">name</button>
           <div class="panel">
-            <p>Lorem ipsum...</p>
+            <p>stack: &nbsp; career: &nbsp; age:</p>
           </div>
         </div>
       </div>
-      <div class="bucket">asd</div>
+      <div class="bucket">Bucket</div>
     </div>
-    <script></script>
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+      var currentPosition = parseInt($(".bucket").css("top"));
+      $(window).scroll(function () {
+        var position = $(window).scrollTop();
+        $(".bucket")
+          .stop()
+          .animate({ top: position + currentPosition + "px" }, 2000);
+      });
+    </script>
   </body>
 </html>

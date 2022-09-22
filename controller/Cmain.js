@@ -35,6 +35,7 @@ exports.postJoinMember = (req, res) => {
 
 // try login
 exports.userLogin = (req, res) => {
+
   Main.findAll({
     attributes: ['uuid'],
     where: {
@@ -45,16 +46,17 @@ exports.userLogin = (req, res) => {
     if (result[0] != undefined) {
       if (!req.session.user) {
         req.session.uuid = result[0]["dataValues"].uuid;
+
       }
       var data = { result: 1 };
     } else {
       var data = { result: 0 };
     }
+
     // login success return 1 fail return 0 
     res.send(data);
-  })
-}
-
+  });
+};
 
 // id 중복 확인
 exports.idCheck = (req, res) => {
