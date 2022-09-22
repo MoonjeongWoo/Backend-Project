@@ -8,7 +8,7 @@ exports.getMain = (req, res) => {
 
 // get login page
 exports.getLogin = (req, res) => {
-  res.render("login");
+  res.render("new_login");
 };
 // -------------------------------
 
