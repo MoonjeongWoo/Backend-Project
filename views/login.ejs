@@ -5,14 +5,14 @@
             </tr>
             <tr>
                 <td>PW&nbsp;</td>
-                <td><input type="text" value="pw-test" id="pw"></td>
-                <td><button type="button" onclick="aaa()">LOGIN</button></td>
+                <td><input type="text" value="mypw" id="pw"></td>
+                <td><button type="button" onclick="login()">LOGIN</button></td>
             </tr>
 
         </table>
     </form>
     <script>
-        function aaa() {
+        function login() {
             var id = $("#id").val();
             var pw = $("#pw").val();
             var data = {
@@ -29,7 +29,7 @@
             $(".login-back").attr("style","display: none");
             $(".login").attr("style","display: none");
             } else {
-                // login_after
+                alert("올바르지 않은 아이디 혹은 비밀번호 입니다.");
             }
             });
         }
