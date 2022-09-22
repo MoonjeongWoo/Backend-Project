@@ -14,6 +14,11 @@ div{
     border-radius: 15px;
     padding-left: 20px;
 }
+@media screen and (max-width: 950px){
+  #left{
+    width: 800px;
+  }
+}
 
 .bucket_wrap{
   width: 20%;
@@ -33,12 +38,17 @@ div{
 @media screen and (max-width: 1050px){
   .bucket{
     width: 90%;
-    height: 500px;
+    height: 300px;
     border: 1px solid #eeee;
     border-radius: 15px;
     position: relative;
     background-color: bisque;
     margin: 10px;
+}
+@media screen and (max-width: 950px){
+    #right{
+      width: 300px;
+    }
 }
 }
 .main_list input{
@@ -88,7 +98,7 @@ div{
       margin-top: 24px;
       display: inline-block;
 }
-@media screen and (max-width: 1050px){
+@media screen and (max-width: 550px){
   .stack_style{
       overflow-x: scroll;
       display: list-item;
@@ -130,4 +140,5 @@ div{
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  text-align: left;
 }
