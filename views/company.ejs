@@ -57,10 +57,8 @@
           </div>
         </div>
       </div>
-
-      <div class="bucket">
-        Bucket
-        <div></div>
+      <div class="bucket_wrap">
+        <div class="bucket">Bucket</div>
       </div>
     </div>
     <script>
@@ -83,7 +81,7 @@
         var position = $(window).scrollTop();
         $(".bucket")
           .stop()
-          .animate({ top: position + currentPosition + "px" }, 2000);
+          .animate({ top: position + currentPosition + "px" }, 500);
       });
     </script>
   </body>

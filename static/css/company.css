@@ -10,24 +10,36 @@ div{
 }
 .main_list{
     width: 80%;
-    height: 500px;
+    height: 300px;
     border-radius: 15px;
-    padding-left: 50px;
+    padding-left: 20px;
 }
 
-
+.bucket_wrap{
+  width: 20%;
+}
 .bucket{
-    width: 150px;
+    width: 250px;
+    height: 400px;
+    border: 1px solid #eeee;
+    border-radius: 15px;
+    position: relative;
+    background-color: bisque;
+    margin: 50px;
+}
+.bucket:hover{
+    box-shadow: 1px 1px 5px;
+}
+@media screen and (max-width: 1050px){
+  .bucket{
+    width: 90%;
     height: 500px;
     border: 1px solid #eeee;
     border-radius: 15px;
     position: relative;
     background-color: bisque;
-    margin-left: 150px;
-    
+    margin: 10px;
 }
-.bucket:hover{
-    box-shadow: 1px 1px 5px;
 }
 .main_list input{
     width: 80%;
@@ -75,7 +87,13 @@ div{
 .stack_style{
       margin-top: 24px;
 }
-
+@media screen and (max-width: 1050px){
+  .stack_style{
+      overflow-x: scroll;
+      display: list-item;
+      white-space: nowrap;
+}
+}
 .accordion {
   background-color: #eee;
   color: #444;
