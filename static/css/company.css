@@ -7,12 +7,17 @@ div{
     padding-top: 80px;
     display: flex;
     text-align: center;
+    justify-items: center;
+    align-content: center;
 }
 .main_list{
     width: 80%;
     height: 300px;
     border-radius: 15px;
     padding-left: 20px;
+}
+#left{
+  padding-left: 50px;
 }
 @media screen and (max-width: 950px){
   #left{
@@ -37,7 +42,7 @@ div{
 }
 @media screen and (max-width: 1050px){
   .bucket{
-    width: 90%;
+    width: 200px;
     height: 300px;
     border: 1px solid #eeee;
     border-radius: 15px;
