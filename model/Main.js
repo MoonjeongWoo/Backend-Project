@@ -54,18 +54,19 @@
 
 const Main = ( Sequelize, DataTypes ) => {
     const model = Sequelize.define( // Sequelize 모델 정의. 3가지 인자 = 모델(테이블)이름, 컬럼 정의, 모델의 옵션 정의
-        "users",
+        "Users",
         {
             uuid: {
                 type: DataTypes.UUID,
-                priamryKey: true,
+                defaultValue: DataTypes.UUIDV4,
+                primaryKey: true
             },
-            uid: {
-                type: DataTypes.STRING(10),
+            id: {
+                type: DataTypes.STRING(15),
                 allowNull: false
             },
             pw: {
-                type: DataTypes.STRING(10),
+                type: DataTypes.STRING(15),
                 allowNull: false
             },
             name: {
@@ -73,16 +74,16 @@ const Main = ( Sequelize, DataTypes ) => {
                 allowNull: false
             },
             email: {
-                type: DataTypes.STRING(10),
+                type: DataTypes.STRING(50),
                 allowNull: false
             },
             location: {
-                type: DataTypes.STRING(10),
+                type: DataTypes.STRING(100),
                 allowNull: false
             }
         },
         {
-            tableName: "users",
+            tableName: "Users",
             FreezeTableName: true,
             timestamps: false
         }

@@ -1,4 +1,4 @@
-const Main = require("../model/Main");
+const { Main } = require("../model");
 
 // get main page
 exports.getMain = (req, res) => {
@@ -20,56 +20,55 @@ exports.getJoinMember = (req, res) => {
 
 // save join member data in db
 exports.postJoinMember = (req, res) => {
-  Main.postJoinMember(req.body, function (result) {
-    res.send(result);
-  });
+  Main.create({
+    // uuid: "unhex(replace(uuid(),'-',''))",
+    id: req.body.id,
+    pw: req.body.pw,
+    name: req.body.name,
+    email: req.body.email,
+    location: req.body.location
+  }).then((result) => {
+    console.log(result)
+  })
 };
 // -------------------------------
 
 // try login
 exports.userLogin = (req, res) => {
-  Main.userLogin(req.body, function (result, userId) {
-    if (result != 0) {
-      console.log('userid', userId)
-      if (!req.session.user) {
-        Main.getUuid(userId, function(uuid) {
-          req.session.user = uuid;
-          console.log("uuid", uuid)
-        })
-      } else {
-        console.log('session 이미 있음')
-      }
-      var data = { result: 1 }
-    } else {
-      var data = { result: 0 }
+  Main.findAll({
+    attributes: ['uuid'],
+    where: {
+      id: req.body.id,
+      pw: req.body.pw
     }
-    
+  }).then((result) => {
+    if (result[0] != undefined) {
+      if (!req.session.user) {
+        req.session.uuid = result[0]["dataValues"].uuid;
+      }
+      var data = { result: 1 };
+    } else {
+      var data = { result: 0 };
+    }
     // login success return 1 fail return 0 
     res.send(data);
   })
 }
 
-// id exist check
+
+// id 중복 확인
 exports.idCheck = (req, res) => {
-    Main.idCheck (req.body, function(result){
-        res.send(result);
-        // result 값이 0이면 중복 id 없음, 1 이면 중복 아이디 있음
-    });
-};
-
-
-
-// 시퀄 전환 시작
-
-// const { Main } = require("../model");
-
-// exports.idCheck = (req, res) => {
-//     var data = {
-//         id: req.body.id // testing...
-//     };
-//     Main.findAll({
-//         where: {
-//             id: data[id]
-//         }
-//     }).then((result)=>)
-// }
+  Main.findAll({
+    attributes: ['id'],
+    where: {
+      id: req.body.id
+    }
+  }).then((result) => {
+    // exist 1 no exist 0 
+    if (result[0] != undefined) {
+      res.send({result: 1})
+    }else{
+      res.send({result: 0})
+    }
+  })
+}
