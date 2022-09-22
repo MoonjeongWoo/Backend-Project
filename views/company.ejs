@@ -37,13 +37,14 @@
             "C++" , "C#" , "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" ,
             "Dart" , "Go" ];%>
 
-            <div class="stack_style">
-              <% for ( var i=0; i < stackList.length; i++ ) { %>
-              <button type="button" class="normal_btn">
-                <%= stackList[i] %>
-              </button>
-              <% } %>
-            </div>
+
+          <div class="stack_style">
+                <% for ( var i=0; i < stackList.length; i++ ) { %>
+                  <button type="button" class="normal_btn" onclick="addStack(this.id)" id="<%= stackList[i] %>">
+                    <%= stackList[i] %>
+                  </button>
+                  <% } %>
+              </div>
             <div class="career_style">
               <h1>carrer</h1>
               <hr />
@@ -60,6 +61,11 @@
               </div>
             </div>
           </div>
+
+          <!-- 클릭하면 추가되는 자리 -->
+          <div id="selected">selected</div>
+          <!-- =================== -->
+
           <div class="develop_list">
             <p>Developers</p>
             <% for(var i=0 ; i < 10 ; i++) { %>
@@ -110,5 +116,21 @@
         output.innerHTML = this.value;
       };
     </script>
-  </body>
+
+    <script>
+      function addStack(stack) {
+        $(`#${stack}`).css("background-color", "grey");
+        $("#selected").append(`<button type="button" class="normal_btn" onclick="delStack('${stack}')" id="${stack}-checked"> ${stack}</button> %>`);
+        $(`#${stack}`).attr("onclick", "delStack(this.id)")
+      }
+      
+      function delStack(stack) {
+        console.log(stack)
+        $(`#${stack}`).css("background-color", "rgb(228, 228, 228)");
+        $(`#${stack}-checked`).remove();
+        $(`#${stack}`).attr("onclick", "addStack(this.id)")
+      }
+    </script>
+</body>
+
 </html>
