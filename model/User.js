@@ -1,12 +1,3 @@
-// const {cnn} = require("./index");
-
-// exports.saveIntroudce = (data, cb) => {
-//     // sql = `SELECT uuid from users`
-
-//     cb({result: 1})
-// }
-
-
 const introduce = ( Sequelize, DataTypes ) => {
     const model = Sequelize.define( // Sequelize 모델 정의. 3가지 인자 = 모델(테이블)이름, 컬럼 정의, 모델의 옵션 정의
         "Introduce",

@@ -35,7 +35,6 @@ exports.postJoinMember = (req, res) => {
 
 // try login
 exports.userLogin = (req, res) => {
-
   Main.findAll({
     attributes: ['uuid'],
     where: {
