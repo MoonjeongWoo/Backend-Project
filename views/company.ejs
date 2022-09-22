@@ -34,12 +34,17 @@
 
               <div class="stack_style">
                 <% for ( var i=0; i < stackList.length; i++ ) { %>
-                  <button type="button" class="normal_btn">
+                  <button type="button" class="normal_btn" onclick="addStack(this.id)" id="<%= stackList[i] %>">
                     <%= stackList[i] %>
                   </button>
                   <% } %>
               </div>
           </div>
+
+          <!-- 클릭하면 추가되는 자리 -->
+          <div id="selected">selected</div>
+          <!-- =================== -->
+
           <div class="develop_list">
             <p>Developers</p>
             <% for(var i=0 ; i < 10 ; i++) { %>
@@ -85,6 +90,22 @@
           .stop()
           .animate({ top: position + currentPosition + "px" }, 500);
       });
+    </script>
+
+
+    <script>
+      function addStack(stack) {
+        $(`#${stack}`).css("background-color", "grey");
+        $("#selected").append(`<button type="button" class="normal_btn" onclick="delStack('${stack}')" id="${stack}-checked"> ${stack}</button> %>`);
+        $(`#${stack}`).attr("onclick", "delStack(this.id)")
+      }
+      
+      function delStack(stack) {
+        console.log(stack)
+        $(`#${stack}`).css("background-color", "rgb(228, 228, 228)");
+        $(`#${stack}-checked`).remove();
+        $(`#${stack}`).attr("onclick", "addStack(this.id)")
+      }
     </script>
 </body>
 
