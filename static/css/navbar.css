@@ -1,0 +1,46 @@
+ .topnav {
+    width: 100%;
+    margin: 0px;
+    padding: 5px;
+    overflow: hidden;
+    position: fixed;
+  }
+
+  /* Style the links inside the navigation bar */
+  .topnav a.user {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  .topnav a.Corp {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  #login {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: darkgray;
+    color: black;
+  }
+
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #04aa6d;
+    color: white;
+  }
