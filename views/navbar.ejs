@@ -8,6 +8,9 @@
     overflow: hidden;
     position: fixed;
   }
+  .topnav #myLinks {
+    display: none;
+  }
 
   /* Style the links inside the navigation bar */
   .topnav a.user {
@@ -17,6 +20,7 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    display: block;
   }
   .topnav a.Corp {
     float: right;
@@ -25,6 +29,7 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    display: block;
   }
   #login {
     float: right;
@@ -48,13 +53,19 @@
 </style>
 <nav>
   <div class="topnav">
-    <a href="/" class="user">Home</a>
-    <a href="#Resume" class="user">Resume</a>
-    <a href="#Watch" class="user">Watch Other</a>
-    <a href="#Mypage" class="Corp">Mypage</a>
-    <a href="#login" id="login">login</a>
-    <a href="/company" class="Corp">Developer</a>
-    <a href="#Bucket" class="Corp">Bucket</a>
+    <div id="myLinks">
+      <a href="/" class="user">Home</a>
+      <a href="#Resume" class="user">Resume</a>
+      <a href="#Watch" class="user">Watch Other</a>
+      <a href="#Mypage" class="Corp">Mypage</a>
+      <a href="#login" id="login">login</a>
+      <a href="/company" class="Corp">Developer</a>
+      <a href="#Bucket" class="Corp">Bucket</a>
+    </div>
+    <!-- hamburger menu   -->
+    <a href="" class="icon" onclick="myFunction();">
+      <i class="fa fa-bars"></i>
+    </a>
   </div>
 </nav>
 <script
