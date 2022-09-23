@@ -122,19 +122,25 @@
     </script>
 
     <script>
+      var stack_list = "";
       function addStack(stack) {
         $(`button[value$="${stack}"]`).css("background-color", "grey");
         $("#selected").append(
           `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
         );
         $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
+        
+        stack_list +=  "|" + stack;
+        console.log(stack_list);
       }
-
+      
       function delStack(stack) {
         console.log(stack);
         $(`button[value$="${stack}"]`).css("background-color", "rgb(228, 228, 228)");
         $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
         $(`button[value$="${stack}-checked"]`).remove();
+        stack_list = stack_list.replace( `|${stack}`, '' ) ;
+        console.log(stack_list);
       }
     </script>
   </body>
