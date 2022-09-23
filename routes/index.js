@@ -40,5 +40,10 @@ const company = require("../controller/Ccompany");
     router.get("/company", company.getCompany);
 //---------------------------------------
 
+// myPage
+//---------------------------------------
+    // get myPage
+    router.get("/myPage", user.getMyPage);
+//---------------------------------------
 
 module.exports = router;

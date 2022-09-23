@@ -1,50 +1,59 @@
+.all {
+  position: relative;
+}
+
 .main-nav {
   position: fixed;
   z-index: 9999;
 }
 
 .main-img {
-    width: 100%;
-    /* position: relative; */
-    /* opacity: 0.9; */
+    width: 40%;
+    position: absolute;
+    z-index: 999;
+    margin-top: 10%;
+    margin-left: 5%;
 }
-.all {
-  position: relative;
+
+.test-img {
+  scale: 0.5;
 }
 
 .content {
     position: absolute;
-    font-size: 5vw;
-    /* margin-top: 35%; */
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
-    left: 50%;
-    transform: translate(-50%, 180%);
-    color: white;
+    font-size: 4vw;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    font-weight: 800;
+    text-align: left;
+    left: 10%;
+    margin-top: 7%;
+    color: rgb(22, 38, 60);
     z-index: 999;
 }
 
-.l-content {
-  position: absolute;
-  font-size: 1.2vw;
-  /* margin-top: 35%; */
-  text-align: left;
-  left: 50%;
-  transform: translate(-50%, 2500%);
-  color: rgb(215, 211, 190);
-  z-index: 1;
-}
 .our_ser {
   font-size: 3vw;
   font-family: Georgia, 'Times New Roman', Times, serif; 
 }
 
-.main-back {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    margin: auto;
-    background: linear-gradient(rgb(36, 34, 34), rgb(217, 212, 205));
+
+.first-back {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin: auto;
+  /* background-color: rgb(201, 196, 176); */
+
+}
+
+.second-back {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin: auto;
+  /* background: linear-gradient(rgb(36, 34, 34), rgb(217, 212, 205)); */
+  background: linear-gradient(white,rgb(176, 184, 201));
+
 
 }
 
@@ -53,5 +62,21 @@
   width: 100%;
   height: 600px;
   margin: auto;
-  background-color: rgb(217, 212, 205);
+  background-color: rgb(176, 184, 201);
+}
+
+.intro_img {
+  overflow: hidden;
+  width: 100%;
+  object-fit: cover;
+
+}
+
+.intro_img > img{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit:cover;
 }
