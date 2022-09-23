@@ -115,7 +115,6 @@
         }else{
           var stackValue = stack
         }
-        $(`#${stack}`).css("background-color", "grey");
         $("#selected").append(`<button type="button" class="normal_btn" onclick="delStack('${stack}')" id="${stack}-checked"> ${stackValue}</button> %>`);
         $(`#${stack}`).attr("onclick", "delStack(this.id)")
         
