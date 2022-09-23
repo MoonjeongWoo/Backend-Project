@@ -22,7 +22,18 @@ const introduce = ( Sequelize, DataTypes ) => {
             etc: {
                 type: DataTypes.STRING(100),
                 allowNull: true
+            },
+            createdAt: {
+                // allowNull: true,
+                type: 'TIMESTAMP',
+                defaultValue: Sequelize.fn('NOW'), // null?
+            },
+            updatedAt: {
+                // allowNull: true,
+                type: 'TIMESTAMP',
+                defaultValue: Sequelize.fn('NOW'),
             }
+        
         },
         {
             tableName: "Introduce",
