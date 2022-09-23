@@ -13,6 +13,7 @@ const company = require("../controller/Ccompany");
 
     // try login
     router.post("/userLogin", main.userLogin);
+    router.post("/userLoginCorp", main.userLoginCorp);
 
     // joim membership
     router.get("/joinMember", main.getJoinMember);
