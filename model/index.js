@@ -16,7 +16,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 // db.Main = require("./Main")(sequelize, Sequelize);
-db.User = require("./User")(sequelize, Sequelize);
+db.UserResume = require("./UserResume")(sequelize, Sequelize);
 db.UserInfo = require("./UserInfo")(sequelize, Sequelize);
 db.CompanyInfo = require("./CompanyInfo")(sequelize, Sequelize);
 
