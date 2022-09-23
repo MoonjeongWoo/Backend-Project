@@ -1,4 +1,4 @@
-const { User } = require("../model");
+const { UserResume } = require("../model");
 
 
 // get introduce page
@@ -10,7 +10,7 @@ exports.getIntroduce = (req, res) => {
 
 // save introduce
 exports.saveIntroudce = (req, res) => {
-    User.create({
+    UserResume.create({
         uuid: req.session.uuid,
         stack: req.body.stack,
         career: req.body.career,
