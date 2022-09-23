@@ -1,22 +1,15 @@
 {
   "development": {
     "host": "localhost",
-    "database": "",
-    "username": "",
-    "password": "",
+    "database": "pick_me",
+    "username": "user",
+    "password": "qwer1234",
     "dialect": "mysql"
   },
   "Introduce": {
     "host": "localhost",
     "user": "",
     "password": "",
-    "dialect": "mysql"
-  },
-  "conv_test": {
-    "host": "localhost",
-    "database": "pick_me",
-    "username": "user",
-    "password": "qwer1234",
     "dialect": "mysql"
   }
 }

@@ -16,13 +16,13 @@ exports.getLogin = (req, res) => {
 
 // get joinmember page
 exports.getJoinMember = (req, res) => {
-  res.render("joinmember");
+  res.render("joinMember");
 };
 // -------------------------------
 
 // get joinmember page _ Corp
 exports.getJoinMemberCompany = (req, res) => {
-  res.render("joinmember_company");
+  res.render("joinMemberCompany");
 };
 // -------------------------------
 
@@ -81,7 +81,7 @@ exports.userLogin = (req, res) => {
 };
 
 // try login (기업 회원)
-exports.userLogincompany = (req, res) => {
+exports.userLoginCompany = (req, res) => {
 
   CompanyInfo.findAll({
     attributes: ['uuid'],
