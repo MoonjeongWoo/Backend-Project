@@ -17,12 +17,17 @@
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
     <%-include("navbar.ejs")%>
 
-    <div class="test">
+    <div class="test row">
       <div id="left">
         <div class="main_list">
           <div class="choose_stack">
@@ -44,6 +49,20 @@
                     <%= stackId %>
                   </button>
                 <% } %>
+              </div>
+              <div class="career_style">
+                <h1>Carrer</h1>
+                <hr />
+                <div class="slidecontainer">
+                  <input
+                    type="range"
+                    min="1"
+                    max="20"
+                    value="1"
+                    class="slider"
+                    id="myRange"
+                  />
+                  <p>Year: <span id="range"></span></p>
               </div>
             </div>
           </div>
@@ -96,8 +115,7 @@
       //carrer range
       var slider = document.getElementById("myRange");
       var output = document.getElementById("range");
-      output.innerHTML = slider.value;
-
+      output.innerHTML = slider.value
       slider.oninput = function () {
         output.innerHTML = this.value;
       };
@@ -115,6 +133,7 @@
         }else{
           var stackValue = stack
         }
+        $(`#${stack}`).css("background-color", "grey");
         $("#selected").append(`<button type="button" class="normal_btn" onclick="delStack('${stack}')" id="${stack}-checked"> ${stackValue}</button> %>`);
         $(`#${stack}`).attr("onclick", "delStack(this.id)")
         
