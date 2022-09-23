@@ -16,13 +16,13 @@ exports.getLogin = (req, res) => {
 
 // get joinmember page
 exports.getJoinMember = (req, res) => {
-  res.render("joinmember");
+  res.render("joinMember");
 };
 // -------------------------------
 
-// get joinmember page
+// get joinmember page _ Corp
 exports.getJoinMemberCompany = (req, res) => {
-  res.render("joinmember_company");
+  res.render("joinMemberCompany");
 };
 // -------------------------------
 
@@ -35,7 +35,6 @@ exports.getMyPage = (req, res) => {
 // save join member data in db
 exports.postJoinMember = (req, res) => {
   UserInfo.create({
-    // uuid: "unhex(replace(uuid(),'-',''))",
     id: req.body.id,
     pw: req.body.pw,
     name: req.body.name,
@@ -66,6 +65,31 @@ exports.postJoinMemberCompany = (req, res) => {
 exports.userLogin = (req, res) => {
 
   UserInfo.findAll({
+    attributes: ['uuid'],
+    where: {
+      id: req.body.id,
+      pw: req.body.pw
+    }
+  }).then((result) => {
+    if (result[0] != undefined) {
+      if (!req.session.user) {
+        req.session.uuid = result[0]["dataValues"].uuid;
+
+      }
+      var data = { result: 1 };
+    } else {
+      var data = { result: 0 };
+    }
+
+    // login success return 1 fail return 0 
+    res.send(data);
+  });
+};
+
+// try login (기업 회원)
+exports.userLoginCompany = (req, res) => {
+
+  CompanyInfo.findAll({
     attributes: ['uuid'],
     where: {
       id: req.body.id,
