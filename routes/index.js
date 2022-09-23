@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const main = require("../controller/Cmain");
-const user = require("../controller/Cuser");
+const userResume = require("../controller/CuserResume");
 const company = require("../controller/Ccompany");
 
 // const userinfo = require("../controller/CuserInfo");
@@ -29,8 +29,8 @@ const company = require("../controller/Ccompany");
 // user
 //---------------------------------------
     // get introduce
-    router.get("/introduce", user.getIntroduce);
-    router.post("/user/saveIntroudce", user.saveIntroudce);
+    router.get("/introduce", userResume.getIntroduce);
+    router.post("/user/saveIntroudce", userResume.saveIntroudce);
 //---------------------------------------
 
 
@@ -43,5 +43,10 @@ const company = require("../controller/Ccompany");
     router.post("/sortUserByElement", company.sortUserByElement);
 //---------------------------------------
 
+// myPage
+//---------------------------------------
+    // get myPage
+    router.get("/myPage", user.getMyPage);
+//---------------------------------------
 
 module.exports = router;
