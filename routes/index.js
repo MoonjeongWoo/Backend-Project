@@ -13,7 +13,7 @@ const company = require("../controller/Ccompany");
 
     // try login
     router.post("/userLogin", main.userLogin);
-    router.post("/userLoginCorp", main.userLoginCorp);
+    router.post("/userLoginCorp", main.userLogincompany);
 
     // joim membership
     router.get("/joinMember", main.getJoinMember);
@@ -23,14 +23,6 @@ const company = require("../controller/Ccompany");
     router.get("/joinMemberCompany", main.getJoinMemberCompany);
     router.post("/joinMemberCompany/idcheck", main.idCheckCompany);
     router.post("/joinMemberCompany/user", main.postJoinMemberCompany);
-
-    // router.get("/joinMember", userinfo.getJoinMember);
-    // router.post("/joinMember/idcheck", userinfo.idCheck);
-    // router.post("/joinMember/user", userinfo.postJoinMember);
-
-    // router.get("/joinMemberCompany", companyinfo.getJoinMember);
-    // router.post("/joinMemberCompany/idcheck", companyinfo.idCheck);
-    // router.post("/joinMemberCompany/user", companyinfo.postJoinMember);
 //---------------------------------------
 
 
