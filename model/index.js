@@ -17,7 +17,7 @@ db.Sequelize = Sequelize;
 
 // db.Main = require("./Main")(sequelize, Sequelize);
 db.User = require("./User")(sequelize, Sequelize);
-db.UserInfo = require("./UserInfo")(sequelize, Sequelize);
+db.UserInfo = require("./Userinfo")(sequelize, Sequelize);
 db.CompanyInfo = require("./CompanyInfo")(sequelize, Sequelize);
 
 module.exports = db;
