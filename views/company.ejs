@@ -28,7 +28,8 @@
     <%-include("navbar.ejs")%>
 
     <div class="test row">
-      <div id="left">
+      <div class="col-1" id="blank"></div>
+      <div id="left" class="col-8">
         <div class="main_list">
           <div class="choose_stack">
             <h1>Stack</h1>
@@ -81,7 +82,7 @@
           </div>
         </div>
       </div>
-      <div id="right">
+      <div id="right" class="col-2">
         <div class="bucket">Bucket</div>
       </div>
     </div>
@@ -108,7 +109,7 @@
         var position = $(window).scrollTop();
         $(".bucket")
           .stop()
-          .animate({ top: position + currentPosition + "px" }, 500);
+          .animate({ top: position + currentPosition + "px" }, 300);
       });
 
       //carrer range
