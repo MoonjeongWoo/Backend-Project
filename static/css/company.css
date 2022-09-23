@@ -25,6 +25,7 @@ div{
   #left{
     width: 100%;
     margin-left: 0px;
+    vertical-align: middle;
   }
 }
 
