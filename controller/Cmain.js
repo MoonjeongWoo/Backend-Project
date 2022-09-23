@@ -26,6 +26,12 @@ exports.getJoinMemberCompany = (req, res) => {
 };
 // -------------------------------
 
+// get MyPage page
+exports.getMyPage = (req, res) => {
+  res.render("myPage");
+};
+// -------------------------------
+
 // save join member data in db
 exports.postJoinMember = (req, res) => {
   UserInfo.create({

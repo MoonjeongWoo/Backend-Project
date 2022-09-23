@@ -50,23 +50,32 @@
 
   <div class="all">
     <div class="content">Your Success<br />Begins With Us</div>
-    <div class="l-content">Login and Start!</div>
-    <img class="main-img" src="./static/img/main_img.jpg" />
-    <div class="main-back"></div>
+    <!-- <div class="l-content">Login and Start!</div> -->
+    <img class="main-img" src="../static/img/main_img/—Pngtree—cartoon programmer business character illustration_6536317.png" />
+    </div>
+    <div class="first-back"></div>
+    <div class="second-back"></div>
+    <div class="intro-back">
+      <div class="our_ser">Our Services<hr></div>
+
+      <div class="grid" style="--bs-columns: 3;">
+        <span class="h-100"><img src="../static/img/main_img/developer.jpg"></span>
+        <span class="h-100"><img src="../static/img/main_img/company.jpg"></span>
+        <span class="h-100"><img src="../static/img/main_img/developer.jpg"></span>
+
+      </div>
+
+    </div>
   </div> 
 </form>
   <div><%-include("new_login.ejs") %></div>
 <!-- 웹 소개 -->
 
-<div class="intro-back">
-  <div class="our_ser">Our Services<hr></div>
-  <div><img src="#"></div>
-  <div><img src="#"></div>
-  <div><img src="#"></div>
-</div>
+
+
   <script>
     window.addEventListener("scroll", function () {
-      if (scrollY <= 350 && scrollY >= 0) {
+      if (scrollY <= 1 && scrollY >= 0) {
         $(".topnav").attr("style", "background-color: transparent !import");
         $(".user").attr("style", "color : black !important");
         $(".Corp").attr("style", "color: black !important");
