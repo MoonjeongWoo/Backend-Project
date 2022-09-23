@@ -63,6 +63,20 @@
                 />
                 <p>Year: <span id="range"></span></p>
               </div>
+              <div class="career_style">
+                <h1>Carrer</h1>
+                <hr />
+                <div class="slidecontainer">
+                  <input
+                    type="range"
+                    min="1"
+                    max="20"
+                    value="1"
+                    class="slider"
+                    id="myRange"
+                  />
+                  <p>Year: <span id="range"></span></p>
+              </div>
             </div>
           </div>
 
@@ -114,8 +128,7 @@
       //carrer range
       var slider = document.getElementById("myRange");
       var output = document.getElementById("range");
-      output.innerHTML = slider.value;
-
+      output.innerHTML = slider.value
       slider.oninput = function () {
         output.innerHTML = this.value;
       };
