@@ -1,59 +1,12 @@
-<style>
-  /* Add a black background color to the top navigation */
-
-  .topnav {
-    width: 100%;
-    margin: 0px;
-    padding: 5px;
-    overflow: hidden;
-    position: fixed;
-  }
-
-  /* Style the links inside the navigation bar */
-  .topnav a.user {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  .topnav a.Corp {
-    float: right;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  #login {
-    float: right;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: darkgray;
-    color: black;
-  }
-
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: #04aa6d;
-    color: white;
-  }
-</style>
+<link rel="stylesheet" href="/static/css/navbar.css" />
 <nav>
   <div class="topnav">
-    <a href="#home" class="user">Home</a>
+    <a href="/" class="user">Home</a>
     <a href="#Resume" class="user">Resume</a>
     <a href="#Watch" class="user">Watch Other</a>
     <a href="#Mypage" class="Corp">Mypage</a>
     <a href="#login" id="login">login</a>
-    <a href="#Devel" class="Corp">Developer</a>
+    <a href="/company" class="Corp">Developer</a>
     <a href="#Bucket" class="Corp">Bucket</a>
   </div>
 </nav>
@@ -65,7 +18,7 @@
 
 <!-- scroll 시 navbar 배경 화면 보이기 필요시 복붙-->
 <script>
-  window.addEventListener("scroll", function () {
+  /*window.addEventListener("scroll", function () {
     if (scrollY <= 350 && scrollY >= 0) {
       $(".topnav").attr("style", "background-color: transparent !import");
       $(".user").attr("style", "color : black !important");
@@ -75,5 +28,5 @@
       $(".user").attr("style", "color : white !important");
       $(".Corp").attr("style", "color: white !important");
     }
-  });
+  });*/
 </script>

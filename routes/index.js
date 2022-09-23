@@ -3,6 +3,9 @@ const main = require("../controller/Cmain");
 const user = require("../controller/Cuser");
 const company = require("../controller/Ccompany");
 
+// const userinfo = require("../controller/CuserInfo");
+// const companyinfo = require("../controller/CcompanyInfo");
+
 // main
 //---------------------------------------
     // get main page
@@ -15,6 +18,18 @@ const company = require("../controller/Ccompany");
     router.get("/joinMember", main.getJoinMember);
     router.post("/joinMember/idcheck", main.idCheck);
     router.post("/joinMember/user", main.postJoinMember);
+
+    router.get("/joinMemberCompany", main.getJoinMemberCompany);
+    router.post("/joinMemberCompany/idcheck", main.idCheckCompany);
+    router.post("/joinMemberCompany/user", main.postJoinMemberCompany);
+
+    // router.get("/joinMember", userinfo.getJoinMember);
+    // router.post("/joinMember/idcheck", userinfo.idCheck);
+    // router.post("/joinMember/user", userinfo.postJoinMember);
+
+    // router.get("/joinMemberCompany", companyinfo.getJoinMember);
+    // router.post("/joinMemberCompany/idcheck", companyinfo.idCheck);
+    // router.post("/joinMemberCompany/user", companyinfo.postJoinMember);
 //---------------------------------------
 
 

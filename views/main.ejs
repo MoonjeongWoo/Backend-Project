@@ -42,64 +42,40 @@
       src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
     </script>
     <link rel="stylesheet" href="/static/css/main.css" />
-  </head>
+</head>
 
-  <body>
-    <form>
-      <div class="main-nav"><%-include("navbar.ejs") %></div>
+<body>
+<form>
+  <div class="main-nav"><%-include("navbar.ejs") %></div>
 
-      <div class="all">
-        <div class="content">Your Success<br />Begins With Us</div>
-        <img class="main-img" src="./static/img/main_img.jpg" />
-        <div class="main-back"></div>
+  <div class="all">
+    <div class="content">Your Success<br />Begins With Us</div>
+    <div class="l-content">Login and Start!</div>
+    <img class="main-img" src="./static/img/main_img.jpg" />
+    <div class="main-back"></div>
+  </div> 
+</form>
+  <div><%-include("new_login.ejs") %></div>
+<!-- 웹 소개 -->
 
-        <!-- 기존 로그인 폼 -->
-        <!-- <div class="login-back"></div> -->
-        <div class="login">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="home-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#home"
-                type="button"
-                role="tab"
-                aria-controls="home"
-                aria-selected="true"
-              >
-                &nbsp;USER&nbsp;
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="profile-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#profile"
-                type="button"
-                role="tab"
-                aria-controls="profile"
-                aria-selected="false"
-              >
-                &nbsp;USER&nbsp;
-              </button>
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel">
-              <div class="log-input"><%-include("login.ejs") %></div>
-            </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel">
-              <div class="log-input"><%-include("login.ejs") %></div>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    </form>
-    <!-- <div><%-include("new_login.ejs") %></div> -->
-
-    <script></script>
+<div class="intro-back">
+  <div class="our_ser">Our Services<hr></div>
+  <div><img src="#"></div>
+  <div><img src="#"></div>
+  <div><img src="#"></div>
+</div>
+  <script>
+    window.addEventListener("scroll", function () {
+      if (scrollY <= 350 && scrollY >= 0) {
+        $(".topnav").attr("style", "background-color: transparent !import");
+        $(".user").attr("style", "color : black !important");
+        $(".Corp").attr("style", "color: black !important");
+      } else {
+        $(".topnav").attr("style", "background-color:  #333 !important");
+        $(".user").attr("style", "color : white !important");
+        $(".Corp").attr("style", "color: white !important");
+      }
+    });
+  </script>
   </body>
 </html>
