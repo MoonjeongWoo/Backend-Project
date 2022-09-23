@@ -67,10 +67,9 @@ div{
 }
 .main_list input{
     width: 80%;
-    height: 40px;
+    height: 3px;
     float: left;
     border: none;
-    border-bottom: 1px solid black;
     padding-left: 15px;
 }
 .choose_stack{
@@ -110,6 +109,7 @@ div{
 }
 .slidecontainer {
   width: 100%;
+  height: 50px;
 }
 
 .slider {
@@ -124,9 +124,6 @@ div{
   transition: opacity .2s;
 }
 
-.slider:hover {
-  opacity: 1;
-}
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -136,23 +133,25 @@ div{
   border-radius: 50%;
   background: cornflowerblue;
   cursor: pointer;
+  z-index: 5;
 }
 
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #04AA6D;
-  cursor: pointer;
-}
+
 .develop_list{
     width: 100%;
     height: 80%;
     border: 1px;
 }
 .stack_style{
-      margin-top: 24px;
+      margin-top: 2px;
       display: inline-block;
+}
+.location{
+  width: 100%;
+  height: 200px;
+}
+.location h1{
+  text-align: left;
 }
 @media screen and (max-width: 550px){
   .stack_style{
