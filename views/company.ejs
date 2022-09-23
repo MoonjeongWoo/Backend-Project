@@ -34,17 +34,16 @@
           <div class="choose_stack">
             <h1>Stack</h1>
             <hr />
-            <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" ,
-            "C++" , "C#" , "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" ,
-            "Dart" , "Go" ];%>
+            <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" , "C#", "PHP" , "Cobol" , "HTML"
+              , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
 
             <div class="stack_style">
               <% for ( var i=0; i < stackList.length; i++ ) { %>
               <button
                 type="button"
                 class="normal_btn"
-                onclick="addStack(this.id)"
-                id="<%= stackList[i] %>"
+                onclick="addStack(this.value)"
+                value="<%= stackList[i] %>"
               >
                 <%= stackList[i] %>
               </button>
@@ -124,18 +123,18 @@
 
     <script>
       function addStack(stack) {
-        $(`#${stack}`).css("background-color", "grey");
+        $(`button[value$="${stack}"]`).css("background-color", "grey");
         $("#selected").append(
-          `<button type="button" class="normal_btn" onclick="delStack('${stack}')" id="${stack}-checked"> ${stack}</button> %>`
+          `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
         );
-        $(`#${stack}`).attr("onclick", "delStack(this.id)");
+        $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
       }
 
       function delStack(stack) {
         console.log(stack);
-        $(`#${stack}`).css("background-color", "rgb(228, 228, 228)");
-        $(`#${stack}-checked`).remove();
-        $(`#${stack}`).attr("onclick", "addStack(this.id)");
+        $(`button[value$="${stack}"]`).css("background-color", "rgb(228, 228, 228)");
+        $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
+        $(`button[value$="${stack}-checked"]`).remove();
       }
     </script>
   </body>
