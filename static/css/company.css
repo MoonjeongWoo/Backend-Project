@@ -17,15 +17,11 @@ div{
     padding-left: 20px;
 }
 #left{
-  margin-left: 100px;
-  padding-right: 0px;
-  width: 100%;
+  padding-left: 50px;
 }
 @media screen and (max-width: 950px){
   #left{
-    width: 100%;
-    margin-left: 0px;
-    vertical-align: middle;
+    width: 800px;
   }
 }
 
@@ -40,7 +36,6 @@ div{
     position: relative;
     background-color: bisque;
     margin: 50px;
-    margin-left: 280px;
 }
 .bucket:hover{
     box-shadow: 1px 1px 5px;
