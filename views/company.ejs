@@ -23,6 +23,9 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
+    <script 
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+    </script>
   </head>
 
   <body>
@@ -141,33 +144,30 @@
         );
         $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
 
-        stack_list += "|" + stack;
-        console.log(stack_list);
+        stack_list += stack + "|";
         axios({
-          url: "",
+          url: "/sortUserByElement",
           method: "post",
-          data: stack_list,
+          data: {elements: stack_list},
         }).then((response) => {
-          res.send(response.data);
+          console.log(response);
         });
       }
 
       function delStack(stack) {
-        console.log(stack);
         $(`button[value$="${stack}"]`).css(
           "background-color",
           "rgb(228, 228, 228)"
         );
         $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
         $(`button[value$="${stack}-checked"]`).remove();
-        stack_list = stack_list.replace(`|${stack}`, "");
-        console.log(stack_list);
+        stack_list = stack_list.replace(`${stack}|`, "");
         axios({
-          url: "",
+          url: "/sortUserByElement",
           method: "post",
-          data: stack_list,
+          data: {elements: stack_list},
         }).then((response) => {
-          res.send(response.data);
+          console.log(response);
         });
       }
     </script>

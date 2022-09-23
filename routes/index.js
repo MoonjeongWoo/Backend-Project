@@ -38,6 +38,9 @@ const company = require("../controller/Ccompany");
 //---------------------------------------
     // get company page
     router.get("/company", company.getCompany);
+
+    // post stack tag
+    router.post("/sortUserByElement", company.sortUserByElement);
 //---------------------------------------
 
 // myPage
