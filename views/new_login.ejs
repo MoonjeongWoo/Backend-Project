@@ -54,7 +54,7 @@
     <h2>LOGIN</h2>
     <input type="text" value="id-test" id="id2" placeholder="ID" />
     <input type="password" value="mypw" id="pw2" placeholder="Password" />
-    <button class="btn_sign_up" onclick="cor_login(); main_login_corp();">LOGIN</button>
+    <button class="btn_sign_up" onclick="cor_login(); main_loginCorp();">LOGIN</button>
 
   </div>
 
@@ -89,7 +89,7 @@
 }
 
   // ** For Login _ corp
-  function main_login_corp() {
+  function main_loginCorp() {
     var id = $("#id2").val();
     var pw = $("#pw2").val();
     var data = {
@@ -97,7 +97,7 @@
         pw: pw
     }
     axios({
-        url: "/userLoginCorp",
+        url: "/userLoginCompany",
         method: "POST",
         data: data
     }).then((response) => {
