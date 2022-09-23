@@ -21,7 +21,7 @@ exports.getJoinMember = (req, res) => {
 // -------------------------------
 
 // get joinmember page _ Corp
-exports.getJoinMemberCorp = (req, res) => {
+exports.getJoinMemberCompany = (req, res) => {
   res.render("joinmember_company");
 };
 // -------------------------------
@@ -29,7 +29,6 @@ exports.getJoinMemberCorp = (req, res) => {
 // save join member data in db
 exports.postJoinMember = (req, res) => {
   UserInfo.create({
-    // uuid: "unhex(replace(uuid(),'-',''))",
     id: req.body.id,
     pw: req.body.pw,
     name: req.body.name,
@@ -82,7 +81,7 @@ exports.userLogin = (req, res) => {
 };
 
 // try login (기업 회원)
-exports.userLoginCorp = (req, res) => {
+exports.userLogincompany = (req, res) => {
 
   CompanyInfo.findAll({
     attributes: ['uuid'],
