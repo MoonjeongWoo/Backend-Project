@@ -37,6 +37,8 @@ div{
     position: relative;
     background-color: bisque;
     margin: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .bucket:hover{
     box-shadow: 1px 1px 5px;
@@ -153,6 +155,10 @@ div{
 .location h1{
   text-align: left;
 }
+#location_select{
+  width: 100px;
+}
+
 @media screen and (max-width: 550px){
   .stack_style{
       overflow-x: scroll;
@@ -196,4 +202,5 @@ div{
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   text-align: left;
+  margin: 5px 5px;
 }
