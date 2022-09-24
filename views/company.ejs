@@ -23,9 +23,7 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
-    <script 
-      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -72,6 +70,15 @@
           <div class="location">
             <h1>Location</h1>
             <hr />
+            <select name="location_select" id="location_select">
+              <option value="">Seoul</option>
+              <option value="">Incheon</option>
+              <option value="">Daejeon</option>
+              <option value="">Daegu</option>
+              <option value="">Pusan</option>
+              <option value="">Ulsan</option>
+              <option value="">Gwangju</option>
+            </select>
           </div>
           <!-- 클릭하면 추가되는 자리 -->
           <div id="selected">selected</div>
@@ -82,14 +89,18 @@
             <% for(var i=0 ; i < 10 ; i++) { %>
             <button class="accordion">name</button>
             <div class="panel">
-              <p>stack: &nbsp; career: &nbsp; age:</p>
+              <p>stack: &nbsp; career: &nbsp; location:</p>
+              <button type="button" onclick="selected_devel();">찜하기</button>
             </div>
             <% }%>
           </div>
         </div>
       </div>
       <div id="right" class="col-2">
-        <div class="bucket">Bucket</div>
+        <div class="bucket">
+          Bucket
+          <div class="selected_bucket"></div>
+        </div>
       </div>
     </div>
     <script>
@@ -150,7 +161,7 @@
         axios({
           url: "/sortUserByElement",
           method: "post",
-          data: {elements: stack_list},
+          data: { elements: stack_list },
         }).then((response) => {
           console.log(response);
         });
@@ -167,10 +178,16 @@
         axios({
           url: "/sortUserByElement",
           method: "post",
-          data: {elements: stack_list},
+          data: { elements: stack_list },
         }).then((response) => {
           console.log(response);
         });
+      }
+
+      function selected_devel() {
+        //console.log("안녕?");
+        let selected_name = $(".accordion").html();
+        $(".selected_bucket").append(`<p>${selected_name}</p>`);
       }
     </script>
   </body>
