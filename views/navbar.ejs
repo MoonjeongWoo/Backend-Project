@@ -1,32 +1,28 @@
 <link rel="stylesheet" href="/static/css/navbar.css" />
-<nav class="topnav">
-  <div>
-    <a href="/" class="user">Home</a>
-    <a href="#Resume" class="user">Resume</a>
-    <a href="#Watch" class="user">Watch Other</a>
-    <a href="/myPage" class="Corp">Mypage</a>
-    <a href="#login" id="login">login</a>
-    <a href="/company" class="Corp">Developer</a>
-    <a href="#Bucket" class="Corp">Bucket</a>
+<input type="checkbox" id="menu-toggle" />
+<label for="menu-toggle" class="menu-icon"><i class="fa fa-bars"></i></label>
+<div class="content-container">
+  <div class="site-title"></div>
+  <div class="content">
+    <h1>5 Best Desinations in the World</h1>
+    <img src="https://placehold.it/700x250" alt="" class="" />
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget
+      nulla mollis, efficitur urna nec, viverra dolor. Nulla facilisi. Interdum
+      et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ante ipsum
+      primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent
+      efficitur finibus eros sit amet sagittis. Ut sollicitudin sodales neque et
+      volutpat. Curabitur dictum ante vel fermentum volutpat. Curabitur ac neque
+      et erat viverra egestas.
+    </p>
   </div>
-</nav>
-<script
-  src="https://code.jquery.com/jquery-3.6.1.js"
-  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-  crossorigin="anonymous"
-></script>
-
-<!-- scroll 시 navbar 배경 화면 보이기 필요시 복붙-->
-<script>
-  /*window.addEventListener("scroll", function () {
-    if (scrollY <= 350 && scrollY >= 0) {
-      $(".topnav").attr("style", "background-color: transparent !import");
-      $(".user").attr("style", "color : black !important");
-      $(".Corp").attr("style", "color: black !important");
-    } else {
-      $(".topnav").attr("style", "background-color:  #333 !important");
-      $(".user").attr("style", "color : white !important");
-      $(".Corp").attr("style", "color: white !important");
-    }
-  });*/
-</script>
+</div>
+<div class="slideout-sidebar">
+  <ul>
+    <li>Home</li>
+    <li>Catalog</li>
+    <li>About Us</li>
+    <li>Blog</li>
+    <li>Contact</li>
+  </ul>
+</div>
