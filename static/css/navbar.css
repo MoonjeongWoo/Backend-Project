@@ -44,3 +44,18 @@
     background-color: #04aa6d;
     color: white;
   }
+  @media screen and (max-width: 1050px){
+    #navbar{
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 24px;
+    }
+    .navbar_menu{
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin: 10px 10px;
+    }
+    
+  }
