@@ -1,46 +1,168 @@
- .topnav {
+body {
+  font-family: 'Lato', arial, sans-serif;
+  margin: 0;
+}
+
+/* -- main content -- */
+.content-container {
+  position: relative;
+  z-index: 0;
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+}
+
+.site-title {
+  text-align: center;
+  border-bottom: 1px solid #111111;
+  margin-bottom: 24px;
+}
+
+.site-title h1 {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
+img {
+  width: 100%;
+}
+
+.content p {
+  line-height: 1.6em;
+  margin-bottom: 24px;
+}
+
+/* -- Slideout Sidebar -- */
+
+.slideout-sidebar {
+  position: fixed;
+  top: 0;
+  left: -190px;
+  z-index: 0;
+  width: 150px;
+  height: 100%;
+  padding: 20px;
+  background-color: #212121;
+  transition: all 300ms ease-in-out;
+}
+
+.slideout-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideout-sidebar ul li {
+  cursor: pointer;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(244,244,244,0.4);
+  color: rgba(244,244,244,0.7);
+}
+
+.slideout-sidebar ul li:last-child {
+  border-bottom: 0;
+}
+
+.slideout-sidebar ul li:hover {
+  color: rgba(244,244,244,1);
+}
+
+/* -- Menu Icon -- */
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  font-size: 24px;
+  z-index: 1;
+  transition: all 300ms ease-in-out;
+}
+
+
+
+/*-- The Magic --*/
+#menu-toggle:checked ~ .slideout-sidebar {
+  left: 0px;
+}
+
+#menu-toggle:checked + .menu-icon {
+  left: 210px;
+}
+
+#menu-toggle:checked ~ .content-container {
+  padding-left: 190px;
+}
+
+/* -- Media Queries -- */
+
+@media (max-width: 991px) {
+  
+  .content-container {
+    max-width: 480px;
+  }
+  
+}
+
+@media (max-width: 767px) {
+  
+  .content-container {
+    max-width: 100%;
+    margin: 30px auto 0;
+  }
+  
+  #menu-toggle:checked ~ .content-container {
+    padding-left: 0;
+  }
+  
+  .slideout-sidebar ul {
+    text-align: center;
+    max-width: 200px;
+    margin: 30px auto 0;
+  }
+  
+  .menu-icon {
+    left: 20px
+  }
+  
+  #menu-toggle:checked ~ .slideout-sidebar {
     width: 100%;
-    margin: 0px;
-    padding: 5px;
-    overflow: hidden;
-    position: fixed;
   }
+  
+  #menu-toggle:checked + .menu-icon {
+    left: 87%;
+    color: #fafafa;
+  }
+  
+  @media screen  
+    and (max-width: 950px) 
+    and (orientation: landscape) {
+      
+      .slideout-sidebar {
+        padding: 0;
+      }
+      
+      .slideout-sidebar ul {
+        max-width: 100%;
+        margin: 60px auto 0;
+      }
+      
+      .slideout-sidebar ul li {
+        display: inline-block;
+        border-bottom: 0;
+        width: 72px;
+        padding: 18px 24px;
+        margin: 0 6px 12px;
+        color: #ffffff;
+        background-color: #777;
+      }
 
-  /* Style the links inside the navigation bar */
-  .topnav a.user {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
   }
-  .topnav a.Corp {
-    float: right;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-  }
-  #login {
-    float: right;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: darkgray;
-    color: black;
-  }
-
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: #04aa6d;
-    color: white;
-  }
+  
+}
