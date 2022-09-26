@@ -1,7 +1,11 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+/>
 <link rel="stylesheet" href="/static/css/navbar.css" />
-<nav class="topnav">
-  <div>
-    <a href="/" class="user">Home</a>
+<nav class="topnav" id="navbar">
+  <div class="navbar_menu">
+    <a href="/" class="user"><li>Home</li></a>
     <a href="#Resume" class="user">Resume</a>
     <a href="#Watch" class="user">Watch Other</a>
     <a href="/myPage" class="Corp">Mypage</a>
@@ -9,9 +13,12 @@
     <a href="/company" class="Corp">Developer</a>
     <a href="#Bucket" class="Corp">Bucket</a>
   </div>
+  <a class="navbar_togglebtn">
+    <i class="fa-solid fa-bars"></i>
+  </a>
 </nav>
 <script
-  src="https://code.jquery.com/jquery-3.6.1.js"
+  src="https://codze.jquery.com/jquery-3.6.1.js"
   integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
   crossorigin="anonymous"
 ></script>
@@ -29,4 +36,12 @@
       $(".Corp").attr("style", "color: white !important");
     }
   });*/
+
+  //navbar toggler
+  const toggleBtn = document.querySelector(".navbar_toggleBtn");
+  const menu = document.querySelector(".navbar_menu");
+  toggleBtn.addEventListener("click", function () {
+    menu.classList.toggle("active");
+    icons.classList.toggle("active");
+  });
 </script>
