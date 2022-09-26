@@ -1,6 +1,6 @@
-const introduce = ( Sequelize, DataTypes ) => {
+const UserResume = ( Sequelize, DataTypes ) => {
     const model = Sequelize.define( // Sequelize 모델 정의. 3가지 인자 = 모델(테이블)이름, 컬럼 정의, 모델의 옵션 정의
-        "Introduce",
+        "userResume",
         {
             uuid: {
                 type: DataTypes.UUID,
@@ -36,7 +36,7 @@ const introduce = ( Sequelize, DataTypes ) => {
         
         },
         {
-            tableName: "Introduce",
+            tableName: "userResume",
             FreezeTableName: true,
             timestamps: false
         }
@@ -44,4 +44,4 @@ const introduce = ( Sequelize, DataTypes ) => {
     return model;
 };
 
-module.exports = introduce;
+module.exports = UserResume;

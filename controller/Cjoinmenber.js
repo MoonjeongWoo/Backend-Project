@@ -1,24 +1,12 @@
 const { UserInfo } = require("../model");
 const { CompanyInfo } = require("../model");
 
-// get main page
-exports.getMain = (req, res) => {
-  res.render("main");
-};
-// -------------------------------
-
-// get login page
-exports.getLogin = (req, res) => {
-  res.render("login");
-};
-// -------------------------------
-
-
 // get joinmember page
 exports.getJoinMember = (req, res) => {
   res.render("joinMember");
 };
 // -------------------------------
+
 
 // get joinmember page _ Corp
 exports.getJoinMemberCompany = (req, res) => {
@@ -26,11 +14,6 @@ exports.getJoinMemberCompany = (req, res) => {
 };
 // -------------------------------
 
-// get MyPage page
-// exports.getMyPage = (req, res) => {
-//   res.render("myPage");
-// };
-// -------------------------------
 
 // save join member data in db
 exports.postJoinMember = (req, res) => {
@@ -46,10 +29,10 @@ exports.postJoinMember = (req, res) => {
 };
 // -------------------------------
 
+
 // save join member data in db (기업 회원)
 exports.postJoinMemberCompany = (req, res) => {
   CompanyInfo.create({
-    // uuid: "unhex(replace(uuid(),'-',''))",
     id: req.body.id,
     pw: req.body.pw,
     name: req.body.name,
@@ -62,48 +45,39 @@ exports.postJoinMemberCompany = (req, res) => {
 // -------------------------------
 
 
-// try login
-exports.userLogin = (req, res) => {
+// id 중복 확인
+exports.idCheck = (req, res) => {
   UserInfo.findAll({
-    attributes: ['uuid'],
+    attributes: ['id'],
     where: {
-      id: req.body.id,
-      pw: req.body.pw
+      id: req.body.id
     }
   }).then((result) => {
+    // exist 1 no exist 0 
     if (result[0] != undefined) {
-      if (!req.session.user) {
-        req.session.uuid = result[0]["dataValues"].uuid;
-      }
-      var data = { result: 1 };
-    } else {
-      var data = { result: 0 };
+      res.send({result: 1})
+    }else{
+      res.send({result: 0})
     }
-
-    // login success return 1 fail return 0 
-    res.send(data);
-  });
-};
+  })
+}
+// -------------------------------
 
 
-// try login (기업 회원)
-exports.userLoginCompany = (req, res) => {
+// id 중복 확인 (기업 회원)
+exports.idCheckCompany = (req, res) => {
   CompanyInfo.findAll({
-    attributes: ['uuid'],
+    attributes: ['id'],
     where: {
-      id: req.body.id,
-      pw: req.body.pw
+      id: req.body.id
     }
   }).then((result) => {
+    // exist 1 no exist 0 
     if (result[0] != undefined) {
-      if (!req.session.user) {
-        req.session.uuid = result[0]["dataValues"].uuid;
-      }
-      var data = { result: 1 };
-    } else {
-      var data = { result: 0 };
+      res.send({result: 1})
+    }else{
+      res.send({result: 0})
     }
-    // login success return 1 fail return 0 
-    res.send(data);
-  });
-};
+  })
+}
+// -------------------------------
