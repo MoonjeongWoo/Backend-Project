@@ -118,7 +118,9 @@
             $(".cotn_principal").attr("style", "display: none");
             $("#login").attr("style", "color: gold");
             $("#login").text("logout");
-            $(".login_div").html();
+            $(".second-back").html(
+              `<div><%-include("loginAfter.ejs") %></div>`
+            );
           } else {
             alert("올바르지 않은 아이디 혹은 비밀번호 입니다.");
           }
