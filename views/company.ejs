@@ -29,9 +29,8 @@
   <body>
     <%-include("navbar.ejs")%>
 
-    <div class="test row">
-      <div class="col-1" id="blank"></div>
-      <div id="left" class="col-8">
+    <div class="test column">
+      <div id="left" class="col-9">
         <div class="main_list">
           <div class="choose_stack">
             <h1>Stack</h1>
@@ -78,6 +77,7 @@
               <option value="">Pusan</option>
               <option value="">Ulsan</option>
               <option value="">Gwangju</option>
+              <option value="">Gyeonggi</option>
             </select>
           </div>
           <!-- 클릭하면 추가되는 자리 -->
@@ -96,7 +96,7 @@
           </div>
         </div>
       </div>
-      <div id="right" class="col-2">
+      <div id="right" class="col-3">
         <div class="bucket">
           Bucket
           <div class="selected_bucket"></div>
@@ -189,6 +189,18 @@
         let selected_name = $(".accordion").html();
         $(".selected_bucket").append(`<p>${selected_name}</p>`);
       }
+
+      $("#location_select").change(function () {
+        var location_selected = $("#location_select option:selected").text();
+        console.log(location_selected);
+        axios({
+          url: "",
+          method: "post",
+          data: location_selected,
+        }).then((response) => {
+          res.send(response.data);
+        });
+      });
     </script>
   </body>
 </html>
