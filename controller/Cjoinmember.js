@@ -81,3 +81,15 @@ exports.idCheckCompany = (req, res) => {
   })
 }
 // -------------------------------
+
+//회원정보 수정 화면
+exports.edit = (req, res) => {
+	
+  UserInfo.findOne( {
+      where: {uuid: req.session.uuid}
+  })
+  .then((result) => {
+      // res.render("edit", {data: result});
+      console.log(result);
+  })
+}

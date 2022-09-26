@@ -3,7 +3,7 @@ const main = require("../controller/Cmain");
 const userResume = require("../controller/CuserResume");
 const company = require("../controller/Ccompany");
 const navbar = require("../controller/Cnavbar");
-const joinmenber = require("../controller/Cjoinmenber");
+const joinmember = require("../controller/Cjoinmember");
 
 // main
 //---------------------------------------
@@ -19,13 +19,13 @@ router.post("/userLoginCompany", main.userLoginCompany);
 
 // joinmember
 //---------------------------------------
-router.get("/joinMember", joinmenber.getJoinMember);
-router.post("/joinMember/idcheck", joinmenber.idCheck);
-router.post("/joinMember/user", joinmenber.postJoinMember);
+router.get("/joinMember", joinmember.getJoinMember);
+router.post("/joinMember/idcheck", joinmember.idCheck);
+router.post("/joinMember/user", joinmember.postJoinMember);
 
-router.get("/joinMemberCompany", joinmenber.getJoinMemberCompany);
-router.post("/joinMemberCompany/idcheck", joinmenber.idCheckCompany);
-router.post("/joinMemberCompany/user", joinmenber.postJoinMemberCompany);
+router.get("/joinMemberCompany", joinmember.getJoinMemberCompany);
+router.post("/joinMemberCompany/idcheck", joinmember.idCheckCompany);
+router.post("/joinMemberCompany/user", joinmember.postJoinMemberCompany);
 //---------------------------------------
 
 
@@ -55,6 +55,9 @@ router.post("/sortUserByElement", company.sortUserByElement);
 // get myPage
 router.get("/myPage", navbar.getMyPage);
 //---------------------------------------
+
+// edit profile
+router.get("/profile", joinmember.edit);
 
 
 module.exports = router;
