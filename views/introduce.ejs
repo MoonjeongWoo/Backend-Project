@@ -43,6 +43,9 @@
       <% } %>
       <br />
       <label>career</label>
+
+     <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
+      
       <br />
       <label>port folio :</label>
       <br />
@@ -55,13 +58,24 @@
         size="30"
       />링크
       <br />
+
       <label etc>짧은 자기소개</label>
       <input type="text" name="etc" value="" id="etc" /><br />
       <button type="button" id="submit" onclick="sendData()">제출</button>
     </form>
+
     <script>
+
       // valueById = $('input[name=inputName]').val();
       // console.log(valueById);
+
+      // 경력 추가
+    var i = 0;
+     function addCar(){
+          $('.career').append(`<div>경력<input id='year${i++}' class='text'>근무지<input id='place${i++}' class='text'></div>`)
+      }
+
+
 
       //stack 선택
       var stackList = "";
@@ -91,12 +105,12 @@
       var get_URL = $("#link").url();
 
       //자기소개
-
       var myself = $("#etc").val();
       /*   var ranges = document.getElementById("range");
       ranges.onchange = function () {
         sendElement("career", ranges.value);
       };*/
+
 
       //axios로 보내기
       function sendData(element, data) {
@@ -114,6 +128,7 @@
           res.send(response.data);
         });
       }
+
     </script>
   </body>
 </html>
