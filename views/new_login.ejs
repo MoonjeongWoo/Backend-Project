@@ -51,16 +51,19 @@
           <div class="cont_img_back_grey"></div>
         </div>
         <div class="cont_forms">
+          
+          <!-- User 로그인창 -->
           <div class="cont_form_login">
-            <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+            <!-- <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a> -->
             <h2>LOGIN</h2>
             <input type="text" value="id-test" id="id" placeholder="ID" />
             <input type="password" value="mypw" id="pw" placeholder="Password" />
             <button class="btn_login" onclick="user_login(); main_login();">LOGIN</button>
           </div>
 
+          <!-- Company 로그인창 -->
           <div class="cont_form_sign_up">
-            <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+            <!-- <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a> -->
             <h2>LOGIN</h2>
             <input type="text" value="id-test" id="id2" placeholder="ID" />
             <input type="password" value="mypw" id="pw2" placeholder="Password" />
@@ -121,7 +124,7 @@
     }
 
 
-    // ** For CSS
+    // user_login
     function user_login() {
       document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";
       document.querySelector('.cont_form_login').style.display = "block";
@@ -134,6 +137,7 @@
       }, 200);
     }
 
+    // cor_login
     function cor_login(at) {
       document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
       document.querySelector('.cont_form_sign_up').style.display = "block";
@@ -148,47 +152,23 @@
       }, 400);
 
     }
-    });
-}
 
 
-  // ** For CSS
-function user_login() {
-  document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";  
-  document.querySelector('.cont_form_login').style.display = "block";
-  document.querySelector('.cont_form_sign_up').style.opacity = "0";               
+// 이외 영역 클릭 시 로그인창 닫기
+$('body').click(function(e) {   
+	if($(e.target).parents('.cont_login').length < 1){
+      document.querySelector('.cont_forms').className = "cont_forms";  
+      document.querySelector('.cont_form_sign_up').style.opacity = "0";               
+      document.querySelector('.cont_form_login').style.opacity = "0"; 
 
-  setTimeout(function(){  document.querySelector('.cont_form_login').style.opacity = "1"; },400);  
-  
-  setTimeout(function(){    
-    document.querySelector('.cont_form_sign_up').style.display = "none";
-  },200);  
-}
-
-function cor_login(at) {
-  document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
-  document.querySelector('.cont_form_sign_up').style.display = "block";
-  document.querySelector('.cont_form_login').style.opacity = "0";
-  
-  setTimeout(function(){  document.querySelector('.cont_form_sign_up').style.opacity = "1";
-  },100);  
-
-  setTimeout(function(){   document.querySelector('.cont_form_login').style.display = "none";
-  },400);  
-
-}    
+    setTimeout(function(){
+      document.querySelector('.cont_form_sign_up').style.display = "none";
+      document.querySelector('.cont_form_login').style.display = "none";
+    },500);  
+	}
+});    
 
 
-function ocultar_login_sign_up() {
-  document.querySelector('.cont_forms').className = "cont_forms";  
-  document.querySelector('.cont_form_sign_up').style.opacity = "0";               
-  document.querySelector('.cont_form_login').style.opacity = "0"; 
-
-  // setTimeout(function(){
-  //   document.querySelector('.cont_form_sign_up').style.display = "none";
-  //   document.querySelector('.cont_form_login').style.display = "none";
-  // },500);  
-}
 </script>
 </body>
 
