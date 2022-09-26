@@ -37,7 +37,7 @@
         <option value="css">css</option></select
       ><br />
       <label>career</label>
-      <input type="range" name="career" min="0" , max="100" id="range" /><br />
+      <input type="range" name="career" min="0" , max="20" id="range" /><br />
       <label>port folio</label>
       <input type="text" name="link" value="" id="link" /><br />
       <label etc>짧은 자기소개</label>
@@ -45,6 +45,10 @@
       <button type="button" id="submit" onclick="aaa()">제출</button>
     </form>
     <script>
+      // valueById = $('input[name=inputName]').val();
+      // console.log(valueById);
+
+
       function aaa() {
         var choose = $("#stack").val();
         var career = $("#link").val();
@@ -72,6 +76,8 @@
           console.log(response.data);
         });
       }
+
+
     </script>
   </body>
 </html>

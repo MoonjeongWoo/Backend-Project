@@ -10,7 +10,7 @@ exports.getMain = (req, res) => {
 
 // get login page
 exports.getLogin = (req, res) => {
-  res.render("new_login");
+  res.render("login");
 };
 // -------------------------------
 
@@ -27,9 +27,9 @@ exports.getJoinMemberCompany = (req, res) => {
 // -------------------------------
 
 // get MyPage page
-exports.getMyPage = (req, res) => {
-  res.render("myPage");
-};
+// exports.getMyPage = (req, res) => {
+//   res.render("myPage");
+// };
 // -------------------------------
 
 // save join member data in db
