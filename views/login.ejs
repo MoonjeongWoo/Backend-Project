@@ -121,9 +121,10 @@
             $(".second-back").html(
               `<div><%-include("loginAfter.ejs") %></div>`
             );
-            sessionStorage.setItem("user_id", id);
-            sessionStorage.setItem("user_pw", pw);
-            console.log(sessionStorage.key);
+
+            var userid = sessionStorage.setItem("user_id", data.id);
+            var userpw = sessionStorage.setItem("user_pw", data.pw);
+            console.log(sessionStorage.getItem("user_id"), userpw);
           } else {
             alert("올바르지 않은 아이디 혹은 비밀번호 입니다.");
           }
