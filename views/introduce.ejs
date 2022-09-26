@@ -29,15 +29,25 @@
     <%#-include("navbar.ejs")%>
     <form id="form-register" action="/user/saveIntroudce" method="post">
       <label>stack</label>
+      <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
+      "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
       <select name="stack" id="stack">
-        <option value="react">react</option>
-        <option value="javascript">javascript</option>
-        <option value="node">node.js</option>
-        <option value="html">html</option>
-        <option value="css">css</option></select
+        <% for ( var i=0; i < stackList.length; i++ ) { %>
+        <option value="<%= stackList[i] %>"><%= stackList[i] %></option>
+        <% }%></select
       ><br />
+      <div class="selected_list"></div>
+      <br />
       <label>career</label>
-      <input type="range" name="career" min="0" , max="100" id="range" /><br />
+      <input
+        type="range"
+        name="career"
+        min="0"
+        ,
+        max="20"
+        id="range"
+        value="1"
+      /><br />
       <label>port folio</label>
       <input type="text" name="link" value="" id="link" /><br />
       <label etc>짧은 자기소개</label>
@@ -45,6 +55,31 @@
       <button type="button" id="submit" onclick="aaa()">제출</button>
     </form>
     <script>
+      //stack 선택
+      $("#stack").change(function () {
+        let selected_stack = $("#stack option:selected").text();
+        $("selected_list").appendTo(`<p>${selected_stack}</p>`);
+        sendData("stack_lists", selected_stack);
+      });
+      //career value 값
+      var ranges = document.getElementById("range");
+      ranges.onchange = function () {
+        sendElement("career", ranges.value);
+      };
+      //axios로 보내기
+      function sendData(element, data) {
+        axios({
+          url: "",
+          method: "post",
+          data: {
+            elements: element,
+            datas: data,
+          },
+        }).then((response) => {
+          res.send(response.data);
+        });
+      }
+
       function aaa() {
         var choose = $("#stack").val();
         var career = $("#link").val();
