@@ -117,7 +117,8 @@
           if (response.data.result == 1) {
             $(".cotn_principal").attr("style", "display: none");
             $("#login").attr("style", "color: gold");
-            $("#longin").text("logout");
+            $("#login").text("logout");
+            $(".login_div").html();
           } else {
             alert("올바르지 않은 아이디 혹은 비밀번호 입니다.");
           }
@@ -140,6 +141,8 @@
           console.log(response.data.result);
           if (response.data.result == 1) {
             $(".cotn_principal").attr("style", "display: none");
+            $("#login").attr("style", "color: gold");
+            $("#login").text("logout");
           } else {
             alert("올바르지 않은 아이디 혹은 비밀번호 입니다.");
           }

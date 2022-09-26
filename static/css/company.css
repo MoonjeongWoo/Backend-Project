@@ -59,6 +59,7 @@ div{
 @media screen and (max-width: 950px){
     #right{
       width: 300px;
+      /* padding-left: 0px; */
     }
     #selected{
       position: absolute;
