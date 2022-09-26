@@ -54,7 +54,7 @@
       // 경력 추가
     var i = 0;
      function addCar(){
-          $('.career').append(`<div>경력<input id='year${i++}' class='text'>근무지<input id='place${i++}' class='text'></div>`)
+          $('.career').append(`<div>경력<input id='year${i}' class='text'>근무지<input id='place${i++}' class='text'></div>`)
       }
 
       //stack 선택
@@ -80,32 +80,30 @@
 
 
       function getCar(){
+        var career ="";
         for(var j=0; j<i; j++){
-          console.log($(`#year${j}, #place${j}`).val());
+          // console.log($(`#year${j}`).val(), $(`#place${j}`).val());
+          career = career + $(`#year${j}`).val() + '|' + $(`#place${j}`).val() + '|';
         }
+        return career ;
+        
       }
       
       function aaa() {
         var choose = $("#stack").val();
-        var career = $("#link").val();
         var etc = $("#etc").val();
         var range = $("#range").val();
-
-        getCar()
+        var career = getCar();
+        console.log(career);
 
         
         // data = {
         //   stack: choose,
-        //   link: career,
         //   etc: etc,
         //   range: range,
+        //   career: career
         // };
-        // data = {
-        //   stack: "c++",
-        //   career: "1",
-        //   portfolio: "gogo.com",
-        //   etc: "hihihihi",
-        // };
+
         // console.log(data);
         // axios({
         //   url: "/user/saveIntroudce",
