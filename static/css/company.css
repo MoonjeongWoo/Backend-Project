@@ -59,7 +59,6 @@ div{
 @media screen and (max-width: 950px){
     #right{
       width: 300px;
-      overflow: hidden;
     }
     #selected{
       position: absolute;
