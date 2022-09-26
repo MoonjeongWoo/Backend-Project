@@ -2,6 +2,7 @@ const router = require("express").Router();
 const main = require("../controller/Cmain");
 const userResume = require("../controller/CuserResume");
 const company = require("../controller/Ccompany");
+const navbar = require("../controller/Cnavbar");
 
 // const userinfo = require("../controller/CuserInfo");
 // const companyinfo = require("../controller/CcompanyInfo");
@@ -41,10 +42,11 @@ router.get("/company", company.getCompany);
 router.post("/sortUserByElement", company.sortUserByElement);
 //---------------------------------------
 
-// myPage
+
+// navbar
 //---------------------------------------
-// get myPage
-// router.get("/myPage", user.getMyPage);
+    // get myPage
+    router.get("/myPage", navbar.getMyPage);
 //---------------------------------------
 
 module.exports = router;
