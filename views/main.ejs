@@ -67,7 +67,11 @@
         <span class="h-100"><img src="../static/img/main_img/developer.jpg"></span>
 
       </div>
-
+<div style="display: flex;">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
     </div>
   </div> 
 </form>
@@ -75,13 +79,13 @@
 
 
   <script>
-    window.addEventListener("scroll", function () {
+  window.addEventListener("scroll", function () {
       if (scrollY <= 1 && scrollY >= 0) {
         $(".topnav").attr("style", "background-color: transparent !import");
         $(".user").attr("style", "color : black !important");
         $(".Corp").attr("style", "color: black !important");
       } else {
-        $(".topnav").attr("style", "background-color:  #333 !important");
+        $(".topnav").attr("style", "background-color:  rgb(22, 38, 60) !important");
         $(".user").attr("style", "color : white !important");
         $(".Corp").attr("style", "color: white !important");
       }
