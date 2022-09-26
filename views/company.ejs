@@ -26,7 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
-  <body>
+  <>
     <%-include("navbar.ejs")%>
 
     <div class="test column">
@@ -81,7 +81,7 @@
             </select>
           </div>
           <!-- 클릭하면 추가되는 자리 -->
-          <div id="selected">selected</div>
+          <div id="selected">조건 : </div>
           <!-- =================== -->
 
           <div class="develop_list">
@@ -103,104 +103,103 @@
         </div>
       </div>
     </div>
-    <script>
-      //arcodian
-      var acc = document.getElementsByClassName("accordion");
-      var i;
+  </body>
 
-      for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          }
-        });
-      }
 
-      //bucket
-      var currentPosition = parseInt($(".bucket").css("top"));
-      $(window).scroll(function () {
-        var position = $(window).scrollTop();
-        $(".bucket")
-          .stop()
-          .animate({ top: position + currentPosition + "px" }, 300);
+  <script>
+    var stack_list = "";
+
+    //arcodian
+    var acc = document.getElementsByClassName("accordion");
+
+    for (var i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
       });
+    }
 
-      //career range
-      var slider = document.getElementById("myRange");
-      var output = document.getElementById("range");
-      output.innerHTML = slider.value;
+    //bucket
+    var currentPosition = parseInt($(".bucket").css("top"));
+    $(window).scroll(function () {
+      var position = $(window).scrollTop();
+      $(".bucket")
+        .stop()
+        .animate({ top: position + currentPosition + "px" }, 300);
+    });
 
-      slider.oninput = function () {
-        output.innerHTML = this.value;
-      };
-      slider.onchange = function () {
-        axios({
-          url: "",
-          method: "post",
-          data: this.value,
-        }).then((response) => {
-          res.send(response.data);
-        });
-      };
-    </script>
+    function selected_devel() {
+      let selected_name = $(".accordion").html();
+      $(".selected_bucket").append(`<p>${selected_name}</p>`);
+    }
+    
+    // career 선택, 변경
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("range");
+    output.innerHTML = slider.value;
 
-    <script>
-      var stack_list = "";
-      function addStack(stack) {
-        $(`button[value$="${stack}"]`).css("background-color", "grey");
-        $("#selected").append(
-          `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
-        );
-        $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
+    slider.oninput = function () {
+      output.innerHTML = this.value;
+    };
+    slider.onchange = function () {
+      sendElement("career", slider.value);
+    };
+    // -----------------------------
+    
+    // location 선택, 변경
+    $("#location_select").change(function () {
+      var location_selected = $("#location_select option:selected").text();
+      sendElement("location", location_selected);
+    });
+    // -----------------------------
 
-        stack_list += stack + "|";
-        axios({
-          url: "/sortUserByElement",
-          method: "post",
-          data: { elements: stack_list },
-        }).then((response) => {
-          console.log(response);
-        });
-      }
+    // stack 추가
+    function addStack(stack) {
+      $(`button[value$="${stack}"]`).css("background-color", "grey");
+      $("#selected").append(
+        `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
+      );
+      $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
 
-      function delStack(stack) {
-        $(`button[value$="${stack}"]`).css(
-          "background-color",
-          "rgb(228, 228, 228)"
+      stack_list += stack + "|";
+      sendElement("stack", stack_list);
+    }
+    // -----------------------------
+
+    // stack 제거
+    function delStack(stack) {
+      $(`button[value$="${stack}"]`).css(
+        "background-color",
+        "rgb(228, 228, 228)"
         );
         $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
         $(`button[value$="${stack}-checked"]`).remove();
         stack_list = stack_list.replace(`${stack}|`, "");
-        axios({
-          url: "/sortUserByElement",
-          method: "post",
-          data: { elements: stack_list },
-        }).then((response) => {
-          console.log(response);
-        });
-      }
 
-      function selected_devel() {
-        //console.log("안녕?");
-        let selected_name = $(".accordion").html();
-        $(".selected_bucket").append(`<p>${selected_name}</p>`);
-      }
-
-      $("#location_select").change(function () {
-        var location_selected = $("#location_select option:selected").text();
-        console.log(location_selected);
-        axios({
-          url: "",
-          method: "post",
-          data: location_selected,
-        }).then((response) => {
-          res.send(response.data);
-        });
+        sendElement("stack", stack_list);
+    }
+    // -----------------------------
+    
+    // 서버에 데이터 전송
+    // elementName: stack, career, location .....
+    // data: 문자열 데이터
+    function sendElement(elementName, data){
+      axios({
+        url: "/sortUserByElement",
+        method: "post",
+        data: {
+          element: elementName,
+          data: data
+        }
+      }).then((response) => {
+        res.send(response.data);
       });
-    </script>
-  </body>
+    }
+    // -----------------------------
+  </script>
 </html>
