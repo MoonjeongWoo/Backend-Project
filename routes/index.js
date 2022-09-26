@@ -33,6 +33,11 @@ router.get("/introduce", userResume.getIntroduce);
 router.post("/user/saveIntroudce", userResume.saveIntroudce);
 //---------------------------------------
 
+// myPage
+//---------------------------------------
+router.get("/myPage", userResume.getMyPage);
+//---------------------------------------
+
 // company
 //---------------------------------------
 // get company page
@@ -43,10 +48,5 @@ router.post("/sortUserByElement", company.sortUserByElement);
 //---------------------------------------
 
 
-// navbar
-//---------------------------------------
-    // get myPage
-    router.get("/myPage", navbar.getMyPage);
-//---------------------------------------
 
 module.exports = router;

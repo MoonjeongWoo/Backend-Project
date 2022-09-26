@@ -29,9 +29,8 @@
   <>
     <%-include("navbar.ejs")%>
 
-    <div class="test row">
-      <div class="col-1" id="blank"></div>
-      <div id="left" class="col-8">
+    <div class="test column">
+      <div id="left" class="col-9">
         <div class="main_list">
           <div class="choose_stack">
             <h1>Stack</h1>
@@ -97,7 +96,7 @@
           </div>
         </div>
       </div>
-      <div id="right" class="col-2">
+      <div id="right" class="col-3">
         <div class="bucket">
           Bucket
           <div class="selected_bucket"></div>
@@ -181,6 +180,7 @@
         $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
         $(`button[value$="${stack}-checked"]`).remove();
         stack_list = stack_list.replace(`${stack}|`, "");
+
         sendElement("stack", stack_list);
     }
     // -----------------------------
