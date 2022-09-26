@@ -21,7 +21,10 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <script>
+        // document.getElementById("id").value = data.id;
+        // console.log("ejs체크", data);
+    </script>
     <style>
         .user-Login {
             width: 80%;
@@ -40,36 +43,36 @@
         <span class="input-group-text" id="basic-addon1">uuid</span>
         <input id="uuid" type="text" class="form-control" placeholder="Nickname">
     </div> -->
-
+            
             <!-- ID -->
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">ID</span>
                 <!-- <input id="id" type="text" class="form-control" placeholder="Nickname"> -->
-                <input id="id" type="text" class="form-control" placeholder="Nickname" value="id-test">
+                <input id="id" type="text" class="form-control" placeholder="Nickname" value= <%= nowData.id %> readonly>
                 <button type="button" class="btn btn-secondary btn-sm" onclick="idCheck()">중복 확인</button>
             </div>
 
             <!-- Password -->
             <div class="input-group mb-3">
                 <!-- <input id="pw" type="password" class="form-control" placeholder="Password" required> -->
-                <input id="pw" type="password" class="form-control" placeholder="Password" required>
+                <input id="pw" type="password" class="form-control" placeholder="Password" value=<%= nowData.pw %> required>
             </div>
 
             <div class="input-group mb-3">
                 <!-- <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required> -->
-                <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required>
+                <input id="confirm_pw" type="password" class="form-control" placeholder="Password" value=<%= nowData.pw %> required>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Name</span>
                 <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
-                <input id="name" type="text" class="form-control" placeholder="Username">
+                <input id="name" type="text" class="form-control" placeholder="Username" value=<%= nowData.name %>>
             </div>
 
             <!-- E-mail -->
             <div class="input-group mb-3">
                 <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
-                <input id="email" type="text" class="form-control" placeholder="E-mail">
+                <input id="email" type="text" class="form-control" placeholder="E-mail" value=<%= nowData.email %>>
                 <span class="input-group-text">@</span>
                 <select class="form-select">
                     <option selected>선택</option>
@@ -83,22 +86,19 @@
             <div class="input-group mb-3">
                 <span class="input-group-text">Location</span>
                 <!-- <input id="location" class="form-control"> -->
-                <input id="location" class="form-control">
-            </div>
-
-            <div class="check mb-3">
-                <!-- <input type="radio" name="register"> 구직자 -->
-                <input type="radio" name="register" checked> 구직자
-                <input type="radio" name="register"> 기업
+                <input id="location" class="form-control" value=<%= nowData.location %>>
             </div>
 
             <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-primary" type="button" onclick="sendInfo()">Sign Up</button>
+                <button class="btn btn-primary" type="button" onclick="editProfile()">Save</button>
             </div>
 
         </div>
 
     </form>
+    <script>
+        
+    </script>
     <script>
 
         function idCheck() {
@@ -119,30 +119,30 @@
             });
         }
 
-        function sendInfo() {
+        function editProfile() {
             var id = $("#id").val();
             var pw = $("#pw").val();
             var name = $("#name").val();
             var email = $("#email").val();
             var location = $("#location").val();
 
-            data = {
+            /* data = {
                 id: "id-test",
                 pw: "pw-test",
                 name: "name-test",
                 email: "emailtest@email.com",
                 location: "Seoul"
+            }; */
+            data = {
+                id: id,
+                pw: pw,
+                name: name,
+                email: email,
+                location: location
             };
-            // data = {
-            //     id: id,
-            //     pw: pw,
-            //     name: name,
-            //     email: email,
-            //     location: location
-            // };
 
             axios({
-                url: "/joinMember/user",
+                url: "/profile/edit",
                 method: "POST",
                 data: data
             }).then((response) => {

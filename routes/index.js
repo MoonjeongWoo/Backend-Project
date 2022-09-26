@@ -57,7 +57,8 @@ router.get("/myPage", navbar.getMyPage);
 //---------------------------------------
 
 // edit profile
-router.get("/profile", joinmember.edit);
+router.get("/profile", joinmember.readyToEdit);
+router.post("/profile/edit", joinmember.editProfile);
 
 
 module.exports = router;
