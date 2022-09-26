@@ -5,10 +5,9 @@ const {ElementStack} = require("../model");
 
 // get introduce page
 exports.getIntroduce = (req, res) => {
-    res.render("introduce");
-}
+  res.render("introduce");
+};
 // ----------------
-
 
 // save introduce
 exports.saveIntroudce = (req, res) => {
