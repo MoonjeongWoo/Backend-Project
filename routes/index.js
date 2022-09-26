@@ -3,9 +3,7 @@ const main = require("../controller/Cmain");
 const userResume = require("../controller/CuserResume");
 const company = require("../controller/Ccompany");
 const navbar = require("../controller/Cnavbar");
-
-// const userinfo = require("../controller/CuserInfo");
-// const companyinfo = require("../controller/CcompanyInfo");
+const joinmenber = require("../controller/Cjoinmenber");
 
 // main
 //---------------------------------------
@@ -16,15 +14,20 @@ router.get("/", main.getMain);
 router.post("/userLogin", main.userLogin);
 router.post("/userLoginCompany", main.userLoginCompany);
 
-// joim membership
-router.get("/joinMember", main.getJoinMember);
-router.post("/joinMember/idcheck", main.idCheck);
-router.post("/joinMember/user", main.postJoinMember);
-
-router.get("/joinMemberCompany", main.getJoinMemberCompany);
-router.post("/joinMemberCompany/idcheck", main.idCheckCompany);
-router.post("/joinMemberCompany/user", main.postJoinMemberCompany);
 //---------------------------------------
+
+
+// joinmember
+//---------------------------------------
+router.get("/joinMember", joinmenber.getJoinMember);
+router.post("/joinMember/idcheck", joinmenber.idCheck);
+router.post("/joinMember/user", joinmenber.postJoinMember);
+
+router.get("/joinMemberCompany", joinmenber.getJoinMemberCompany);
+router.post("/joinMemberCompany/idcheck", joinmenber.idCheckCompany);
+router.post("/joinMemberCompany/user", joinmenber.postJoinMemberCompany);
+//---------------------------------------
+
 
 // user
 //---------------------------------------
@@ -35,7 +38,7 @@ router.post("/user/saveIntroudce", userResume.saveIntroudce);
 
 // myPage
 //---------------------------------------
-// router.get("/myPage", userResume.getMyPage);
+
 //---------------------------------------
 
 // company
@@ -43,14 +46,14 @@ router.post("/user/saveIntroudce", userResume.saveIntroudce);
 // get company page
 router.get("/company", company.getCompany);
 
-// post stack tag
+// send elements data
 router.post("/sortUserByElement", company.sortUserByElement);
 //---------------------------------------
 
 // navbar
 //---------------------------------------
-    // get myPage
-    router.get("/myPage", navbar.getMyPage);
+// get myPage
+router.get("/myPage", navbar.getMyPage);
 //---------------------------------------
 
 

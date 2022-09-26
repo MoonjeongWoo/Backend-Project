@@ -52,24 +52,24 @@
             <!-- Password -->
             <div class="input-group mb-3">
                 <!-- <input id="pw" type="password" class="form-control" placeholder="Password" required> -->
-                <input id="pw" type="password" class="form-control" placeholder="Password" required value="pw-test">
+                <input id="pw" type="password" class="form-control" placeholder="Password" required>
             </div>
 
             <div class="input-group mb-3">
                 <!-- <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required> -->
-                <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required value="pw2-test">
+                <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Name</span>
                 <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
-                <input id="name" type="text" class="form-control" placeholder="Username" value="name-test">
+                <input id="name" type="text" class="form-control" placeholder="Username">
             </div>
 
             <!-- E-mail -->
             <div class="input-group mb-3">
                 <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
-                <input id="email" type="text" class="form-control" placeholder="E-mail" value="email-test">
+                <input id="email" type="text" class="form-control" placeholder="E-mail">
                 <span class="input-group-text">@</span>
                 <select class="form-select">
                     <option selected>선택</option>
@@ -83,7 +83,7 @@
             <div class="input-group mb-3">
                 <span class="input-group-text">Location</span>
                 <!-- <input id="location" class="form-control"> -->
-                <input id="location" class="form-control" value="loca-test">
+                <input id="location" class="form-control">
             </div>
 
             <div class="check mb-3">
@@ -127,12 +127,19 @@
             var location = $("#location").val();
 
             data = {
-                id: id,
-                pw: pw,
-                name: name,
-                email: email,
-                location: location
+                id: "id-test",
+                pw: "pw-test",
+                name: "name-test",
+                email: "emailtest@email.com",
+                location: "Seoul"
             };
+            // data = {
+            //     id: id,
+            //     pw: pw,
+            //     name: name,
+            //     email: email,
+            //     location: location
+            // };
 
             axios({
                 url: "/joinMember/user",
