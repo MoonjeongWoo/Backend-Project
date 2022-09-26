@@ -39,6 +39,7 @@
       <div class="selected_list"></div>
       <br />
       <label>career</label>
+
       <input
         type="range"
         name="career"
@@ -48,6 +49,7 @@
         id="range"
         value="1"
       /><br />
+
       <label>port folio</label>
       <input type="text" name="link" value="" id="link" /><br />
       <label etc>짧은 자기소개</label>
@@ -55,6 +57,10 @@
       <button type="button" id="submit" onclick="aaa()">제출</button>
     </form>
     <script>
+      // valueById = $('input[name=inputName]').val();
+      // console.log(valueById);
+
+
       //stack 선택
       $("#stack").change(function () {
         let selected_stack = $("#stack option:selected").text();
@@ -79,6 +85,7 @@
           res.send(response.data);
         });
       }
+
 
       function aaa() {
         var choose = $("#stack").val();
@@ -107,6 +114,8 @@
           console.log(response.data);
         });
       }
+
+
     </script>
   </body>
 </html>

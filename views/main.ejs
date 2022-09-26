@@ -61,11 +61,10 @@
     <!-- 웹 소개 -->
       <div class="our_ser">Our Services<hr></div>
 
-      <div class="grid our_ser_img" style="--bs-columns: 3;">
-        <span class="h-100"><img src="../static/img/main_img/developer.jpg"></span>
-        <span class="h-100"><img src="../static/img/main_img/developer.jpg"></span>
-        <span class="h-100"><img src="../static/img/main_img/developer.jpg"></span>
-
+      <div class="our_ser_img">
+        <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">USER</div>
+        <div class="img_text_1"><img class="img_1" src="../static/img/main_img/company.jpg">CORPORATION</div>
+        <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">SHOW</div>
       </div>
 <div style="display: flex;">
   <div></div>
@@ -75,7 +74,7 @@
     </div>
   </div> 
 </form>
-  <div><%-include("new_login.ejs") %></div>
+  <div><%-include("login.ejs") %></div>
 
 
   <script>
