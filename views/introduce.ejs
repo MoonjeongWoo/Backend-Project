@@ -31,27 +31,31 @@
       <label>stack</label>
       <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
       "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
-      <select name="stack" id="stack">
-        <% for ( var i=0; i < stackList.length; i++ ) { %>
-        <option value="<%= stackList[i] %>"><%= stackList[i] %></option>
-        <% }%></select
-      ><br />
-      <div class="selected_list"></div>
+      <% for ( var i=0; i < stackList.length; i++ ) { %>
+      <button
+        type="button"
+        class="normal_btn"
+        onclick="addStack(this.value)"
+        value="<%= stackList[i] %>"
+      >
+        <%= stackList[i] %>
+      </button>
+      <% } %>
       <br />
       <label>career</label>
-
+      <br />
+      <label>port folio :</label>
+      <br />
+      <input type="file" name="link" value="" id="files" /><br />
       <input
-        type="range"
-        name="career"
-        min="0"
-        ,
-        max="20"
-        id="range"
-        value="1"
-      /><br />
-
-      <label>port folio</label>
-      <input type="text" name="link" value="" id="link" /><br />
+        type="url"
+        name="link"
+        id="link"
+        placeholder="https://github.com"
+        pattern="https://"
+        size="30"
+      />링크
+      <br />
       <label etc>짧은 자기소개</label>
       <input type="text" name="etc" value="" id="etc" /><br />
       <button type="button" id="submit" onclick="aaa()">제출</button>
@@ -59,25 +63,46 @@
     <script>
       // valueById = $('input[name=inputName]').val();
       // console.log(valueById);
-
-
       //stack 선택
-      $("#stack").change(function () {
-        let selected_stack = $("#stack option:selected").text();
-        $("selected_list").appendTo(`<p>${selected_stack}</p>`);
-        sendData("stack_lists", selected_stack);
-      });
+      var stackList = "";
+      function addStack(stack) {
+        $(`button[value$="${stack}"]`).css("background-color", "grey");
+        $("#selected").append(
+          `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
+        );
+        $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
+
+        stackList += stack + "|";
+        console.log(stackList);
+      }
+      function delStack(stack) {
+        $(`button[value$="${stack}"]`).css(
+          "background-color",
+          "rgb(228, 228, 228)"
+        );
+        $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
+        $(`button[value$="${stack}-checked"]`).remove();
+        stackList = stackList.replace(`${stack}|`, "");
+        console.log(stackList);
+      }
       //career value 값
-      var ranges = document.getElementById("range");
+
+      //링크 가져오기
+      var get_URL = $("#link").html();
+      console.log(get_URL);
+
+      /*   var ranges = document.getElementById("range");
       ranges.onchange = function () {
         sendElement("career", ranges.value);
-      };
+      };*/
+
       //axios로 보내기
       function sendData(element, data) {
         axios({
           url: "",
           method: "post",
           data: {
+            stack: stackList,
             elements: element,
             datas: data,
           },
@@ -85,7 +110,6 @@
           res.send(response.data);
         });
       }
-
 
       function aaa() {
         var choose = $("#stack").val();
@@ -114,8 +138,6 @@
           console.log(response.data);
         });
       }
-
-
     </script>
   </body>
 </html>
