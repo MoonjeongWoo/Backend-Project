@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for macos12 (x86_64)
 --
 -- Host: localhost    Database: pick_me
 -- ------------------------------------------------------
@@ -44,6 +44,110 @@ INSERT INTO `company` VALUES ('077c98f9-64f8-43c3-8664-8c5d5734b70b','company-id
 UNLOCK TABLES;
 
 --
+-- Table structure for table `elementCareer`
+--
+
+DROP TABLE IF EXISTS `elementCareer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `elementCareer` (
+  `0` varchar(36) DEFAULT NULL,
+  `1` varchar(36) DEFAULT NULL,
+  `2` varchar(36) DEFAULT NULL,
+  `3` varchar(36) DEFAULT NULL,
+  `4` varchar(36) DEFAULT NULL,
+  `5` varchar(36) DEFAULT NULL,
+  `6` varchar(36) DEFAULT NULL,
+  `7` varchar(36) DEFAULT NULL,
+  `8` varchar(36) DEFAULT NULL,
+  `9` varchar(36) DEFAULT NULL,
+  `10` varchar(36) DEFAULT NULL,
+  `11` varchar(36) DEFAULT NULL,
+  `12` varchar(36) DEFAULT NULL,
+  `13` varchar(36) DEFAULT NULL,
+  `14` varchar(36) DEFAULT NULL,
+  `15` varchar(36) DEFAULT NULL,
+  `16` varchar(36) DEFAULT NULL,
+  `17` varchar(36) DEFAULT NULL,
+  `18` varchar(36) DEFAULT NULL,
+  `19` varchar(36) DEFAULT NULL,
+  `20` varchar(36) DEFAULT NULL,
+  `21` varchar(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `elementCareer`
+--
+
+LOCK TABLES `elementCareer` WRITE;
+/*!40000 ALTER TABLE `elementCareer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `elementCareer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `elementLocation`
+--
+
+DROP TABLE IF EXISTS `elementLocation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `elementLocation` (
+  `Seoul` varchar(36) DEFAULT NULL,
+  `Incheon` varchar(36) DEFAULT NULL,
+  `Daejeon` varchar(36) DEFAULT NULL,
+  `Daegu` varchar(36) DEFAULT NULL,
+  `Pusan` varchar(36) DEFAULT NULL,
+  `Ulsan` varchar(36) DEFAULT NULL,
+  `Gwangju` varchar(36) DEFAULT NULL,
+  `Gyeonggi` varchar(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `elementLocation`
+--
+
+LOCK TABLES `elementLocation` WRITE;
+/*!40000 ALTER TABLE `elementLocation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `elementLocation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `elementStack`
+--
+
+DROP TABLE IF EXISTS `elementStack`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `elementStack` (
+  `JAVA` varchar(36) DEFAULT NULL,
+  `Javascript` varchar(36) DEFAULT NULL,
+  `Python` varchar(36) DEFAULT NULL,
+  `R` varchar(36) DEFAULT NULL,
+  `C` varchar(36) DEFAULT NULL,
+  `C++` varchar(36) DEFAULT NULL,
+  `C#` varchar(36) DEFAULT NULL,
+  `PHP` varchar(36) DEFAULT NULL,
+  `Cobol` varchar(36) DEFAULT NULL,
+  `HTML` varchar(36) DEFAULT NULL,
+  `Linux` varchar(36) DEFAULT NULL,
+  `Kotlin` varchar(36) DEFAULT NULL,
+  `Dart` varchar(36) DEFAULT NULL,
+  `Go` varchar(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `elementStack`
+--
+
+LOCK TABLES `elementStack` WRITE;
+/*!40000 ALTER TABLE `elementStack` DISABLE KEYS */;
+/*!40000 ALTER TABLE `elementStack` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `introduce`
 --
 
@@ -74,14 +178,14 @@ INSERT INTO `introduce` VALUES ('0cd39fca-2f51-4ee9-9b32-4e04b7cb5cd8','react','
 UNLOCK TABLES;
 
 --
--- Temporary view structure for view `user_introduce`
+-- Temporary view structure for view `userResume`
 --
 
-DROP TABLE IF EXISTS `user_introduce`;
-/*!50001 DROP VIEW IF EXISTS `user_introduce`*/;
+DROP TABLE IF EXISTS `userResume`;
+/*!50001 DROP VIEW IF EXISTS `userResume`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `user_introduce` AS SELECT 
+/*!50001 CREATE VIEW `userResume` AS SELECT 
  1 AS `uuid`,
  1 AS `name`,
  1 AS `email`,
@@ -89,7 +193,8 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `stack`,
  1 AS `career`,
  1 AS `portfolio`,
- 1 AS `etc`*/;
+ 1 AS `etc`,
+ 1 AS `updatedAt`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -121,10 +226,10 @@ INSERT INTO `users` VALUES ('0cd39fca-2f51-4ee9-9b32-4e04b7cb5cd8','id004','123'
 UNLOCK TABLES;
 
 --
--- Final view structure for view `user_introduce`
+-- Final view structure for view `userResume`
 --
 
-/*!50001 DROP VIEW IF EXISTS `user_introduce`*/;
+/*!50001 DROP VIEW IF EXISTS `userResume`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
@@ -133,7 +238,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `user_introduce` AS select `a`.`uuid` AS `uuid`,`a`.`name` AS `name`,`a`.`email` AS `email`,`a`.`location` AS `location`,`b`.`stack` AS `stack`,`b`.`career` AS `career`,`b`.`portfolio` AS `portfolio`,`b`.`etc` AS `etc` from (`users` `a` left join `introduce` `b` on((`a`.`uuid` = `b`.`uuid`))) */;
+/*!50001 VIEW `userresume` AS select `user`.`uuid` AS `uuid`,`user`.`name` AS `name`,`user`.`email` AS `email`,`user`.`location` AS `location`,`introduce`.`stack` AS `stack`,`introduce`.`career` AS `career`,`introduce`.`portfolio` AS `portfolio`,`introduce`.`etc` AS `etc`,`introduce`.`updatedAt` AS `updatedAt` from (`users` `user` join `introduce`) where (`user`.`uuid` = `introduce`.`uuid`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -147,4 +252,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-23 17:59:48
+-- Dump completed on 2022-09-26 15:03:09
