@@ -77,6 +77,12 @@ div{
   width: 100%;
   height: 300px;
 }
+@media screen and(max-width: 600px){
+  .choose_stack{
+  width: 100%;
+  height: 550px;
+}
+}
 .choose_stack h1{
   text-align: left;
 }
