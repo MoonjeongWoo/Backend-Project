@@ -40,15 +40,8 @@
       <br />
       <label>career</label>
 
-      <input
-        type="range"
-        name="career"
-        min="0"
-        ,
-        max="20"
-        id="range"
-        value="1"
-      /><br />
+     <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
+      
 
       <label>port folio</label>
       <input type="text" name="link" value="" id="link" /><br />
@@ -56,10 +49,13 @@
       <input type="text" name="etc" value="" id="etc" /><br />
       <button type="button" id="submit" onclick="aaa()">제출</button>
     </form>
-    <script>
-      // valueById = $('input[name=inputName]').val();
-      // console.log(valueById);
 
+    <script>
+      // 경력 추가
+    var i = 0;
+     function addCar(){
+          $('.career').append(`<div>경력<input id='year${i++}' class='text'>근무지<input id='place${i++}' class='text'></div>`)
+      }
 
       //stack 선택
       $("#stack").change(function () {
@@ -67,11 +63,7 @@
         $("selected_list").appendTo(`<p>${selected_stack}</p>`);
         sendData("stack_lists", selected_stack);
       });
-      //career value 값
-      var ranges = document.getElementById("range");
-      ranges.onchange = function () {
-        sendElement("career", ranges.value);
-      };
+
       //axios로 보내기
       function sendData(element, data) {
         axios({
@@ -87,32 +79,41 @@
       }
 
 
+      function getCar(){
+        for(var j=0; j<i; j++){
+          console.log($(`#year${j}, #place${j}`).val());
+        }
+      }
+      
       function aaa() {
         var choose = $("#stack").val();
         var career = $("#link").val();
         var etc = $("#etc").val();
         var range = $("#range").val();
 
+        getCar()
+
+        
         // data = {
         //   stack: choose,
         //   link: career,
         //   etc: etc,
         //   range: range,
         // };
-        data = {
-          stack: "c++",
-          career: "1",
-          portfolio: "gogo.com",
-          etc: "hihihihi",
-        };
-        console.log(data);
-        axios({
-          url: "/user/saveIntroudce",
-          method: "post",
-          data: data,
-        }).then((response) => {
-          console.log(response.data);
-        });
+        // data = {
+        //   stack: "c++",
+        //   career: "1",
+        //   portfolio: "gogo.com",
+        //   etc: "hihihihi",
+        // };
+        // console.log(data);
+        // axios({
+        //   url: "/user/saveIntroudce",
+        //   method: "post",
+        //   data: data,
+        // }).then((response) => {
+        //   console.log(response.data);
+        // });
       }
 
 
