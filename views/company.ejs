@@ -78,6 +78,7 @@
               <option value="">Pusan</option>
               <option value="">Ulsan</option>
               <option value="">Gwangju</option>
+              <option value="">Gyeonggi</option>
             </select>
           </div>
           <!-- 클릭하면 추가되는 자리 -->
@@ -189,6 +190,18 @@
         let selected_name = $(".accordion").html();
         $(".selected_bucket").append(`<p>${selected_name}</p>`);
       }
+
+      $("#location_select").change(function () {
+        var location_selected = $("#location_select option:selected").text();
+        //console.log(location_selected);
+        axios({
+          url: "",
+          method: "post",
+          data: location_selected,
+        }).then((response) => {
+          res.send(response.data);
+        });
+      });
     </script>
   </body>
 </html>
