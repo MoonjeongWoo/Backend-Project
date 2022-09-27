@@ -32,7 +32,7 @@ exports.Companysession = (req, res) => {
     },
   }).then((result) => {
     if (result[0] != undefined) {
-      if (!req.session.user) {
+      if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
       }
     }

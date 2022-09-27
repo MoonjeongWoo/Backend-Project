@@ -40,13 +40,15 @@
   <body>
     <div class="cotn_principal">
       <div class="cont_centrar">
-        <% if(isOk){ %>
-        <div>어서오세요</div>
+  
+        <div>어서오세요 <% isLogin %></div>
+        <% if(isLogin){ %>
+
         <% }else{ %>
-        <div class="cont_login">
-          <div class="cont_info_log_sign_up">
-            <div class="col_md_login">
-              <div class="cont_ba_opcitiy">
+          <div class="cont_login">
+            <div class="cont_info_log_sign_up">
+              <div class="col_md_login">
+                <div class="cont_ba_opcitiy">
                 <h2>USER</h2>
                 <p>개인(개발자) 로그인</p>
                 <button class="btn_login" onclick="user_login()">LOGIN</button>
@@ -71,7 +73,7 @@
               <input type="text" value="id-test" id="id" placeholder="ID" />
               <input
                 type="password"
-                value="mypw"
+                value="pw-test"
                 id="pw"
                 placeholder="Password"
               />
@@ -120,11 +122,8 @@
           //console.log(response.data.result);
           if (response.data.result == 1) {
             $(".cotn_principal").attr("style", "display: none");
-            $("#login").attr("style", "color: gold");
-            $("#login").text("logout");
-            $(".second-back").html(
-              `<div><%-include("loginAfter.ejs") %></div>`
-            );
+            $(".cont_centrar").html(`<%-include("loginAfter.ejs") %>`);
+            $(".user").attr("style", "display:block !important");
             //var userid = sessionStorage.setItem("user_id", data.id);
             //var userpw = sessionStorage.setItem("user_pw", data.pw);
           } else {
@@ -150,7 +149,7 @@
           if (response.data.result == 1) {
             $(".cotn_principal").attr("style", "display: none");
             $("#login").attr("style", "color: gold");
-            $("#login").text("logout");
+            $(".Corp").attr("style", "display:block");
           } else {
             alert("올바르지 않은 아이디 혹은 비밀번호 입니다.");
           }
