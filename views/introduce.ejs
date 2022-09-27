@@ -31,53 +31,39 @@
       <label>stack</label>
       <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
       "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
-      <% for ( var i=0; i < stackList.length; i++ ) { %>
-      <button
-        type="button"
-        class="normal_btn"
-        onclick="addStack(this.value)"
-        value="<%= stackList[i] %>"
-      >
-        <%= stackList[i] %>
-      </button>
-      <% } %>
+      <select name="stack" id="stack">
+        <% for ( var i=0; i < stackList.length; i++ ) { %>
+        <option value="<%= stackList[i] %>"><%= stackList[i] %></option>
+        <% }%></select
+      ><br />
+      <div class="selected_list"></div>
       <br />
       <label>career</label>
 
      <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
       
-      <br />
-      <label>port folio :</label>
-      <br />
-      <input
-        type="url"
-        name="link"
-        id="link"
-        placeholder="https://github.com"
-        pattern="https://"
-        size="30"
-      />링크
-      <br />
 
+      <label>port folio</label>
+      <input type="text" name="link" value="" id="link" /><br />
       <label etc>짧은 자기소개</label>
       <input type="text" name="etc" value="" id="etc" /><br />
-      <button type="button" id="submit" onclick="sendData()">제출</button>
+      <button type="button" id="submit" onclick="aaa()">제출</button>
     </form>
 
     <script>
-
-      // valueById = $('input[name=inputName]').val();
-      // console.log(valueById);
-
       // 경력 추가
     var i = 0;
      function addCar(){
           $('.career').append(`<div>경력<input id='year${i}' class='text'>근무지<input id='place${i++}' class='text'></div>`)
       }
 
-
-
       //stack 선택
+      $("#stack").change(function () {
+        let selected_stack = $("#stack option:selected").text();
+        $("selected_list").appendTo(`<p>${selected_stack}</p>`);
+        sendData("stack_lists", selected_stack);
+      });
+
       var stackList = "";
       function addStack(stack) {
         $(`button[value$="${stack}"]`).css("background-color", "grey");
@@ -118,11 +104,8 @@
           url: "",
           method: "post",
           data: {
-            stack: stackList,
             elements: element,
             datas: data,
-            git_links: get_URL,
-            introduce: myself,
           },
         }).then((response) => {
           res.send(response.data);
@@ -133,7 +116,6 @@
       function getCar(){
         var career ="";
         for(var j=0; j<i; j++){
-          // console.log($(`#year${j}`).val(), $(`#place${j}`).val());
           career = career + $(`#year${j}`).val() + '|' + $(`#place${j}`).val() + '|';
         }
         return career ;
