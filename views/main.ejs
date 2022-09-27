@@ -85,6 +85,23 @@
       }
     });
 
+    let navbar_user = $(".user");
+
+    if(navbar_user.css("display","none")){
+      $(".Corp").css("display", "block");
+    }else if(navbar_user.css("display","block")){
+      $(".Corp").css("display","none")
+    }else{
+      $(".user").css("display","none");
+      $(".Corp").css("display","none")
+    };
+
+ 
+
+    
+
+
+
   
     
     //let userid = sessionStorage.getItem("user_id");
