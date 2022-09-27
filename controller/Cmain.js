@@ -135,19 +135,18 @@ exports.userLogout = (req, res) => {
   // console.log('/process/logout 호출됨1');
   // console.log("세션값1", req.session);
 
-  if(req.session) {
+  if (req.session) {
     // console.log("로그아웃");
     // console.log("세션값2", req.session);
 
-    req.session.destroy((err)=>{
-      if(err) throw err;
+    req.session.destroy((err) => {
+      if (err) throw err;
       // console.log('세션 삭제하고 로그아웃됨');
       // console.log("세션값3", req.session);
-      res.redirect('/'); // res.redirect('/public/login.html');
+      res.redirect("/"); // res.redirect('/public/login.html');
     });
-  }
-  else {
+  } else {
     // console.log('로그인 상태 아님1');
     // res.redirect('/');
-  } 
-}
+  }
+};
