@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <title>Scrap</title>
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      .user-Login {
+            width: 80%;
+        }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <div class="user-Login">
+          <!-- <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">uuid</span>
+      <input id="uuid" type="text" class="form-control" placeholder="Nickname">
+  </div> -->
+
+          <!-- ID -->
+          <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">ID</span>
+              <!-- <input id="id" type="text" class="form-control" placeholder="Nickname"> -->
+              <input id="id" type="text" class="form-control" placeholder="Nickname" value="id-test">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="idCheck()">중복 확인</button>
+          </div>
+
+          <!-- Password -->
+          <div class="input-group mb-3">
+              <!-- <input id="pw" type="password" class="form-control" placeholder="Password" required> -->
+              <input id="pw" type="password" class="form-control" placeholder="Password" required>
+          </div>
+
+          <div class="input-group mb-3">
+              <!-- <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required> -->
+              <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required>
+          </div>
+
+          <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Name</span>
+              <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
+              <input id="name" type="text" class="form-control" placeholder="Username">
+          </div>
+
+          <!-- E-mail -->
+          <div class="input-group mb-3">
+              <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
+              <input id="email" type="text" class="form-control" placeholder="E-mail">
+              <span class="input-group-text">@</span>
+              <select class="form-select">
+                  <option selected>선택</option>
+                  <option value="1">naver.com</option>
+                  <option value="2">gmail.com</option>
+                  <option value="3">...</option>
+              </select>
+          </div>
+
+          <!-- Location -->
+          <div class="input-group mb-3">
+              <span class="input-group-text">Location</span>
+              <!-- <input id="location" class="form-control"> -->
+              <input id="location" class="form-control">
+          </div>
+
+          <div class="d-grid gap-2 mb-3">
+              <button class="btn btn-primary" type="button" onclick="mod()">수정</button>
+          </div>
+
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </form>
+
+    <script>
+    
+    </script>
+  </body>
+</html>
