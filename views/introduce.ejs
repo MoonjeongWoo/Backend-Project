@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
-  <title>Document</title>
+  <title>introduce</title>
   <!-- jquery -->
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -30,8 +30,8 @@
       <br />
       <label>career</label>
       <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
-      <label>port folio</label>
-      <input type="text" name="link" value="" id="link" /><br />
+      <label>portfolio</label>
+      <input type="text" name="link" value="" id="portfolio" /><br />
       <label etc>짧은 자기소개</label>
       <input type="text" name="etc" value="" id="etc" /><br />
       <button type="button" id="submit" onclick="aaa()">제출</button>
@@ -64,14 +64,17 @@
         $(`button[value$="${stack}-checked"]`).remove();
         stackList = stackList.replace(`${stack}|`, "");
         console.log(stackList);
-      }
+      };
       //career value 값
 
       //링크 가져오기(portfolio)
-      var get_URL = $("#link").text();
 
       //자기소개
       var myself = $("#etc").val();
+      // var ranges = document.getElementById("range");
+      // ranges.onchange = function () {
+      //   sendElement("career", ranges.value);
+      // };
 
 
       function getCar() {
@@ -83,16 +86,18 @@
       }
 
       function aaa() {
-        var choose = $("#stack").val();
         var etc = $("#etc").val();
+        var getURL = $("#portfolio").val();
         var career = getCar();
         console.log(career);
 
 
         data = {
           stack: stackList,
-          etc: etc,
-          career: career
+          // range: range,
+          career: career,
+          portfolio: getURL,
+          etc: etc
         };
 
         console.log(data);
