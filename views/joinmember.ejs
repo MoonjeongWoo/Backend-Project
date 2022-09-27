@@ -126,20 +126,20 @@
             var email = $("#email").val();
             var location = $("#location").val();
 
-            data = {
-                id: "id-test",
-                pw: "pw-test",
-                name: "name-test",
-                email: "emailtest@email.com",
-                location: "Seoul"
-            };
             // data = {
-            //     id: id,
-            //     pw: pw,
-            //     name: name,
-            //     email: email,
-            //     location: location
+            //     id: "id-test",
+            //     pw: "pw-test",
+            //     name: "name-test",
+            //     email: "emailtest@email.com",
+            //     location: "Seoul"
             // };
+            data = {
+                id: id,
+                pw: pw,
+                name: name,
+                email: email,
+                location: location
+            };
 
             axios({
                 url: "/joinMember/user",
