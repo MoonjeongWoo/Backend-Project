@@ -14,6 +14,9 @@ router.get("/", main.getMain);
 router.post("/userLogin", main.userLogin);
 router.post("/userLoginCompany", main.userLoginCompany);
 
+// logout
+router.get("/process/logout", main.userLogout)
+
 //---------------------------------------
 
 // joinmember
