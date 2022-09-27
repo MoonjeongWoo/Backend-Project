@@ -11,11 +11,13 @@ exports.getIntroduce = (req, res) => {
 
 // save introduce
 exports.saveIntroudce = (req, res) => {
-    UserResume.create({
+    var stackModi = req.body.stack.split("|");
+    console.log("stackmodi", stackModi);
+    UserResume.create({  
         uuid: req.session.uuid,
         stack: req.body.stack,
         career: req.body.career,
-        portfolio: req.body.range,
+        portfolio: req.body.portfolio,
         etc: req.body.etc
     }).then(() => {
         // ElementCareer.create({
@@ -28,5 +30,5 @@ exports.saveIntroudce = (req, res) => {
             
         // })
     })  
-}
+}   
 // ----------------
