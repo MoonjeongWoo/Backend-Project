@@ -16,7 +16,6 @@ router.post("/userLoginCompany", main.userLoginCompany);
 
 //---------------------------------------
 
-
 // joinmember
 //---------------------------------------
 router.get("/joinMember", joinmember.getJoinMember);
@@ -27,7 +26,6 @@ router.get("/joinMemberCompany", joinmember.getJoinMemberCompany);
 router.post("/joinMemberCompany/idcheck", joinmember.idCheckCompany);
 router.post("/joinMemberCompany/user", joinmember.postJoinMemberCompany);
 //---------------------------------------
-
 
 // user
 //---------------------------------------
@@ -51,6 +49,7 @@ router.post("/sortUserByElement", company.sortUserByElement);
 //---------------------------------------
 
 // navbar
+
 //---------------------------------------
 // get myPage
 router.get("/myPage", navbar.getMyPage);
@@ -59,6 +58,5 @@ router.get("/myPage", navbar.getMyPage);
 // edit profile
 router.get("/profile", joinmember.readyToEdit);
 router.post("/profile/edit", joinmember.editProfile);
-
 
 module.exports = router;
