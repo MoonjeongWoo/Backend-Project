@@ -64,6 +64,40 @@
         sendData("stack_lists", selected_stack);
       });
 
+      var stackList = "";
+      function addStack(stack) {
+        $(`button[value$="${stack}"]`).css("background-color", "grey");
+        $("#selected").append(
+          `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
+        );
+        $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
+
+        stackList += stack + "|";
+        console.log(stackList);
+      }
+      function delStack(stack) {
+        $(`button[value$="${stack}"]`).css(
+          "background-color",
+          "rgb(228, 228, 228)"
+        );
+        $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
+        $(`button[value$="${stack}-checked"]`).remove();
+        stackList = stackList.replace(`${stack}|`, "");
+        console.log(stackList);
+      }
+      //career value 값
+
+      //링크 가져오기(portfolio)
+      var get_URL = $("#link").text();
+
+      //자기소개
+      var myself = $("#etc").val();
+      /*   var ranges = document.getElementById("range");
+      ranges.onchange = function () {
+        sendElement("career", ranges.value);
+      };*/
+
+
       //axios로 보내기
       function sendData(element, data) {
         axios({

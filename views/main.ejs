@@ -66,15 +66,10 @@
         <div class="img_text_1"><img class="img_1" src="../static/img/main_img/company.jpg">CORPORATION</div>
         <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">SHOW</div>
       </div>
-<div style="display: flex;">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
     </div>
   </div> 
 </form>
-  <div><%-include("login.ejs") %></div>
+  <div class="login_div"><%-include("login.ejs") %></div>
 
 
   <script>
@@ -89,6 +84,10 @@
         $(".Corp").attr("style", "color: white !important");
       }
     });
+    
+    //let userid = sessionStorage.getItem("user_id");
+    //let userpw = sessionStorage.getItem("user_pw");
+    
   </script>
 
   </body>
