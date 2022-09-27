@@ -15,7 +15,7 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    display: block;
+    display: none;
   }
   .topnav a.Corp {
     float: right;
@@ -24,9 +24,9 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    display: block;
+    display: none;
   }
-  #login {
+  #logout {
     float: right;
     color: black;
     text-align: center;
@@ -34,9 +34,27 @@
     text-decoration: none;
     font-size: 17px;
   }
+  .public{
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  #main{
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
   /* Change the color of links on hover */
   .topnav a:hover {
-    background-color: darkgray;
+    background-color: whitesmoke;
     color: black;
   }
 
@@ -67,7 +85,14 @@
     }
     .navbar_menu.active{
       display: flex;
-    }
+    } #logout {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
 
     
   }

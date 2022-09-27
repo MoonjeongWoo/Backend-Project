@@ -1,15 +1,14 @@
 <link rel="stylesheet" href="/static/css/navbar.css" />
 <nav class="topnav">
   <div>
-    <a href="/" class="user">Main</a>
+    <a href="/" class="public" id="main">Main</a>
     <a href="/" class="user">이력 등록</a>
     <a href="#Watch" class="user">다른 이력들 보기</a>
-    <a href="/myPage" class="Corp">Mypage</a>
-
-    <a href="joinmember" id="login">회원가입</a>
-
-    <a href="/process/logout" id="">logout</a>
-
+    <a href="/myPage" class="public">Mypage</a>
+    <a href="joinmember" class="public">회원가입</a>
+    <a href="/process/logout" class="public" onclick="Delete_session(name);"
+      >logout</a
+    >
     <a href="/company" class="Corp">개발자보기</a>
     <a href="#Bucket" class="Corp">내가 담은 개발자</a>
   </div>
@@ -23,14 +22,18 @@
 <!-- scroll 시 navbar 배경 화면 보이기 필요시 복붙-->
 <script>
   /*window.addEventListener("scroll", function () {
-    if (scrollY <= 350 && scrollY >= 0) {
-      $(".topnav").attr("style", "background-color: transparent !import");
-      $(".user").attr("style", "color : black !important");
-      $(".Corp").attr("style", "color: black !important");
-    } else {
-      $(".topnav").attr("style", "background-color:  #333 !important");
-      $(".user").attr("style", "color : white !important");
-      $(".Corp").attr("style", "color: white !important");
-    }
-  });*/
+      if (scrollY <= 350 && scrollY >= 0) {
+        $(".topnav").attr("style", "background-color: transparent !import");
+        $(".user").attr("style", "color : black !important");
+        $(".Corp").attr("style", "color: black !important");
+      } else {
+        $(".topnav").attr("style", "background-color:  #333 !important");
+        $(".user").attr("style", "color : white !important");
+        $(".Corp").attr("style", "color: white !important");
+      }
+    });*/
+  function Delete_session(name) {
+    sessionStorage.clear();
+    document.cookie = name + "=; expires=Thu, 01 Jan 1999 00:00:10 GMT;";
+  }
 </script>
