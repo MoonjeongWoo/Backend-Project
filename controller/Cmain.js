@@ -17,7 +17,12 @@ exports.getMain = (req, res) => {
 
 // get login page
 exports.getLogin = (req, res) => {
-  res.render("login");
+  if (req.session.uuid != undefined) {
+    res.render("login");
+    // res.render("login", { isOk: check(req.session.uuid) });
+  } else {
+    res.render("loginAfter");
+  }
 };
 // -------------------------------
 
