@@ -23,8 +23,8 @@ exports.sortUserByElement = (req, res) => {
   //   console.log(element[i]);
   // }
 };
-exports.Usersession = (req, res) => {
-  UserInfo.findAll({
+exports.Companysession = (req, res) => {
+  CompanyInfo.findAll({
     attributes: ["uuid"],
     where: {
       id: req.body.id,
