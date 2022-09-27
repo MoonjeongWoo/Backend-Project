@@ -8,7 +8,6 @@ exports.getMain = (req, res) => {
   res.render("main", { isLogin: isLogin(req.session.uuid) });
   console.log(req.session.uuid);
   //찍으면 undifined 생김
-
   // res.render("main", {isLogin: isLogin});
 };
 // -------------------------------
