@@ -1,32 +1,34 @@
 const { UserInfo } = require("../model");
 const { CompanyInfo } = require("../model");
-const { isLogin }  = require("./Cfunc"); 
-
+const { isLogin } = require("./Cfunc");
 
 // get main page
 exports.getMain = (req, res) => {
   // console.log(isLogin )
-  res.render("main", {isLogin: isLogin(req.session.uuid)});
+  res.render("main", { isLogin: isLogin(req.session.uuid) });
+  console.log(req.session.uuid);
+  //찍으면 undifined 생김
+
   // res.render("main", {isLogin: isLogin});
 };
 // -------------------------------
 
 // get login page
 exports.getLogin = (req, res) => {
-  res.render("login", {isLogin: isLogin(req.session.uuid)});
+  res.render("login", { isLogin: isLogin(req.session.uuid) });
   // res.render("login", {isLogin: isLogin});
 };
 // -------------------------------
 
 // get joinmember page
 exports.getJoinMember = (req, res) => {
-  res.render("joinMember", {isLogin: isLogin(req.session.uuid)});
+  res.render("joinMember", { isLogin: isLogin(req.session.uuid) });
 };
 // -------------------------------
 
 // get joinmember page _ Corp
 exports.getJoinMemberCompany = (req, res) => {
-  res.render("joinMemberCompany", {isLogin: isLogin(req.session.uuid)});
+  res.render("joinMemberCompany", { isLogin: isLogin(req.session.uuid) });
 };
 // -------------------------------
 
@@ -117,7 +119,6 @@ exports.userLoginCompany = (req, res) => {
 //   }
 //   res.redirect("/");
 exports.userLogout = (req, res) => {
-
   // console.log('/process/logout 호출됨1');
   // console.log("세션값1", req.session);
 
@@ -132,16 +133,16 @@ exports.userLogout = (req, res) => {
       res.redirect("/"); // res.redirect('/public/login.html');
     });
   } else {
-
-  if(req.session) {
-    req.session.destroy(function(err) {
-      if (err) {throw err;}
-      res.redirect('/');
-    })
-  }
-  else {
-
-    // console.log('로그인 상태 아님1');
-    // res.redirect('/');
+    if (req.session) {
+      req.session.destroy(function (err) {
+        if (err) {
+          throw err;
+        }
+        res.redirect("/");
+      });
+    } else {
+      // console.log('로그인 상태 아님1');
+      // res.redirect('/');
+    }
   }
 };

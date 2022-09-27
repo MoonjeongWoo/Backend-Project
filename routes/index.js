@@ -15,7 +15,7 @@ router.post("/userLogin", main.userLogin);
 router.post("/userLoginCompany", main.userLoginCompany);
 
 // logout
-router.get("/process/logout", main.userLogout)
+router.get("/process/logout", main.userLogout);
 
 //---------------------------------------
 
@@ -62,10 +62,7 @@ router.get("/myPage", navbar.getMyPage);
 router.get("/profile", joinmember.readyToEdit);
 router.post("/profile/edit", joinmember.editProfile);
 
-
-
 // del account
 router.post("/profile/del", joinmember.delAccount);
-
 
 module.exports = router;
