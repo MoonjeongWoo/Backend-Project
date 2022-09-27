@@ -40,6 +40,9 @@
   <body>
     <div class="cotn_principal">
       <div class="cont_centrar">
+        <% if (isOk){ %>
+        <div>어서오세요</div>
+        <% }else{ %>
         <div class="cont_login">
           <div class="cont_info_log_sign_up">
             <div class="col_md_login">
@@ -96,6 +99,7 @@
             </div>
           </div>
         </div>
+        <% } %>
       </div>
     </div>
 
@@ -121,10 +125,10 @@
             $(".second-back").html(
               `<div><%-include("loginAfter.ejs") %></div>`
             );
-
-            var userid = sessionStorage.setItem("user_id", data.id);
-            var userpw = sessionStorage.setItem("user_pw", data.pw);
-            console.log(sessionStorage.getItem("user_id"), userpw);
+            if (sessionStorage.getItem("user_id") != null) {
+            }
+            //var userid = sessionStorage.setItem("user_id", data.id);
+            //var userpw = sessionStorage.setItem("user_pw", data.pw);
           } else {
             alert("올바르지 않은 아이디 혹은 비밀번호 입니다.");
           }

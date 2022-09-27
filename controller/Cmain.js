@@ -1,9 +1,17 @@
 const { UserInfo } = require("../model");
 const { CompanyInfo } = require("../model");
 
+const check = (para) => {
+  let isOk = false;
+  if (para != undefined) {
+    isOk = true;
+  }
+  return isOk;
+};
+
 // get main page
 exports.getMain = (req, res) => {
-  res.render("main");
+  res.render("main", { isOk: check(req.session.uuid) });
 };
 // -------------------------------
 
@@ -12,7 +20,6 @@ exports.getLogin = (req, res) => {
   res.render("login");
 };
 // -------------------------------
-
 
 // get joinmember page
 exports.getJoinMember = (req, res) => {
@@ -39,10 +46,10 @@ exports.postJoinMember = (req, res) => {
     pw: req.body.pw,
     name: req.body.name,
     email: req.body.email,
-    location: req.body.location
+    location: req.body.location,
   }).then((result) => {
-    console.log(result)
-  })
+    console.log(result);
+  });
 };
 // -------------------------------
 
@@ -54,22 +61,21 @@ exports.postJoinMemberCompany = (req, res) => {
     pw: req.body.pw,
     name: req.body.name,
     email: req.body.email,
-    location: req.body.location
+    location: req.body.location,
   }).then((result) => {
-    console.log(result)
-  })
+    console.log(result);
+  });
 };
 // -------------------------------
-
 
 // try login
 exports.userLogin = (req, res) => {
   UserInfo.findAll({
-    attributes: ['uuid'],
+    attributes: ["uuid"],
     where: {
       id: req.body.id,
-      pw: req.body.pw
-    }
+      pw: req.body.pw,
+    },
   }).then((result) => {
     if (result[0] != undefined) {
       if (!req.session.user) {
@@ -80,20 +86,19 @@ exports.userLogin = (req, res) => {
       var data = { result: 0 };
     }
 
-    // login success return 1 fail return 0 
+    // login success return 1 fail return 0
     res.send(data);
   });
 };
 
-
 // try login (기업 회원)
 exports.userLoginCompany = (req, res) => {
   CompanyInfo.findAll({
-    attributes: ['uuid'],
+    attributes: ["uuid"],
     where: {
       id: req.body.id,
-      pw: req.body.pw
-    }
+      pw: req.body.pw,
+    },
   }).then((result) => {
     if (result[0] != undefined) {
       if (!req.session.user) {
@@ -103,7 +108,7 @@ exports.userLoginCompany = (req, res) => {
     } else {
       var data = { result: 0 };
     }
-    // login success return 1 fail return 0 
+    // login success return 1 fail return 0
     res.send(data);
   });
 };
