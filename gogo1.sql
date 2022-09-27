@@ -30,7 +30,7 @@ CREATE TABLE `company` (
   `email` varchar(50) NOT NULL,
   `location` varchar(100) NOT NULL,
   PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `elementCareer` (
   `19` varchar(36) DEFAULT NULL,
   `20` varchar(36) DEFAULT NULL,
   `21` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +101,7 @@ CREATE TABLE `elementLocation` (
   `Ulsan` varchar(36) DEFAULT NULL,
   `Gwangju` varchar(36) DEFAULT NULL,
   `Gyeonggi` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +135,7 @@ CREATE TABLE `elementStack` (
   `Kotlin` varchar(36) DEFAULT NULL,
   `Dart` varchar(36) DEFAULT NULL,
   `Go` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,7 +164,7 @@ CREATE TABLE `introduce` (
   `updatedAt` timestamp NULL DEFAULT NULL,
   KEY `uuid` (`uuid`),
   CONSTRAINT `introduce_ibfk_1` FOREIGN KEY (`uuid`) REFERENCES `users` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,7 +212,7 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `location` varchar(100) NOT NULL,
   PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +235,7 @@ UNLOCK TABLES;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `userresume` AS select `user`.`uuid` AS `uuid`,`user`.`name` AS `name`,`user`.`email` AS `email`,`user`.`location` AS `location`,`introduce`.`stack` AS `stack`,`introduce`.`career` AS `career`,`introduce`.`portfolio` AS `portfolio`,`introduce`.`etc` AS `etc`,`introduce`.`updatedAt` AS `updatedAt` from (`users` `user` join `introduce`) where (`user`.`uuid` = `introduce`.`uuid`) */;
