@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-    crossorigin="anonymous"></script>
-  <title>Document</title>
-  <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-  <!-- axios -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
-    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-
-<body>
-  <%#-include("navbar.ejs")%>
+  <body>
+    <%#-include("navbar.ejs")%>
     <form id="form-register" action="/user/saveIntroudce" method="post">
       <label>stack</label>
-      <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" , "C#" , "PHP" , "Cobol" , "HTML" , "Linux", "Kotlin" , "Dart" , "Go" ];%>
+      <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
+      "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
+      <select name="stack" id="stack">
         <% for ( var i=0; i < stackList.length; i++ ) { %>
-          <button type="button" class="normal_btn" onclick="addStack(this.value)" value="<%= stackList[i] %>">
-            <%= stackList[i] %>
-          </button>
-        <% } %>
+        <option value="<%= stackList[i] %>"><%= stackList[i] %></option>
+        <% }%></select
+      ><br />
+      <div class="selected_list"></div>
       <br />
       <label>career</label>
-      <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
+
+     <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
+      
+
       <label>port folio</label>
       <input type="text" name="link" value="" id="link" /><br />
       <label etc>짧은 자기소개</label>
@@ -39,10 +52,17 @@
 
     <script>
       // 경력 추가
-      var i = 0;
-      function addCar() {
-        $('.career').append(`<div>경력<input id='year${i}' class='text'>근무지<input id='place${i++}' class='text'></div>`)
+    var i = 0;
+     function addCar(){
+          $('.career').append(`<div>경력<input id='year${i}' class='text'>근무지<input id='place${i++}' class='text'></div>`)
       }
+
+      //stack 선택
+      $("#stack").change(function () {
+        let selected_stack = $("#stack option:selected").text();
+        $("selected_list").appendTo(`<p>${selected_stack}</p>`);
+        sendData("stack_lists", selected_stack);
+      });
 
       var stackList = "";
       function addStack(stack) {
@@ -78,14 +98,30 @@
       };*/
 
 
-      function getCar() {
-        var career = "";
-        for (var j = 0; j < i; j++) {
-          career = career + $(`#year${j}`).val() + '|' + $(`#place${j}`).val() + '|';
-        }
-        return career;
+      //axios로 보내기
+      function sendData(element, data) {
+        axios({
+          url: "",
+          method: "post",
+          data: {
+            elements: element,
+            datas: data,
+          },
+        }).then((response) => {
+          res.send(response.data);
+        });
       }
 
+
+      function getCar(){
+        var career ="";
+        for(var j=0; j<i; j++){
+          career = career + $(`#year${j}`).val() + '|' + $(`#place${j}`).val() + '|';
+        }
+        return career ;
+        
+      }
+      
       function aaa() {
         var choose = $("#stack").val();
         var etc = $("#etc").val();
@@ -93,7 +129,7 @@
         var career = getCar();
         console.log(career);
 
-
+        
         // data = {
         //   stack: choose,
         //   etc: etc,
@@ -113,6 +149,5 @@
 
 
     </script>
-</body>
-
+  </body>
 </html>
