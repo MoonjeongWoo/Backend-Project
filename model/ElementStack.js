@@ -43,6 +43,10 @@ const ElementStack = ( Sequelize, DataTypes ) => {
             },
             Go: {
                 type: DataTypes.UUID,
+            },
+            "id": {
+                type: DataTypes.UUID,
+                primaryKey: true
             }
         },
         {

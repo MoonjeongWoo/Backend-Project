@@ -69,7 +69,7 @@ const ElementCareer = (Sequelize, DataTypes) => {
                 type: DataTypes.UUID,
             },
             "id": {
-                type: DataTypes.STRING(1),
+                type: DataTypes.UUID,
                 primaryKey: true
             }
         },
