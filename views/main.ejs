@@ -57,7 +57,11 @@
     </div>
   </form>
   <div class="login_div">
-    <%-include("login.ejs") %>
+    <% if(isLogin == 1) { %>
+    <div><%-include("loginAfter.ejs") %></div>
+    <% } else { %>
+      <%-include("login.ejs") %>
+      <% } %>
   </div>
    <%-include("footer.ejs") %>
 
@@ -73,7 +77,7 @@
         $("#logout").attr("style", "color: grey !important");
       }
     });
-
+    
     let navbar_user = $(".user");
 
     if (navbar_user.css("display", "none")) {

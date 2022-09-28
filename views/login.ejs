@@ -40,7 +40,7 @@
   <body>
     <div class="cotn_principal">
       <div class="cont_centrar">
-        <% if(isLogin){ %>
+        <% if(isLogin == 1){ %>
         <div><%-include("loginAfter.ejs")%></div>
         <% }else{ %>
         <div class="cont_login">
@@ -117,8 +117,8 @@
           method: "POST",
           data: data,
         }).then((result) => {
-          location.href = '/';
-        })
+          location.href = "/";
+        });
       }
 
       // ** For Login _ corp
