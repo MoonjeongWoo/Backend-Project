@@ -3,7 +3,7 @@ const main = require("../controller/Cmain");
 const userResume = require("../controller/CuserResume");
 const company = require("../controller/Ccompany");
 const navbar = require("../controller/Cnavbar");
-const joinmember = require("../controller/Cjoinmember");
+const joinMember = require("../controller/CjoinMember");
 
 // main
 //---------------------------------------
@@ -21,13 +21,13 @@ router.get("/process/logout", main.userLogout);
 
 // joinmember
 //---------------------------------------
-router.get("/joinMember", joinmember.getJoinMember);
-router.post("/joinMember/idcheck", joinmember.idCheck);
-router.post("/joinMember/user", joinmember.postJoinMember);
+router.get("/joinMember", joinMember.getJoinMember);
+router.post("/joinMember/idcheck", joinMember.idCheck);
+router.post("/joinMember/user", joinMember.postJoinMember);
 
-router.get("/joinMemberCompany", joinmember.getJoinMemberCompany);
-router.post("/joinMemberCompany/idcheck", joinmember.idCheckCompany);
-router.post("/joinMemberCompany/user", joinmember.postJoinMemberCompany);
+router.get("/joinMemberCompany", joinMember.getJoinMemberCompany);
+router.post("/joinMemberCompany/idcheck", joinMember.idCheckCompany);
+router.post("/joinMemberCompany/user", joinMember.postJoinMemberCompany);
 //---------------------------------------
 
 // user
@@ -59,10 +59,10 @@ router.get("/myPage", navbar.getMyPage);
 //---------------------------------------
 
 // edit profile
-router.get("/profile", joinmember.readyToEdit);
-router.post("/profile/edit", joinmember.editProfile);
+router.get("/profile", joinMember.readyToEdit);
+router.post("/profile/edit", joinMember.editProfile);
 
 // del account
-router.post("/profile/del", joinmember.delAccount);
+router.post("/profile/del", joinMember.delAccount);
 
 module.exports = router;
