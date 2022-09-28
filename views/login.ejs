@@ -117,7 +117,9 @@
           url: "/userLogin",
           method: "POST",
           data: data,
-        });
+        }).then((result) => {
+          location.href = '/';
+        })
       }
 
       // ** For Login _ corp
