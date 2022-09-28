@@ -21,8 +21,32 @@ exports.saveIntroudce = (req, res) => {
     etc: req.body.etc
   }).then((result) => { // 하는 중. 다시 시작
     // res.json(result);
-    console.log(result["dataValues"]);
-    // result
+    // console.log(result["dataValues"]);
+    // {
+    //   createdAt: Fn { fn: 'NOW', args: [] },
+    //   updatedAt: Fn { fn: 'NOW', args: [] },
+    //   uuid: '5bc4a117-102e-4426-b163-b2c9c933a494',
+    //   stack: 'Linux|',
+    //   career: '',
+    //   portfolio: '',
+    //   etc: ''
+    // }
+    var dataSet = result["dataValues"];
+    console.log("1", typeof dataSet, dataSet)
+    console.log(typeof dataSet["career"]);
+    console.log("2", typeof dataSet, dataSet)
+    dataSet["career"].split("|");
+    console.log("3", typeof dataSet, dataSet)
+    var carYear = dataSet[0, 2];
+    
+    // console.log("1", typeof dataSet);
+    console.log(dataSet["career"].split("|"));
+    // var aaaa = dataSet["career"].split("|")
+    // console.log("2", typeof (aaaa));
+    
+    // ElementCareer.create({
+    //   1: dataSet
+    // })
   }).catch(err => {
     console.error(err);
  });
