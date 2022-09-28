@@ -1,186 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login-test</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/9376e8eed8.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="/static/css/login.css" />
-  </head>
-
-  <body>
-    <div class="cotn_principal">
-      <div class="cont_centrar">
-        <% if(isLogin){ %>
-        <div><%-include("loginAfter.ejs")%></div>
-        <% }else{ %>
-        <div class="cont_login">
-          <div class="cont_info_log_sign_up">
-            <div class="col_md_login">
-              <div class="cont_ba_opcitiy">
-                <h2>USER</h2>
-                <p>개인(개발자) 로그인</p>
-                <button class="btn_login" onclick="user_login()">LOGIN</button>
-              </div>
-            </div>
-            <div class="col_md_sign_up">
-              <div class="cont_ba_opcitiy">
-                <h2>CORPORATION</h2>
-                <p>채용담당자 로그인</p>
-                <button class="btn_sign_up" onclick="cor_login()">LOGIN</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="cont_back_info">
-            <div class="cont_img_back_grey"></div>
-          </div>
-          <div class="cont_forms">
-            <!-- User 로그인창 -->
-            <div class="cont_form_login">
-              <h2>LOGIN</h2>
-              <input type="text" value="id-test" id="id" placeholder="ID" />
-              <input
-                type="password"
-                value="pw-test"
-                id="pw"
-                placeholder="Password"
-              />
-              <button class="btn_login" onclick="user_login(); main_login();">
-                LOGIN
-              </button>
-            </div>
-
-            <!-- Company 로그인창 -->
-            <div class="cont_form_sign_up">
-              <h2>LOGIN</h2>
-              <input type="text" value="id-test" id="id2" placeholder="ID" />
-              <input
-                type="password"
-                value="mypw"
-                id="pw2"
-                placeholder="Password"
-              />
-              <button
-                class="btn_sign_up"
-                onclick="cor_login(); main_loginCorp();"
-              >
-                LOGIN
-              </button>
-            </div>
+<div class="cotn_principal">
+  <div class="cont_centrar">
+    <% if(isLogin){ %>
+    <div><%-include("loginAfter.ejs")%></div>
+    <% }else{ %>
+    <div class="cont_login">
+      <div class="cont_info_log_sign_up">
+        <div class="col_md_login">
+          <div class="cont_ba_opcitiy">
+            <h2>USER</h2>
+            <p>개인(개발자) 로그인</p>
+            <button class="btn_login" onclick="user_login()">LOGIN</button>
           </div>
         </div>
-        <% } %>
+        <div class="col_md_sign_up">
+          <div class="cont_ba_opcitiy">
+            <h2>CORPORATION</h2>
+            <p>채용담당자 로그인</p>
+            <button class="btn_sign_up" onclick="cor_login()">LOGIN</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cont_back_info">
+        <div class="cont_img_back_grey"></div>
+      </div>
+      <div class="cont_forms">
+        <!-- User 로그인창 -->
+        <div class="cont_form_login">
+          <h2>LOGIN</h2>
+          <input type="text" value="id-test" id="id" placeholder="ID" />
+          <input
+            type="password"
+            value="pw-test"
+            id="pw"
+            placeholder="Password"
+          />
+          <button class="btn_login" onclick="user_login(); main_login();">
+            LOGIN
+          </button>
+        </div>
+
+        <!-- Company 로그인창 -->
+        <div class="cont_form_sign_up">
+          <h2>LOGIN</h2>
+          <input type="text" value="id-test" id="id2" placeholder="ID" />
+          <input
+            type="password"
+            value="mypw"
+            id="pw2"
+            placeholder="Password"
+          />
+          <button
+            class="btn_sign_up"
+            onclick="cor_login(); main_loginCorp();"
+          >
+            LOGIN
+          </button>
+        </div>
       </div>
     </div>
+    <% } %>
+  </div>
+</div>
 
-    <script>
-      // ** For Login
-      function main_login() {
-        var id = $("#id").val();
-        var pw = $("#pw").val();
-        var data = {
-          id: id,
-          pw: pw,
-        };
-        axios({
-          url: "/userLogin",
-          method: "POST",
-          data: data,
-        }).then((result) => {
-          location.href = '/';
-        })
-      }
+<script>
+  // ** For Login
+  function main_login() {
+    var id = $("#id").val();
+    var pw = $("#pw").val();
+    var data = {
+      id: id,
+      pw: pw,
+    };
+    axios({
+      url: "/userLogin",
+      method: "POST",
+      data: data,
+    }).then((result) => {
+      location.href = '/';
+    })
+  }
 
-      // ** For Login _ corp
-      function main_loginCorp() {
-        var id = $("#id2").val();
-        var pw = $("#pw2").val();
-        var data = {
-          id: id,
-          pw: pw,
-        };
-        axios({
-          url: "/userLoginCompany",
-          method: "POST",
-          data: data,
-        }).then((response) => {});
-      }
+  // ** For Login _ corp
+  function main_loginCorp() {
+    var id = $("#id2").val();
+    var pw = $("#pw2").val();
+    var data = {
+      id: id,
+      pw: pw,
+    };
+    axios({
+      url: "/userLoginCompany",
+      method: "POST",
+      data: data,
+    }).then((response) => {});
+  }
 
-      // user_login
-      function user_login() {
-        document.querySelector(".cont_forms").className =
-          "cont_forms cont_forms_active_login";
-        document.querySelector(".cont_form_login").style.display = "block";
-        document.querySelector(".cont_form_sign_up").style.opacity = "0";
+  // user_login
+  function user_login() {
+    document.querySelector(".cont_forms").className =
+      "cont_forms cont_forms_active_login";
+    document.querySelector(".cont_form_login").style.display = "block";
+    document.querySelector(".cont_form_sign_up").style.opacity = "0";
 
-        setTimeout(function () {
-          document.querySelector(".cont_form_login").style.opacity = "1";
-        }, 400);
+    setTimeout(function () {
+      document.querySelector(".cont_form_login").style.opacity = "1";
+    }, 400);
 
-        setTimeout(function () {
-          document.querySelector(".cont_form_sign_up").style.display = "none";
-        }, 200);
-      }
+    setTimeout(function () {
+      document.querySelector(".cont_form_sign_up").style.display = "none";
+    }, 200);
+  }
 
-      // cor_login
-      function cor_login(at) {
-        document.querySelector(".cont_forms").className =
-          "cont_forms cont_forms_active_sign_up";
-        document.querySelector(".cont_form_sign_up").style.display = "block";
-        document.querySelector(".cont_form_login").style.opacity = "0";
+  // cor_login
+  function cor_login(at) {
+    document.querySelector(".cont_forms").className =
+      "cont_forms cont_forms_active_sign_up";
+    document.querySelector(".cont_form_sign_up").style.display = "block";
+    document.querySelector(".cont_form_login").style.opacity = "0";
 
-        setTimeout(function () {
-          document.querySelector(".cont_form_sign_up").style.opacity = "1";
-        }, 100);
+    setTimeout(function () {
+      document.querySelector(".cont_form_sign_up").style.opacity = "1";
+    }, 100);
 
-        setTimeout(function () {
-          document.querySelector(".cont_form_login").style.display = "none";
-        }, 400);
-      }
+    setTimeout(function () {
+      document.querySelector(".cont_form_login").style.display = "none";
+    }, 400);
+  }
 
-      // 이외 영역 클릭 시 로그인창 닫기
-      $("body").click(function (e) {
-        if ($(e.target).parents(".cont_login").length < 1) {
-          document.querySelector(".cont_forms").className = "cont_forms";
-          document.querySelector(".cont_form_sign_up").style.opacity = "0";
-          document.querySelector(".cont_form_login").style.opacity = "0";
+  // 이외 영역 클릭 시 로그인창 닫기
+  $("body").click(function (e) {
+    if ($(e.target).parents(".cont_login").length < 1) {
+      document.querySelector(".cont_forms").className = "cont_forms";
+      document.querySelector(".cont_form_sign_up").style.opacity = "0";
+      document.querySelector(".cont_form_login").style.opacity = "0";
 
-          setTimeout(function () {
-            document.querySelector(".cont_form_sign_up").style.display = "none";
-            document.querySelector(".cont_form_login").style.display = "none";
-          }, 500);
-        }
-      });
-    </script>
-  </body>
-</html>
+      setTimeout(function () {
+        document.querySelector(".cont_form_sign_up").style.display = "none";
+        document.querySelector(".cont_form_login").style.display = "none";
+      }, 500);
+    }
+  });
+</script>
