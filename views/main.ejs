@@ -31,7 +31,12 @@
 <body>
   <form>
     <div class="main-nav">
-      <%-include("navbar.ejs") %>
+      <% if(isLogin == 1) { %>
+        <%-include("navbar.ejs") %>
+        <% }else{ %>
+          <%-include("navbar_no_login.ejs") %>
+          <% } %>
+     
     </div>
 
     <div class="all">
@@ -58,7 +63,7 @@
   </form>
   <div class="login_div">
     <% if(isLogin == 1) { %>
-    <div><%-include("loginAfter.ejs") %></div>
+    <%-include("loginAfter.ejs") %>
     <% } else { %>
       <%-include("login.ejs") %>
       <% } %>
@@ -78,6 +83,8 @@
       }
     });
     
+    
+
     let navbar_user = $(".user");
 
     if (navbar_user.css("display", "none")) {
@@ -88,7 +95,6 @@
       $(".user").css("display", "none");
       $(".Corp").css("display", "none")
     };
-
 
     //let userid = sessionStorage.getItem("user_id");
     //let userpw = sessionStorage.getItem("user_pw");
