@@ -76,7 +76,7 @@ const ElementCareer = (Sequelize, DataTypes) => {
         {
             tableName: "elementCareer",
             FreezeTableName: true,
-            timestamps: false
+            timestamps: false,
         }
     );
     return model;

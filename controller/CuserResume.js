@@ -41,4 +41,3 @@ totalCareer = String(totalCareer);
     // console.log(result)
   })
 }
-// ----------------
