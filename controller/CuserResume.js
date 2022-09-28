@@ -14,14 +14,14 @@ exports.saveIntroudce = (req, res) => {
   // var stackModi = req.body.stack.split("|");
   // console.log("stackmodi", stackModi);
   UserResume.create({
-    // uuid: req.session.uuid,
-    uuid: 'f975417f-5f55-4efd-b688-073f6a6920b2',
+    uuid: req.session.uuid,
+    // uuid: 'f975417f-5f55-4efd-b688-073f6a6920b2',
     stack: req.body.stack,
     career: req.body.career,
     portfolio: req.body.portfolio,
     etc: req.body.etc
-  }).then((result) => { // 하는 중. 다시 시작
-    // res.json(result);
+  // }).then((result) => { // 하는 중. 다시 시작
+  }).then(() => { // 하는 중. 다시 시작
     // console.log(result["dataValues"]);
     // {
     //   createdAt: Fn { fn: 'NOW', args: [] },
@@ -32,25 +32,26 @@ exports.saveIntroudce = (req, res) => {
     //   portfolio: '',
     //   etc: ''
     // }
-    var dataSet = result["dataValues"];
-    console.log("1", typeof dataSet, dataSet)
-    console.log(typeof dataSet["career"]);
-    console.log("2", typeof dataSet, dataSet)
-    dataSet["career"].split("|");
-    console.log("3", typeof dataSet, dataSet)
-    var carYear = dataSet[0, 2];
-
-    // console.log("1", typeof dataSet);
-    console.log(dataSet["career"].split("|"));
-    // var aaaa = dataSet["career"].split("|")
-    // console.log("2", typeof (aaaa));
-    
-    // ElementCareer.create({
-    //   1: dataSet
-    // })
+    // var dataDic = result["dataValues"];
+    // dataDic["career"].split("|");
+    // var carArr = dataDic["career"].split("|");
+    var carArr = req.body.career.split("|");
+    var sumNum = 0;
+    for (var i = 0; i < carArr.length - 1; i++) {
+      if (i % 2 == 0) {
+        sumNum += Number(carArr[i]);
+      }
+      // console.log(carArr[i])
+    };
+    sumNum = String(sumNum)
+    ElementCareer.create({
+      // [sumNum]: req.session.uuid
+      [sumNum]: req.session.uuid
+    });
+    console.log(sumNum)
   }).catch(err => {
     console.error(err);
- });
+  });
 }
   //     UserResume.findOne({
   //         attributes: ['stack', "career", "portpolio", "etc", "location"],

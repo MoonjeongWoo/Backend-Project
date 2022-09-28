@@ -3,71 +3,70 @@ const ElementCareer = ( Sequelize, DataTypes ) => {
         "elementCareer",
         {
             0: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             1: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             2: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             3: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             4: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             5: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             6: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             7: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             8: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             9: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             10: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             11: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             12: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             13: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             14: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             15: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             16: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
-            17
-            : {
-                type: DataTypes.UUID,
+            17: {
+                type: DataTypes.UUID
             },
             18: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             19: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             20: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             },
             21: {
-                type: DataTypes.UUID,
+                type: DataTypes.UUID
             }
         },
         {

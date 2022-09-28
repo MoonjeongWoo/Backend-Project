@@ -4,8 +4,8 @@ const { isLogin } = require("./Cfunc");
 
 // get main page
 exports.getMain = (req, res) => {
-  // res.render("main", { isLogin: isLogin(req.session.uuid) });
-  res.render("main", { isLogin: 1 });
+  res.render("main", { isLogin: isLogin(req.session.uuid) });
+  // res.render("main", { isLogin: 1 });
 };
 // -------------------------------
 
