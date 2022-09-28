@@ -7,6 +7,7 @@ exports.getMain = (req, res) => {
   console.log("this", isLogin(req.session.uuid));
 
   res.render("main", { isLogin: 1 });
+  // res.render("main", { isLogin: isLogin(req.session.uuid) });
   console.log("gogo1", req.session.uuid);
   //찍으면 undifined 생김
   // res.render("main", {isLogin: isLogin});
