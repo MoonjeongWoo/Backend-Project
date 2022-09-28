@@ -2,70 +2,70 @@ const ElementCareer = ( Sequelize, DataTypes ) => {
     const model = Sequelize.define( // Sequelize 모델 정의. 3가지 인자 = 모델(테이블)이름, 컬럼 정의, 모델의 옵션 정의
         "elementCareer",
         {
-            0: {
+            "0": {
                 type: DataTypes.UUID
             },
-            1: {
+            "1": {
                 type: DataTypes.UUID
             },
-            2: {
+            "2": {
                 type: DataTypes.UUID
             },
-            3: {
+            "3": {
                 type: DataTypes.UUID
             },
-            4: {
+            "4": {
                 type: DataTypes.UUID
             },
-            5: {
+            "5": {
                 type: DataTypes.UUID
             },
-            6: {
+            "6": {
                 type: DataTypes.UUID
             },
-            7: {
+            "7": {
                 type: DataTypes.UUID
             },
-            8: {
+            "8": {
                 type: DataTypes.UUID
             },
-            9: {
+            "9": {
                 type: DataTypes.UUID
             },
-            10: {
+            "10": {
                 type: DataTypes.UUID
             },
-            11: {
+            "11": {
                 type: DataTypes.UUID
             },
-            12: {
+            "12": {
                 type: DataTypes.UUID
             },
-            13: {
+            "13": {
                 type: DataTypes.UUID
             },
-            14: {
+            "14": {
                 type: DataTypes.UUID
             },
-            15: {
+            "15": {
                 type: DataTypes.UUID
             },
-            16: {
+            "16": {
                 type: DataTypes.UUID
             },
-            17: {
+            "17": {
                 type: DataTypes.UUID
             },
-            18: {
+            "18": {
                 type: DataTypes.UUID
             },
-            19: {
+            "19": {
                 type: DataTypes.UUID
             },
-            20: {
+            "20": {
                 type: DataTypes.UUID
             },
-            21: {
+            "21": {
                 type: DataTypes.UUID
             }
         },

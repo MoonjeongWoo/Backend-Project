@@ -43,10 +43,10 @@ exports.saveIntroudce = (req, res) => {
       }
       // console.log(carArr[i])
     };
-    sumNum = String(sumNum)
+    sumNum = String(sumNum);
     ElementCareer.create({
-      // [sumNum]: req.session.uuid
       [sumNum]: req.session.uuid
+      // [sumNum]: String(req.session.uuid)
     });
     console.log(sumNum)
   }).catch(err => {
