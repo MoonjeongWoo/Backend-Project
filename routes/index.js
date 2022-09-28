@@ -53,7 +53,7 @@ router.post("/sortUserByElement", company.sortUserByElement);
 //---------------------------------------
 
 // navbar
-
+router.get("/myPage", navbar.getMyPage);
 //---------------------------------------
 // get myPage
 
