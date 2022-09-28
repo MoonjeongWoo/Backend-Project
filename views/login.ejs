@@ -63,23 +63,23 @@
   </div>
 </div>
 
-<script>
-  // ** For Login
-  function main_login() {
-    var id = $("#id").val();
-    var pw = $("#pw").val();
-    var data = {
-      id: id,
-      pw: pw,
-    };
-    axios({
-      url: "/userLogin",
-      method: "POST",
-      data: data,
-    }).then((result) => {
-      location.href = '/';
-    })
-  }
+    <script>
+      // ** For Login
+      function main_login() {
+        var id = $("#id").val();
+        var pw = $("#pw").val();
+        var data = {
+          id: id,
+          pw: pw,
+        };
+        axios({
+          url: "/userLogin",
+          method: "POST",
+          data: data,
+        }).then((result) => {
+          location.href = "/";
+        });
+      }
 
   // ** For Login _ corp
   function main_loginCorp() {
