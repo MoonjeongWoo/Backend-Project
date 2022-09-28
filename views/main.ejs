@@ -40,7 +40,15 @@
     <img class="main-img" src="../static/img/main_img/main_img_2.png" />
   </div>
   <div class="first-back"></div>
-  <div class="second-back"></div>
+  <div class="second-back">
+    <div class="login_div">
+      <% if(isLogin==1) { %>
+          <%-include("loginAfter.ejs") %>
+      <% } else { %>
+          <%-include("login.ejs") %>
+      <% } %>
+    </div>
+  </div>
   <div class="intro-back">
     <!-- 웹 소개 -->
     <div class="our_ser">Our Services
@@ -53,13 +61,7 @@
       <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">SHOW</div>
     </div>
   </div>
-  <div class="login_div">
-    <% if(isLogin==1) { %>
-        <%-include("loginAfter.ejs") %>
-    <% } else { %>
-        <%-include("login.ejs") %>
-    <% } %>
-  </div>
+
 
   <%-include("footer.ejs") %>
 
