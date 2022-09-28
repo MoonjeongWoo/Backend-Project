@@ -18,9 +18,15 @@ exports.saveIntroudce = (req, res) => {
     stack: req.body.stack,
     career: req.body.career,
     portfolio: req.body.portfolio,
-    etc: req.body.etc,
-  });
-  // .then((result, err) => { // 하는 중
+    etc: req.body.etc
+  }).then((result) => { // 하는 중. 다시 시작
+    // res.json(result);
+    console.log(result["dataValues"]);
+    // result
+  }).catch(err => {
+    console.error(err);
+ });
+}
   //     UserResume.findOne({
   //         attributes: ['stack', "career", "portpolio", "etc", "location"],
   //           where: {uuid: req.session.uuid}
@@ -41,5 +47,5 @@ exports.saveIntroudce = (req, res) => {
   // ElementStack.create({
 
   // })
-};
+// };
 // ----------------
