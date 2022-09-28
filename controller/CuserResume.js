@@ -1,3 +1,5 @@
+const { stringify } = require("querystring");
+const { urlToHttpOptions } = require("url");
 const { UserResume } = require("../model");
 const { ElementCareer } = require("../model");
 const { ElementLocation } = require("../model");
@@ -13,33 +15,35 @@ exports.getIntroduce = (req, res) => {
 exports.saveIntroudce = (req, res) => {
   // var stackModi = req.body.stack.split("|");
   // console.log("stackmodi", stackModi);
-  UserResume.create({
-    uuid: req.session.uuid,
-    stack: req.body.stack,
-    career: req.body.career,
-    portfolio: req.body.portfolio,
-    etc: req.body.etc,
-  });
+  // UserResume.create({
+  //   uuid: req.session.uuid,
+  //   stack: req.body.stack,
+  //   career: req.body.career,
+  //   portfolio: req.body.portfolio,
+  //   etc: req.body.etc,
+  // })
   // .then((result, err) => { // 하는 중
-  //     UserResume.findOne({
-  //         attributes: ['stack', "career", "portpolio", "etc", "location"],
-  //           where: {uuid: req.session.uuid}
-  //       })
-  //       .then((result) => {
-  //           res.render("editProfile", {nowData: result});
-  //           // console.log(data);
-  //       })
-  //     }
-  //     })
-
-  // ElementCareer.create({
-
+  //   console.log(result)
   // })
-  // ElementLocation.create({
+  var careerSplit = req.body.career.split('|');
+  var totalCareer = 0;
 
-  // })
-  // ElementStack.create({
+  for (var i=0; i<careerSplit.length-1; i++){
+    if (i%2 == 0){
+      totalCareer += Number(careerSplit[i]);
+    }
+  }
+totalCareer = String(totalCareer);
+  console.log(totalCareer)
 
-  // })
-};
+
+
+  console.log('jiji', req.session.uuid);
+  ElementCareer.create({
+    [totalCareer] : "42fb6f32-73bb-4900-8b4e-4a99a25437ec",
+    id: '1'
+  }).then((result) => {
+    // console.log(result)
+  })
+}
 // ----------------
