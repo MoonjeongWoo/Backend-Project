@@ -40,7 +40,7 @@ router.post("/user/saveIntroudce", userResume.saveIntroudce);
 
 // myPage
 //---------------------------------------
-router.post("/modUser", myPage.modUser)
+// router.post("/modUser", myPage.modUser)
 //---------------------------------------
 
 // company
