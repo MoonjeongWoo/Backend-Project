@@ -30,9 +30,17 @@
 </head>
 
 <body>
-  <div class="main-nav">
-    <%-include("navbar.ejs") %>
-  </div>
+
+  <form>
+    <div class="main-nav">
+      <% if(isLogin == 1) { %>
+        <%-include("navbar.ejs") %>
+        <% }else{ %>
+          <%-include("navbar_no_login.ejs") %>
+          <% } %>
+     
+    </div>
+
 
   <div class="all">
     <div class="content">Your Success<br />Begins With Us</div>
@@ -54,12 +62,32 @@
     </div>
   </div>
   <div class="login_div">
-    <% if(isLogin==1) { %>
-        <%-include("loginAfter.ejs") %>
+
+    <% if(isLogin == 1) { %>
+    <%-include("loginAfter.ejs") %>
+
     <% } else { %>
         <%-include("login.ejs") %>
     <% } %>
   </div>
+
+
+  <script>
+    var scrollEvent = window.addEventListener("scroll", function () {
+      if (scrollY <= 1 && scrollY >= 0) {
+        $(".topnav").attr("style", "background-color: transparent !import");
+        $("#logout").attr("style", "color: black !important");
+      } else {
+        $(".topnav").attr("style", "background-color:  rgb(22, 38, 60) !important");
+        $(".user").attr("style", "color : grey !important");
+        $(".public").attr("style", "color: grey !important");
+        $("#logout").attr("style", "color: grey !important");
+      }
+    });
+    
+    
+
+    let navbar_user = $(".user");
 
   <%-include("footer.ejs") %>
 
@@ -76,6 +104,7 @@
         }
       });
 
+
       let navbar_user = $(".user");
 
       if (navbar_user.css("display", "none")) {
@@ -86,7 +115,6 @@
         $(".user").css("display", "none");
         $(".Corp").css("display", "none")
       };
-
 
     //let userid = sessionStorage.getItem("user_id");
     //let userpw = sessionStorage.getItem("user_pw");
