@@ -14,7 +14,8 @@ exports.saveIntroudce = (req, res) => {
   // var stackModi = req.body.stack.split("|");
   // console.log("stackmodi", stackModi);
   UserResume.create({
-    uuid: req.session.uuid,
+    // uuid: req.session.uuid,
+    uuid: 'f975417f-5f55-4efd-b688-073f6a6920b2',
     stack: req.body.stack,
     career: req.body.career,
     portfolio: req.body.portfolio,
@@ -38,7 +39,7 @@ exports.saveIntroudce = (req, res) => {
     dataSet["career"].split("|");
     console.log("3", typeof dataSet, dataSet)
     var carYear = dataSet[0, 2];
-    
+
     // console.log("1", typeof dataSet);
     console.log(dataSet["career"].split("|"));
     // var aaaa = dataSet["career"].split("|")
