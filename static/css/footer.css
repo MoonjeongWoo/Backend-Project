@@ -1,0 +1,36 @@
+.footer{
+    background-color: rgb(22, 38, 60);
+    position: relative;
+    text-align: center;
+    padding: 50px 30px;
+}
+.footer a{
+    color: white;
+    text-decoration: none;
+}
+.footer a:hover{
+    color: cornsilk;
+}
+.footer ul{
+    padding-left: 0;
+}
+.footer li{
+    position: relative;
+    display: inline;
+    padding: 0px 7px 0 10px;
+    white-space: nowrap;
+    color: white;
+}
+.footer li~li:before{
+    content: "";
+    width: 1px;
+    height: 12px;
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+.footer span{
+    padding: 15px;
+    margin-bottom: 0px;
+    color: white;
+}
