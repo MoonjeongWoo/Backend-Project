@@ -139,7 +139,8 @@
       var scrollEvent = window.addEventListener("scroll", function () {
         if (scrollY <= 1 && scrollY >= 0) {
           $(".topnav").attr("style", "background-color: transparent !import");
-          $("#logout").attr("style", "color: black !important");
+          $(".user").attr("style", "color : grey !important");
+          $("#main").attr("style: color : black !important");
         } else {
           $(".topnav").attr(
             "style",
