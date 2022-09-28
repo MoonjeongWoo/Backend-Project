@@ -129,25 +129,29 @@
         var career = getCar();
         console.log(career);
 
-        
         // data = {
-        //   stack: choose,
-        //   etc: etc,
-        //   range: range,
-        //   career: career
+        //   stack: stackList,
+        //   // range: range,
+        //   career: career,
+        //   portfolio: getURL,
+        //   etc: etc
         // };
+        data = {
+          stack: 'Javascript|Python|C#|HTML|Linux||',
+          // range: range,
+          career: '1|a|2|b|3|c|4|d|',
+          portfolio: 'getURL',
+          etc: 'etc'
+        };
 
-        // console.log(data);
-        // axios({
-        //   url: "/user/saveIntroudce",
-        //   method: "post",
-        //   data: data,
-        // }).then((response) => {
-        //   console.log(response.data);
-        // });
+        console.log(data);
+        axios({
+          url: "/user/saveIntroudce",
+          method: "post",
+          data: data,
+        }).then((response) => {
+        });
       }
-
-
     </script>
   </body>
 </html>
