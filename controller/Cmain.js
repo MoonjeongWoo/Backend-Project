@@ -4,9 +4,6 @@ const { isLogin } = require("./Cfunc");
 
 // get main page
 exports.getMain = (req, res) => {
-  console.log('this', isLogin(req.session.uuid) )
-  console.log('gogo1', req.session.uuid);
-  
   res.render("main", { isLogin: isLogin(req.session.uuid) });
 };
 // -------------------------------
@@ -76,7 +73,6 @@ exports.userLogin = (req, res) => {
     if (result[0] != undefined) {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
-        console.log('login sucess', req.session.uuid)
         res.redirect('/')
       }
     }
@@ -130,7 +126,7 @@ exports.userLogout = (req, res) => {
       if (err) throw err;
       // console.log('세션 삭제하고 로그아웃됨');
       // console.log("세션값3", req.session);
-      res.redirect("/"); // res.redirect('/public/login.html');
+      res.redirect("/"); // res.redirect('/public/login.ejs');
     });
   } else {
     if (req.session) {
