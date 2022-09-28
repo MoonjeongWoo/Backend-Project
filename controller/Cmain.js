@@ -4,9 +4,10 @@ const { isLogin } = require("./Cfunc");
 
 // get main page
 exports.getMain = (req, res) => {
-  // console.log(isLogin )
-  res.render("main", { isLogin: isLogin(req.session.uuid) });
-  console.log(req.session.uuid);
+  console.log('this', isLogin(req.session.uuid) )
+
+  res.render("main", { isLogin: 1 });
+  console.log('gogo1', req.session.uuid);
   //찍으면 undifined 생김
   // res.render("main", {isLogin: isLogin});
 };
@@ -77,6 +78,7 @@ exports.userLogin = (req, res) => {
     if (result[0] != undefined) {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
+        console.log(req.session.uuid)
       }
     }
   });
