@@ -73,7 +73,7 @@ exports.userLogin = (req, res) => {
     if (result[0] != undefined) {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
-        res.redirect('/')
+        res.redirect("/");
       }
     }
   });
