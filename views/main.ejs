@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,71 +25,71 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
   </script>
   <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="stylesheet" href="/static/css/login.css" />
+  <link rel="stylesheet" href="/static/css/loginAfter.css" />
 </head>
 
 <body>
-  <form>
-    <div class="main-nav">
-      <%-include("navbar.ejs") %>
-    </div>
+  <div class="main-nav">
+    <%-include("navbar_user.ejs") %>
+  </div>
 
     <div class="all">
       <div class="content">Your Success<br />Begins With Us</div>
       <!-- <div class="l-content">Login and Start!</div> -->
       <img class="main-img" src="../static/img/main_img/main_img_2.png" />
+
     </div>
     <div class="first-back"></div>
-    <div class="second-back"></div>
+    <div class="second-back">
+      <div class="login_div">
+        <% if(isLogin==1) { %> <%-include("loginAfter.ejs") %> <% } else { %>
+        <%-include("login.ejs") %> <% } %>
+      </div>
+    </div>
     <div class="intro-back">
-
       <!-- 웹 소개 -->
-      <div class="our_ser">Our Services
-        <hr>
+      <div class="our_ser">
+        Our Services
+        <hr />
       </div>
 
       <div class="our_ser_img">
-        <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">USER</div>
-        <div class="img_text_1"><img class="img_1" src="../static/img/main_img/company.jpg">CORPORATION</div>
-        <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">SHOW</div>
+        <div class="img_text_1">
+          <img class="img_1" src="../static/img/main_img/developer.jpg" />USER
+        </div>
+        <div class="img_text_1">
+          <img
+            class="img_1"
+            src="../static/img/main_img/company.jpg"
+          />CORPORATION
+        </div>
+        <div class="img_text_1">
+          <img class="img_1" src="../static/img/main_img/developer.jpg" />SHOW
+        </div>
       </div>
     </div>
-    </div>
-  </form>
-  <div class="login_div">
-    <%-include("login.ejs") %>
-  </div>
 
+    <%-include("footer.ejs") %>
 
-  <script>
-    var scrollEvent = window.addEventListener("scroll", function () {
-      if (scrollY <= 1 && scrollY >= 0) {
-        $(".topnav").attr("style", "background-color: transparent !import");
-        $("#logout").attr("style", "color: black !important");
-      } else {
-        $(".topnav").attr("style", "background-color:  rgb(22, 38, 60) !important");
-        $(".user").attr("style", "color : grey !important");
-        $(".public").attr("style", "color: grey !important");
-        $("#logout").attr("style", "color: grey !important");
-      }
-    });
+    <script>
+      var scrollEvent = window.addEventListener("scroll", function () {
+        if (scrollY <= 1 && scrollY >= 0) {
+          $(".topnav").attr("style", "background-color: transparent !import");
+          $(".user").attr("style", "color : grey !important");
+          $("#main").attr("style: color : black !important");
+        } else {
+          $(".topnav").attr(
+            "style",
+            "background-color:  rgb(22, 38, 60) !important"
+          );
+          $(".user").attr("style", "color : grey !important");
+          $("#main").attr("style", "color : grey !important");
+        }
+      });
 
-    let navbar_user = $(".user");
-
-    if (navbar_user.css("display", "none")) {
-      $(".Corp").css("display", "block");
-    } else if (navbar_user.css("display", "block")) {
-      $(".Corp").css("display", "none")
-    } else {
-      $(".user").css("display", "none");
-      $(".Corp").css("display", "none")
-    };
-
-
-    //let userid = sessionStorage.getItem("user_id");
-    //let userpw = sessionStorage.getItem("user_pw");
-
-  </script>
-
-</body>
-
+      //let userid = sessionStorage.getItem("user_id");
+      //let userpw = sessionStorage.getItem("user_pw");
+    </script>
+  </body>
 </html>

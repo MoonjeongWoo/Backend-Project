@@ -17,15 +17,7 @@
     font-size: 17px;
     display: block;
   }
-  #membership{
-     float: right;
-    color: grey;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-}
+
   #main{
     float: left;
     color: black;
@@ -46,3 +38,4 @@
     background-color: #04aa6d;
     color: white;
   }
+ 
