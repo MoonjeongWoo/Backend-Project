@@ -29,33 +29,29 @@
 </head>
 
 <body>
-  <form>
-    <div class="main-nav">
-      <%-include("navbar.ejs") %>
+  <div class="main-nav">
+    <%-include("navbar.ejs") %>
+  </div>
+
+  <div class="all">
+    <div class="content">Your Success<br />Begins With Us</div>
+    <!-- <div class="l-content">Login and Start!</div> -->
+    <img class="main-img" src="../static/img/main_img/main_img_2.png" />
+  </div>
+  <div class="first-back"></div>
+  <div class="second-back"></div>
+  <div class="intro-back">
+    <!-- 웹 소개 -->
+    <div class="our_ser">Our Services
+      <hr>
     </div>
 
-    <div class="all">
-      <div class="content">Your Success<br />Begins With Us</div>
-      <!-- <div class="l-content">Login and Start!</div> -->
-      <img class="main-img" src="../static/img/main_img/main_img_2.png" />
+    <div class="our_ser_img">
+      <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">USER</div>
+      <div class="img_text_1"><img class="img_1" src="../static/img/main_img/company.jpg">CORPORATION</div>
+      <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">SHOW</div>
     </div>
-    <div class="first-back"></div>
-    <div class="second-back"></div>
-    <div class="intro-back">
-
-      <!-- 웹 소개 -->
-      <div class="our_ser">Our Services
-        <hr>
-      </div>
-
-      <div class="our_ser_img">
-        <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">USER</div>
-        <div class="img_text_1"><img class="img_1" src="../static/img/main_img/company.jpg">CORPORATION</div>
-        <div class="img_text_1"><img class="img_1" src="../static/img/main_img/developer.jpg">SHOW</div>
-      </div>
-    </div>
-    </div>
-  </form>
+  </div>
   <div class="login_div">
     <% if(isLogin == 1) { %>
     <div><%-include("loginAfter.ejs") %></div>
