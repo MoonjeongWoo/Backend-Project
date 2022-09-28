@@ -4,6 +4,7 @@ const userResume = require("../controller/CuserResume");
 const company = require("../controller/Ccompany");
 const navbar = require("../controller/Cnavbar");
 const joinMember = require("../controller/CjoinMember");
+const myPage = require("../controller/CmyPage");
 
 // main
 //---------------------------------------
@@ -39,7 +40,7 @@ router.post("/user/saveIntroudce", userResume.saveIntroudce);
 
 // myPage
 //---------------------------------------
-
+router.post("/modUser", myPage.modUser)
 //---------------------------------------
 
 // company
@@ -55,7 +56,7 @@ router.post("/sortUserByElement", company.sortUserByElement);
 
 //---------------------------------------
 // get myPage
-router.get("/myPage", navbar.getMyPage);
+
 //---------------------------------------
 
 // edit profile

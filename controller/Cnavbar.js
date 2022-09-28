@@ -1,11 +1,30 @@
 const { isLogin } = require("./Cfunc");
+const { UserInfo } = require("../model");
 
 exports.getMyPage = (req, res) => {
-  if(req.session.uuid){
-   res.render("myPage", { isLogin: isLogin(req.session.uuid) });
-   }else{
+  if (req.session.uuid) {
+    UserInfo.findAll({
+      where: {
+        uuid: req.session.uuid
+      }
+    }).then((result) => {
+      console.log(result[0].dataValues)
+      var data = {
+        id: result[0].dataValues.id,
+        pw: result[0].dataValues.pw,
+        name: result[0].dataValues.name,
+        email: result[0].dataValues.email,
+        location: result[0].dataValues.location
+      }
+
+      res.render("myPage", { 
+        isLogin: isLogin(req.session.uuid),
+        data: data
+      });
+    })
+  } else {
     res.redirect('/');
-   }
+  }
   // res.render("myPage");
 };
 
