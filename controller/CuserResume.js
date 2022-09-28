@@ -46,9 +46,12 @@ exports.saveIntroudce = (req, res) => {
     sumNum = String(sumNum);
     ElementCareer.create({
       [sumNum]: req.session.uuid
-      // [sumNum]: String(req.session.uuid)
-    });
-    console.log(sumNum)
+    })
+    // ElementCareer.create({
+    //   [sumNum]: req.session.uuid
+    //   // [sumNum]: String(req.session.uuid)
+    // });
+    // console.log(sumNum)
   }).catch(err => {
     console.error(err);
   });

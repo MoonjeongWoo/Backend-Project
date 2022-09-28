@@ -34,6 +34,7 @@ const ElementCareer = ( Sequelize, DataTypes ) => {
             },
             "10": {
                 type: DataTypes.UUID
+                // type: DataTypes.STRING(36)
             },
             "11": {
                 type: DataTypes.UUID
@@ -67,12 +68,12 @@ const ElementCareer = ( Sequelize, DataTypes ) => {
             },
             "21": {
                 type: DataTypes.UUID
-            }
+            },
         },
         {
             tableName: "elementCareer",
             FreezeTableName: true,
-            timestamps: false
+            timestamps: false,
         }
     );
     return model;
