@@ -89,13 +89,13 @@ INSERT INTO `elementcareer` VALUES (NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
 UNLOCK TABLES;
 
 --
--- Table structure for table `elementLocation`
+-- Table structure for table `elementlocation`
 --
 
-DROP TABLE IF EXISTS `elementLocation`;
+DROP TABLE IF EXISTS `elementlocation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `elementLocation` (
+CREATE TABLE `elementlocation` (
   `Seoul` varchar(36) DEFAULT NULL,
   `Incheon` varchar(36) DEFAULT NULL,
   `Daejeon` varchar(36) DEFAULT NULL,
@@ -103,27 +103,29 @@ CREATE TABLE `elementLocation` (
   `Pusan` varchar(36) DEFAULT NULL,
   `Ulsan` varchar(36) DEFAULT NULL,
   `Gwangju` varchar(36) DEFAULT NULL,
-  `Gyeonggi` varchar(36) DEFAULT NULL
+  `Gyeonggi` varchar(36) DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `elementLocation`
+-- Dumping data for table `elementlocation`
 --
 
-LOCK TABLES `elementLocation` WRITE;
-/*!40000 ALTER TABLE `elementLocation` DISABLE KEYS */;
-/*!40000 ALTER TABLE `elementLocation` ENABLE KEYS */;
+LOCK TABLES `elementlocation` WRITE;
+/*!40000 ALTER TABLE `elementlocation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `elementlocation` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `elementStack`
+-- Table structure for table `elementstack`
 --
 
-DROP TABLE IF EXISTS `elementStack`;
+DROP TABLE IF EXISTS `elementstack`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `elementStack` (
+CREATE TABLE `elementstack` (
   `JAVA` varchar(36) DEFAULT NULL,
   `Javascript` varchar(36) DEFAULT NULL,
   `Python` varchar(36) DEFAULT NULL,
@@ -137,17 +139,19 @@ CREATE TABLE `elementStack` (
   `Linux` varchar(36) DEFAULT NULL,
   `Kotlin` varchar(36) DEFAULT NULL,
   `Dart` varchar(36) DEFAULT NULL,
-  `Go` varchar(36) DEFAULT NULL
+  `Go` varchar(36) DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `elementStack`
+-- Dumping data for table `elementstack`
 --
 
-LOCK TABLES `elementStack` WRITE;
-/*!40000 ALTER TABLE `elementStack` DISABLE KEYS */;
-/*!40000 ALTER TABLE `elementStack` ENABLE KEYS */;
+LOCK TABLES `elementstack` WRITE;
+/*!40000 ALTER TABLE `elementstack` DISABLE KEYS */;
+/*!40000 ALTER TABLE `elementstack` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -256,4 +260,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-28 18:26:52
+-- Dump completed on 2022-09-28 18:38:10
