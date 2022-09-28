@@ -45,7 +45,7 @@
 
   <body>
     <div class="main-nav">
-      <% if(isLogin ==1){ %> <%-include("navbar.ejs") %> <% }else { %>
+      <% if(isLogin ==1){ %> <%-include("navbar_user.ejs") %> <% }else { %>
       <%-include("navbar_no_login.ejs")%> <% } %>
     </div>
 
@@ -97,21 +97,9 @@
             "background-color:  rgb(22, 38, 60) !important"
           );
           $(".user").attr("style", "color : grey !important");
-          $(".public").attr("style", "color: grey !important");
-          $("#logout").attr("style", "color: grey !important");
+          $("#main").attr("style", "color : grey !important");
         }
       });
-
-      let navbar_user = $(".user");
-
-      if (navbar_user.css("display", "none")) {
-        $(".Corp").css("display", "block");
-      } else if (navbar_user.css("display", "block")) {
-        $(".Corp").css("display", "none");
-      } else {
-        $(".user").css("display", "none");
-        $(".Corp").css("display", "none");
-      }
 
       //let userid = sessionStorage.getItem("user_id");
       //let userpw = sessionStorage.getItem("user_pw");
