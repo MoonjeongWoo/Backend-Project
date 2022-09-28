@@ -8,13 +8,6 @@ exports.getMain = (req, res) => {
 };
 // -------------------------------
 
-// get login page
-exports.getLogin = (req, res) => {
-  res.render("login", { isLogin: isLogin(req.session.uuid) });
-  // res.render("login", {isLogin: isLogin});
-};
-// -------------------------------
-
 // get joinmember page
 exports.getJoinMember = (req, res) => {
   res.render("joinMember", { isLogin: isLogin(req.session.uuid) });
@@ -33,6 +26,7 @@ exports.getJoinMemberCompany = (req, res) => {
 // };
 // -------------------------------
 
+
 // save join member data in db
 exports.postJoinMember = (req, res) => {
   UserInfo.create({
@@ -47,6 +41,7 @@ exports.postJoinMember = (req, res) => {
 };
 // -------------------------------
 
+
 // save join member data in db (기업 회원)
 exports.postJoinMemberCompany = (req, res) => {
   CompanyInfo.create({
@@ -60,6 +55,7 @@ exports.postJoinMemberCompany = (req, res) => {
   });
 };
 // -------------------------------
+
 
 // try login
 exports.userLogin = (req, res) => {
@@ -97,48 +93,9 @@ exports.userLoginCompany = (req, res) => {
 };
 
 // logout
-// exports.userLogout = async (req, res) => {
-//   var session = req.session;
-//   try {
-//     if (session.user) {
-//       await req.session.destroy((err)=>{
-//         if(err)
-//         console.log(err)
-//         else {
-//           res.redirect("/");
-//         }
-//       })
-//     }
-//   }
-//   catch (e) {
-//     console.log(e)
-//   }
-//   res.redirect("/");
 exports.userLogout = (req, res) => {
-  // console.log('/process/logout 호출됨1');
-  // console.log("세션값1", req.session);
-
-  if (req.session) {
-    // console.log("로그아웃");
-    // console.log("세션값2", req.session);
-
-    req.session.destroy((err) => {
-      if (err) throw err;
-      // console.log('세션 삭제하고 로그아웃됨');
-      // console.log("세션값3", req.session);
-      res.redirect("/"); // res.redirect('/public/login.ejs');
-    });
-  } else {
-    if (req.session) {
-      req.session.destroy(function (err) {
-        if (err) {
-          throw err;
-        }
-        res.redirect("/");
-      });
-    } else {
-      // console.log('로그인 상태 아님1');
-      // res.redirect('/');
-    }
-  }
+  req.session.destroy((err) => {
+    if (err) throw err;
+    res.redirect("/"); // res.redirect('/public/login.ejs');
+  });
 };
