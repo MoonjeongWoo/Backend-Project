@@ -47,7 +47,7 @@
       <input type="text" name="link" value="" id="link" /><br />
       <label etc>짧은 자기소개</label>
       <input type="text" name="etc" value="" id="etc" /><br />
-      <button type="button" id="submit" onclick="aaa()">제출</button>
+      <button type="button" id="submit" onclick="saveResume()">제출</button>
     </form>
 
     <script>
@@ -122,7 +122,7 @@
         
       }
       
-      function aaa() {
+      function saveResume() {
         var choose = $("#stack").val();
         var etc = $("#etc").val();
         var range = $("#range").val();
