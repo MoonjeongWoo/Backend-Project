@@ -49,7 +49,7 @@ exports.saveIntroudce = (req, res) => {
             var stackDict = {};
             console.log(stackSplit);
             var sqlDict = { id: req.session.uuid };
-            for (var i = 0; i < stackSplit.length - 2; i++) { stackDict[stackSplit[i]] = 1; };
+            for (var i = 0; i < stackSplit.length - 1; i++) { stackDict[stackSplit[i]] = 1; };
             Object.assign(sqlDict, stackDict);
             ElementStack.create(sqlDict)
               .then((result) => {
@@ -58,13 +58,10 @@ exports.saveIntroudce = (req, res) => {
                 console.log("스택요소최초등록 Error: ", err);
               });
 
-
-
           }) // then 2 end here
-
-
       } // if절 트루시 실행문 끝
       else {
+        // 수정단계 시작
         UserResume.update(
           {
             uuid: req.session.uuid,
@@ -84,12 +81,12 @@ exports.saveIntroudce = (req, res) => {
               if (i % 2 == 0) { totalCareer += Number(careerSplit[i]); }
             };
             totalCareer = String(totalCareer);
-            ElementCareer.update(
+            ElementCareer.destroy({ where: { id: req.session.uuid } })
+            ElementCareer.create(
               {
                 [totalCareer]: 1,
                 id: req.session.uuid
-              },
-              { where: { id: req.session.uuid } }
+              }
             )
               .then((result) => {
                 console.log("커리어요소수정등록")
@@ -100,14 +97,16 @@ exports.saveIntroudce = (req, res) => {
             var stackSplit = req.body.stack.split('|');
             var stackDict = {};
             console.log(stackSplit);
+            var sqlDict = { id: req.session.uuid };
             for (var i = 0; i < stackSplit.length - 1; i++) { stackDict[stackSplit[i]] = 1; };
-            ElementStack.update(stackDict, { where: { id: req.session.uuid } })
+            Object.assign(sqlDict, stackDict);
+            ElementStack.destroy({ where: { id: req.session.uuid } });
+            ElementStack.create(sqlDict)
               .then((result) => {
-                console.log("스택요소수정등록: ", result)
+                console.log("스택요소수정등록: ")
               }).catch((err) => {
                 console.log("스택요소수정등록 Error: ", err);
               });
-
 
           }).catch((err) => {
             console.log("이력수정등록 Error: ", err);
