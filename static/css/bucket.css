@@ -68,8 +68,9 @@ h2{
 }
 
 .content2{
+    display: none;
     position: relative;
-    height: 50%;
+    height: 40%;
     width: 100%;
     border-radius: 20px;
     margin-bottom: 30px;
@@ -94,4 +95,10 @@ h2{
     position: absolute;
     height: auto;
     bottom: 0;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
 }
