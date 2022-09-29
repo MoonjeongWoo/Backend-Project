@@ -31,11 +31,17 @@
       <label>stack</label>
       <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
       "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
-      <select name="stack" id="stack">
-        <% for ( var i=0; i < stackList.length; i++ ) { %>
-        <option value="<%= stackList[i] %>"><%= stackList[i] %></option>
-        <% }%></select
-      ><br />
+      <% for ( var i=0; i < stackList.length; i++ ) { %>
+        <button
+          type="button"
+          class="normal_btn"
+          onclick="addStack(this.value)"
+          value="<%= stackList[i] %>"
+        >
+          <%= stackList[i] %>
+        </button>
+        <% } %>
+        <br />
       <div class="selected_list"></div>
       <br />
       <label>career</label>
@@ -139,9 +145,9 @@
         //   etc: etc
         // };
         data = {
-          stack: 'Javascript|Python|C#|HTML|Linux||',
+          stack: 'Javascript|Python|C#|HTML|Dart|',
           // range: range,
-          career: '1|a|2|b|3|c|4|d|',
+          career: '1|a|2|b|3|c|5|e|',
           portfolio: 'getURL',
           etc: 'etc'
         };

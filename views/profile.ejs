@@ -1,3 +1,4 @@
+<h3>회원정보 확인</h3>
 <div class="user-Login">
     <!-- <div class="input-group mb-3">
 <span class="input-group-text" id="basic-addon1">uuid</span>
@@ -102,4 +103,13 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
+    <div>아이디 : <%= data.id%></div>
+    <div>비밀번호 : <%= data.pw%></div>
+    <div>이름 : <%= data.name%></div>
+    <div>이메일 : <%= data.email%></div>
+    <div>주소 : <%= data.loca%></div>
+</div>
+
+<script>
+
 </script>

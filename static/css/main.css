@@ -29,6 +29,11 @@
     margin-top: 7%;
     color: rgb(22, 38, 60);
     z-index: 999;
+    animation: fadeInUp 1.5s;
+}
+
+.login_div {
+  animation: fadeInUp 1.5s;
 }
 
 .our_ser {
@@ -53,28 +58,84 @@
   height: 700px;
   margin: auto;
   /* background: linear-gradient(rgb(36, 34, 34), rgb(217, 212, 205)); */
-  background: linear-gradient(white,rgb(176, 184, 201));
+  background: linear-gradient(white,rgb(150, 163, 192));
 }
 
 .intro-back {
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 2000px;
   margin: auto;
-  background-color: rgb(176, 184, 201);
+  background-color: rgb(150, 163, 192);
 }
 
-.our_ser_img {
-  display: flex;
-  overflow: hidden;
-  margin-top: 5%;
-
+.serQ {
+  scale: 0.6;
+  margin-top: 1%;
 }
 
-.img_1 {
-  border-radius: 15px;
-  height: 600px;
-  width: 450px;
-  opacity: 0.9;
-  filter: brightness(50%); 
+.serLine {
+  position: absolute;
+  border-left : 2px dotted rgb(22, 38, 60);;
+  height : 1000px;
+  margin-left: 50%;
+  transform: translate(-50%, -2%);
+}
+
+/* box1111111111 */
+.box1 {
+  margin-bottom: 5%;
+}
+
+.box1 > img {
+  display: inline-block;
+  border-radius: 10px;
+  max-width: 35%;
+  height: auto;
+  margin-left: -10%;
+}
+
+.serCont1 {
+  display: inline-block;
+  margin-left: 10%;
+  color: white;
+}
+
+/* box2222222 */
+.box2 {
+  margin-bottom: 5%;
+}
+
+.box2 > img {
+  display: inline-block;
+  border-radius: 10px;
+  max-width: 35%;
+  height: auto;
+  margin-right: -10%;
+}
+
+.serCont2 {
+  display: inline-block;
+  margin-right: 10%;
+  color: white;
+}
+
+.con1 {
+  font-weight: 700;
+  font-size: 3vw;
+}
+
+.con2 {
+  font-weight: 500;
+  font-size: 1.5vw;
+}
+
+/* 애니메이션 */
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }

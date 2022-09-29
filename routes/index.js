@@ -66,6 +66,7 @@ router.post("/updateProfile", upload.single('picture'), myPage.updateProfile);
 //---------------------------------------
 // get company page
 router.get("/company", company.getCompany);
+router.get("/bucket", company.getBucket);
 
 // send elements data
 router.post("/sortUserByElement", company.sortUserByElement);

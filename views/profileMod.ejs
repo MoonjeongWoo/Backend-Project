@@ -1,0 +1,70 @@
+<h3>회원정보 수정</h3>
+<div class="user-Login">
+
+    <!-- ID -->
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">ID</span>
+        <!-- <input id="id" type="text" class="form-control" placeholder="Nickname"> -->
+        <input id="id" type="text" class="form-control" value="<%= data.id%>">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="idCheck()">중복 확인</button>
+    </div>
+
+    <!-- Password -->
+    <div class="input-group mb-3">
+        <!-- <input id="pw" type="password" class="form-control" placeholder="Password" required> -->
+        <input id="pw"  class="form-control" value="<%= data.pw%>" required>
+        <!-- type="password"-->
+    </div>
+
+    <div class="input-group mb-3">
+        <!-- <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required> -->
+        <input id="confirm_pw" class="form-control" value="<%= data.pw%>" required>
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+        <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
+        <input id="name" type="text" class="form-control" value="<%= data.name%>">
+    </div>
+
+    <!-- E-mail -->
+    <div class="input-group mb-3">
+        <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
+        <input id="email" type="text" class="form-control" value="<%= data.email%>">
+        <span class="input-group-text">@</span>
+        <select class="form-select">
+            <option selected>선택</option>
+            <option value="1">naver.com</option>
+            <option value="2">gmail.com</option>
+            <option value="3">...</option>
+        </select>
+    </div>
+
+    <!-- Location -->
+    <div class="input-group mb-3">
+        <span class="input-group-text" value="<%= data.loca%>">Location</span>
+        <!-- <input id="location" class="form-control"> -->
+        <input id="location" class="form-control">
+    </div>
+
+    <div class="d-grid gap-2 mb-3">
+        <button class="btn btn-primary" type="button" onclick="mod()">수정</button>
+    </div>
+</div>
+
+<script>
+    function main_login() {
+        var id = $("#id").val();
+        var pw = $("#pw").val();
+        var data = {
+            pw: pw,
+        };
+        axios({
+            url: "/userLogin",
+            method: "POST",
+            data: data,
+        }).then((result) => {
+            location.href = "/";
+        });
+    }
+</script>
