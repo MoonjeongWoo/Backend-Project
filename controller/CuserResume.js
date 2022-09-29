@@ -13,16 +13,16 @@ exports.getIntroduce = (req, res) => {
 
 // save introduce
 exports.saveIntroudce = (req, res) => {
-  // UserResume.create({
-  //   uuid: req.session.uuid,
-  //   stack: req.body.stack,
-  //   career: req.body.career,
-  //   portfolio: req.body.portfolio,
-  //   etc: req.body.etc,
-  // })
-  // .then((result, err) => { // 하는 중
-  //   console.log(result)
-  // })
+  UserResume.create({
+    uuid: req.session.uuid,
+    stack: req.body.stack,
+    career: req.body.career,
+    portfolio: req.body.portfolio,
+    etc: req.body.etc,
+  })
+  .then((result, err) => {
+    console.log(result)
+  })
 
   var careerSplit = req.body.career.split('|');
   var totalCareer = 0;
@@ -35,8 +35,8 @@ exports.saveIntroudce = (req, res) => {
 
 totalCareer = String(totalCareer);
   ElementCareer.create({
-    [totalCareer] : "42fb6f32-73bb-4900-8b4e-4a99a25437ec",
-    id: '1'
+    [totalCareer] : req.session.uuid,
+    id: req.session.uuid
   }).then((result) => {
     // console.log(result)
   })
