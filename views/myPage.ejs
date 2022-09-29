@@ -34,7 +34,8 @@
 <body>
   <form>
     <div class="nav">
-      <%-include("navbar.ejs") %>
+      <% if(isLogin ==1){ %> <%-include("navbar_user.ejs") %> <% }else { %>
+      <%-include("navbar_no_login.ejs")%> <% } %>
     </div>
     <div class="row all">
       <div class="col-2">
