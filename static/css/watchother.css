@@ -1,0 +1,13 @@
+#wrap{
+    padding: 0;
+    margin: 0;
+}
+.content1{
+    width: 100%;
+    height: 1000px;
+}
+.content1-1{
+    padding-top: 80px;
+    height: 100%;
+    background-color: antiquewhite;
+}
