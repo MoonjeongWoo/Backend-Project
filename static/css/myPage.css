@@ -5,5 +5,16 @@
 
 .sideBar {
     position: fixed;
-    padding: 5%;
+    padding: 0% 5% 5% 5%;
+}
+
+.sideBar > a {
+    font-weight: 500;
+    color: black;
+    text-decoration-line: none;
+    margin-bottom: 10%;
+}
+
+a:hover{
+    background-color: lightblue;
 }

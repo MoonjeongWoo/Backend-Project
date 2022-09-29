@@ -1,59 +1,12 @@
+<h3>회원정보 확인</h3>
 <div class="user-Login">
-    <!-- <div class="input-group mb-3">
-<span class="input-group-text" id="basic-addon1">uuid</span>
-<input id="uuid" type="text" class="form-control" placeholder="Nickname">
-</div> -->
-
-    <!-- ID -->
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">ID</span>
-        <!-- <input id="id" type="text" class="form-control" placeholder="Nickname"> -->
-        <input id="id" type="text" class="form-control" placeholder="Nickname" value="id-test">
-        <button type="button" class="btn btn-secondary btn-sm" onclick="idCheck()">중복 확인</button>
-    </div>
-
-    <!-- Password -->
-    <div class="input-group mb-3">
-        <!-- <input id="pw" type="password" class="form-control" placeholder="Password" required> -->
-        <input id="pw" type="password" class="form-control" placeholder="Password" required>
-    </div>
-
-    <div class="input-group mb-3">
-        <!-- <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required> -->
-        <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required>
-    </div>
-
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Name</span>
-        <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
-        <input id="name" type="text" class="form-control" placeholder="Username">
-    </div>
-
-    <!-- E-mail -->
-    <div class="input-group mb-3">
-        <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
-        <input id="email" type="text" class="form-control" placeholder="E-mail">
-        <span class="input-group-text">@</span>
-        <select class="form-select">
-            <option selected>선택</option>
-            <option value="1">naver.com</option>
-            <option value="2">gmail.com</option>
-            <option value="3">...</option>
-        </select>
-    </div>
-
-    <!-- Location -->
-    <div class="input-group mb-3">
-        <span class="input-group-text">Location</span>
-        <!-- <input id="location" class="form-control"> -->
-        <input id="location" class="form-control">
-    </div>
-
-    <div class="d-grid gap-2 mb-3">
-        <button class="btn btn-primary" type="button" onclick="mod()">수정</button>
-    </div>
-    <div><%= data.pw%></div>
-    <div><%= data.name%></div>
-    <div><%= data.email%></div>
-    <div><%= data.loca%></div>
+    <div>아이디 : <%= data.id%></div>
+    <div>비밀번호 : <%= data.pw%></div>
+    <div>이름 : <%= data.name%></div>
+    <div>이메일 : <%= data.email%></div>
+    <div>주소 : <%= data.loca%></div>
 </div>
+
+<script>
+
+</script>
