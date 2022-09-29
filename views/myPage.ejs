@@ -40,28 +40,24 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="/static/css/myPage.css" />
-  </head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="/static/css/myPage.css" />
+  <link rel="stylesheet" href="/static/css/profile.css" />
+</head>
 
-  <body>
-    <form>
-      <div class="nav"><%-include("navbar_user.ejs") %></div>
-      <div class="row all">
-        <div class="col-2">
-          <div class="list-group sideBar" id="list-tab" role="tablist">
-            <a
-              class="active"
-              data-bs-toggle="list"
-              href="#profile"
-              onclick="modUser()"
-              >회원정보 수정</a
-            >
-            <a data-bs-toggle="list" href="#introduce" role="tab"
-              >이력서 관리</a
-            >
-            <a data-bs-toggle="list" href="#pick" role="tab">지원내역</a>
-          </div>
+<body>
+  <form>
+    <div class="nav">
+      <% if(isLogin ==1){ %> <%-include("navbar_user.ejs") %> <% }else { %>
+      <%-include("navbar_no_login.ejs")%> <% } %>
+    </div>
+    <div class="row all">
+      <div class="col-2">
+        <div class="list-group sideBar" id="list-tab" role="tablist">
+          <a class="active" data-bs-toggle="list" href="#profile" onclick="modUser()">회원정보 수정</a>
+          <a data-bs-toggle="list" href="#introduce" role="tab">이력서 관리</a>
+          <a data-bs-toggle="list" href="#pick" role="tab">지원내역</a>
+
         </div>
         <div class="col-10">
           <div class="tab-content" id="nav-tabContent">
