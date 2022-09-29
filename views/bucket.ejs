@@ -49,13 +49,15 @@
         });
       }
       function resume() {
-        console.log("Resume");
-        console.log($(".content2").css("display"));
         if ($(".content2").css("display") == "none") {
-          console.log("show");
           $(".content2").show();
+          $(".content2").css("height", "45%");
+          $(".content1").css("height", "45%");
+          $(."")
         } else {
           $(".content2").hide();
+          $(".wrap").css("height", "800px");
+          $(".content2").css("height", "0%");
         }
       }
     </script>
