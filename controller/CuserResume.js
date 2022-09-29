@@ -20,22 +20,23 @@ exports.saveIntroudce = (req, res) => {
     portfolio: req.body.portfolio,
     etc: req.body.etc,
   })
-  .then((result, err) => {
-    console.log(result)
-  })
+    .then((result, err) => {
+      console.log(result)
+    })
 
   var careerSplit = req.body.career.split('|');
   var totalCareer = 0;
 
-  for (var i=0; i<careerSplit.length-1; i++){
-    if (i%2 == 0){
+  for (var i = 0; i < careerSplit.length - 1; i++) {
+    if (i % 2 == 0) {
       totalCareer += Number(careerSplit[i]);
     }
   }
 
-totalCareer = String(totalCareer);
+  totalCareer = String(totalCareer);
+
   ElementCareer.create({
-    [totalCareer] : req.session.uuid,
+    [totalCareer]: req.session.uuid,
     id: req.session.uuid
   }).then((result) => {
     // console.log(result)

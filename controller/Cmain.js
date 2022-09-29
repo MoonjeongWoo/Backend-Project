@@ -1,11 +1,18 @@
 const { UserInfo } = require("../model");
 const { CompanyInfo } = require("../model");
-const { isLogin } = require("./Cfunc");
+const { isLogin, userPic } = require("./Cfunc");
 
 // get main page
-exports.getMain = (req, res) => {
-  res.render("main", { isLogin: isLogin(req.session.uuid) });
-  // res.render("main", { isLogin: 1 });
+exports.getMain =  async (req, res) => {
+  var userPicUrl = await userPic(req.session.uuid);
+  var checkLogin = isLogin(req.session.uuid)
+
+  console.log("userPic", userPicUrl)
+  if (checkLogin == 1) {
+    res.render("main", { isLogin: checkLogin, userPic: userPicUrl });
+  } else {
+    res.render("main", { isLogin: checkLogin });
+  }
 };
 // -------------------------------
 
@@ -19,12 +26,6 @@ exports.getJoinMember = (req, res) => {
 exports.getJoinMemberCompany = (req, res) => {
   res.render("joinMemberCompany", { isLogin: isLogin(req.session.uuid) });
 };
-// -------------------------------
-
-// get MyPage page
-// exports.getMyPage = (req, res) => {
-//   res.render("myPage");
-// };
 // -------------------------------
 
 

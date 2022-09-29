@@ -28,6 +28,10 @@ const UserInfo = (Sequelize, DataTypes) => {
           type: DataTypes.STRING(100),
           allowNull: false,
         },
+        userPic: {
+          type: DataTypes.STRING(100),
+          allowNull: true,
+        },
       },
       {
         tableName: "users",
