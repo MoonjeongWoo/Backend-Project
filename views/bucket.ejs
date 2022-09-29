@@ -11,15 +11,38 @@
     <%-include("navbarCom.ejs") %>
     <div class="wrap">
       <div class="content1">
-        <h2>상세보기</h2>
-        <div class="personal"></div>
+        <div class="personal">
+          <h2>담긴 개발자들</h2>
+          <% for(var i =0; i < 10; i++){ %>
+          <button class="accordion">name</button>
+          <div class="panel">
+            <p>stack: &nbsp; career: &nbsp; location:</p>
+            <button type="button">상세보기</button>
+          </div>
+          <% } %>
+        </div>
       </div>
       <div class="content2">
-        <h2>담긴 개발자들</h2>
-        <div class="bucketlist"></div>
+        <h2>상세보기</h2>
       </div>
     </div>
 
     <div class="footer"><%-include("footer.ejs") %></div>
+
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+
+      for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + 300 + "px";
+          }
+        });
+      }
+    </script>
   </body>
 </html>
