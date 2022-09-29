@@ -1,12 +1,14 @@
 const express = require("express");
+const session = require("express-session");
 const app = express();
 const port = 8000;
-const session = require("express-session");
 
 app.set("view engine", "ejs");
 app.use("/static", express.static("static"));
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 app.use(session({
   secret: '1234',
   resave: false,
@@ -17,6 +19,7 @@ app.use(session({
   //   httpOnly: true
   // }
 }))
+
 
 const router = require("./routes");
 app.use('/', router);

@@ -8,7 +8,6 @@ exports.getMyPage = (req, res) => {
         uuid: req.session.uuid
       }
     }).then((result) => {
-      console.log(result[0].dataValues)
       var data = {
         id: result[0].dataValues.id,
         pw: result[0].dataValues.pw,
@@ -25,7 +24,6 @@ exports.getMyPage = (req, res) => {
   } else {
     res.redirect('/');
   }
-  // res.render("myPage");
 };
 
 exports.userLogin = (req, res) => {
