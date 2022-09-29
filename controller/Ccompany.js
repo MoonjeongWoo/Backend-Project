@@ -15,6 +15,10 @@ exports.getCompany = (req, res) => {
   */
 };
 
+exports.getBucket = (req, res) => {
+  res.render("bucket");
+};
+
 // 요소 선택시 해당하는 사람 출력
 exports.sortUserByElement = (req, res) => {
   console.log(req.body);
