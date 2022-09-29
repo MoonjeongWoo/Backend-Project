@@ -25,6 +25,10 @@ const ElementLocation = ( Sequelize, DataTypes ) => {
             },
             Gyeonggi: {
                 type: DataTypes.UUID,
+            },
+            "id": {
+                type: DataTypes.UUID,
+                primaryKey: true
             }
         },
         {

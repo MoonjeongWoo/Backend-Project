@@ -30,7 +30,7 @@ CREATE TABLE `company` (
   `email` varchar(50) NOT NULL,
   `location` varchar(100) NOT NULL,
   PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,13 +44,13 @@ INSERT INTO `company` VALUES ('077c98f9-64f8-43c3-8664-8c5d5734b70b','company-id
 UNLOCK TABLES;
 
 --
--- Table structure for table `elementCareer`
+-- Table structure for table `elementcareer`
 --
 
-DROP TABLE IF EXISTS `elementCareer`;
+DROP TABLE IF EXISTS `elementcareer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `elementCareer` (
+CREATE TABLE `elementcareer` (
   `0` varchar(36) DEFAULT NULL,
   `1` varchar(36) DEFAULT NULL,
   `2` varchar(36) DEFAULT NULL,
@@ -72,27 +72,30 @@ CREATE TABLE `elementCareer` (
   `18` varchar(36) DEFAULT NULL,
   `19` varchar(36) DEFAULT NULL,
   `20` varchar(36) DEFAULT NULL,
-  `21` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `21` varchar(36) DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `elementCareer`
+-- Dumping data for table `elementcareer`
 --
 
-LOCK TABLES `elementCareer` WRITE;
-/*!40000 ALTER TABLE `elementCareer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `elementCareer` ENABLE KEYS */;
+LOCK TABLES `elementcareer` WRITE;
+/*!40000 ALTER TABLE `elementcareer` DISABLE KEYS */;
+INSERT INTO `elementcareer` VALUES (NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'42fb6f32-73bb-4900-8b4e-4a99a25437ec',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1');
+/*!40000 ALTER TABLE `elementcareer` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `elementLocation`
+-- Table structure for table `elementlocation`
 --
 
-DROP TABLE IF EXISTS `elementLocation`;
+DROP TABLE IF EXISTS `elementlocation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `elementLocation` (
+CREATE TABLE `elementlocation` (
   `Seoul` varchar(36) DEFAULT NULL,
   `Incheon` varchar(36) DEFAULT NULL,
   `Daejeon` varchar(36) DEFAULT NULL,
@@ -100,27 +103,29 @@ CREATE TABLE `elementLocation` (
   `Pusan` varchar(36) DEFAULT NULL,
   `Ulsan` varchar(36) DEFAULT NULL,
   `Gwangju` varchar(36) DEFAULT NULL,
-  `Gyeonggi` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Gyeonggi` varchar(36) DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `elementLocation`
+-- Dumping data for table `elementlocation`
 --
 
-LOCK TABLES `elementLocation` WRITE;
-/*!40000 ALTER TABLE `elementLocation` DISABLE KEYS */;
-/*!40000 ALTER TABLE `elementLocation` ENABLE KEYS */;
+LOCK TABLES `elementlocation` WRITE;
+/*!40000 ALTER TABLE `elementlocation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `elementlocation` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `elementStack`
+-- Table structure for table `elementstack`
 --
 
-DROP TABLE IF EXISTS `elementStack`;
+DROP TABLE IF EXISTS `elementstack`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `elementStack` (
+CREATE TABLE `elementstack` (
   `JAVA` varchar(36) DEFAULT NULL,
   `Javascript` varchar(36) DEFAULT NULL,
   `Python` varchar(36) DEFAULT NULL,
@@ -134,27 +139,29 @@ CREATE TABLE `elementStack` (
   `Linux` varchar(36) DEFAULT NULL,
   `Kotlin` varchar(36) DEFAULT NULL,
   `Dart` varchar(36) DEFAULT NULL,
-  `Go` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Go` varchar(36) DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `elementStack`
+-- Dumping data for table `elementstack`
 --
 
-LOCK TABLES `elementStack` WRITE;
-/*!40000 ALTER TABLE `elementStack` DISABLE KEYS */;
-/*!40000 ALTER TABLE `elementStack` ENABLE KEYS */;
+LOCK TABLES `elementstack` WRITE;
+/*!40000 ALTER TABLE `elementstack` DISABLE KEYS */;
+/*!40000 ALTER TABLE `elementstack` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `introduce`
+-- Table structure for table `userResume`
 --
 
-DROP TABLE IF EXISTS `introduce`;
+DROP TABLE IF EXISTS `userResume`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `introduce` (
+CREATE TABLE `userResume` (
   `uuid` varchar(36) NOT NULL,
   `stack` varchar(100) DEFAULT NULL,
   `career` varchar(100) DEFAULT NULL,
@@ -163,39 +170,19 @@ CREATE TABLE `introduce` (
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
   KEY `uuid` (`uuid`),
-  CONSTRAINT `introduce_ibfk_1` FOREIGN KEY (`uuid`) REFERENCES `users` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `userresume_ibfk_1` FOREIGN KEY (`uuid`) REFERENCES `users` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `introduce`
+-- Dumping data for table `userResume`
 --
 
-LOCK TABLES `introduce` WRITE;
-/*!40000 ALTER TABLE `introduce` DISABLE KEYS */;
-INSERT INTO `introduce` VALUES ('0cd39fca-2f51-4ee9-9b32-4e04b7cb5cd8','react','39393939',NULL,'hihihihi',NULL,NULL),('0cd39fca-2f51-4ee9-9b32-4e04b7cb5cd8','react','39393939',NULL,'hihihihi','2022-09-23 08:54:42','2022-09-23 08:54:42');
-/*!40000 ALTER TABLE `introduce` ENABLE KEYS */;
+LOCK TABLES `userResume` WRITE;
+/*!40000 ALTER TABLE `userResume` DISABLE KEYS */;
+INSERT INTO `userResume` VALUES ('42fb6f32-73bb-4900-8b4e-4a99a25437ec','','','','','2022-09-28 08:02:58','2022-09-28 08:02:58'),('42fb6f32-73bb-4900-8b4e-4a99a25437ec','Javascript|Python|C#|HTML|Linux||','1|a|2|b|3|c|4|d|','getURL','etc','2022-09-28 08:07:08','2022-09-28 08:07:08'),('42fb6f32-73bb-4900-8b4e-4a99a25437ec','Javascript|Python|C#|HTML|Linux||','1|a|2|b|3|c|4|d|','getURL','etc','2022-09-28 08:08:28','2022-09-28 08:08:28'),('42fb6f32-73bb-4900-8b4e-4a99a25437ec','Javascript|Python|C#|HTML|Linux||','1|a|2|b|3|c|4|d|','getURL','etc','2022-09-28 08:09:53','2022-09-28 08:09:53'),('42fb6f32-73bb-4900-8b4e-4a99a25437ec','Javascript|Python|C#|HTML|Linux||','1|a|2|b|3|c|4|d|','getURL','etc','2022-09-28 08:39:09','2022-09-28 08:39:09');
+/*!40000 ALTER TABLE `userResume` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Temporary view structure for view `userResume`
---
-
-DROP TABLE IF EXISTS `userResume`;
-/*!50001 DROP VIEW IF EXISTS `userResume`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `userResume` AS SELECT 
- 1 AS `uuid`,
- 1 AS `name`,
- 1 AS `email`,
- 1 AS `location`,
- 1 AS `stack`,
- 1 AS `career`,
- 1 AS `portfolio`,
- 1 AS `etc`,
- 1 AS `updatedAt`*/;
-SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `users`
@@ -212,7 +199,7 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `location` varchar(100) NOT NULL,
   PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -221,24 +208,45 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('0cd39fca-2f51-4ee9-9b32-4e04b7cb5cd8','id004','123','name004','mail004','loc004'),('35de47d7-3ed1-4277-add4-b413988d2c2d','id002','1234','name002','mail002','loc002'),('59dee75b-8866-41d5-9b91-99f9322d67a0','id006','12','name006','mail006','loc006'),('8e7436c3-fbda-4acc-9f79-fa090c4675c8','id003','123','name003','mail003','loc003'),('e78fa03c-bbd8-4172-85ef-6f2707c08490','id001','1234','name001','mail001','loc001'),('ed2e01a3-12e9-45e8-a462-d4de9e999fec','id005','12','name005','mail005','loc005'),('ef8f7ef1-ff8b-4b1b-8583-f9f5733687a3','id008','pw-test','name008','mail008','loc008');
+INSERT INTO `users` VALUES ('42fb6f32-73bb-4900-8b4e-4a99a25437ec','id-test','pw-test','name-test','emailtest@email.com','Seoul'),('5ef4498a-f451-4535-9b0b-6e600aa7a43d','id-test','pw-test','name-test','emailtest@email.com','Seoul'),('668a4b73-1b99-4974-8882-1b22bb76e58c','id-test','pw-test','name-test','email-test','loca-test');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Final view structure for view `userResume`
+-- Temporary view structure for view `viewUserResume`
 --
 
-/*!50001 DROP VIEW IF EXISTS `userResume`*/;
+DROP TABLE IF EXISTS `viewUserResume`;
+/*!50001 DROP VIEW IF EXISTS `viewUserResume`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `viewUserResume` AS SELECT 
+ 1 AS `id`,
+ 1 AS `pw`,
+ 1 AS `name`,
+ 1 AS `email`,
+ 1 AS `location`,
+ 1 AS `stack`,
+ 1 AS `career`,
+ 1 AS `portfolio`,
+ 1 AS `etc`,
+ 1 AS `updatedAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `viewUserResume`
+--
+
+/*!50001 DROP VIEW IF EXISTS `viewUserResume`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `userresume` AS select `user`.`uuid` AS `uuid`,`user`.`name` AS `name`,`user`.`email` AS `email`,`user`.`location` AS `location`,`introduce`.`stack` AS `stack`,`introduce`.`career` AS `career`,`introduce`.`portfolio` AS `portfolio`,`introduce`.`etc` AS `etc`,`introduce`.`updatedAt` AS `updatedAt` from (`users` `user` join `introduce`) where (`user`.`uuid` = `introduce`.`uuid`) */;
+/*!50001 VIEW `viewuserresume` AS select `a`.`id` AS `id`,`a`.`pw` AS `pw`,`a`.`name` AS `name`,`a`.`email` AS `email`,`a`.`location` AS `location`,`b`.`stack` AS `stack`,`b`.`career` AS `career`,`b`.`portfolio` AS `portfolio`,`b`.`etc` AS `etc`,`b`.`updatedAt` AS `updatedAt` from (`users` `a` join `userresume` `b`) where (`a`.`uuid` = `b`.`uuid`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -252,4 +260,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-26 15:03:09
+-- Dump completed on 2022-09-28 18:38:10
