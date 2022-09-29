@@ -6,22 +6,20 @@ const navbar = require("../controller/Cnavbar");
 const joinMember = require("../controller/CjoinMember");
 const myPage = require("../controller/CmyPage");
 const multer = require("multer");
-const path = require("path"); // 파일 관리자 
-
+const path = require("path"); // 파일 관리자
 
 const upload = multer({
-    storage: multer.diskStorage({
-        destination(req, file, done){
-            done( null, 'static/img/userId/');
-        },
-        filename(req, file, done) {
-            const ext = path.extname(file.originalname);
-            done(null, path.basename(file.originalname, ext) + Date.now() + ext);
-        },
-    }),
-    limits: { fileSize: 5*1024*1024 },
-})
-
+  storage: multer.diskStorage({
+    destination(req, file, done) {
+      done(null, "static/img/userId/");
+    },
+    filename(req, file, done) {
+      const ext = path.extname(file.originalname);
+      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+    },
+  }),
+  limits: { fileSize: 5 * 1024 * 1024 },
+});
 
 // main
 //---------------------------------------
@@ -58,7 +56,7 @@ router.post("/user/saveIntroudce", userResume.saveIntroudce);
 // myPage
 //---------------------------------------
 // update profile
-router.post("/updateProfile", upload.single('picture'), myPage.updateProfile);
+router.post("/updateProfile", upload.single("picture"), myPage.updateProfile);
 //---------------------------------------
 //---------------------------------------
 
@@ -67,7 +65,7 @@ router.post("/updateProfile", upload.single('picture'), myPage.updateProfile);
 // get company page
 router.get("/company", company.getCompany);
 router.get("/bucket", company.getBucket);
-
+router.get("/watchover", company.getOthers);
 // send elements data
 router.post("/sortUserByElement", company.sortUserByElement);
 //---------------------------------------
