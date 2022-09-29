@@ -100,7 +100,7 @@ exports.saveIntroudce = (req, res) => {
             var stackSplit = req.body.stack.split('|');
             var stackDict = {};
             console.log(stackSplit);
-            for (var i = 0; i < stackSplit.length - 2; i++) { stackDict[stackSplit[i]] = 1; };
+            for (var i = 0; i < stackSplit.length - 1; i++) { stackDict[stackSplit[i]] = 1; };
             ElementStack.update(stackDict, { where: { id: req.session.uuid } })
               .then((result) => {
                 console.log("스택요소수정등록: ", result)
