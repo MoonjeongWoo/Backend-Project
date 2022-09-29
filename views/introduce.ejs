@@ -31,11 +31,17 @@
       <label>stack</label>
       <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
       "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
-      <select name="stack" id="stack">
-        <% for ( var i=0; i < stackList.length; i++ ) { %>
-        <option value="<%= stackList[i] %>"><%= stackList[i] %></option>
-        <% }%></select
-      ><br />
+      <% for ( var i=0; i < stackList.length; i++ ) { %>
+        <button
+          type="button"
+          class="normal_btn"
+          onclick="addStack(this.value)"
+          value="<%= stackList[i] %>"
+        >
+          <%= stackList[i] %>
+        </button>
+        <% } %>
+        <br />
       <div class="selected_list"></div>
       <br />
       <label>career</label>
