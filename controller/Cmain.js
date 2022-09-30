@@ -1,17 +1,25 @@
 const { UserInfo } = require("../model");
 const { CompanyInfo } = require("../model");
-const { isLogin, userPic } = require("./Cfunc");
+const { checkLogin, userPic } = require("./Cfunc");
 
 // get main page
 exports.getMain =  async (req, res) => {
+  var data = {};
   var userPicUrl = await userPic(req.session.uuid);
-  var checkLogin = isLogin(req.session.uuid)
+  var isLogin = checkLogin(req.session.uuid);
 
-  console.log("userPic", userPicUrl)
-  if (checkLogin == 1) {
-    res.render("main", { isLogin: checkLogin, userPic: userPicUrl });
+
+  if (userPicUrl != undefined){
+    data["username"] = userPicUrl.name,
+    data["userPicurl"] = userPicUrl.userPic,
+    data["isLogin"] = isLogin
+  }else{
+    data["isLogin"] = isLogin
+  }
+  if (isLogin == 1) {
+    res.render("main", { data: data });
   } else {
-    res.render("main", { isLogin: checkLogin });
+    res.render("main", { data: data });
   }
 };
 // -------------------------------

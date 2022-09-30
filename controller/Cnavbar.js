@@ -1,4 +1,4 @@
-const { isLogin } = require("./Cfunc");
+const { checkLogin } = require("./Cfunc");
 const { UserInfo } = require("../model");
 
 exports.getMyPage = (req, res) => {
@@ -13,13 +13,11 @@ exports.getMyPage = (req, res) => {
         pw: result[0].dataValues.pw,
         name: result[0].dataValues.name,
         email: result[0].dataValues.email,
-        location: result[0].dataValues.location
+        location: result[0].dataValues.location,
+        isLogin: checkLogin(req.session.uuid)
       }
 
-      res.render("myPage", { 
-        isLogin: isLogin(req.session.uuid),
-        data: data
-      });
+      res.render("myPage", { data: data });
     })
   } else {
     res.redirect('/');

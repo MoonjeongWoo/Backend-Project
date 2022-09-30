@@ -46,7 +46,7 @@
 
   <body>
     <div class="main-nav">
-      <% if(isLogin ==1){ %> <%-include("navbar_user.ejs") %> <% }else { %>
+      <% if(data.isLogin ==1){ %> <%-include("navbar_user.ejs") %> <% }else { %>
       <%-include("navbar_no_login.ejs")%> <% } %>
     </div>
 
@@ -58,7 +58,7 @@
     <div class="first-back"></div>
     <div class="second-back">
       <div class="login_div">
-        <% if(isLogin==1) { %> <%-include("loginAfter.ejs") %> <% } else { %>
+        <% if(data.isLogin==1) { %> <%-include("loginAfter.ejs") %> <% } else { %>
         <%-include("login.ejs") %> <% } %>
       </div>
     </div>
