@@ -1,5 +1,6 @@
 const { UserInfo } = require("../model");
 const { CompanyInfo } = require("../model");
+const { ElementLocation } = require("../model");
 
 // get joinmember page
 exports.getJoinMember = (req, res) => {
@@ -24,7 +25,7 @@ exports.postJoinMember = (req, res) => {
     email: req.body.email,
     location: req.body.location
   }).then((result) => {
-    console.log(result)
+    console.log(result);
   })
 };
 // -------------------------------
@@ -55,9 +56,9 @@ exports.idCheck = (req, res) => {
   }).then((result) => {
     // exist 1 no exist 0 
     if (result[0] != undefined) {
-      res.send({result: 1})
-    }else{
-      res.send({result: 0})
+      res.send({ result: 1 })
+    } else {
+      res.send({ result: 0 })
     }
   })
 }
@@ -74,9 +75,9 @@ exports.idCheckCompany = (req, res) => {
   }).then((result) => {
     // exist 1 no exist 0 
     if (result[0] != undefined) {
-      res.send({result: 1})
-    }else{
-      res.send({result: 0})
+      res.send({ result: 1 })
+    } else {
+      res.send({ result: 0 })
     }
   })
 }
@@ -84,15 +85,15 @@ exports.idCheckCompany = (req, res) => {
 
 //회원정보 수정 화면
 exports.readyToEdit = (req, res) => {
-	
-  UserInfo.findOne( {
+
+  UserInfo.findOne({
     attributes: ['id', "pw", "name", "email", "location"],
-      where: {uuid: req.session.uuid}
+    where: { uuid: req.session.uuid }
   })
-  .then((result) => {
-      res.render("editProfile", {nowData: result});
+    .then((result) => {
+      res.render("editProfile", { nowData: result });
       // console.log(data);
-  })
+    })
 }
 
 //회원정보 수정 반영
@@ -106,7 +107,7 @@ exports.editProfile = (req, res) => {
       location: req.body.location
     },
     {
-      where : {
+      where: {
         uuid: req.session.uuid
       }
     }
@@ -116,7 +117,7 @@ exports.editProfile = (req, res) => {
 // 회원정보 삭제 (탈퇴)
 exports.delAccount = (req, res) => {
   UserInfo.destroy({
-    where: { id: req.body.id}
+    where: { id: req.body.id }
   })
   // const row = UserInfo.findOne({
   //   where: {

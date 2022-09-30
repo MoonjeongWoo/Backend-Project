@@ -1,9 +1,9 @@
 const { stringify } = require("querystring");
 const { urlToHttpOptions } = require("url");
-const { UserResume } = require("../model");
+const { UserResume, UserInfo } = require("../model");
 const { ElementCareer } = require("../model");
-const { ElementLocation } = require("../model");
 const { ElementStack } = require("../model");
+const { ElementLocation } = require("../model");
 
 // get introduce page
 exports.getIntroduce = (req, res) => {
@@ -28,6 +28,26 @@ exports.saveIntroudce = (req, res) => {
         })
           .then((result) => { // then 2 start here
             console.log("이력최초등록"/* , result */);
+
+            UserInfo.findOne({
+              attributes: ['location'],
+              where: { uuid: req.session.uuid }
+            })
+              .then((result) => {
+                // var dict = {"id": req.session.uuid};
+                var loca = result["dataValues"]["location"];
+                // // console.log("로카나와라", result["dataValues"]["location"]);
+                // Object.assign(dict, {loca: 1});
+                ElementLocation.create(
+                  {[loca]: 1,
+                  "id": req.session.uuid}
+                )
+                  .then((result) => {
+                    console.log("지역요소최초등록")
+                  }).catch((err) => {
+                    console.log("지역요소최초등록 Error: ", err);
+                  })
+              })
 
             var careerSplit = req.body.career.split('|');
             var totalCareer = 0;
