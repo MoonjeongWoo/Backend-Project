@@ -11,7 +11,6 @@ function checkLogin(uuid) {
     return 0;
   }
 }
-
 function strToSha256(id, pw) {
   var pwHash = createHash("sha256")
     .update(pw + id)

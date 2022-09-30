@@ -7,15 +7,15 @@ exports.getMain = async (req, res) => {
   var userPicUrl = await userPic(req.session.uuid);
   var isLogin = checkLogin(req.session.uuid);
 
-  if (userPicUrl != undefined){
+  if (userPicUrl != undefined) {
     data["username"] = userPicUrl.name;
     data["userPicUrl"] = userPicUrl.userPic;
     data["isLogin"] = isLogin;
 
     data["memeber"] = req.session.member;
-  }else{
-    data["isLogin"] = isLogin
-    data["memeber"] = req.session.member;
+  } else {
+    data["isLogin"] = isLogin;
+    data["member"] = req.session.member;
   }
   res.render("main", { data: data });
 };
@@ -35,7 +35,7 @@ exports.userLogin = (req, res) => {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
         req.session.member = 0;
-        res.send({login: 1})
+        res.send({ login: 1 });
       }
     } else {
       res.send({ login: 0 });
