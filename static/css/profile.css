@@ -1,0 +1,12 @@
+.userInfoCk {
+  width: 90%;
+}
+
+.proImg > img {
+  width: 10%;
+  display: inline-block;
+}
+
+.user-Login {
+  display: inline-block;
+}

@@ -1,3 +1,28 @@
+<!-- my Page 회원정보 수정 버튼 클릭 시 나타나는 비밀번호 확인 모달창 -->
+<div class="container">
+    <div class="modal">
+       <button onclick="CloseModal();"><img src="icon_X_2XL.svg" alt=""></button>
+       <!-- login.ejs login 코드 -->
+       <div class="cont_form_login">
+        <h2>비밀번호를 입력하세요</h2>
+        <!-- <input
+          type="password"
+          value="ch_pw"
+          id="pw"
+          placeholder="Password"
+          onkeypress="javascript:if(event.keyCode==13) {user_login(); main_login();}"
+        /> -->
+        <button class="btn_login" onclick="user_login(); main_login();">
+          LOGIN
+        </button>
+
+      </div>
+    </div>
+</div>
+
 <script>
-    var text = prompt("Message");
+    function CloseModal(){
+        var CloseModal = document.querySelector(".container");
+        CloseModal.classList.add("CloseModal");
+    }
 </script>
