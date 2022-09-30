@@ -86,7 +86,6 @@
         formData.append("email", $("#email").val());
         formData.append("location", $("#location").val());
         formData.append("picture", file.files[0]);
-
         axios({
             headers: {
                 "Content-Type": "multipart/form-data",
@@ -95,7 +94,7 @@
             method: "post",
             data: formData
         }).then((response) => {
-            console.log(response)
+            window.location = '/myPage';
         })
     }
 

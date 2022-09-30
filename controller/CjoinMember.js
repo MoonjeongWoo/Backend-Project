@@ -17,7 +17,7 @@ exports.getJoinMemberCompany = (req, res) => {
 
 // save join member data in db
 exports.postJoinMember = (req, res) => {
-  var pw = strToSha256(req.body.id, req.body.pw)
+  var pw = strToSha256(req.body.id, req.body.pw);
   var data = {
     result: 1
   }
@@ -115,6 +115,7 @@ exports.editProfile = (req, res) => {
     }
   );
 };
+
 
 // 회원정보 삭제 (탈퇴)
 exports.delAccount = (req, res) => {
