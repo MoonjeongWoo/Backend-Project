@@ -29,7 +29,7 @@ exports.postJoinMember = (req, res) => {
     location: req.body.location,
   }).then((result) => {
     res.send(data)
-  }
+  })
 };
 // -------------------------------
 
@@ -119,7 +119,7 @@ exports.editProfile = (req, res) => {
 // 회원정보 삭제 (탈퇴)
 exports.delAccount = (req, res) => {
   UserInfo.destroy({
-    where: { id: req.body.id },
+    where: { id: req.body.id }
   });
   // const row = UserInfo.findOne({
   //   where: {
@@ -129,8 +129,5 @@ exports.delAccount = (req, res) => {
   //   row.destory();
   // })
 };
-
-  })
-}
 // -------------------------------
 
