@@ -8,59 +8,59 @@ const ElementStack = (Sequelize, DataTypes) => {
             },
             JAVA: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Javascript: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Python: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             R: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             C: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "C++": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "C#": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             PHP: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Cobol: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             HTML: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Linux: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Kotlin: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Dart: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Go: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
         },
         {
