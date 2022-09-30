@@ -28,37 +28,40 @@
 
   <body>
     <%-include("navbar_user.ejs")%>
-    <div>
-      <form id="form-register" action="/user/saveIntroudce" method="post">
-        <label>stack</label>
-        <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
-        "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
-        <% for ( var i=0; i < stackList.length; i++ ) { %>
-          <button
-            type="button"
-            class="normal_btn"
-            onclick="addStack(this.value)"
-            value="<%= stackList[i] %>"
-          >
-            <%= stackList[i] %>
-          </button>
-          <% } %>
+
+    <div class="wrap">
+      <div class="content1">
+        <form id="form-register" action="/user/saveIntroudce" method="post">
+          <label>stack</label>
+          <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
+          "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
+          <% for ( var i=0; i < stackList.length; i++ ) { %>
+            <button
+              type="button"
+              class="normal_btn"
+              onclick="addStack(this.value)"
+              value="<%= stackList[i] %>"
+            >
+              <%= stackList[i] %>
+            </button>
+            <% } %>
+            <br />
+          <div class="selected_list"></div>
           <br />
-        <div class="selected_list"></div>
-        <br />
-        <label>career</label>
+          <label>career</label>
 
-      <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
-        
+        <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
+          
 
-        <label>port folio</label>
-        <input type="text" name="link" value="" id="link" /><br />
-        <label etc>짧은 자기소개</label>
-        <input type="text" name="etc" value="" id="etc" /><br />
-        <button type="button" id="submit" onclick="saveResume()">제출</button>
-      </form>
+          <label>port folio</label>
+          <input type="text" name="link" value="" id="link" /><br />
+          <label etc>짧은 자기소개</label>
+          <input type="text" name="etc" value="" id="etc" /><br />
+          <button type="button" id="submit" onclick="saveResume()">제출</button>
+        </form>
+      </div>
   </div>
-    <div><%-include("footer.ejs") %></div>
+    <div class="footer"><%-include("footer.ejs") %></div>
     <script>
       // 경력 추가
     var i = 0;
