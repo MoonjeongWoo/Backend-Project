@@ -163,69 +163,8 @@
         </div>
       </div>
     </form>
-    <script>
-      function idCheck() {
-        var idInput = $("#Cid").val();
-        data = {
-          id: idInput,
-        };
 
-        console.log(data);
+    <script></script>
 
-        axios({
-          url: "/joinMemberCompany/idcheck",
-          method: "POST",
-          data: data,
-        }).then((response) => {
-          console.log("아디체크", response.data);
-          return response.data;
-        });
-      }
-
-      function sendInfo() {
-        var id = $("#Cid").val();
-        var pw = $("#Cpw").val();
-        var name = $("#Cname").val();
-        var email = $("#Cemail").val();
-        var location = $("#Clocation").val();
-
-        data = {
-          id: id,
-          pw: pw,
-          name: name,
-          email: email,
-          location: location,
-        };
-
-        axios({
-          url: "/joinMemberCompany/user",
-          method: "POST",
-          data: data,
-        }).then((response) => {
-          if ( response.data.result == 1 ){
-            window.location = '/';
-          }
-        });
-      }
-
-      var pw = document.getElementById("Cpw");
-      var confirm_pw = document.getElementById("Cconfirm_pw");
-
-      function validatePassword() {
-        if (pw.value != confirm_pw.value) {
-          // 만일 두 인풋 필드값이 같지 않을 경우
-          // setCustomValidity의 값을 지정해 무조건 경고 표시가 나게 하고
-          confirm_pw.setCustomValidity("Passwords Don't Match");
-        } else {
-          // 만일 두 인풋 필드값이 같을 경우
-          // 오류가 없으면 메시지를 빈 문자열로 설정해야한다. 오류 메시지가 비어 있지 않은 한 양식은 유효성 검사를 통과하지 않고 제출되지 않는다.
-          // 따라서 빈값을 주어 submit 처리되게 한다
-          confirm_pw.setCustomValidity("");
-        }
-      }
-
-      pw.onchange = validatePassword;
-      confirm_pw.onkeyup = validatePassword;
-    </script>
   </body>
 </html>
