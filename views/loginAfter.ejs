@@ -1,23 +1,21 @@
 <!-- 로그인 창 사라진 후 보여질 창  -->
 <div class="cotn_principal">
-
- <div class="cont_centrar">
-    <div class="cont_back_info">
-        <div class="contBack">
-            <div id="logAfter">
-                <div class="proImg">
-                    <img src="../static/img/userId/<%= data.userPicUrl %>" alt="My Image">
-                </div>
-                <div class="afterCont">
+    <div class="cont_centrar">
+        <div class="cont_back_info">
+            <div class="contBack">
+                <div id="logAfter">
+                    <div class="proImg">
+                        <img src="../static/img/userId/<%= data.userPicUrl %>" alt="My Image">
+                    </div>
+                    <div class="afterCont">
                         <h2>
                             <%= data.username %>님 어서오세요!
                         </h2><br /><br />
-                     <a href="/myPage" class="button btnFade btnBlue">마이페이지</a>
-                    <a href="/process/logout" class="button btnFade btnRed" onclick="Delete_session(name);">logout</a>
-
+                        <a href="/myPage" class="button btnFade btnBlue">마이페이지</a>
+                        <a href="/process/logout" class="button btnFade btnRed" onclick="Delete_session(name);">logout</a>
+                    </div>
                 </div>
+                <div class="cont_img_back_grey"></div>
             </div>
-            <div class="cont_img_back_grey"></div>
         </div>
     </div>
-</div>
