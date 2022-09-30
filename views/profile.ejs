@@ -74,7 +74,8 @@
         formData.append("picture", file.files[0]);
 
         axios({
-            headers: {"Content-Type": "multipart/form-data",
+            headers: {
+                "Content-Type": "multipart/form-data",
             },
             url: "/updateProfile",
             method: "post",
@@ -103,13 +104,10 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
-    <div>아이디 : <%= data.id%></div>
-    <div>비밀번호 : <%= data.pw%></div>
-    <div>이름 : <%= data.name%></div>
-    <div>이메일 : <%= data.email%></div>
-    <div>주소 : <%= data.loca%></div>
-</div>
-
-<script>
-
+//     <div>아이디 : <%= data.id%></div>
+//     <div>비밀번호 : <%= data.pw%></div>
+//     <div>이름 : <%= data.name%></div>
+//     <div>이메일 : <%= data.email%></div>
+//     <div>주소 : <%= data.loca%></div>
+// </div>
 </script>

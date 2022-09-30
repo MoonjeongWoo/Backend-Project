@@ -2,29 +2,37 @@ const { UserInfo } = require("../model");
 
 var func = {};
 
-function isLogin(session) {
-    if (session) {
+function checkLogin(uuid) {
+    if (uuid) {
         return 1
     } else {
         return 0
     }
 }
 
-function userPic(session) {
+function userPic(uuid) {
     return new Promise(function (resolve, reject) {
-        if (session) {
+        if (uuid) {
             UserInfo.findOne({
-                where: { uuid: session }
+                where: { uuid: uuid }
             }).then((result) => {
-                resolve(result.dataValues.userPic)
+                if (result.dataValues.userPic == null) {
+                    result.dataValues.userPic = "4DCD6250-55D8-4152-AAF8-D85B65F799EA_1_105_c.jpeg";
+                }
+                var data = {
+                    name: result.dataValues.name,
+                    userPic: result.dataValues.userPic
+                }
+                resolve(data);
             })
-        }else{
+        } else {
             resolve()
         }
     })
 }
 
-func.isLogin = isLogin;
+
+func.checkLogin = checkLogin;
 func.userPic = userPic;
 
 module.exports = func;

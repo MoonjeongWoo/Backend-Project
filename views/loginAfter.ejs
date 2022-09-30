@@ -3,14 +3,14 @@
  <div class="cont_centrar">
     <div class="cont_back_info">
         <div class="contBack">
-            <h3>신한나님 어서오세요!</h3>
+            <h3><%= data.username %>님 어서오세요!</h3>
             <hr>
             <div class="afterCont">
                 <a href="/myPage">마이페이지</a>
                 <a> | </a>
                 <a href="/process/logout" onclick="Delete_session(name);">logout</a>
                 <br><br><br><br><br>
-                <img src="../static/img/userId/<%= userPic %>" alt="My Image">
+                <img src="../static/img/userId/<%= data.userPicurl %>" alt="My Image">
             </div>
         </div>
         <div class="cont_img_back_grey"></div>
