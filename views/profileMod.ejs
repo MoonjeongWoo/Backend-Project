@@ -69,6 +69,10 @@
     <div class="d-grid gap-2 mb-3">
         <button class="btn btn-primary" type="button" onclick="modUserProfile()">수정</button>
     </div>
+
+    <div>
+        <button type="button" class="btn btn-danger" onclick="delAccount()">회원 탈퇴</button>
+    </div>
 </div>
 
 <script>
@@ -92,6 +96,25 @@
         }).then((response) => {
             window.location = '/myPage';
         })
+    }
+
+    function delAccount() {
+        var id = $("#id").val();
+        // var pw = $("#pw").val();
+        // var name = $("#name").val();
+        // var email = $("#email").val();
+        // var location = $("#location").val();
+        data = {
+            id: id
+        };
+        axios({
+            url: "/profile/del",
+            method: "POST",
+            data: data
+        }).then((response) => {
+            // console.log(response.data);
+            // return response.data;
+        });
     }
 
 

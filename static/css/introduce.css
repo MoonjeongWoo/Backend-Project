@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+.wrap{
+    padding: 0;
+    margin: 0;
+}
+.content1{
+    padding-top: 80px;
+}
+#form-register{
+    border: 1px solid lightgrey;
+    height: 800px;
+    border-radius: 20px;
+    margin: 20px;
+}
+.footer{
+    position: relative;
+}

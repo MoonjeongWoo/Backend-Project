@@ -116,21 +116,19 @@ exports.editProfile = (req, res) => {
   );
 };
 
-// // 회원정보 삭제 (탈퇴)
-// exports.delAccount = (req, res) => {
-//   UserInfo.destroy({
-//     where: { id: req.body.id },
-//   });
-//   // const row = UserInfo.findOne({
-//   //   where: {
-//   //     id: req.body.data.id // 일단 하나만
-//   //   }
-//   // }).then((row) => {
-//   //   row.destory();
-//   // })
-// };
 
-//   })
-// }
+// 회원정보 삭제 (탈퇴)
+exports.delAccount = (req, res) => {
+  UserInfo.destroy({
+    where: { id: req.body.id }
+  });
+  // const row = UserInfo.findOne({
+  //   where: {
+  //     id: req.body.data.id // 일단 하나만
+  //   }
+  // }).then((row) => {
+  //   row.destory();
+  // })
+};
+
 // -------------------------------
-
