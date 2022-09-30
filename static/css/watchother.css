@@ -9,5 +9,64 @@
 .content1-1{
     padding-top: 80px;
     height: 100%;
-    background-color: antiquewhite;
+    width: 100%;
+    position: relative;
+    
+    /* background-color: antiquewhite; */
+}
+.content1-2{
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    overflow-y: scroll;
+    text-align: center;
+}
+.content1-2::-webkit-scrollbar{
+    display: none;
+}
+h2{
+    padding: 20px;
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: antiquewhite;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  text-align: left;
+  margin: 5px 5px;
 }

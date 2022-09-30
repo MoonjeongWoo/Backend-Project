@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Company User Sing Up</title>
+    <title>User</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -40,10 +40,15 @@
     <style>
       .user-Login {
         width: 80%;
+        padding-top: 80px;
+        margin-left: 150px;
       }
-
-      .check {
-        text-align: end;
+      @media screen and (max-width: 1000px) {
+        .user-Login {
+          width: 80%;
+          padding-top: 80px;
+          margin-left: 100px;
+        }
       }
     </style>
   </head>
@@ -61,10 +66,10 @@
           <span class="input-group-text" id="basic-addon1">ID</span>
           <!-- <input id="id" type="text" class="form-control" placeholder="Nickname"> -->
           <input
-            id="Cid"
+            id="id"
             type="text"
             class="form-control"
-            placeholder="ID"
+            placeholder="Nickname"
             value="id-test"
           />
           <button
@@ -80,24 +85,22 @@
         <div class="input-group mb-3">
           <!-- <input id="pw" type="password" class="form-control" placeholder="Password" required> -->
           <input
-            id="Cpw"
+            id="pw"
             type="password"
             class="form-control"
             placeholder="Password"
             required
-            value="pw1-test"
           />
         </div>
 
         <div class="input-group mb-3">
           <!-- <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required> -->
           <input
-            id="Cconfirm_pw"
+            id="confirm_pw"
             type="password"
             class="form-control"
             placeholder="Password"
             required
-            value="pw2-test"
           />
         </div>
 
@@ -105,11 +108,10 @@
           <span class="input-group-text" id="basic-addon1">Name</span>
           <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
           <input
-            id="Cname"
+            id="name"
             type="text"
             class="form-control"
             placeholder="Username"
-            value="name-test"
           />
         </div>
 
@@ -117,11 +119,10 @@
         <div class="input-group mb-3">
           <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
           <input
-            id="Cemail"
+            id="email"
             type="text"
             class="form-control"
             placeholder="E-mail"
-            value="email-test"
           />
           <span class="input-group-text">@</span>
           <select class="form-select">
@@ -135,7 +136,8 @@
         <!-- Location -->
         <div class="input-group mb-3">
           <span class="input-group-text">Location</span>
-          <select class="form-select" id="Clocation">
+          <!-- <input id="location" class="form-control"> -->
+          <select class="form-select" id="location">
             <option selected>선택</option>
             <option value="Seoul">Seoul</option>
             <option value="Incheon">Incheon</option>
@@ -147,17 +149,10 @@
             <option value="Gyeonggi">Gyeonggi</option>
             <option>...</option>
           </select>
-          <!-- <input id="location" class="form-control" value="loca-test"> -->
         </div>
 
-        <!-- <div class="check mb-3"> -->
-        <!-- <input type="radio" name="register"> 구직자 -->
-        <!-- <input type="radio" name="register" checked> 구직자 -->
-        <!-- <input type="radio" name="register"> 기업 -->
-        <!-- </div> -->
-
         <div class="d-grid gap-2 mb-3">
-          <button class="btn btn-primary" type="button" onclick="sendInfo2()">
+          <button class="btn btn-primary" type="button" onclick="sendInfo()">
             Sign Up
           </button>
         </div>
@@ -165,15 +160,13 @@
     </form>
     <script>
       function idCheck() {
-        var idInput = $("#Cid").val();
+        var idInput = $("#id").val();
         data = {
           id: idInput,
         };
-
         console.log(data);
-
         axios({
-          url: "/joinMemberCompany/idcheck",
+          url: "/joinMember/idcheck",
           method: "POST",
           data: data,
         }).then((response) => {
@@ -181,14 +174,19 @@
           return response.data;
         });
       }
-
       function sendInfo() {
-        var id = $("#Cid").val();
-        var pw = $("#Cpw").val();
-        var name = $("#Cname").val();
-        var email = $("#Cemail").val();
-        var location = $("#Clocation").val();
-
+        var id = $("#id").val();
+        var pw = $("#pw").val();
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var location = $("#location").val();
+        // data = {
+        //     id: "id-test",
+        //     pw: "pw-test",
+        //     name: "name-test",
+        //     email: "emailtest@email.com",
+        //     location: "Seoul"
+        // };
         data = {
           id: id,
           pw: pw,
@@ -196,9 +194,8 @@
           email: email,
           location: location,
         };
-
         axios({
-          url: "/joinMemberCompany/user",
+          url: "/joinMember/user",
           method: "POST",
           data: data,
         }).then((response) => {
@@ -206,10 +203,8 @@
           return response.data;
         });
       }
-
-      var pw = document.getElementById("Cpw");
-      var confirm_pw = document.getElementById("Cconfirm_pw");
-
+      var pw = document.getElementById("pw");
+      var confirm_pw = document.getElementById("confirm_pw");
       function validatePassword() {
         if (pw.value != confirm_pw.value) {
           // 만일 두 인풋 필드값이 같지 않을 경우
@@ -222,7 +217,6 @@
           confirm_pw.setCustomValidity("");
         }
       }
-
       pw.onchange = validatePassword;
       confirm_pw.onkeyup = validatePassword;
     </script>
