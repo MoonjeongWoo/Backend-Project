@@ -79,6 +79,6 @@ router.get("/myPage", navbar.getMyPage);
 // router.post("/profile/edit", joinMember.editProfile);
 
 // del account
-router.post("/profile/del", joinMember.delAccount);
+router.post("/profile/del", myPage.delAccount);
 
 module.exports = router;
