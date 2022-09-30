@@ -18,3 +18,7 @@
   text-decoration-line: none;
 }
 
+.proImg > img {
+  scale: 0.2;
+}
+
