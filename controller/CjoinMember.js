@@ -17,7 +17,7 @@ exports.getJoinMemberCompany = (req, res) => {
 
 // save join member data in db
 exports.postJoinMember = (req, res) => {
-  var pw = strToSha256(req.body.id, req.body.pw)
+  var pw = strToSha256(req.body.id, req.body.pw);
   var data = {
     result: 1
   }
@@ -29,7 +29,7 @@ exports.postJoinMember = (req, res) => {
     location: req.body.location,
   }).then((result) => {
     res.send(data)
-  }
+  })
 };
 // -------------------------------
 
@@ -116,21 +116,21 @@ exports.editProfile = (req, res) => {
   );
 };
 
-// 회원정보 삭제 (탈퇴)
-exports.delAccount = (req, res) => {
-  UserInfo.destroy({
-    where: { id: req.body.id },
-  });
-  // const row = UserInfo.findOne({
-  //   where: {
-  //     id: req.body.data.id // 일단 하나만
-  //   }
-  // }).then((row) => {
-  //   row.destory();
-  // })
-};
+// // 회원정보 삭제 (탈퇴)
+// exports.delAccount = (req, res) => {
+//   UserInfo.destroy({
+//     where: { id: req.body.id },
+//   });
+//   // const row = UserInfo.findOne({
+//   //   where: {
+//   //     id: req.body.data.id // 일단 하나만
+//   //   }
+//   // }).then((row) => {
+//   //   row.destory();
+//   // })
+// };
 
-  })
-}
+//   })
+// }
 // -------------------------------
 
