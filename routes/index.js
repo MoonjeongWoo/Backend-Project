@@ -75,8 +75,8 @@ router.get("/myPage", navbar.getMyPage);
 //---------------------------------------
 
 // edit profile
-router.get("/profile", joinMember.readyToEdit);
-router.post("/profile/edit", joinMember.editProfile);
+// router.get("/profile", joinMember.readyToEdit);
+// router.post("/profile/edit", joinMember.editProfile);
 
 // del account
 router.post("/profile/del", joinMember.delAccount);
