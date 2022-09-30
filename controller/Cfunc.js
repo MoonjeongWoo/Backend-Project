@@ -1,4 +1,6 @@
 const { UserInfo } = require("../model");
+const { createHash } = require('crypto');
+const { DataTypes } = require("sequelize");
 
 var func = {};
 
@@ -8,6 +10,10 @@ function checkLogin(uuid) {
     } else {
         return 0
     }
+}
+function strToSha256(id, pw){
+    var pwHash = createHash('sha256').update(pw+id).digest('hex')
+    return pwHash
 }
 
 function userPic(uuid) {
@@ -34,5 +40,6 @@ function userPic(uuid) {
 
 func.checkLogin = checkLogin;
 func.userPic = userPic;
+func.strToSha256 = strToSha256;
 
 module.exports = func;

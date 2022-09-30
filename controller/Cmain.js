@@ -1,6 +1,5 @@
-const { UserInfo } = require("../model");
-const { CompanyInfo } = require("../model");
-const { checkLogin, userPic } = require("./Cfunc");
+const { UserInfo, CompanyInfo } = require("../model");
+const { checkLogin, userPic, strToSha256 } = require("./Cfunc");
 
 // get main page
 exports.getMain =  async (req, res) => {
@@ -16,64 +15,19 @@ exports.getMain =  async (req, res) => {
   }else{
     data["isLogin"] = isLogin
   }
-  if (isLogin == 1) {
     res.render("main", { data: data });
-  } else {
-    res.render("main", { data: data });
-  }
-};
-// -------------------------------
-
-// get joinmember page
-exports.getJoinMember = (req, res) => {
-  res.render("joinMember", { isLogin: isLogin(req.session.uuid) });
-};
-// -------------------------------
-
-// get joinmember page _ Corp
-exports.getJoinMemberCompany = (req, res) => {
-  res.render("joinMemberCompany", { isLogin: isLogin(req.session.uuid) });
-};
-// -------------------------------
-
-
-// save join member data in db
-exports.postJoinMember = (req, res) => {
-  UserInfo.create({
-    id: req.body.id,
-    pw: req.body.pw,
-    name: req.body.name,
-    email: req.body.email,
-    location: req.body.location,
-  }).then((result) => {
-    console.log(result);
-  });
-};
-// -------------------------------
-
-
-// save join member data in db (기업 회원)
-exports.postJoinMemberCompany = (req, res) => {
-  CompanyInfo.create({
-    id: req.body.id,
-    pw: req.body.pw,
-    name: req.body.name,
-    email: req.body.email,
-    location: req.body.location,
-  }).then((result) => {
-    console.log(result);
-  });
 };
 // -------------------------------
 
 
 // try login
 exports.userLogin = (req, res) => {
+  pw = strToSha256(req.body.id, req.body.pw)
   UserInfo.findAll({
     attributes: ["uuid"],
     where: {
       id: req.body.id,
-      pw: req.body.pw,
+      pw: pw,
     },
   }).then((result) => {
     if (result[0] != undefined) {
@@ -87,11 +41,12 @@ exports.userLogin = (req, res) => {
 
 // try login (기업 회원)
 exports.userLoginCompany = (req, res) => {
+  pw = strToSha256(req.body.id, req.body.pw)
   CompanyInfo.findAll({
     attributes: ["uuid"],
     where: {
       id: req.body.id,
-      pw: req.body.pw,
+      pw: pw
     },
   }).then((result) => {
     if (result[0] != undefined) {
