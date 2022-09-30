@@ -9,16 +9,16 @@ const multer = require("multer");
 const path = require("path"); // 파일 관리자
 
 const upload = multer({
-  storage: multer.diskStorage({
-    destination(req, file, done) {
-      done(null, "static/img/userId/");
-    },
-    filename(req, file, done) {
-      const ext = path.extname(file.originalname);
-      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
-    },
-  }),
-  limits: { fileSize: 5 * 1024 * 1024 },
+    storage: multer.diskStorage({
+        destination(req, file, done) {
+            done(null, "static/img/userId/");
+        },
+        filename(req, file, done) {
+            const ext = path.extname(file.originalname);
+            done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+        },
+    }),
+    limits: { fileSize: 5 * 1024 * 1024 },
 });
 
 // main
@@ -75,10 +75,10 @@ router.get("/myPage", navbar.getMyPage);
 //---------------------------------------
 
 // edit profile
-router.get("/profile", joinMember.readyToEdit);
-router.post("/profile/edit", joinMember.editProfile);
+// router.get("/profile", joinMember.readyToEdit);
+// router.post("/profile/edit", joinMember.editProfile);
 
 // del account
-router.post("/profile/del", joinMember.delAccount);
+router.post("/profile/del", myPage.delAccount);
 
 module.exports = router;
