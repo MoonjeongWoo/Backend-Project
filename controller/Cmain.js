@@ -52,9 +52,9 @@ exports.userLoginCompany = (req, res) => {
     if (result[0] != undefined) {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
-        res.send({ login: 1 });
+        res.send({ login: 3 });
       } else {
-        res.send({ login: 0 });
+        res.send({ login: 4 });
       }
     }
   });
