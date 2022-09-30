@@ -130,6 +130,8 @@
       <%-include("footer.ejs") %>
     </div>
     <script>
+
+      /*아이디 중복 체크*/
       function idCheck() {
         var idInput = $("#id").val();
         data = {
@@ -147,7 +149,7 @@
           return response.data;
         });
       }
-      /*유저용 아디 값 보내기*/
+      /*유저용 아이디 값 보내기*/
       function sendInfo() {
         var id = $("#id").val();
         var pw = $("#pw").val();
@@ -155,13 +157,6 @@
         var email = $("#email").val();
         var location = $("#location").val();
 
-        // data = {
-        //     id: "id-test",
-        //     pw: "pw-test",
-        //     name: "name-test",
-        //     email: "emailtest@email.com",
-        //     location: "Seoul"
-        // };
         data = {
           id: id,
           pw: pw,
@@ -183,6 +178,9 @@
 
       var pw = document.getElementById("pw");
       var confirm_pw = document.getElementById("confirm_pw");
+    
+     
+      /*유저 비밀번호 확인*/
 
       function validatePassword() {
         if (pw.value != confirm_pw.value) {
@@ -199,7 +197,11 @@
 
       pw.onchange = validatePassword;
       confirm_pw.onkeyup = validatePassword;
-      // 아코디언
+
+    
+     
+      /* 아코디언*/
+
       var acc = document.getElementsByClassName("accordion");
 
       for (var i = 0; i < acc.length; i++) {
@@ -215,7 +217,12 @@
       }
 
 
-      /* 기업용 회원가입*/
+
+      /* 기업용 중복아이디 체크*/
+      
+      
+
+
       function idCheck() {
         var idInput = $("#Cid").val();
         data = {
@@ -233,7 +240,9 @@
           return response.data;
         });
       }
+      
       /* 기업 회원가입 정보 전송하기 */
+      
       function sendInfo2() {
         var id = $("#Cid").val();
         var pw = $("#Cpw").val();
@@ -254,15 +263,20 @@
           method: "POST",
           data: data,
         }).then((response) => {
+
           if (response.data.result == 1) {
             window.location = '/';
           }
+
         });
       }
 
       var pw = document.getElementById("Cpw");
       var confirm_pw = document.getElementById("Cconfirm_pw");
-
+     
+     
+      /*회사용 비밀번호 중복 확인 검사*/
+     
       function validatePassword() {
         if (pw.value != confirm_pw.value) {
           // 만일 두 인풋 필드값이 같지 않을 경우
