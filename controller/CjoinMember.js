@@ -93,6 +93,7 @@ exports.readyToEdit = (req, res) => {
     attributes: ["id", "pw", "name", "email", "location"],
     where: { uuid: req.session.uuid },
   }).then((result) => {
+    
     res.render("editProfile", { nowData: result });
     // console.log(data);
   });
