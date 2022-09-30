@@ -57,7 +57,10 @@ exports.userLoginCompany = (req, res) => {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
         req.session.member = 1;
+        res.send({login: 1})
       }
+    }else{
+      res.send({login: 0})
     }
   });
 };
