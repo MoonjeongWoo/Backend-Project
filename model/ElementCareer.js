@@ -8,91 +8,91 @@ const ElementCareer = (Sequelize, DataTypes) => {
             },
             "0": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "1": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "2": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "3": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "4": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "5": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "6": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "7": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "8": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "9": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "10": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "11": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "12": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "13": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "14": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "15": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "16": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "17": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "18": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "19": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "20": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             "21": {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             }
         },
         {

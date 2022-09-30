@@ -8,35 +8,35 @@ const ElementLocation = ( Sequelize, DataTypes ) => {
             },
             Seoul: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Incheon: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Daejeon: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Daegu: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Pusan: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Ulsan: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Gwangju: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             },
             Gyeonggi: {
                 type: DataTypes.STRING(1),
-                defaultValue: NULL
+                defaultValue: null
             }
         },
         {
