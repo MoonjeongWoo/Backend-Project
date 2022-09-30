@@ -1,7 +1,6 @@
 const { UserInfo } = require("../model");
 const { CompanyInfo } = require("../model");
 const { strToSha256 } = require("./Cfunc");
-const { ElementLocation } = require("../model");
 
 // get joinmember page
 exports.getJoinMember = (req, res) => {
@@ -55,9 +54,7 @@ exports.postJoinMemberCompany = (req, res) => {
 exports.idCheck = (req, res) => {
   UserInfo.findAll({
     attributes: ["id"],
-    where: {
-      id: req.body.id,
-    },
+    where: { id: req.body.id }
   }).then((result) => {
     // exist 1 no exist 0
     if (result[0] != undefined) {
@@ -73,9 +70,7 @@ exports.idCheck = (req, res) => {
 exports.idCheckCompany = (req, res) => {
   CompanyInfo.findAll({
     attributes: ["id"],
-    where: {
-      id: req.body.id,
-    },
+    where: { id: req.body.id }
   }).then((result) => {
     // exist 1 no exist 0
     if (result[0] != undefined) {
@@ -91,7 +86,7 @@ exports.idCheckCompany = (req, res) => {
 exports.readyToEdit = (req, res) => {
   UserInfo.findOne({
     attributes: ["id", "pw", "name", "email", "location"],
-    where: { uuid: req.session.uuid },
+    where: { uuid: req.session.uuid }
   }).then((result) => {
     res.render("editProfile", { nowData: result });
     // console.log(data);
@@ -108,26 +103,16 @@ exports.editProfile = (req, res) => {
       email: req.body.email,
       location: req.body.location,
     },
-    {
-      where: {
-        uuid: req.session.uuid,
-      },
-    }
+    { where: { uuid: req.session.uuid } }
   );
 };
 
 // 회원정보 삭제 (탈퇴)
 exports.delAccount = (req, res) => {
-  UserInfo.destroy({
-    where: { id: req.body.id }
-  });
+  UserInfo.destroy({ where: { id: req.body.id } });
   // const row = UserInfo.findOne({
-  //   where: {
-  //     id: req.body.data.id // 일단 하나만
-  //   }
-  // }).then((row) => {
-  //   row.destory();
-  // })
+  //   where: { id: req.body.data.id } // 일단 하나만
+  // }).then((row) => { row.destory(); })
 };
 // -------------------------------
 

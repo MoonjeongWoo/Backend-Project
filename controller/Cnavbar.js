@@ -4,9 +4,7 @@ const { UserInfo } = require("../model");
 exports.getMyPage = (req, res) => {
   if (req.session.uuid) {
     UserInfo.findAll({
-      where: {
-        uuid: req.session.uuid
-      }
+      where: { uuid: req.session.uuid }
     }).then(async (result) => {
       var userPicUrl = await userPic(req.session.uuid);
       // console.log(userPicUrl)

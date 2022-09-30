@@ -4,7 +4,7 @@ const { ElementLocation } = require("../model");
 
 exports.updateProfile = (req, res) => {
     // console.log(req.file.filename)
-    pw = strToSha256(req.body.id, req,body.pw)
+    pw = strToSha256(req.body.id, req, body.pw);
     UserInfo.update(
         {
             id: req.body.id,
@@ -14,9 +14,7 @@ exports.updateProfile = (req, res) => {
             location: req.body.location,
             // userPic: req.file.filename
         },
-        {
-            where: { uuid: req.session.uuid }
-        }
+        { where: { uuid: req.session.uuid } }
     )
         .then(() => {
             var newLoca = req.body.location;
@@ -33,7 +31,7 @@ exports.updateProfile = (req, res) => {
                     console.log("지역요소수정등록 Error: ", err);
                 })
         })
-}
+};
 
 // 회원정보 삭제 (탈퇴)
 exports.delAccount = (req, res) => {
@@ -42,4 +40,4 @@ exports.delAccount = (req, res) => {
     //   where: { id: req.body.data.id } // 일단 하나만
     // }).then((row) => { row.destory(); }
     // )
-}
+};
