@@ -19,12 +19,17 @@ exports.saveIntroudce = (req, res) => {
   })
     .then((result) => { // then 1 start here
       if (result === null) {
+        var date = new Date();
+        var today = new Intl.DateTimeFormat('kr').format(date);
+        console.log("today", today);
+
         UserResume.create({
           uuid: req.session.uuid,
           stack: req.body.stack,
           career: req.body.career,
           portfolio: req.body.portfolio,
-          etc: req.body.etc
+          etc: req.body.etc,
+          createdDate: today
         })
           .then((result) => { // then 2 start here
             console.log("이력_1st: "/* , result */);
@@ -85,6 +90,7 @@ exports.saveIntroudce = (req, res) => {
       else {
         // 수정단계 시작
         var date = new Date();
+        // var today = new Intl.DateTimeFormat('kr', {dateStyle: 'full', timeStyle: 'full'}).format(date);
         var today = new Intl.DateTimeFormat('kr').format(date);
         console.log("today", today);
 
