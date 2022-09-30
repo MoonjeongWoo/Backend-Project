@@ -16,9 +16,7 @@ exports.updateProfile = (req, res) => {
             where: { uuid: req.session.uuid }
         }
     )
-        .then((result) => {
-            console.log('레큐바디', req.body.location);
-            console.log('리절트', result["dataValues"]);
+        .then(() => {
             var newLoca = req.body.location;
             ElementLocation.destroy({ where: { id: req.session.uuid } });
             ElementLocation.create(
@@ -27,12 +25,19 @@ exports.updateProfile = (req, res) => {
                     "id": req.session.uuid
                 }
             )
-                    .then((result) => {
-                        console.log("지역요소수정등록")
-                    }).catch((err) => {
-                        console.log("지역요소수정등록 Error: ", err);
-                    })
-            
+                .then((result) => {
+                    // console.log("지역요소수정등록")
+                }).catch((err) => {
+                    console.log("지역요소수정등록 Error: ", err);
+                })
         })
+}
 
+// 회원정보 삭제 (탈퇴)
+exports.delAccount = (req, res) => {
+    UserInfo.destroy({ where: { id: req.body.id } })
+    // const row = UserInfo.findOne({
+    //   where: { id: req.body.data.id } // 일단 하나만
+    // }).then((row) => { row.destory(); }
+    // )
 }
