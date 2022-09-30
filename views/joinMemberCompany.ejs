@@ -1,180 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Company User Sing Up</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-        integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/9376e8eed8.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/9376e8eed8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <style>
-        .user-Login {
-            width: 80%;
-        }
+      .user-Login {
+        width: 80%;
+      }
 
-        .check {
-            text-align: end;
-        }
+      .check {
+        text-align: end;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <form>
-        <div class="user-Login">
-            <!-- <div class="input-group mb-3">
+      <div class="user-Login">
+        <!-- <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">uuid</span>
         <input id="uuid" type="text" class="form-control" placeholder="Nickname">
     </div> -->
 
-            <!-- ID -->
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">ID</span>
-                <!-- <input id="id" type="text" class="form-control" placeholder="Nickname"> -->
-                <input id="id" type="text" class="form-control" placeholder="ID" value="id-test">
-                <button type="button" class="btn btn-secondary btn-sm" onclick="idCheck()">중복 확인</button>
-            </div>
-
-            <!-- Password -->
-            <div class="input-group mb-3">
-                <!-- <input id="pw" type="password" class="form-control" placeholder="Password" required> -->
-                <input id="pw" type="password" class="form-control" placeholder="Password" required value="pw1-test">
-            </div>
-
-            <div class="input-group mb-3">
-                <!-- <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required> -->
-                <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required value="pw2-test">
-            </div>
-
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Name</span>
-                <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
-                <input id="name" type="text" class="form-control" placeholder="Username" value="name-test">
-            </div>
-
-            <!-- E-mail -->
-            <div class="input-group mb-3">
-                <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
-                <input id="email" type="text" class="form-control" placeholder="E-mail" value="email-test">
-                <span class="input-group-text">@</span>
-                <select class="form-select">
-                    <option selected>선택</option>
-                    <option value="1">naver.com</option>
-                    <option value="2">gmail.com</option>
-                    <option value="3">...</option>
-                </select>
-            </div>
-
-            <!-- Location -->
-            <div class="input-group mb-3">
-                <span class="input-group-text">Location</span>
-                <select class="form-select" id="location">
-                    <option selected>선택</option>
-                    <option value="Seoul">Seoul</option>
-                    <option value="Incheon">Incheon</option>
-                    <option value="Daejeon">Daejeon</option>
-                    <option value="Daegu">Daegu</option>
-                    <option value="Pusan">Pusan</option>
-                    <option value="Ulsan">Ulsan</option>
-                    <option value="Gwangju">Gwangju</option>
-                    <option value="Gyeonggi">Gyeonggi</option>
-                    <option>...</option>
-                </select>
-                <!-- <input id="location" class="form-control" value="loca-test"> -->
-            </div>
-
-            <!-- <div class="check mb-3"> -->
-                <!-- <input type="radio" name="register"> 구직자 -->
-                <!-- <input type="radio" name="register" checked> 구직자 -->
-                <!-- <input type="radio" name="register"> 기업 -->
-            <!-- </div> -->
-
-            <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-primary" type="button" onclick="sendInfo()">Sign Up</button>
-            </div>
-
+        <!-- ID -->
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">ID</span>
+          <!-- <input id="id" type="text" class="form-control" placeholder="Nickname"> -->
+          <input
+            id="Cid"
+            type="text"
+            class="form-control"
+            placeholder="ID"
+            value="id-test"
+          />
+          <button
+            type="button"
+            class="btn btn-secondary btn-sm"
+            onclick="idCheck()"
+          >
+            중복 확인
+          </button>
         </div>
 
+        <!-- Password -->
+        <div class="input-group mb-3">
+          <!-- <input id="pw" type="password" class="form-control" placeholder="Password" required> -->
+          <input
+            id="Cpw"
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            required
+            value="pw1-test"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <!-- <input id="confirm_pw" type="password" class="form-control" placeholder="Password" required> -->
+          <input
+            id="Cconfirm_pw"
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            required
+            value="pw2-test"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Name</span>
+          <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
+          <input
+            id="Cname"
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            value="name-test"
+          />
+        </div>
+
+        <!-- E-mail -->
+        <div class="input-group mb-3">
+          <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
+          <input
+            id="Cemail"
+            type="text"
+            class="form-control"
+            placeholder="E-mail"
+            value="email-test"
+          />
+          <span class="input-group-text">@</span>
+          <select class="form-select">
+            <option selected>선택</option>
+            <option value="1">naver.com</option>
+            <option value="2">gmail.com</option>
+            <option value="3">...</option>
+          </select>
+        </div>
+
+        <!-- Location -->
+        <div class="input-group mb-3">
+          <span class="input-group-text">Location</span>
+          <select class="form-select" id="Clocation">
+            <option selected>선택</option>
+            <option value="Seoul">Seoul</option>
+            <option value="Incheon">Incheon</option>
+            <option value="Daejeon">Daejeon</option>
+            <option value="Daegu">Daegu</option>
+            <option value="Pusan">Pusan</option>
+            <option value="Ulsan">Ulsan</option>
+            <option value="Gwangju">Gwangju</option>
+            <option value="Gyeonggi">Gyeonggi</option>
+            <option>...</option>
+          </select>
+          <!-- <input id="location" class="form-control" value="loca-test"> -->
+        </div>
+
+        <!-- <div class="check mb-3"> -->
+        <!-- <input type="radio" name="register"> 구직자 -->
+        <!-- <input type="radio" name="register" checked> 구직자 -->
+        <!-- <input type="radio" name="register"> 기업 -->
+        <!-- </div> -->
+
+        <div class="d-grid gap-2 mb-3">
+          <button class="btn btn-primary" type="button" onclick="sendInfo()">
+            Sign Up
+          </button>
+        </div>
+      </div>
     </form>
     <script>
+      function idCheck() {
+        var idInput = $("#Cid").val();
+        data = {
+          id: idInput,
+        };
 
-        function idCheck() {
-            var idInput = $("#id").val();
-            data = {
-                id: idInput
-            };
+        console.log(data);
 
-            console.log(data)
+        axios({
+          url: "/joinMemberCompany/idcheck",
+          method: "POST",
+          data: data,
+        }).then((response) => {
+          console.log("아디체크", response.data);
+          return response.data;
+        });
+      }
 
-            axios({
-                url: "/joinMemberCompany/idcheck",
-                method: "POST",
-                data: data
-            }).then((response) => {
-                console.log("아디체크", response.data);
-                return response.data
-            });
+      function sendInfo() {
+        var id = $("#Cid").val();
+        var pw = $("#Cpw").val();
+        var name = $("#Cname").val();
+        var email = $("#Cemail").val();
+        var location = $("#Clocation").val();
+
+        data = {
+          id: id,
+          pw: pw,
+          name: name,
+          email: email,
+          location: location,
+        };
+
+        axios({
+          url: "/joinMemberCompany/user",
+          method: "POST",
+          data: data,
+        }).then((response) => {
+          console.log(response.data);
+          return response.data;
+        });
+      }
+
+      var pw = document.getElementById("Cpw");
+      var confirm_pw = document.getElementById("Cconfirm_pw");
+
+      function validatePassword() {
+        if (pw.value != confirm_pw.value) {
+          // 만일 두 인풋 필드값이 같지 않을 경우
+          // setCustomValidity의 값을 지정해 무조건 경고 표시가 나게 하고
+          confirm_pw.setCustomValidity("Passwords Don't Match");
+        } else {
+          // 만일 두 인풋 필드값이 같을 경우
+          // 오류가 없으면 메시지를 빈 문자열로 설정해야한다. 오류 메시지가 비어 있지 않은 한 양식은 유효성 검사를 통과하지 않고 제출되지 않는다.
+          // 따라서 빈값을 주어 submit 처리되게 한다
+          confirm_pw.setCustomValidity("");
         }
+      }
 
-        function sendInfo() {
-            var id = $("#id").val();
-            var pw = $("#pw").val();
-            var name = $("#name").val();
-            var email = $("#email").val();
-            var location = $("#location").val();
-
-            data = {
-                id: id,
-                pw: pw,
-                name: name,
-                email: email,
-                location: location
-            };
-
-            axios({
-                url: "/joinMemberCompany/user",
-                method: "POST",
-                data: data
-            }).then((response) => {
-                console.log(response.data);
-                return response.data;
-            });
-        }
-
-        var pw = document.getElementById("pw")
-        var confirm_pw = document.getElementById("confirm_pw");
-
-        function validatePassword() {
-            if (pw.value != confirm_pw.value) { // 만일 두 인풋 필드값이 같지 않을 경우
-                // setCustomValidity의 값을 지정해 무조건 경고 표시가 나게 하고
-                confirm_pw.setCustomValidity("Passwords Don't Match");
-            }
-            else { // 만일 두 인풋 필드값이 같을 경우
-                // 오류가 없으면 메시지를 빈 문자열로 설정해야한다. 오류 메시지가 비어 있지 않은 한 양식은 유효성 검사를 통과하지 않고 제출되지 않는다.
-                // 따라서 빈값을 주어 submit 처리되게 한다
-                confirm_pw.setCustomValidity('');
-            }
-        }
-
-        pw.onchange = validatePassword;
-        confirm_pw.onkeyup = validatePassword;
-
-
+      pw.onchange = validatePassword;
+      confirm_pw.onkeyup = validatePassword;
     </script>
-</body>
-
+  </body>
 </html>
