@@ -6,8 +6,7 @@ exports.getMain =  async (req, res) => {
   var data = {};
   var userPicUrl = await userPic(req.session.uuid);
   var isLogin = checkLogin(req.session.uuid);
-
-
+  
   if (userPicUrl != undefined){
     data["username"] = userPicUrl.name,
     data["userPicUrl"] = userPicUrl.userPic,
