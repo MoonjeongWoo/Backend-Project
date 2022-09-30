@@ -54,7 +54,11 @@
           height: 700px;
         }
       }
+      .wrap{
+        height: auto;
+      }
       .border {
+        height: auto;
         border: 1px solid lightslategray;
         border-radius: 20px;
         padding: 10px;
@@ -99,30 +103,37 @@
         text-align: left;
         margin: 5px 5px;
       }
+      .footer{
+          position: absolute;
+           height: auto;
+            bottom: 0;
+      }
     </style>
   </head>
 
   <body>
     <%-include("navbar_no_login.ejs") %>
-    <form>
-      <div class="user-Login">
-        <!-- <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">uuid</span>
-        <input id="uuid" type="text" class="form-control" placeholder="Nickname">
-    </div> -->
-        <div>
-          <button class="accordion">User용</button>
-          <div class="panel">
-            <div class="border"><%-include("joinMemberUser.ejs") %></div>
-          </div>
-          <button class="accordion">Company</button>
-          <div class="panel">
-            <div class="border">
-              <%-include("joinMemberCompany.ejs") %>
+    <div class="wrap">
+      <form>
+        <div class="user-Login">
+          <!-- <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">uuid</span>
+          <input id="uuid" type="text" class="form-control" placeholder="Nickname">
+      </div> -->
+          <div>
+            <button class="accordion" id="userarc">User용</button>
+            <div class="panel">
+              <div class="border"><%-include("joinMemberUser.ejs") %></div>
             </div>
+            <button class="accordion" id="comparc">Company</button>
+            <div class="panel">
+              <div class="border">
+                <%-include("joinMemberCompany.ejs") %>
+              </div>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
     <div class="footer"><%-include("footer.ejs") %></div>
     <script>
       function idCheck() {
@@ -142,7 +153,7 @@
           return response.data;
         });
       }
-
+      /*유저용 아디 값 보내기*/
       function sendInfo() {
         var id = $("#id").val();
         var pw = $("#pw").val();
@@ -227,8 +238,8 @@
           return response.data;
         });
       }
-
-      function sendInfo() {
+      /* 기업 회원가입 정보 전송하기 */
+      function sendInfo2() {
         var id = $("#Cid").val();
         var pw = $("#Cpw").val();
         var name = $("#Cname").val();
@@ -271,6 +282,10 @@
 
       pw.onchange = validatePassword;
       confirm_pw.onkeyup = validatePassword;
+
+      /*아코디언 버튼 누르면 화면 조정 하기*/
+      
+      
     </script>
   </body>
 </html>
