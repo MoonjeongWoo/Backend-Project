@@ -42,29 +42,77 @@
 
     <!-- Location -->
     <div class="input-group mb-3">
-        <span class="input-group-text" value="<%= data.loca%>">Location</span>
+        <span class="input-group-text">Location</span>
         <!-- <input id="location" class="form-control"> -->
-        <input id="location" class="form-control">
+        <input id="location" class="form-control" value="<%= data.loca%>">
+    </div>
+
+    <!-- User Identification Picture -->
+    <div id="showPic"></div>
+    <div>
+        <input type="file" name="userIdPic" id="userIdPic" onchange="showPic(event)">
     </div>
 
     <div class="d-grid gap-2 mb-3">
-        <button class="btn btn-primary" type="button" onclick="mod()">수정</button>
+        <button class="btn btn-primary" type="button" onclick="modUserProfile()">수정</button>
     </div>
 </div>
 
 <script>
-    function main_login() {
-        var id = $("#id").val();
-        var pw = $("#pw").val();
-        var data = {
-            pw: pw,
-        };
+    function modUserProfile() {
+        var formData = new FormData();
+        const file = document.getElementById("userIdPic");
+
+        formData.append("id", $("#id").val());
+        formData.append("pw", $("#pw").val());
+        formData.append("name", $("#name").val());
+        formData.append("email", $("#email").val());
+        formData.append("location", $("#location").val());
+        formData.append("picture", file.files[0]);
+
         axios({
-            url: "/userLogin",
-            method: "POST",
-            data: data,
-        }).then((result) => {
-            location.href = "/";
-        });
+            headers: {"Content-Type": "multipart/form-data",
+            },
+            url: "/updateProfile",
+            method: "post",
+            data: formData
+        }).then((response) => {
+            console.log(response)
+        })
     }
+
+
+    function showPic(event) {
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+            var img = document.createElement("img");
+            var imgContainer = document.querySelector("div#showPic");
+
+            img.setAttribute("src", event.target.result);
+            img.setAttribute('width', '200px');
+            img.setAttribute('hieght', '200px');
+
+            if (imgContainer.hasChildNodes()) {
+                imgContainer.innerHTML = '';
+            }
+            imgContainer.appendChild(img);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
+    // function main_login() {
+    //     var id = $("#id").val();
+    //     var pw = $("#pw").val();
+    //     var data = {
+    //         pw: pw,
+    //     };
+    //     axios({
+    //         url: "/userLogin",
+    //         method: "POST",
+    //         data: data,
+    //     }).then((result) => {
+    //         location.href = "/";
+    //     });
+    // }
 </script>
