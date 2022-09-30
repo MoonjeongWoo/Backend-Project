@@ -10,7 +10,7 @@ exports.getMain =  async (req, res) => {
 
   if (userPicUrl != undefined){
     data["username"] = userPicUrl.name,
-    data["userPicurl"] = userPicUrl.userPic,
+    data["userPicUrl"] = userPicUrl.userPic,
     data["isLogin"] = isLogin
   }else{
     data["isLogin"] = isLogin
@@ -33,8 +33,10 @@ exports.userLogin = (req, res) => {
     if (result[0] != undefined) {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
-        res.redirect("/");
+        res.send({login: 1})
       }
+    }else{
+      res.send({login: 0})
     }
   });
 };

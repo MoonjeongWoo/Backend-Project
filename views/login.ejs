@@ -79,7 +79,11 @@
           method: "POST",
           data: data,
         }).then((result) => {
-          location.href = "/";
+          if ( result.data.login == 1 ){
+            window.location = '/';
+          }else{
+            alert('login fail');
+          }
         });
       }
 
