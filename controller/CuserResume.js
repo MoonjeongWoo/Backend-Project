@@ -39,8 +39,10 @@ exports.saveIntroudce = (req, res) => {
                 // // console.log("로카나와라", result["dataValues"]["location"]);
                 // Object.assign(dict, {loca: 1});
                 ElementLocation.create(
-                  {[loca]: 1,
-                  "id": req.session.uuid}
+                  {
+                    [loca]: 1,
+                    "id": req.session.uuid
+                  }
                 )
                   .then((result) => {
                     console.log("지역요소최초등록")
@@ -91,46 +93,44 @@ exports.saveIntroudce = (req, res) => {
             etc: req.body.etc
           },
           { where: { uuid: req.session.uuid } }
-        )
-          .then((result) => {
-            console.log("이력수정등록", result) // 수정 갯수
+        ).then((result) => {
+          console.log("이력수정등록", result) // 수정 갯수
 
-            var careerSplit = req.body.career.split('|');
-            var totalCareer = 0;
-            for (var i = 0; i < careerSplit.length - 1; i++) {
-              if (i % 2 == 0) { totalCareer += Number(careerSplit[i]); }
-            };
-            totalCareer = String(totalCareer);
-            ElementCareer.destroy({ where: { id: req.session.uuid } })
-            ElementCareer.create(
-              {
-                [totalCareer]: 1,
-                id: req.session.uuid
-              }
-            )
-              .then((result) => {
-                console.log("커리어요소수정등록")
-              }).catch((err) => {
-                console.log("커리어요소수정등록 Error: ", err);
-              });
-
-            var stackSplit = req.body.stack.split('|');
-            var stackDict = {};
-            console.log(stackSplit);
-            var sqlDict = { id: req.session.uuid };
-            for (var i = 0; i < stackSplit.length - 1; i++) { stackDict[stackSplit[i]] = 1; };
-            Object.assign(sqlDict, stackDict);
-            ElementStack.destroy({ where: { id: req.session.uuid } });
-            ElementStack.create(sqlDict)
-              .then((result) => {
-                console.log("스택요소수정등록: ")
-              }).catch((err) => {
-                console.log("스택요소수정등록 Error: ", err);
-              });
-
+          var careerSplit = req.body.career.split('|');
+          var totalCareer = 0;
+          for (var i = 0; i < careerSplit.length - 1; i++) {
+            if (i % 2 == 0) { totalCareer += Number(careerSplit[i]); }
+          };
+          totalCareer = String(totalCareer);
+          ElementCareer.destroy({ where: { id: req.session.uuid } })
+          ElementCareer.create(
+            {
+              [totalCareer]: 1,
+              id: req.session.uuid
+            }
+          ).then((result) => {
+            console.log("커리어요소수정등록")
           }).catch((err) => {
-            console.log("이력수정등록 Error: ", err);
-          })
+            console.log("커리어요소수정등록 Error: ", err);
+          });
+
+          var stackSplit = req.body.stack.split('|');
+          var stackDict = {};
+          console.log(stackSplit);
+          var sqlDict = { id: req.session.uuid };
+          for (var i = 0; i < stackSplit.length - 1; i++) { stackDict[stackSplit[i]] = 1; };
+          Object.assign(sqlDict, stackDict);
+          ElementStack.destroy({ where: { id: req.session.uuid } });
+          ElementStack.create(sqlDict)
+            .then((result) => {
+              console.log("스택요소수정등록: ")
+            }).catch((err) => {
+              console.log("스택요소수정등록 Error: ", err);
+            });
+
+        }).catch((err) => {
+          console.log("이력수정등록 Error: ", err);
+        })
       } // else 실행문 끝
     }) // then 1 end here
 } // saveIntroudce 끝
