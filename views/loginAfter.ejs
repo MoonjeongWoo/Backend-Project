@@ -3,16 +3,17 @@
  <div class="cont_centrar">
     <div class="cont_back_info">
         <div class="contBack">
-            <h3><%= data.username %>님 어서오세요!</h3>
-
-            <hr>
-            <div class="afterCont">
-                <a href="/myPage">마이페이지</a>
-                <a> | </a>
-                <a href="/process/logout" onclick="Delete_session(name);">logout</a>
-                <a class="proImg">
+            <div id="logAfter">
+                <div class="proImg">
                     <img src="../static/img/userId/<%= data.userPicurl %>" alt="My Image">
-                </a>
+                </div>
+                <div class="afterCont">
+                    <h2><%= data.username %>님 어서오세요!</h2><br />
+                    <button>
+                     <a href="/myPage">마이페이지</a>
+                    </button>
+                    <a href="/process/logout" onclick="Delete_session(name);">logout</a>
+                </div>
             </div>
         </div>
         <div class="cont_img_back_grey"></div>

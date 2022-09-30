@@ -13,7 +13,7 @@ const companyInfo = (Sequelize, DataTypes) => {
           allowNull: false
         },
         pw: {
-          type: DataTypes.STRING(15),
+          type: DataTypes.STRING(64),
           allowNull: false
         },
         name: {

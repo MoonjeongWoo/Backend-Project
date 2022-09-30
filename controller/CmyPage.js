@@ -1,12 +1,14 @@
 const { UserInfo } = require("../model");
+const { strToSha256 } = require("./Cfunc");
 const { ElementLocation } = require("../model");
 
 exports.updateProfile = (req, res) => {
     // console.log(req.file.filename)
+    pw = strToSha256(req.body.id, req,body.pw)
     UserInfo.update(
         {
             id: req.body.id,
-            pw: req.body.pw,
+            pw: pw,
             name: req.body.name,
             email: req.body.email,
             location: req.body.location,
