@@ -23,15 +23,15 @@ const UserResume = ( Sequelize, DataTypes ) => {
                 type: DataTypes.STRING(100),
                 allowNull: true
             },
-            createdAt: {
+            createdDate: {
                 // allowNull: true,
-                type: 'TIMESTAMP',
-                defaultValue: Sequelize.fn('NOW'), // null?
+                type: DataTypes.DATE, // 'TIMESTAMP'
+                defaultValue: Sequelize.fn('NOW')
             },
-            updatedAt: {
+            updatedDate: {
                 // allowNull: true,
-                type: 'TIMESTAMP',
-                defaultValue: Sequelize.fn('NOW'),
+                type: DataTypes.DATE, // 'TIMESTAMP'
+                defaultValue: Sequelize.fn('NOW')
             }
         
         },
