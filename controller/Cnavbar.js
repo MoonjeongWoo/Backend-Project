@@ -1,4 +1,4 @@
-const { checkLogin } = require("./Cfunc");
+const { checkLogin, userPic } = require("./Cfunc");
 const { UserInfo } = require("../model");
 
 exports.getMyPage = (req, res) => {
@@ -7,14 +7,19 @@ exports.getMyPage = (req, res) => {
       where: {
         uuid: req.session.uuid
       }
-    }).then((result) => {
+    }).then(async (result) => {
+      var userPicUrl = await userPic(req.session.uuid);
+      // console.log(userPicUrl)
+      userPicUrl = userPicUrl.userPic;
+
       var data = {
         id: result[0].dataValues.id,
         pw: result[0].dataValues.pw,
         name: result[0].dataValues.name,
         email: result[0].dataValues.email,
         location: result[0].dataValues.location,
-        isLogin: checkLogin(req.session.uuid)
+        userPicUrl: userPicUrl,
+        isLogin: checkLogin(req.session.uuid),
       }
 
       res.render("myPage", { data: data });

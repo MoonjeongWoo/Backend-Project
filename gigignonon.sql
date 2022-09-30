@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `uuid` varchar(36) NOT NULL,
   `id` varchar(15) NOT NULL,
-  `pw` varchar(15) NOT NULL,
+  `pw` varchar(64) NOT NULL,
   `name` varchar(15) NOT NULL,
   `email` varchar(50) NOT NULL,
   `location` varchar(100) NOT NULL,
@@ -84,6 +84,7 @@ CREATE TABLE `elementCareer` (
 
 LOCK TABLES `elementCareer` WRITE;
 /*!40000 ALTER TABLE `elementCareer` DISABLE KEYS */;
+INSERT INTO `elementCareer` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `elementCareer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,6 +151,7 @@ CREATE TABLE `elementStack` (
 
 LOCK TABLES `elementStack` WRITE;
 /*!40000 ALTER TABLE `elementStack` DISABLE KEYS */;
+INSERT INTO `elementStack` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e',NULL,'1','1',NULL,NULL,NULL,'1',NULL,NULL,'1',NULL,NULL,'1',NULL);
 /*!40000 ALTER TABLE `elementStack` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,7 +181,7 @@ CREATE TABLE `userResume` (
 
 LOCK TABLES `userResume` WRITE;
 /*!40000 ALTER TABLE `userResume` DISABLE KEYS */;
-INSERT INTO `userResume` VALUES ('42fb6f32-73bb-4900-8b4e-4a99a25437ec','','','','','2022-09-28 08:02:58','2022-09-28 08:02:58'),('42fb6f32-73bb-4900-8b4e-4a99a25437ec','Javascript|Python|C#|HTML|Linux||','1|a|2|b|3|c|4|d|','getURL','etc','2022-09-28 08:07:08','2022-09-28 08:07:08'),('42fb6f32-73bb-4900-8b4e-4a99a25437ec','Javascript|Python|C#|HTML|Linux||','1|a|2|b|3|c|4|d|','getURL','etc','2022-09-28 08:08:28','2022-09-28 08:08:28'),('42fb6f32-73bb-4900-8b4e-4a99a25437ec','Javascript|Python|C#|HTML|Linux||','1|a|2|b|3|c|4|d|','getURL','etc','2022-09-28 08:09:53','2022-09-28 08:09:53'),('42fb6f32-73bb-4900-8b4e-4a99a25437ec','Javascript|Python|C#|HTML|Linux||','1|a|2|b|3|c|4|d|','getURL','etc','2022-09-28 08:39:09','2022-09-28 08:39:09');
+INSERT INTO `userResume` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e','Javascript|Python|C#|HTML|Dart|','1|a|2|b|3|c|5|e|','getURL','etc','2022-09-30 07:25:58','2022-09-30 07:25:58');
 /*!40000 ALTER TABLE `userResume` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,7 +195,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `uuid` varchar(36) NOT NULL,
   `id` varchar(15) NOT NULL,
-  `pw` varchar(15) NOT NULL,
+  `pw` varchar(64) NOT NULL,
   `name` varchar(10) NOT NULL,
   `email` varchar(50) NOT NULL,
   `location` varchar(100) NOT NULL,
@@ -208,7 +210,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('42fb6f32-73bb-4900-8b4e-4a99a25437ec','ch_id','ch_pw','ch_name','ch_email','ch_location','0DF393CE-7A33-471C-8399-B9D3C145569B_1_201_a1664440309730.jpeg'),('5ef4498a-f451-4535-9b0b-6e600aa7a43d','ch_id','ch_pw','ch_name','ch_email','ch_location',NULL),('668a4b73-1b99-4974-8882-1b22bb76e58c','a','a','ch_name','ch_email','ch_location',NULL);
+INSERT INTO `users` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e','ch_id','5b5953ac1b865b2798dbdbd39750f9af15235aa3f99ed6453d6611e862cf3a6d','gogo2','sslslslsl','Daejeon',NULL),('c9e4a272-3e62-4b1d-837f-65b5b3f88e96','id-test','ed4dd4cdaa0d2c0370b0361945ed7e1a3e5f16795f9b2ccf8ebe82138e4c23f2','gogo1','emememail','Seoul',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,4 +262,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-30 14:42:30
+-- Dump completed on 2022-09-30 16:49:03
