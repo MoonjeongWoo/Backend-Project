@@ -1,10 +1,17 @@
 const { UserInfo } = require("../model");
-const { strToSha256 } = require("./Cfunc");
+const { strToSha256, userPic } = require("./Cfunc");
 const { ElementLocation } = require("../model");
 
-exports.updateProfile = (req, res) => {
-    // console.log(req.file.filename)
-    pw = strToSha256(req.body.id, req,body.pw)
+exports.updateProfile = async (req, res) => {
+    var pw = strToSha256(req.body.id, req.body.pw)
+    
+    if ( req.file != undefined){
+        var filename = req.file.filename;
+    }else{
+        var filename = await userPic(req.session.uuid);
+        filename = filename.userPic;
+    }
+
     UserInfo.update(
         {
             id: req.body.id,
@@ -12,27 +19,25 @@ exports.updateProfile = (req, res) => {
             name: req.body.name,
             email: req.body.email,
             location: req.body.location,
-            // userPic: req.file.filename
+            userPic: filename
         },
         {
             where: { uuid: req.session.uuid }
         }
-    )
-        .then(() => {
-            var newLoca = req.body.location;
-            ElementLocation.destroy({ where: { id: req.session.uuid } });
-            ElementLocation.create(
-                {
-                    [newLoca]: 1,
-                    "id": req.session.uuid
-                }
-            )
-                .then((result) => {
-                    // console.log("지역요소수정등록")
-                }).catch((err) => {
-                    console.log("지역요소수정등록 Error: ", err);
-                })
+
+    ).then(() => {
+        var newLoca = req.body.location;
+        ElementLocation.destroy({ where: { id: req.session.uuid } });
+        ElementLocation.create({
+            [newLoca]: 1,
+            "id": req.session.uuid
+        }).then((result) => {
+            // console.log("지역요소수정등록")
+        }).catch((err) => {
+            console.log("지역요소수정등록 Error: ", err);
         })
+    })
+    res.send()
 }
 
 // 회원정보 삭제 (탈퇴)

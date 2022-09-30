@@ -38,6 +38,8 @@ function userPic(uuid) {
 }
 
 
+
+
 func.checkLogin = checkLogin;
 func.userPic = userPic;
 func.strToSha256 = strToSha256;
