@@ -59,9 +59,11 @@
     <div class="first-back"></div>
     <div class="second-back">
       <div class="login_div">
-        <% if(data.isLogin ==1) { %> <%-include("loginAfter.ejs") %> <% } else
-        if(data.isLogin ==3) { %> <%-include("loginAfter.ejs") %> <% } else { %>
-        <%-include("login.ejs") %> <% } %>
+        <% if(data.isLogin == 1) { %> 
+          <%-include("loginAfter.ejs") %> 
+        <% } else { %> 
+          <%-include("login.ejs") %>
+        <% } %> 
       </div>
     </div>
     <div class="intro-back">
