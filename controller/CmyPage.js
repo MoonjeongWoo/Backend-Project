@@ -10,13 +10,15 @@ exports.updateProfile = (req, res) => {
             name: req.body.name,
             email: req.body.email,
             location: req.body.location,
-            userPic: req.file.filename
+            // userPic: req.file.filename
         },
         {
             where: { uuid: req.session.uuid }
         }
     )
-        .then(() => {
+        .then((result) => {
+            console.log('레큐바디', req.body.location);
+            console.log('리절트', result["dataValues"]);
             var newLoca = req.body.location;
             ElementLocation.destroy({ where: { id: req.session.uuid } });
             ElementLocation.create(
@@ -24,12 +26,13 @@ exports.updateProfile = (req, res) => {
                     [newLoca]: 1,
                     "id": req.session.uuid
                 }
+            )
                     .then((result) => {
                         console.log("지역요소수정등록")
                     }).catch((err) => {
                         console.log("지역요소수정등록 Error: ", err);
                     })
-            );
+            
         })
 
 }
