@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/introduce.css">
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
@@ -26,36 +27,41 @@
   </head>
 
   <body>
-    <%#-include("navbar.ejs")%>
-    <form id="form-register" action="/user/saveIntroudce" method="post">
-      <label>stack</label>
-      <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
-      "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
-      <% for ( var i=0; i < stackList.length; i++ ) { %>
-        <button
-          type="button"
-          class="normal_btn"
-          onclick="addStack(this.value)"
-          value="<%= stackList[i] %>"
-        >
-          <%= stackList[i] %>
-        </button>
-        <% } %>
-        <br />
-      <div class="selected_list"></div>
-      <br />
-      <label>career</label>
+    <%-include("navbar_user.ejs")%>
 
-     <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
-      
+    <div class="wrap">
+      <div class="content1">
+        <form id="form-register" action="/user/saveIntroudce" method="post">
+          <label>stack</label>
+          <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
+          "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
+          <% for ( var i=0; i < stackList.length; i++ ) { %>
+            <button
+              type="button"
+              class="normal_btn"
+              onclick="addStack(this.value)"
+              value="<%= stackList[i] %>"
+            >
+              <%= stackList[i] %>
+            </button>
+            <% } %>
+            <br />
+          <div class="selected_list"></div>
+          <br />
+          <label>career</label>
 
-      <label>port folio</label>
-      <input type="text" name="link" value="" id="link" /><br />
-      <label etc>짧은 자기소개</label>
-      <input type="text" name="etc" value="" id="etc" /><br />
-      <button type="button" id="submit" onclick="saveResume()">제출</button>
-    </form>
+        <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
+          
 
+          <label>port folio</label>
+          <input type="text" name="portfolio" value="" id="portfolio" /><br />
+          <label etc>짧은 자기소개</label>
+          <input type="text" name="etc" value="" id="etc" /><br />
+          <button type="button" id="submit" onclick="saveResume()">제출</button>
+        </form>
+      </div>
+  </div>
+    <div class="footer"><%-include("footer.ejs") %></div>
     <script>
       // 경력 추가
     var i = 0;
@@ -94,7 +100,7 @@
       //career value 값
 
       //링크 가져오기(portfolio)
-      var get_URL = $("#link").text();
+      var get_URL = $("#portfolio").text();
 
       //자기소개
       var myself = $("#etc").val();
@@ -130,29 +136,20 @@
       
       function saveResume() {
         var choose = $("#stack").val();
-        var etc = $("#etc").val();
-        var range = $("#range").val();
         var career = getCar();
-        console.log(career);
+        var portfolio = $("#link").val();
+        var etc = $("#etc").val();
 
 
 
-        // data = {
-        //   stack: stackList,
-        //   // range: range,
-        //   career: career,
-        //   portfolio: getURL,
-        //   etc: etc
-        // };
         data = {
-          stack: 'Javascript|Python|C#|HTML|Dart|',
-          // range: range,
-          career: '1|a|2|b|3|c|5|e|',
-          portfolio: 'getURL',
-          etc: 'etc'
+          stack: stackList,
+          career: career,
+          portfolio: portfolio,
+          etc: etc
         };
+    
 
-        console.log(data);
         axios({
           url: "/user/saveIntroudce",
           method: "post",

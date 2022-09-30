@@ -1,118 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/9376e8eed8.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <style>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/9376e8eed8.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <style>
+    .user-Login {
+      width: 80%;
+      padding-top: 80px;
+      margin-left: 150px;
+      height: 900px;
+      padding-top: 200px;
+    }
+
+    @media screen and (max-width: 1000px) {
       .user-Login {
         width: 80%;
         padding-top: 80px;
-        margin-left: 150px;
-        height: 900px;
-        padding-top: 200px;
+        margin-left: 100px;
+        padding-top: 180px;
+        height: 700px;
       }
-      @media screen and (max-width: 1000px) {
-        .user-Login {
-          width: 80%;
-          padding-top: 80px;
-          margin-left: 100px;
-          padding-top: 180px;
-          height: 700px;
-        }
-      }
-      .wrap{
-        height: auto;
-      }
-      .border {
-        height: auto;
-        border: 1px solid lightslategray;
-        border-radius: 20px;
-        padding: 10px;
-        height: auto;
-      }
-      .accordion {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-        transition: 0.4s;
-      }
+    }
 
-      .active,
-      .accordion:hover {
-        background-color: #ccc;
-      }
+    .wrap {
+      height: auto;
+    }
 
-      .accordion:after {
-        content: "\002B";
-        color: #777;
-        font-weight: bold;
-        float: right;
-        margin-left: 5px;
-      }
+    .border {
+      height: auto;
+      border: 1px solid lightslategray;
+      border-radius: 20px;
+      padding: 10px;
+      height: auto;
+    }
 
-      .active:after {
-        content: "\2212";
-      }
+    .accordion {
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+    }
 
-      .panel {
-        padding: 0 18px;
-        background-color: white;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-        text-align: left;
-        margin: 5px 5px;
-      }
-      .footer{
-          position: absolute;
-           height: auto;
-            bottom: 0;
-      }
-    </style>
-  </head>
+    .active,
+    .accordion:hover {
+      background-color: #ccc;
+    }
 
-  <body>
-    <%-include("navbar_no_login.ejs") %>
+    .accordion:after {
+      content: "\002B";
+      color: #777;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .panel {
+      padding: 0 18px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      text-align: left;
+      margin: 5px 5px;
+    }
+
+    .footer {
+      position: absolute;
+      height: auto;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <%-include("navbar_no_login.ejs") %>
     <div class="wrap">
       <form>
         <div class="user-Login">
@@ -123,19 +113,25 @@
           <div>
             <button class="accordion" id="userarc">User용</button>
             <div class="panel">
-              <div class="border"><%-include("joinMemberUser.ejs") %></div>
+              <div class="border">
+                <%-include("joinMemberUser.ejs") %>
+              </div>
             </div>
             <button class="accordion" id="comparc">Company</button>
             <div class="panel">
               <div class="border">
                 <%-include("joinMemberCompany.ejs") %>
               </div>
+            </div>
           </div>
-        </div>
       </form>
     </div>
-    <div class="footer"><%-include("footer.ejs") %></div>
+    <div class="footer">
+      <%-include("footer.ejs") %>
+    </div>
     <script>
+
+      /*아이디 중복 체크*/
       function idCheck() {
         var idInput = $("#id").val();
         data = {
@@ -153,7 +149,7 @@
           return response.data;
         });
       }
-      /*유저용 아디 값 보내기*/
+      /*유저용 아이디 값 보내기*/
       function sendInfo() {
         var id = $("#id").val();
         var pw = $("#pw").val();
@@ -161,13 +157,6 @@
         var email = $("#email").val();
         var location = $("#location").val();
 
-        // data = {
-        //     id: "id-test",
-        //     pw: "pw-test",
-        //     name: "name-test",
-        //     email: "emailtest@email.com",
-        //     location: "Seoul"
-        // };
         data = {
           id: id,
           pw: pw,
@@ -181,7 +170,7 @@
           method: "POST",
           data: data,
         }).then((response) => {
-          if ( response.data.result == 1 ){
+          if (response.data.result == 1) {
             window.location = '/';
           }
         });
@@ -189,6 +178,9 @@
 
       var pw = document.getElementById("pw");
       var confirm_pw = document.getElementById("confirm_pw");
+    
+     
+      /*유저 비밀번호 확인*/
 
       function validatePassword() {
         if (pw.value != confirm_pw.value) {
@@ -205,7 +197,11 @@
 
       pw.onchange = validatePassword;
       confirm_pw.onkeyup = validatePassword;
-// 아코디언
+
+    
+     
+      /* 아코디언*/
+
       var acc = document.getElementsByClassName("accordion");
 
       for (var i = 0; i < acc.length; i++) {
@@ -221,8 +217,13 @@
       }
 
 
-      /* 기업용 회원가입*/
-       function idCheck() {
+
+      /* 기업용 중복아이디 체크*/
+      
+      
+
+
+      function idCheck() {
         var idInput = $("#Cid").val();
         data = {
           id: idInput,
@@ -236,10 +237,11 @@
           data: data,
         }).then((response) => {
           console.log("아디체크", response.data);
-          return response.data;
         });
       }
+      
       /* 기업 회원가입 정보 전송하기 */
+      
       function sendInfo2() {
         var id = $("#Cid").val();
         var pw = $("#Cpw").val();
@@ -260,14 +262,20 @@
           method: "POST",
           data: data,
         }).then((response) => {
-          console.log(response.data);
-          return response.data;
+
+          if (response.data.result == 1) {
+            window.location = '/';
+          }
+
         });
       }
 
       var pw = document.getElementById("Cpw");
       var confirm_pw = document.getElementById("Cconfirm_pw");
-
+     
+     
+      /*회사용 비밀번호 중복 확인 검사*/
+     
       function validatePassword() {
         if (pw.value != confirm_pw.value) {
           // 만일 두 인풋 필드값이 같지 않을 경우
@@ -285,8 +293,9 @@
       confirm_pw.onkeyup = validatePassword;
 
       /*아코디언 버튼 누르면 화면 조정 하기*/
-      
-      
+
+
     </script>
-  </body>
+</body>
+
 </html>

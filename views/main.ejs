@@ -46,7 +46,8 @@
 
   <body>
     <div class="main-nav">
-      <% if(data.isLogin ==1){ %> <%-include("navbar_user.ejs") %> <% }else { %>
+      <% if(data.isLogin ==1){ %> <%-include("navbar_user.ejs") %> <% }else
+      if(data.isLogin ==3) { %> <%-include("navbarCom.ejs") %> <% }else { %>
       <%-include("navbar_no_login.ejs")%> <% } %>
     </div>
 
@@ -58,7 +59,8 @@
     <div class="first-back"></div>
     <div class="second-back">
       <div class="login_div">
-        <% if(data.isLogin==1) { %> <%-include("loginAfter.ejs") %> <% } else { %>
+        <% if(data.isLogin ==1) { %> <%-include("loginAfter.ejs") %> <% } else
+        if(data.isLogin ==3) { %> <%-include("loginAfter.ejs") %> <% } else { %>
         <%-include("login.ejs") %> <% } %>
       </div>
     </div>
@@ -69,7 +71,7 @@
         <div class="serQ">
           <i class="fa-solid fa-circle-question"></i>
         </div>
-        <div class='serLine'></div>
+        <div class="serLine"></div>
       </div>
 
       <div class="box1">
@@ -87,9 +89,7 @@
         </div>
         <img src="../static/img/main_img/devel.jpg" />
       </div>
-
     </div>
-      
 
     <%-include("footer.ejs") %>
 
