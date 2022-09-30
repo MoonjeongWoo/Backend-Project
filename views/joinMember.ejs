@@ -178,8 +178,8 @@
 
       var pw = document.getElementById("pw");
       var confirm_pw = document.getElementById("confirm_pw");
-    
-     
+
+
       /*유저 비밀번호 확인*/
 
       function validatePassword() {
@@ -198,8 +198,8 @@
       pw.onchange = validatePassword;
       confirm_pw.onkeyup = validatePassword;
 
-    
-     
+
+
       /* 아코디언*/
 
       var acc = document.getElementsByClassName("accordion");
@@ -219,8 +219,8 @@
 
 
       /* 기업용 중복아이디 체크*/
-      
-      
+
+
 
 
       function idCheck() {
@@ -239,9 +239,9 @@
           console.log("아디체크", response.data);
         });
       }
-      
+
       /* 기업 회원가입 정보 전송하기 */
-      
+
       function sendInfo2() {
         var id = $("#Cid").val();
         var pw = $("#Cpw").val();
@@ -272,10 +272,10 @@
 
       var pw = document.getElementById("Cpw");
       var confirm_pw = document.getElementById("Cconfirm_pw");
-     
-     
+
+
       /*회사용 비밀번호 중복 확인 검사*/
-     
+
       function validatePassword() {
         if (pw.value != confirm_pw.value) {
           // 만일 두 인풋 필드값이 같지 않을 경우
