@@ -8,11 +8,13 @@ exports.getMain =  async (req, res) => {
   var isLogin = checkLogin(req.session.uuid);
   
   if (userPicUrl != undefined){
-    data["username"] = userPicUrl.name,
-    data["userPicUrl"] = userPicUrl.userPic,
-    data["isLogin"] = isLogin
+    data["username"] = userPicUrl.name;
+    data["userPicUrl"] = userPicUrl.userPic;
+    data["isLogin"] = isLogin;
+    data["memeber"] = req.session.member;
   }else{
     data["isLogin"] = isLogin
+    data["memeber"] = req.session.member;
   }
     res.render("main", { data: data });
 };
@@ -32,6 +34,7 @@ exports.userLogin = (req, res) => {
     if (result[0] != undefined) {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
+        req.session.member = 0;
         res.send({login: 1})
       }
     }else{
@@ -53,6 +56,7 @@ exports.userLoginCompany = (req, res) => {
     if (result[0] != undefined) {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
+        req.session.member = 1;
       }
     }
   });
