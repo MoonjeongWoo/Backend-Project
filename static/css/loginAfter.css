@@ -15,7 +15,9 @@
 .afterCont {
   text-align: left;
   display: inline-block;
+  margin-left: 10%;
 }
+
 .afterCont > h2 {
   font-weight: 800;
   color: #fff;
@@ -40,5 +42,36 @@
 
 .proImg {
   display: inline-block;
+}
+
+a.button {
+  display: block;
+  position: relative;
+  float: left;
+  width: 100px;
+  padding: 0;
+  margin: 10px 20px 10px 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  color: #FFF;
+  border-radius: 10px;
+  transition: all 0.1s ;
+}
+
+.btnBlue {
+  background: #4ea6ab;
+}
+
+.btnFade.btnBlue:hover {
+  background: #016e73;
+}
+
+.btnRed {
+  background: #b69393;
+}
+
+.btnFade.btnRed:hover {
+  background: #62514e;
 }
 

@@ -42,6 +42,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="/static/css/myPage.css" />
+  <link rel="stylesheet" href="/static/css/profile.css" />
   <link rel="stylesheet" href="/static/css/profileMod.css" />
 </head>
 
@@ -55,7 +56,7 @@
       <div class="col-2">
         <div class="list-group sideBar" id="list-tab" role="tablist">
           <a class="active" data-bs-toggle="list" href="#profile">회원정보 확인</a>
-          <a data-bs-toggle="list" href="#profileMod">회원정보 수정</a>
+          <a data-bs-toggle="list" data-toggle="modal" href="#profileMod">회원정보 수정</a>
           <a data-bs-toggle="list" href="#introduce" role="tab">이력서 관리 / 추가</a>
         </div>
       </div>
@@ -64,6 +65,7 @@
         <div class="tab-content" id="nav-tabContent">
           <!-- 회원정보 확인 -->
           <div class="tab-pane fade show active" id="profile" role="tabpanel">
+            
             <div><%-include("profile.ejs") %></div>
             <!-- <button>정보 수정</button> -->
           </div>
@@ -82,26 +84,7 @@
     </form>
     <script>
       //-------------------
-      // 페이지 변경 사이드바
-      // var aa;
-      // function myPage(aa) {
-      //   if (aa == 1) {
-      //     $("#profile").removeClass("profile");
-      //     $("#introduce").addClass("introduce");
-      //   } else {
-      //     $("#introduce").removeClass("introduce");
-      //     $("#profile").addClass("profile");
-      //   }
-      // }
-      // function profile(){
-      //   $(".profile").removeClass("profile");
-      //   $(".introduce").addClass("introduce");
-      // }
-
-      // function introduce(){
-      //   $(".introduce").removeClass("introduce");
-      //   $(".profile").addClass("profile");
-      // }
+      // pw check modal
 
       //--------------------
       //navbar scroll backgournd-color
