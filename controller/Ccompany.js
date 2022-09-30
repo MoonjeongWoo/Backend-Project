@@ -14,7 +14,13 @@ exports.getCompany = (req, res) => {
     로그인 유도
   */
 };
-
+exports.getOthers = (req, res) => {
+  if (req.session.uuid !== undefined) {
+    res.render("watchother");
+  } else {
+    res.render("/");
+  }
+};
 exports.getBucket = (req, res) => {
   res.render("bucket");
 };

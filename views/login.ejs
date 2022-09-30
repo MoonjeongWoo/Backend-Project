@@ -34,6 +34,7 @@
             value="ch_pw"
             id="pw"
             placeholder="Password"
+            onkeypress="javascript:if(event.keyCode==13) {user_login(); main_login();}"
           />
           <button class="btn_login" onclick="user_login(); main_login();">
             LOGIN
@@ -49,6 +50,7 @@
             value="mypw"
             id="pw2"
             placeholder="Password"
+            onkeypress="javascript:if(event.keyCode==13) {cor_login(); main_loginCorp();}"
           />
           <button
             class="btn_sign_up"
