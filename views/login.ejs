@@ -100,8 +100,12 @@
       url: "/userLoginCompany",
       method: "POST",
       data: data,
-    }).then((response) => {
-      console.log(response)
+    }).then((result) => {
+      if ( result.data.login == 1 ){
+            window.location = '/';
+          }else{
+            alert('login fail');
+          }
     });
   }
 

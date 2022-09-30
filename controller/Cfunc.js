@@ -1,4 +1,4 @@
-const { UserInfo } = require("../model");
+const { UserInfo, CompanyInfo } = require("../model");
 const { createHash } = require("crypto");
 const { DataTypes } = require("sequelize");
 
@@ -11,17 +11,17 @@ function checkLogin(uuid) {
     return 0;
   }
 }
+
 function strToSha256(id, pw) {
-  var pwHash = createHash("sha256")
-    .update(pw + id)
-    .digest("hex");
+  var pwHash = createHash("sha256").update(pw + id).digest("hex");
   return pwHash;
 }
 
-function userPic(uuid) {
+function userPic(uuid, member) {
   return new Promise(function (resolve, reject) {
+    var db = member == 0 ? UserInfo : CompanyInfo;
     if (uuid) {
-      UserInfo.findOne({
+      db.findOne({
         where: { uuid: uuid },
       }).then((result) => {
         if (result.dataValues.userPic == null) {
