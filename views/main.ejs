@@ -46,10 +46,10 @@
 
   <body>
     <div class="main-nav">
-      <% if(data.isLogin == 1){ %> <% if(data.member == 1){ %>
+      <!-- <% if(data.isLogin == 1){ %> <% if(data.member == 1){ %>
       <%-include("navbarCom.ejs") %> <% } else if (data.member == 0){ %>
       <%-include("navbar_user.ejs") %> <% } %> <% }else { %>
-      <%-include("navbar_no_login.ejs") %> <% } %>
+      <%-include("navbar_no_login.ejs") %> <% } %> -->
     </div>
 
     <div class="all">
@@ -60,17 +60,11 @@
     <div class="first-back"></div>
     <div class="second-back">
       <div class="login_div">
-<<<<<<< HEAD
         <% if(data.isLogin == 1){ %> <% if(data.member == 1 || data.member ==
         0){ %> <%-include("loginAfter.ejs") %> <% } %> <% }else{ %>
-        <%-include("login.ejs") %> <% } %>
-=======
-        <% if(data.isLogin == 1) { %> 
-          <%-include("loginAfter.ejs") %> 
-        <% } else { %> 
-          <%-include("login.ejs") %>
-        <% } %> 
->>>>>>> b7e22e88fa6fdf4a5a5b4ddab4c58012da803e4a
+        <%-include("login.ejs") %> <% } %> <% if(data.isLogin == 1) { %>
+        <%-include("loginAfter.ejs") %> <% } else { %> <%-include("login.ejs")
+        %> <% } %>
       </div>
     </div>
     <div class="intro-back">
