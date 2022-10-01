@@ -95,11 +95,18 @@
       id: id,
       pw: pw,
     };
+    console.log(data)
     axios({
       url: "/userLoginCompany",
       method: "POST",
       data: data,
-    }).then((response) => {});
+    }).then((result) => {
+      if ( result.data.login == 1 ){
+            window.location = '/';
+          }else{
+            alert('login fail');
+          }
+    });
   }
 
   // user_login

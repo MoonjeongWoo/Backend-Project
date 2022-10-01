@@ -4,19 +4,16 @@ const { checkLogin, userPic, strToSha256 } = require("./Cfunc");
 // get main page
 exports.getMain = async (req, res) => {
   var data = {};
-  var userPicUrl = await userPic(req.session.uuid);
   var isLogin = checkLogin(req.session.uuid);
-
-  if (userPicUrl != undefined) {
+  if ( isLogin ){
+    var userPicUrl = await userPic(req.session.uuid, req.session.member);
     data["username"] = userPicUrl.name;
     data["userPicUrl"] = userPicUrl.userPic;
-    data["isLogin"] = isLogin;
-
-    data["memeber"] = req.session.member;
-  } else {
-    data["isLogin"] = isLogin;
-    data["member"] = req.session.member;
   }
+
+  data["isLogin"] = isLogin;
+  data["member"] = req.session.member;
+
   res.render("main", { data: data });
 };
 // -------------------------------
@@ -57,7 +54,10 @@ exports.userLoginCompany = (req, res) => {
       if (!req.session.uuid) {
         req.session.uuid = result[0]["dataValues"].uuid;
         req.session.member = 1;
+        res.send({ login: 1 })
       }
+    }else{
+      res.send({ login: 0 })
     }
   });
 };

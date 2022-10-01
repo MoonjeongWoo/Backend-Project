@@ -21,10 +21,7 @@ exports.updateProfile = async (req, res) => {
             location: req.body.location,
             userPic: filename
         },
-        {
-            where: { uuid: req.session.uuid }
-        }
-
+        { where: { uuid: req.session.uuid } }
     ).then(() => {
         var newLoca = req.body.location;
         ElementLocation.destroy({ where: { id: req.session.uuid } });
@@ -38,7 +35,7 @@ exports.updateProfile = async (req, res) => {
         })
     })
     res.send()
-}
+};
 
 // 회원정보 삭제 (탈퇴)
 exports.delAccount = (req, res) => {
@@ -47,4 +44,4 @@ exports.delAccount = (req, res) => {
     //   where: { id: req.body.data.id } // 일단 하나만
     // }).then((row) => { row.destory(); }
     // )
-}
+};
