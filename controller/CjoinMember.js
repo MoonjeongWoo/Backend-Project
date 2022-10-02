@@ -9,9 +9,9 @@ exports.getJoinMember = (req, res) => {
 // -------------------------------
 
 // get joinmember page _ Corp
-exports.getJoinMemberCompany = (req, res) => {
-  res.render("joinMemberCompany");
-};
+// exports.getJoinMemberCompany = (req, res) => {
+//   res.render("joinMemberCompany");
+// };
 // -------------------------------
 
 // save join member data in db
@@ -57,6 +57,7 @@ exports.idCheck = (req, res) => {
     attributes: ["id"],
     where: { id: req.body.id }
   }).then((result) => {
+    console.log(result);
     // exist 1 no exist 0
     if (result[0] != undefined) {
       res.send({ result: 1 });

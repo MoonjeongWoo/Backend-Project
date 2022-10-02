@@ -132,8 +132,8 @@
     <script>
 
       /*아이디 중복 체크*/
-      function idCheck() {
-        var idInput = $("#id").val();
+      function idCheck1() {
+        var idInput = $("#id1").val();
         data = {
           id: idInput,
         };
@@ -141,7 +141,7 @@
         console.log(data);
 
         axios({
-          url: "/joinMember/idcheck",
+          url: "/joinMemberU/idcheck",
           method: "POST",
           data: data,
         }).then((response) => {
@@ -150,12 +150,12 @@
         });
       }
       /*유저용 아이디 값 보내기*/
-      function sendInfo() {
-        var id = $("#id").val();
-        var pw = $("#pw").val();
-        var name = $("#name").val();
-        var email = $("#email").val();
-        var location = $("#location").val();
+      function sendInfo1() {
+        var id = $("#id1").val();
+        var pw = $("#pw1").val();
+        var name = $("#name1").val();
+        var email = $("#email1").val();
+        var location = $("#location1").val();
 
         data = {
           id: id,
@@ -166,7 +166,7 @@
         };
 
         axios({
-          url: "/joinMember/user",
+          url: "/joinMemberU/join",
           method: "POST",
           data: data,
         }).then((response) => {
@@ -176,8 +176,8 @@
         });
       }
 
-      var pw = document.getElementById("pw");
-      var confirm_pw = document.getElementById("confirm_pw");
+      var pw = document.getElementById("pw1");
+      var confirm_pw = document.getElementById("confirm_pw1");
 
 
       /*유저 비밀번호 확인*/
@@ -223,8 +223,8 @@
 
 
 
-      function idCheck() {
-        var idInput = $("#Cid").val();
+      function idCheck2() {
+        var idInput = $("#id2").val();
         data = {
           id: idInput,
         };
@@ -243,11 +243,11 @@
       /* 기업 회원가입 정보 전송하기 */
 
       function sendInfo2() {
-        var id = $("#Cid").val();
-        var pw = $("#Cpw").val();
-        var name = $("#Cname").val();
-        var email = $("#Cemail").val();
-        var location = $("#Clocation").val();
+        var id = $("#id2").val();
+        var pw = $("#pw2").val();
+        var name = $("#name2").val();
+        var email = $("#email2").val();
+        var location = $("#location2").val();
 
         data = {
           id: id,
@@ -258,7 +258,7 @@
         };
 
         axios({
-          url: "/joinMemberCompany/user",
+          url: "/joinMemberCompany/join",
           method: "POST",
           data: data,
         }).then((response) => {
@@ -270,8 +270,8 @@
         });
       }
 
-      var pw = document.getElementById("Cpw");
-      var confirm_pw = document.getElementById("Cconfirm_pw");
+      var pw = document.getElementById("pw2");
+      var confirm_pw = document.getElementById("Cconfirm_pw2");
 
 
       /*회사용 비밀번호 중복 확인 검사*/

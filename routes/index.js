@@ -38,12 +38,13 @@ router.get("/process/logout", main.userLogout);
 // joinmember
 //---------------------------------------
 router.get("/joinMember", joinMember.getJoinMember);
-router.post("/joinMember/idcheck", joinMember.idCheck);
-router.post("/joinMember/user", joinMember.postJoinMember);
 
-router.get("/joinMemberCompany", joinMember.getJoinMemberCompany);
+router.post("/joinMemberU/idcheck", joinMember.idCheck);
+router.post("/joinMemberU/join", joinMember.postJoinMember);
+
+// router.get("/joinMemberCompany", joinMember.getJoinMemberCompany);
 router.post("/joinMemberCompany/idcheck", joinMember.idCheckCompany);
-router.post("/joinMemberCompany/user", joinMember.postJoinMemberCompany);
+router.post("/joinMemberCompany/join", joinMember.postJoinMemberCompany);
 //---------------------------------------
 
 // user
