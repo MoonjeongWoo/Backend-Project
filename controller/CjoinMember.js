@@ -34,6 +34,7 @@ exports.postJoinMember = (req, res) => {
 
 // save join member data in db (기업 회원)
 exports.postJoinMemberCompany = (req, res) => {
+  console.log(req.body)
   var pw = strToSha256(req.body.id, req.body.pw)
   var data = {
     result: 1

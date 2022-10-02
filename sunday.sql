@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for macos12 (x86_64)
 --
 -- Host: localhost    Database: pick_me
 -- ------------------------------------------------------
@@ -29,6 +29,7 @@ CREATE TABLE `company` (
   `name` varchar(15) NOT NULL,
   `email` varchar(50) NOT NULL,
   `location` varchar(100) NOT NULL,
+  `userPic` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,18 +40,18 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES ('077c98f9-64f8-43c3-8664-8c5d5734b70b','company-id-2','123','company-name-2','mail-2','loc-2'),('37da234a-02e3-4e30-b054-dd5096ff42a5','company-id-1','123','company-name-1','mail-1','loc-1'),('65a3ce4f-7060-41ad-96e4-705d3dce3e11','company-id-3','123','company-name-3','mail-3','loc-3');
+INSERT INTO `company` VALUES ('077c98f9-64f8-43c3-8664-8c5d5734b70b','company-id-2','123','company-name-2','mail-2','loc-2',NULL),('37da234a-02e3-4e30-b054-dd5096ff42a5','company-id-1','123','company-name-1','mail-1','loc-1',NULL),('65a3ce4f-7060-41ad-96e4-705d3dce3e11','company-id-3','123','company-name-3','mail-3','loc-3',NULL);
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `elementcareer`
+-- Table structure for table `elementCareer`
 --
 
-DROP TABLE IF EXISTS `elementcareer`;
+DROP TABLE IF EXISTS `elementCareer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `elementcareer` (
+CREATE TABLE `elementCareer` (
   `id` varchar(36) NOT NULL,
   `0` varchar(1) DEFAULT NULL,
   `1` varchar(1) DEFAULT NULL,
@@ -79,23 +80,23 @@ CREATE TABLE `elementcareer` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `elementcareer`
+-- Dumping data for table `elementCareer`
 --
 
-LOCK TABLES `elementcareer` WRITE;
-/*!40000 ALTER TABLE `elementcareer` DISABLE KEYS */;
-INSERT INTO `elementcareer` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('7740e20a-2fdc-47ba-bf3a-351f3d3454a3',NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `elementcareer` ENABLE KEYS */;
+LOCK TABLES `elementCareer` WRITE;
+/*!40000 ALTER TABLE `elementCareer` DISABLE KEYS */;
+INSERT INTO `elementCareer` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('7740e20a-2fdc-47ba-bf3a-351f3d3454a3',NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `elementCareer` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `elementlocation`
+-- Table structure for table `elementLocation`
 --
 
-DROP TABLE IF EXISTS `elementlocation`;
+DROP TABLE IF EXISTS `elementLocation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `elementlocation` (
+CREATE TABLE `elementLocation` (
   `id` varchar(36) NOT NULL,
   `Seoul` varchar(1) DEFAULT NULL,
   `Incheon` varchar(1) DEFAULT NULL,
@@ -110,13 +111,13 @@ CREATE TABLE `elementlocation` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `elementlocation`
+-- Dumping data for table `elementLocation`
 --
 
-LOCK TABLES `elementlocation` WRITE;
-/*!40000 ALTER TABLE `elementlocation` DISABLE KEYS */;
-INSERT INTO `elementlocation` VALUES ('7740e20a-2fdc-47ba-bf3a-351f3d3454a3','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `elementlocation` ENABLE KEYS */;
+LOCK TABLES `elementLocation` WRITE;
+/*!40000 ALTER TABLE `elementLocation` DISABLE KEYS */;
+INSERT INTO `elementLocation` VALUES ('7740e20a-2fdc-47ba-bf3a-351f3d3454a3','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `elementLocation` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -157,13 +158,13 @@ INSERT INTO `elementstack` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e',NULL,N
 UNLOCK TABLES;
 
 --
--- Table structure for table `userresume`
+-- Table structure for table `userResume`
 --
 
-DROP TABLE IF EXISTS `userresume`;
+DROP TABLE IF EXISTS `userResume`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `userresume` (
+CREATE TABLE `userResume` (
   `uuid` varchar(36) NOT NULL,
   `stack` varchar(100) DEFAULT NULL,
   `career` varchar(100) DEFAULT NULL,
@@ -177,13 +178,13 @@ CREATE TABLE `userresume` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `userresume`
+-- Dumping data for table `userResume`
 --
 
-LOCK TABLES `userresume` WRITE;
-/*!40000 ALTER TABLE `userresume` DISABLE KEYS */;
-INSERT INTO `userresume` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e','','','getURL','','2022-09-30','2022-09-30');
-/*!40000 ALTER TABLE `userresume` ENABLE KEYS */;
+LOCK TABLES `userResume` WRITE;
+/*!40000 ALTER TABLE `userResume` DISABLE KEYS */;
+INSERT INTO `userResume` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e','','','getURL','','2022-09-30','2022-09-30');
+/*!40000 ALTER TABLE `userResume` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -216,14 +217,14 @@ INSERT INTO `users` VALUES ('39634388-f63f-4a6d-87f8-033b34d4822e','ch_id','5b59
 UNLOCK TABLES;
 
 --
--- Temporary view structure for view `viewuserresume`
+-- Temporary view structure for view `viewUserResume`
 --
 
-DROP TABLE IF EXISTS `viewuserresume`;
-/*!50001 DROP VIEW IF EXISTS `viewuserresume`*/;
+DROP TABLE IF EXISTS `viewUserResume`;
+/*!50001 DROP VIEW IF EXISTS `viewUserResume`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `viewuserresume` AS SELECT 
+/*!50001 CREATE VIEW `viewUserResume` AS SELECT 
  1 AS `id`,
  1 AS `pw`,
  1 AS `name`,
@@ -237,10 +238,10 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Final view structure for view `viewuserresume`
+-- Final view structure for view `viewUserResume`
 --
 
-/*!50001 DROP VIEW IF EXISTS `viewuserresume`*/;
+/*!50001 DROP VIEW IF EXISTS `viewUserResume`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
@@ -263,4 +264,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-01  0:38:32
+-- Dump completed on 2022-10-02 15:38:49
