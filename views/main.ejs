@@ -1,57 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/9376e8eed8.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="/static/css/main.css" />
-    <link rel="stylesheet" href="/static/css/login.css" />
-    <link rel="stylesheet" href="/static/css/loginAfter.css" />
-  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/9376e8eed8.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-  <body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="stylesheet" href="/static/css/login.css" />
+  <link rel="stylesheet" href="/static/css/loginAfter.css" />
+</head>
+
+<body>
+  <% if(data.isLogin==0) { %>
     <div class="main-nav">
-      <!-- <% if(data.isLogin == 1){ %> <% if(data.member == 1){ %>
-      <%-include("navbarCom.ejs") %> <% } else if (data.member == 0){ %>
-      <%-include("navbar_user.ejs") %> <% } %> <% }else { %>
-      <%-include("navbar_no_login.ejs") %> <% } %> -->
+      <%-include("navbar_no_login.ejs") %>
     </div>
-
     <div class="all">
       <div class="content">Your Success<br />Begins With Us</div>
       <!-- <div class="l-content">Login and Start!</div> -->
@@ -60,60 +42,80 @@
     <div class="first-back"></div>
     <div class="second-back">
       <div class="login_div">
-        <% if(data.isLogin == 1){ %> <% if(data.member == 1 || data.member ==
-        0){ %> <%-include("loginAfter.ejs") %> <% } %> <% }else{ %>
-        <%-include("login.ejs") %> <% } %> <% if(data.isLogin == 1) { %>
-        <%-include("loginAfter.ejs") %> <% } else { %> <%-include("login.ejs")
-        %> <% } %>
+        <%-include("login.ejs") %>
       </div>
     </div>
-    <div class="intro-back">
-      <!-- 웹 소개 -->
-      <div class="our_ser">
-        Our Services
-        <div class="serQ">
-          <i class="fa-solid fa-circle-question"></i>
-        </div>
-        <div class="serLine"></div>
+    <% } else { %>
+      <div class="main-nav">
+        <% if(data.member==0) { %>
+          <%-include("navbar_user.ejs") %>
+            <% } else if(data.member==1) { %>
+              <%-include("navbarCom.ejs") %>
+                <% } else { %>
+                  <%-include("navbar_no_login.ejs") %>
+                    <% } %>
       </div>
-
-      <div class="box1">
-        <img src="../static/img/main_img/devel.jpg" />
-        <div class="serCont1">
-          <div class="con1">채용 담당자</div>
-          <div class="con2">스마트한 채용 가능</div>
+      <div class="all">
+        <div class="content">Your Success<br />Begins With Us</div>
+        <!-- <div class="l-content">Login and Start!</div> -->
+        <img class="main-img" src="../static/img/main_img/main_img_2.png" />
+      </div>
+      <div class="first-back"></div>
+      <div class="second-back">
+        <div class="login_div">
+          <%-include("loginAfter.ejs") %>
         </div>
       </div>
+      <% } %>
 
-      <div class="box2">
-        <div class="serCont2">
-          <div class="con1">채용 담당자</div>
-          <div class="con2">스마트한 채용 가능</div>
+        <div class="intro-back">
+          <!-- 웹 소개 -->
+          <div class="our_ser">
+            Our Services
+            <div class="serQ">
+              <i class="fa-solid fa-circle-question"></i>
+            </div>
+            <div class="serLine"></div>
+          </div>
+
+          <div class="box1">
+            <img src="../static/img/main_img/devel.jpg" />
+            <div class="serCont1">
+              <div class="con1">채용 담당자</div>
+              <div class="con2">스마트한 채용 가능</div>
+            </div>
+          </div>
+
+          <div class="box2">
+            <div class="serCont2">
+              <div class="con1">채용 담당자</div>
+              <div class="con2">스마트한 채용 가능</div>
+            </div>
+            <img src="../static/img/main_img/devel.jpg" />
+          </div>
         </div>
-        <img src="../static/img/main_img/devel.jpg" />
-      </div>
-    </div>
 
-    <%-include("footer.ejs") %>
+        <%-include("footer.ejs") %>
 
-    <script>
-      var scrollEvent = window.addEventListener("scroll", function () {
-        if (scrollY <= 1 && scrollY >= 0) {
-          $(".topnav").attr("style", "background-color: transparent !import");
-          $(".user").attr("style", "color : grey !important");
-          $("#main").attr("style: color : black !important");
-        } else {
-          $(".topnav").attr(
-            "style",
-            "background-color:  rgb(22, 38, 60) !important"
-          );
-          $(".user").attr("style", "color : grey !important");
-          $("#main").attr("style", "color : grey !important");
-        }
-      });
+          <script>
+            var scrollEvent = window.addEventListener("scroll", function () {
+              if (scrollY <= 1 && scrollY >= 0) {
+                $(".topnav").attr("style", "background-color: transparent !import");
+                $(".user").attr("style", "color : grey !important");
+                $("#main").attr("style: color : black !important");
+              } else {
+                $(".topnav").attr(
+                  "style",
+                  "background-color:  rgb(22, 38, 60) !important"
+                );
+                $(".user").attr("style", "color : grey !important");
+                $("#main").attr("style", "color : grey !important");
+              }
+            });
 
       //let userid = sessionStorage.getItem("user_id");
       //let userpw = sessionStorage.getItem("user_pw");
-    </script>
-  </body>
+          </script>
+</body>
+
 </html>
