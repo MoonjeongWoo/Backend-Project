@@ -29,7 +29,8 @@ exports.saveIntroudce = (req, res) => {
           career: req.body.career,
           portfolio: req.body.portfolio,
           etc: req.body.etc,
-          createdDate: today
+          createdDate: today,
+          updatedDate: today
         })
           .then((result) => { // then 2 start here
             console.log("이력_1st: "/* , result */);
@@ -43,17 +44,10 @@ exports.saveIntroudce = (req, res) => {
                 var loca = result["dataValues"]["location"];
                 // // console.log("로카나와라", result["dataValues"]["location"]);
                 // Object.assign(dict, {loca: 1});
-                ElementLocation.create(
-                  {
-                    [loca]: 1,
-                    "id": req.session.uuid
-                  }
-                )
-                  .then((result) => {
-                    console.log("locaE_1st: ")
-                  }).catch((err) => {
-                    console.log("locaE_1st Error: ", err);
-                  })
+                ElementLocation.create({
+                  [loca]: 1,
+                  "id": req.session.uuid
+                })
               })
 
             var careerSplit = req.body.career.split('|');
@@ -61,6 +55,8 @@ exports.saveIntroudce = (req, res) => {
             for (var i = 0; i < careerSplit.length - 1; i++) {
               if (i % 2 == 0) { totalCareer += Number(careerSplit[i]); }
             };
+            if (totalCareer > 21) { totalCareer = 21 };
+
             totalCareer = String(totalCareer);
             ElementCareer.create({
               [totalCareer]: 1,
@@ -112,6 +108,7 @@ exports.saveIntroudce = (req, res) => {
           for (var i = 0; i < careerSplit.length - 1; i++) {
             if (i % 2 == 0) { totalCareer += Number(careerSplit[i]); }
           };
+          if (totalCareer > 21) { totalCareer = 21 };
           totalCareer = String(totalCareer);
           ElementCareer.destroy({ where: { id: req.session.uuid } })
           ElementCareer.create(

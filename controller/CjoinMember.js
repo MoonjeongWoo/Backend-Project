@@ -83,29 +83,3 @@ exports.idCheckCompany = (req, res) => {
   });
 };
 // -------------------------------
-
-// //회원정보 수정 화면
-// exports.readyToEdit = (req, res) => {
-//   UserInfo.findOne({
-//     attributes: ["id", "pw", "name", "email", "location"],
-//     where: { uuid: req.session.uuid }
-//   }).then((result) => {
-
-//     res.render("editProfile", { nowData: result });
-//     // console.log(data);
-//   });
-// };
-
-// //회원정보 수정 반영
-// exports.editProfile = (req, res) => {
-//   UserInfo.update(
-//     {
-//       id: req.body.id,
-//       pw: req.body.pw,
-//       name: req.body.name,
-//       email: req.body.email,
-//       location: req.body.location,
-//     },
-//     { where: { uuid: req.session.uuid } }
-//   );
-// };
