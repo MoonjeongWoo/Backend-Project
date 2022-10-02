@@ -1,5 +1,7 @@
-const { UserInfo } = require("../model");
 const { CompanyInfo } = require("../model");
+const { sequelize } = require("../model")
+const { ViewUserResume } = require("../model");
+
 
 exports.getCompany = (req, res) => {
   if (req.session.uuid !== undefined) {
@@ -25,14 +27,28 @@ exports.getBucket = (req, res) => {
   res.render("bucket");
 };
 
+
+var stack = [];
+var career = "";
+var location = "";
+
 // 요소 선택시 해당하는 사람 출력
-exports.sortUserByElement = (req, res) => {
-  console.log(req.body);
-  // var element = req.body.elements.split('|');
-  // for ( var i = 0; i< element.length -1; i++){
-  //   console.log(element[i]);
-  // }
+exports.sortUserByElement = async (req, res) => {
+  var resumes = [];
+  var idList = await joinQuery(req);
+
+  for (var i = 0; i < idList.length; i++ ){
+    await ViewUserResume.findAll({
+      where: { uuid: idList }
+    }).then((result) => {
+      resumes.push( result[0].dataValues )
+    })
+  }
+
+  res.send( { data:resumes } )
 };
+
+
 exports.Companysession = (req, res) => {
   CompanyInfo.findAll({
     attributes: ["uuid"],
@@ -49,3 +65,95 @@ exports.Companysession = (req, res) => {
     res.send(req.session.uuid);
   });
 };
+
+async function joinQuery(req){
+  var data = req.body.data;
+  var element = req.body.element;
+  var checkElement = [0, 0, 0];
+  var checkWhere = 0;
+  var query  = "";
+  var idResult = [];
+
+  if ( element == 'career' ){
+    career = data;
+  }else if ( element == 'location' ){
+    location = data;
+  }else{
+    stack = data.split("|");
+    stack.splice(stack.length - 1);
+  }
+
+  if ( stack.length != 0 ){
+    query += "elementStack AS stack ";
+    checkElement[0] = 1;
+  }
+  
+  if ( career != "" ){
+    if ( checkElement[0] == 0 ){
+      query += "elementCareer AS career ";
+    }else{
+      query += "JOIN elementCareer AS career ON stack.id = career.id ";
+    }
+    checkElement[1] = 1;
+  }
+  
+  if ( location != "" ){
+    if ( checkElement[0] == 0 && checkElement[1] == 0 ){
+      query += "elementLocation AS career ";
+    }else{
+      if ( checkElement[0] == 0 ){
+        query += "JOIN elementLocation AS location ON career.id = location.id";
+      }else{
+        query += "JOIN elementLocation AS location ON stack.id = location.id";
+      }
+    }
+    checkElement[2] = 1;
+  }
+
+  query += "WHERE ";
+
+  if ( checkElement[0] == 1){
+    for ( var i = 0; i < stack.length; i++){
+      if ( checkWhere != 0){
+        query += "and ";
+      }
+      query += "stack." + "`" + `${stack[i]}` + "`" + "=1 ";
+      checkWhere ++;
+    }
+  }
+
+  if ( checkElement[1] == 1){
+    if ( checkWhere != 0){
+      query += "and ";
+    }
+    query += `career.${career}=1 `;
+    checkWhere ++;
+  }
+
+  if ( checkElement[2] == 1){
+    if ( checkWhere != 0){
+      query += "and ";
+    }
+    query += `location.${location}=1 `;
+  }
+
+  if ( checkElement[0] == 1 ){
+    query = "SELECT stack.id FROM " + query;
+  }else if ( checkElement[1] == 1 ){
+    query = "SELECT career.id FROM " + query;
+  }else{
+    query = "SELECT location.id FROM " + query;
+  }
+  query += ';';
+  
+  const [result, metadata] = await sequelize.query(query);
+
+  for ( var i = 0; i < result.length; i++ ){
+    idResult.push(result[i].id);
+  }
+
+  idResult = new Set(idResult);
+  idResult = Array.from(idResult)
+
+  return idResult
+}

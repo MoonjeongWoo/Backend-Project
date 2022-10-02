@@ -22,6 +22,7 @@ db.UserInfo = require("./UserInfo.js")(sequelize, Sequelize);
 db.ElementCareer = require("./ElementCareer.js")(sequelize, Sequelize);
 db.ElementLocation = require("./ElementLocation.js")(sequelize, Sequelize);
 db.ElementStack = require("./ElementStack.js")(sequelize, Sequelize);
+db.ViewUserResume = require("./ViewUserResume.js")(sequelize, Sequelize);
 
 
 module.exports = db;
