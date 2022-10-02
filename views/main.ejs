@@ -30,92 +30,83 @@
 </head>
 
 <body>
-  <% if(data.isLogin==0) { %>
-    <div class="main-nav">
+  <div class="main-nav">
+    <% if( data.isLogin==0 ) { %>
       <%-include("navbar_no_login.ejs") %>
-    </div>
-    <div class="all">
-      <div class="content">Your Success<br />Begins With Us</div>
-      <!-- <div class="l-content">Login and Start!</div> -->
-      <img class="main-img" src="../static/img/main_img/main_img_2.png" />
-    </div>
-    <div class="first-back"></div>
-    <div class="second-back">
-      <div class="login_div">
-        <%-include("login.ejs") %>
-      </div>
-    </div>
-    <% } else { %>
-      <div class="main-nav">
-        <% if(data.member==0) { %>
-          <%-include("navbar_user.ejs") %>
-            <% } else if(data.member==1) { %>
-              <%-include("navbarCom.ejs") %>
-                <% } else { %>
-                  <%-include("navbar_no_login.ejs") %>
-                    <% } %>
-      </div>
-      <div class="all">
-        <div class="content">Your Success<br />Begins With Us</div>
-        <!-- <div class="l-content">Login and Start!</div> -->
-        <img class="main-img" src="../static/img/main_img/main_img_2.png" />
-      </div>
-      <div class="first-back"></div>
-      <div class="second-back">
-        <div class="login_div">
-          <%-include("loginAfter.ejs") %>
-        </div>
-      </div>
+    <% }else{ %>
+      <% if( data.member==0 ) { %>
+        <%-include("navbar_user.ejs") %>
+      <% }else{ %>
+        <%-include("navbarCom.ejs") %>
       <% } %>
+    <% } %>
+  </div>
+  <div class="all">
+    <div class="content">Your Success <br />Begins With Us</div>
+    <!-- <div class="l-content">Login and Start!</div> -->
+    <img class="main-img" src="../static/img/main_img/main_img_2.png" />
+  </div>
+  <div class="first-back"></div>
+  <div class="second-back">
+    <div style="background-color: light-blue; font-size: 100px;"><%= data.isLogin %> </div>
+    <div style="background-color: light-blue; font-size: 100px;"><%=data.member %></div>
+    <div class="login_div">
+      <% if( data.isLogin==0 ) { %>
+        <%-include("login.ejs") %>
+      <% }else{ %>
+          <%-include("loginAfter.ejs") %>
+      <% } %>
+    </div>
+  </div>
 
-        <div class="intro-back">
-          <!-- 웹 소개 -->
-          <div class="our_ser">
-            Our Services
-            <div class="serQ">
-              <i class="fa-solid fa-circle-question"></i>
-            </div>
-            <div class="serLine"></div>
-          </div>
+  <div class="intro-back">
+    <!-- 웹 소개 -->
+    <div class="our_ser">
+      Our Services
+      <div class="serQ">
+        <i class="fa-solid fa-circle-question"></i>
+      </div>
+      <div class="serLine"></div>
+    </div>
 
-          <div class="box1">
-            <img src="../static/img/main_img/devel.jpg" />
-            <div class="serCont1">
-              <div class="con1">채용 담당자</div>
-              <div class="con2">스마트한 채용 가능</div>
-            </div>
-          </div>
+    <div class="box1">
+      <img src="../static/img/main_img/devel.jpg" />
+      <div class="serCont1">
+        <div class="con1">채용 담당자</div>
+        <div class="con2">스마트한 채용 가능</div>
+      </div>
+    </div>
 
-          <div class="box2">
-            <div class="serCont2">
-              <div class="con1">채용 담당자</div>
-              <div class="con2">스마트한 채용 가능</div>
-            </div>
-            <img src="../static/img/main_img/devel.jpg" />
-          </div>
-        </div>
+    <div class="box2">
+      <div class="serCont2">
+        <div class="con1">채용 담당자</div>
+        <div class="con2">스마트한 채용 가능</div>
+      </div>
+      <img src="../static/img/main_img/devel.jpg" />
+    </div>
+  </div>
 
-        <%-include("footer.ejs") %>
+  <%-include("footer.ejs") %>
 
-          <script>
-            var scrollEvent = window.addEventListener("scroll", function () {
-              if (scrollY <= 1 && scrollY >= 0) {
-                $(".topnav").attr("style", "background-color: transparent !import");
-                $(".user").attr("style", "color : grey !important");
-                $("#main").attr("style: color : black !important");
-              } else {
-                $(".topnav").attr(
-                  "style",
-                  "background-color:  rgb(22, 38, 60) !important"
-                );
-                $(".user").attr("style", "color : grey !important");
-                $("#main").attr("style", "color : grey !important");
-              }
-            });
+    <script>
+      var scrollEvent = window.addEventListener("scroll", function () {
+        if (scrollY <= 1 && scrollY >= 0) {
+          $(".topnav").attr("style", "background-color: transparent !import");
+          $(".user").attr("style", "color : grey !important");
+          $("#main").attr("style: color : black !important");
+        } else {
+          $(".topnav").attr(
+            "style",
+            "background-color:  rgb(22, 38, 60) !important"
+          );
+          $(".user").attr("style", "color : grey !important");
+          $("#main").attr("style", "color : grey !important");
+        }
+      });
 
       //let userid = sessionStorage.getItem("user_id");
       //let userpw = sessionStorage.getItem("user_pw");
-          </script>
+    </script>
 </body>
 
 </html>
