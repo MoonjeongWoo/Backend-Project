@@ -79,9 +79,6 @@ async function joinQuery(req) {
     stack = data.split("|");
     stack.splice(stack.length - 1);
   }
-  console.log('=======================')
-  console.log(stack)
-  console.log('=======================')
 
   if (stack.length != 0) {
     query += "elementStack AS stack ";
