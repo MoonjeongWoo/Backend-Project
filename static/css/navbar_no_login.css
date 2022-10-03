@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Hahmlet-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
  .topnav {
     position: fixed;
     top: 0;
@@ -8,6 +16,26 @@
     align-items: flex-start;
     font-size: 20px;
   }
+
+  #membership{
+     float: right;
+    color: grey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+  #main{
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 19px;
+    display: block;
+    font-family: 'Hahmlet-Bold';
+
   .topnav div{
     display: flex;
     align-items: center;
