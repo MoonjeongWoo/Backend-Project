@@ -8,7 +8,7 @@ exports.updateProfile = async (req, res) => {
     if ( req.file != undefined){
         var filename = req.file.filename;
     }else{
-        var filename = await userPic(req.session.uuid);
+        var filename = await userPic(req.session.uuid, req.session.member);
         filename = filename.userPic;
     }
 
