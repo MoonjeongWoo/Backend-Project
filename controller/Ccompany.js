@@ -36,17 +36,19 @@ var location = "";
 exports.sortUserByElement = async (req, res) => {
   var resumes = [];
   var idList = await joinQuery(req);
+  console.log(idList)
   if ( idList==0 ){
     res.send( { data: resumes })
   }else{
-    for (var i = 0; i < idList.length; i++) {
+    for (var i = 0; i < idList.length-1; i++) {
       await ViewUserResume.findAll({
-        where: { uuid: idList },
+        where: { uuid: idList[i] },
       }).then((result) => {
-        resumes.push( result[i].dataValues )
+        if ( result[0] != undefined ){
+          resumes.push( result[0].dataValues )
+        }
       })
     }
-    
     res.send( { data: resumes } )
   }
 };

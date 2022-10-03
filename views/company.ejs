@@ -86,7 +86,7 @@
     var bucketList = [];
 
     //arcodian
-    function accordion() {
+    function startAccordion() {
       var acc = document.getElementsByClassName("accordion");
 
       for (var i = 0; i < acc.length; i++) {
@@ -178,7 +178,7 @@
 
         for (var i = 0; i < data.length; i++) {
           container.append(`
-          <button class="accordion" onclick="accordion()">${data[i].name}</button>
+          <button class="accordion">${data[i].name}</button>
             <div class="panel">
               <p>stack: ${data[i].stack}</p>
               <p>career: ${data[i].career}</p>
@@ -187,6 +187,7 @@
             </div>
           `)
         }
+        startAccordion()
       })
     }
     // -----------------------------

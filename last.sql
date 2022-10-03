@@ -32,7 +32,7 @@ CREATE TABLE `company` (
   `userPic` varchar(100) DEFAULT NULL,
   `bucket` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `elementCareer` (
   `20` varchar(1) DEFAULT NULL,
   `21` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,7 +108,7 @@ CREATE TABLE `elementLocation` (
   `Gwangju` varchar(1) DEFAULT NULL,
   `Gyeonggi` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,13 +122,13 @@ INSERT INTO `elementLocation` VALUES ('52474a03-15aa-4265-b35d-e67e2a560276',NUL
 UNLOCK TABLES;
 
 --
--- Table structure for table `elementstack`
+-- Table structure for table `elementStack`
 --
 
-DROP TABLE IF EXISTS `elementstack`;
+DROP TABLE IF EXISTS `elementStack`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `elementstack` (
+CREATE TABLE `elementStack` (
   `id` varchar(36) NOT NULL,
   `JAVA` varchar(1) DEFAULT NULL,
   `Javascript` varchar(1) DEFAULT NULL,
@@ -145,17 +145,17 @@ CREATE TABLE `elementstack` (
   `Dart` varchar(1) DEFAULT NULL,
   `Go` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `elementstack`
+-- Dumping data for table `elementStack`
 --
 
-LOCK TABLES `elementstack` WRITE;
-/*!40000 ALTER TABLE `elementstack` DISABLE KEYS */;
-INSERT INTO `elementstack` VALUES ('52474a03-15aa-4265-b35d-e67e2a560276','1',NULL,'1',NULL,NULL,NULL,'1',NULL,'1',NULL,NULL,NULL,NULL,NULL),('56ebd157-32a1-4fd4-a3d8-6ab7434905a4','1',NULL,NULL,NULL,'1',NULL,'1','1','1',NULL,'1','1',NULL,NULL);
-/*!40000 ALTER TABLE `elementstack` ENABLE KEYS */;
+LOCK TABLES `elementStack` WRITE;
+/*!40000 ALTER TABLE `elementStack` DISABLE KEYS */;
+INSERT INTO `elementStack` VALUES ('52474a03-15aa-4265-b35d-e67e2a560276','1',NULL,'1',NULL,NULL,NULL,'1',NULL,'1',NULL,NULL,NULL,NULL,NULL),('56ebd157-32a1-4fd4-a3d8-6ab7434905a4','1',NULL,NULL,NULL,'1',NULL,'1','1','1',NULL,'1','1',NULL,NULL);
+/*!40000 ALTER TABLE `elementStack` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -175,7 +175,7 @@ CREATE TABLE `userResume` (
   `updatedDate` date DEFAULT NULL,
   KEY `uuid` (`uuid`),
   CONSTRAINT `userresume_ibfk_1` FOREIGN KEY (`uuid`) REFERENCES `users` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +204,7 @@ CREATE TABLE `users` (
   `location` varchar(100) NOT NULL,
   `userPic` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,10 +247,10 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `viewuserresume` AS select `user`.`uuid` AS `uuid`,`user`.`name` AS `name`,`user`.`email` AS `email`,`user`.`location` AS `location`,`resume`.`stack` AS `stack`,`resume`.`career` AS `career`,`resume`.`portfolio` AS `portfolio`,`resume`.`etc` AS `etc`,`resume`.`updatedDate` AS `updatedDate` from (`users` `user` join `userresume` `resume`) where (`user`.`uuid` = `resume`.`uuid`) */;
+/*!50001 VIEW `viewUserResume` AS select `user`.`uuid` AS `uuid`,`user`.`name` AS `name`,`user`.`email` AS `email`,`user`.`location` AS `location`,`resume`.`stack` AS `stack`,`resume`.`career` AS `career`,`resume`.`portfolio` AS `portfolio`,`resume`.`etc` AS `etc`,`resume`.`updatedDate` AS `updatedDate` from (`users` `user` join `userResume` `resume`) where (`user`.`uuid` = `resume`.`uuid`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
