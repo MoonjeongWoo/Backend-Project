@@ -269,14 +269,19 @@ body::-webkit-scrollbar-track{
     overflow-x: none;
     overflow-y: scroll;
   }
-  #location_select{
-    transform: translate(-340px, 0px);
-  }
+ .location{
+  text-align: left;
+ }
   .career_style{
     width: 450px;
+  }
+  #selected{
+    text-align: left;
   }
   .bucket{
     display: none;
   }
- 
+ .fooer{
+  width: 100%;
+ }
 }
