@@ -174,9 +174,19 @@
             data: data
           }
         }).then((response) => {
-          console.log(response.data);
+        var data = response.data.data;
+        var container = $('.develop_list');
 
-        })
+        for (var i = 0; i < data.length; i++ ){
+          container.append(`
+          <button class="accordion" onclick="accordion()">${data[i].name}</button>
+            <div class="panel">
+              <p>stack: ${data[i].stack} career: ${data[i].career}; location: ${data[i].location}</p>
+              <button type="button" onclick="selected_devel();">찜하기</button>
+            </div>
+          `)
+        }
+      })
       }
       // -----------------------------
 
@@ -192,27 +202,7 @@
           $(".user").attr("style", "color : white !important");
           $(".Corp").attr("style", "color: white !important");
         }
-      }).then((response) => {
-        var data = response.data.data;
-        var container = $('.develop_list');
-        console.log(container)
-        console.log(data)
-
-        for (var i = 0; i < data.length; i++ ){
-          container.append(`
-          <button class="accordion" onclick="accordion()">${data[i].name}</button>
-            <div class="panel">
-              <p>stack: ${data[i].stack} career: ${data[i].career}; location: ${data[i].location}</p>
-              <button type="button" onclick="selected_devel();">찜하기</button>
-            </div>
-          `)
-          console.log(data[i]);
-        }
       })
-
-    }
-    // -----------------------------
-      });
     </script>
 
 </html>
