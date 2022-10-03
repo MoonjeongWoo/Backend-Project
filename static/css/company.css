@@ -292,7 +292,8 @@ body::-webkit-scrollbar-track{
   .bucket{
     display: none;
   }
- .fooer{
-  width: 100%;
- }
+  .develop_list{
+    padding-top: 0px;
+  }
+ 
 }

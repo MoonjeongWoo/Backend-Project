@@ -33,6 +33,7 @@ function userPic(uuid, member) {
           userPic: result.dataValues.userPic,
         };
         resolve(data);
+        // resolve();
       });
     } else {
       resolve();
