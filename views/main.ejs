@@ -69,18 +69,18 @@
       <div class="serLine"></div>
     </div>
 
-    <div class="box1">
+    <div class="box1 fadein">
       <img src="../static/img/main_img/devel.jpg" />
       <div class="serCont1">
-        <div class="con1">채용 담당자</div>
-        <div class="con2">스마트한 채용 가능</div>
+        <div class="con1">개발자</div>
+        <div class="con2">맞춤 서비스를 통한 이력서 관리와<br />다른 개발자들의 이력서 열람도 가능합니다.</div>
       </div>
     </div>
 
-    <div class="box2">
+    <div class="box2 fadein">
       <div class="serCont2">
         <div class="con1">채용 담당자</div>
-        <div class="con2">스마트한 채용 가능</div>
+        <div class="con2">다양한 기능을 통해<br />기업에 딱 맞는 인재 채용 가능합니다.</div>
       </div>
       <img src="../static/img/main_img/devel.jpg" />
     </div>
@@ -106,6 +106,21 @@
 
       //let userid = sessionStorage.getItem("user_id");
       //let userpw = sessionStorage.getItem("user_pw");
+
+  $(document).ready(function() {
+    $(window).scroll( function(){
+        $('.fadein').each( function(i){         
+            var element = $(this).offset().top + $(this).outerHeight();
+            var scrollTop = $(window).scrollTop() + $(window).height();
+            
+            if( scrollTop > element ){
+                $(this).animate({'opacity':'1','margin-bottom':'0px'},500);
+            }
+            
+        }); 
+      });
+  });
+
     </script>
 </body>
 
