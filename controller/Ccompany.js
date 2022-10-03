@@ -41,10 +41,10 @@ exports.sortUserByElement = async (req, res) => {
     await ViewUserResume.findAll({
       where: { uuid: idList }
     }).then((result) => {
-      resumes.push( result[0].dataValues )
+      resumes.push( result[i].dataValues )
     })
   }
-
+  
   res.send( { data:resumes } )
 };
 

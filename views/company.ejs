@@ -86,13 +86,6 @@
 
           <div class="develop_list">
             <p>Developers</p>
-            <% for(var i=0 ; i < 10 ; i++) { %>
-            <button class="accordion">name</button>
-            <div class="panel">
-              <p>stack: &nbsp; career: &nbsp; location:</p>
-              <button type="button" onclick="selected_devel();">찜하기</button>
-            </div>
-            <% }%>
           </div>
         </div>
       </div>
@@ -112,18 +105,20 @@
     var stack_list = "";
 
     //arcodian
-    var acc = document.getElementsByClassName("accordion");
+    function accordion(){
+      var acc = document.getElementsByClassName("accordion");
 
-    for (var i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-      });
+      for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
     }
 
     //bucket
@@ -199,8 +194,23 @@
           data: data
         }
       }).then((response) => {
-        console.log(response.data)
+        var data = response.data.data;
+        var container = $('.develop_list');
+        console.log(container)
+        console.log(data)
+
+        for (var i = 0; i < data.length; i++ ){
+          container.append(`
+          <button class="accordion" onclick="accordion()">${data[i].name}</button>
+            <div class="panel">
+              <p>stack: ${data[i].stack} career: ${data[i].career}; location: ${data[i].location}</p>
+              <button type="button" onclick="selected_devel();">찜하기</button>
+            </div>
+          `)
+          console.log(data[i]);
+        }
       })
+
     }
     // -----------------------------
 
