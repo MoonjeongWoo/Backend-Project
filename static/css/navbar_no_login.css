@@ -41,6 +41,7 @@
     display: none;
     width: 100%;
     flex-direction: column;
+    position: fixed;
   }
   .navbar_toggler{
     display: block;
