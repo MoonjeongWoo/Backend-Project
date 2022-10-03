@@ -20,18 +20,14 @@ function strToSha256(id, pw) {
 function userPic(uuid, member) {
   return new Promise(function (resolve, reject) {
     var db = member == 0 ? UserInfo : CompanyInfo;
-    console.log("uuid", uuid)
-    console.log("uuid", member)
     if (uuid) {
       db.findOne({
         where: { uuid: uuid },
       }).then((result) => {
-        console.log(result)
-        console.log('-------------------')
-        // if (result.dataValues.userPic == null) {
-        //   result.dataValues.userPic =
-        //     "4DCD6250-55D8-4152-AAF8-D85B65F799EA_1_105_c.jpeg";
-        // }
+        if (result.dataValues.userPic == null) {
+          result.dataValues.userPic =
+            "4DCD6250-55D8-4152-AAF8-D85B65F799EA_1_105_c.jpeg";
+        }
         var data = {
           name: result.dataValues.name,
           userPic: result.dataValues.userPic,
