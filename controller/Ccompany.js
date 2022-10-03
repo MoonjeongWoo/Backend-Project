@@ -34,16 +34,19 @@ var location = "";
 exports.sortUserByElement = async (req, res) => {
   var resumes = [];
   var idList = await joinQuery(req);
-
-  for (var i = 0; i < idList.length; i++) {
-    await ViewUserResume.findAll({
-      where: { uuid: idList },
-    }).then((result) => {
-      resumes.push( result[i].dataValues )
-    })
+  if ( idList==0 ){
+    res.send( { data: resumes })
+  }else{
+    for (var i = 0; i < idList.length; i++) {
+      await ViewUserResume.findAll({
+        where: { uuid: idList },
+      }).then((result) => {
+        resumes.push( result[i].dataValues )
+      })
+    }
+    
+    res.send( { data: resumes } )
   }
-  
-  res.send( { data:resumes } )
 };
 
 exports.Companysession = (req, res) => {
@@ -84,7 +87,8 @@ async function joinQuery(req) {
     query += "elementStack AS stack ";
     checkElement[0] = 1;
   }
-
+  
+  
   if (career != "") {
     if (checkElement[0] == 0) {
       query += "elementCareer AS career ";
@@ -134,6 +138,10 @@ async function joinQuery(req) {
     query += `location.${location}=1 `;
   }
 
+  if ( checkElement[0] + checkElement[1] + checkElement[2] == 0){
+    return 0;
+  }
+
   if (checkElement[0] == 1) {
     query = "SELECT stack.id FROM " + query;
   } else if (checkElement[1] == 1) {
@@ -142,7 +150,7 @@ async function joinQuery(req) {
     query = "SELECT location.id FROM " + query;
   }
   query += ";";
-
+  
   const [result, metadata] = await sequelize.query(query);
 
   for (var i = 0; i < result.length; i++) {
