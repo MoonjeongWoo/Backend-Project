@@ -24,25 +24,28 @@
 <%-include("navbarCom.ejs")%>
 
   <div class="test row">
-    <div id="left" class="col-9">
+    <div id="left" class="col-9 col-sm-12">
       <div class="main_list">
         <div class="choose_stack">
           <h1>Stack</h1>
           <hr />
-          <% var stackList=["JAVA", "Javascript", "Python", "R", "C", "C++", "C#", "PHP", "Cobol", "HTML", "Linux", "Kotlin", "Dart", "Go" ];%>
-          <div class="stack_style">
-            <% for ( var i=0; i < stackList.length; i++ ) { %>
-            <button type="button" class="normal_btn" onclick="addStack(this.value)" value="<%= stackList[i] %>"><%= stackList[i] %></button>
-            <% } %>
-          </div>
-          <div class="career_style">
-            <h1>Career</h1>
-            <hr />
-            <div class="slidecontainer">
-              <input type="range" min="1" max="20" value="1" class="slider" id="myRange" />
-              <p>Year: <span id="range"></span></p>
+          <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" , "C#" , "PHP" , "Cobol" , "HTML"
+            , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
+            <div class="stack_style">
+              <% for ( var i=0; i < stackList.length; i++ ) { %>
+                <button type="button" class="normal_btn" onclick="addStack(this.value)" value="<%= stackList[i] %>">
+                  <%= stackList[i] %>
+                </button>
+                <% } %>
             </div>
-          </div>
+            <div class="career_style">
+              <h1>Career</h1>
+              <hr />
+              <div class="slidecontainer">
+                <input type="range" min="1" max="20" value="1" class="slider" id="myRange" />
+                <p>Year: <span id="range"></span></p>
+              </div>
+            </div>
         </div>
         <div class="location">
           <h1>Location</h1>
@@ -66,23 +69,24 @@
         </div>
       </div>
     </div>
-    <div id="right" class="col-3">
+    <div id="right" class="col-3 col-sm-o">
       <div class="bucket">
         Bucket
         <div class="selected_bucket"></div>
       </div>
     </div>
   </div>
-    <%-include("footer.ejs")%>
+  <div class="footer">
+  </div>
   </body>
-  
+
 
   <script>
     var stackList = "";
     var bucketList = [];
 
     //arcodian
-    function accordion(){
+    function accordion() {
       var acc = document.getElementsByClassName("accordion");
 
       for (var i = 0; i < acc.length; i++) {
@@ -104,10 +108,10 @@
       var position = $(window).scrollTop();
       $(".bucket")
         .stop()
-        .animate({ top: position + currentPosition + 150 +"px" }, 300);
+        .animate({ top: position + currentPosition + 150 + "px" }, 300);
     });
 
-    
+
     // career 선택, 변경
     var slider = document.getElementById("myRange");
     var output = document.getElementById("range");
@@ -120,7 +124,7 @@
       sendElement("career", slider.value);
     };
     // -----------------------------
-    
+
     // location 선택, 변경
     $("#location_select").change(function () {
       var location_selected = $("#location_select option:selected").text();
@@ -146,33 +150,33 @@
       $(`button[value$="${stack}"]`).css(
         "background-color",
         "rgb(228, 228, 228)"
-        );
-        $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
-        $(`button[value$="${stack}-checked"]`).remove();
-        stackList = stackList.replace(`${stack}|`, "");
+      );
+      $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
+      $(`button[value$="${stack}-checked"]`).remove();
+      stackList = stackList.replace(`${stack}|`, "");
 
-        sendElement("stack", stackList);
-      }
-      // -----------------------------
+      sendElement("stack", stackList);
+    }
+    // -----------------------------
 
-      // 서버에 데이터 전송
-      // elementName: stack, career, location .....
-      // data: 문자열 데이터
-      function sendElement(elementName, data) {
-        axios({
-          url: "/sortUserByElement",
-          method: "post",
-          data: {
-            element: elementName,
-            data: data
-          }
-        }).then((response) => {
+    // 서버에 데이터 전송
+    // elementName: stack, career, location .....
+    // data: 문자열 데이터
+    function sendElement(elementName, data) {
+      axios({
+        url: "/sortUserByElement",
+        method: "post",
+        data: {
+          element: elementName,
+          data: data
+        }
+      }).then((response) => {
 
         var data = response.data.data;
         var container = $('.develop_list');
         container.html('');
 
-        for (var i = 0; i < data.length; i++ ){
+        for (var i = 0; i < data.length; i++) {
           container.append(`
           <button class="accordion" onclick="accordion()">${data[i].name}</button>
             <div class="panel">
@@ -184,41 +188,42 @@
           `)
         }
       })
-      }
-      // -----------------------------
-      //bucket button
-      function selected_devel(name, uuid) {
-        let selected_name = $(".selected_bucket");
-        if ( bucketList.includes(uuid)== false ){
-          bucketList.push(uuid)
-          selected_name.append(`<p>${name}</p>`);
-          
-          axios({
-            url: "/addBucket",
-            method: "post",
-            data: {
-              bucket: JSON.stringify(bucketList)
-            }
-          }).then((response) => {
-            console.log(response)
-          })
-        }
-      // -----------------------------
-      }
+    }
+    // -----------------------------
+    //bucket button
+    function selected_devel(name, uuid) {
+      let selected_name = $(".selected_bucket");
+      if (bucketList.includes(uuid) == false) {
+        bucketList.push(uuid)
+        selected_name.append(`<p>${name}</p>`);
 
-      //--------------------
-      //navbar scroll backgournd-color
-      window.addEventListener("scroll", function () {
-        if (scrollY <= 350 && scrollY >= 0) {
-          $(".topnav").attr("style", "background-color: transparent !import");
-          $(".user").attr("style", "color : black !important");
-          $(".Corp").attr("style", "color: black !important");
-        } else {
-          $(".topnav").attr("style", "background-color:  rgb(22, 38, 60) !important");
-          $(".user").attr("style", "color : white !important");
-          $(".Corp").attr("style", "color: white !important");
-        }
-      })
-    </script>
+        axios({
+          url: "/addBucket",
+          method: "post",
+          data: {
+            bucket: JSON.stringify(bucketList)
+          }
+        }).then((response) => {
+          console.log(response)
+        })
+      }
+      // -----------------------------
+    }
+
+    //--------------------
+    //navbar scroll backgournd-color
+    window.addEventListener("scroll", function () {
+      if (scrollY <= 350 && scrollY >= 0) {
+        $(".topnav").attr("style", "background-color: transparent !import");
+        $(".user").attr("style", "color : black !important");
+        $(".Corp").attr("style", "color: black !important");
+      } else {
+        $(".topnav").attr("style", "background-color:  rgb(22, 38, 60) !important");
+        $(".user").attr("style", "color : white !important");
+        $(".Corp").attr("style", "color: white !important");
+      }
+    })
+  </script>
+  <%-include("footer.ejs")%>
 
 </html>

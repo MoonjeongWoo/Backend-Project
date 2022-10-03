@@ -26,7 +26,7 @@
     color: coral;
     transition: 0.4s;
   }
-  @media screen and (max-width:550){
+  @media screen and (max-width:360px){
     #main{
         display: none;
       } 
@@ -38,6 +38,9 @@
     position: fixed;
     z-index: 99999;
   }
+  .location{
+    height: 100px;
+  }
       .Corp{
     float: right;
     color: grey;
@@ -46,5 +49,8 @@
     text-decoration: none;
     font-size: 14px;
     display: block;
+  }
+  #selected{
+    text-align: left;
   }
   }
