@@ -234,11 +234,11 @@ div{
   margin: 5px 5px;
 }
 body::-webkit-scrollbar{
-  width: 15px;
+  width: 10px;
 }
 body::-webkit-scrollbar-thumb{
   height: 50px;
-  background-color: #ccc;
+  background-color: rgb(183, 200, 213);
   border-radius: 15px;
 }
 body::-webkit-scrollbar-track{
