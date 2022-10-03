@@ -1,57 +1,54 @@
  .topnav {
-    width: 100%;
-    margin: 0px;
-    padding: 5px;
-    overflow: hidden;
     position: fixed;
-    z-index: 99999;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 20px;
   }
-
+  .topnav div{
+    display: flex;
+    align-items: center;
+    padding-left: 0px;
+    margin: auto 0px;
+  }
+  .topnav a{
+    padding: 15px;
+    color: grey;
+    text-decoration: none;
+  }
   /* Style the links inside the navigation bar */
-  .topnav a.user {
-    float: right;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-  }
-  #membership{
-     float: right;
-    color: grey;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-}
-  #main{
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-  }
-  #membership{
-     float: right;
-    color: grey;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
+
   /* Change the color of links on hover */
   .topnav a:hover {
     background-color: whitesmoke;
     color: black;
   }
-
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: #04aa6d;
-    color: white;
+.toggle{
+  display: block;
+  display: none;
+}
+ .navbar_toggler{
+  display: none;
+ }
+@media screen and (max-width: 650px){
+  nav{
+    display: flex;
+  }
+  .topnav{
+    display: none;
+    width: 100%;
+    flex-direction: column;
+  }
+  .navbar_toggler{
+    display: block;
+    font-size: 24px;
   }
   
+}
+  /* Add a color to the active/current link */
+ 
+  
+ 
