@@ -2,17 +2,76 @@
 
 .wrap{
     padding: 0;
-    margin: 0;
 }
 .content1{
     padding-top: 80px;
 }
+
 #form-register{
     border: 1px solid lightgrey;
     height: 800px;
     border-radius: 20px;
     margin: 20px;
+    padding: 5%;
+    margin: 2% 10% 5% 10%;
 }
+
+
+.proCont{
+    display: block;
+    text-align: right;
+}
+
+.proCont > #name {
+    font-size: 4vw;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.proCont > #email, #loca {
+    font-size: 1.1vw;
+    color: grey;
+}
+ 
+.Contt {
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: rgb(68, 68, 68);
+    margin: 2% 1% 2% 1%;
+}
+
+.normal_btn{
+    padding: 3px 16px;
+      font-size: 16px;
+      line-height: 30px;
+      letter-spacing: -0.5px;
+      border-radius: 20px;
+      border: 1px solid rgb(228, 228, 228);
+      color: rgb(68, 68, 68);
+      cursor: pointer;
+      margin: 5px;
+  }
+  .normal_btn:hover{
+    color: white;
+    transition: 0.4s;
+    background-color: #444;
+  }
+
 .footer{
     position: relative;
 }
+
+#sendBtn > button {
+    text-align: right;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+  }
