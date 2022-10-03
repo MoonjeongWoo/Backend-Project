@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/css/introduce.css">
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.js"
-      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-      crossorigin="anonymous"
-    ></script>
-    <title>my Resume</title>
-    <!-- jquery -->
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-    <!-- axios -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
-      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link rel="stylesheet" href="/static/css/introduce.css" />
 
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/introduce.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  <title>my Resume</title>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="/static/css/introduce.css" />
 
-  <body>
-    <%-include("navbar_user.ejs")%>
+</head>
+
+<body>
+  <%-include("navbar_user.ejs")%>
 
     <div class="wrap">
       <div class="content1">
@@ -40,57 +32,57 @@
             <div id="name">신한나</div>
             <div id="email">data.email</div>
             <div id="loca">data.loca</div>
-            <br/><hr><br/>
+            <br />
+            <hr><br />
           </div>
-        
-          
+
+
           <div class="Contt">
             <div>사용 가능 스택 선택</div>
           </div>
-          <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
-          "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
-          <% for ( var i=0; i < stackList.length; i++ ) { %>
-            <button
-              type="button"
-              class="normal_btn stackBtn"
-              onclick="addStack(this.value)"
-              value="<%= stackList[i] %>"
-            >
-              <%= stackList[i] %>
-            </button>
-            <% } %>
-            <br /><br /><br />
-         
-        <div class="Contt">
-          <div>Career</div>
-        </div>
-        <div class="career"><button class="normal_btn plusBtn" type="button" onclick="addCar()"> +경력추가</button></div>
-        <br /><br />
+          <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" , "C#" , "PHP" , "Cobol" , "HTML"
+            , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
+            <% for ( var i=0; i < stackList.length; i++ ) { %>
+              <button type="button" class="normal_btn stackBtn" onclick="addStack(this.value)"
+                value="<%= stackList[i] %>">
+                <%= stackList[i] %>
+              </button>
+              <% } %>
+                <br /><br /><br />
 
-        <div class="Contt">
-          <div>Port Folio</div>
-        </div>
-          <input type="text" name="portfolio" value="" id="portfolio" />
-          <br /><br />
+                <div class="Contt">
+                  <div>Career</div>
+                </div>
+                <div class="career"><button class="normal_btn plusBtn" type="button" onclick="addCar()"> +경력추가</button>
+                </div>
+                <br /><br />
 
-          <div class="Contt">
-            <div>짧은 자기소개</div>
-          </div>
-          <input type="text" name="etc" value="" id="etc" />
-          <br />
+                <div class="Contt">
+                  <div>Port Folio</div>
+                </div>
+                <input type="text" name="portfolio" value="" id="portfolio" />
+                <br /><br />
 
-          <div class="button">
-            <button type="button" class="btnFade btnBlue sendBtn" id="submit" onclick="saveResume()">제출</button>
-          </div>        
+                <div class="Contt">
+                  <div>짧은 자기소개</div>
+                </div>
+                <input type="text" name="etc" value="" id="etc" />
+                <br />
+
+                <div class="button">
+                  <button type="button" class="btnFade btnBlue sendBtn" id="submit" onclick="saveResume()">제출</button>
+                </div>
         </form>
       </div>
-  </div>
-    <div class="footer"><%-include("footer.ejs") %></div>
+    </div>
+    <div class="footer">
+      <%-include("footer.ejs") %>
+    </div>
     <script>
       // 경력 추가
-    var i = 0;
-     function addCar(){
-          $('.career').append(`<div>경력<input id='year${i}' class='inText'>근무지<input id='place${i++}' class='inText'></div>`)
+      var i = 0;
+      function addCar() {
+        $('.career').append(`<div>경력<input id='year${i}' class='inText'>근무지<input id='place${i++}' class='inText'></div>`)
       }
 
       //stack 선택
@@ -149,15 +141,15 @@
       }
 
 
-      function getCar(){
-        var career ="";
-        for(var j=0; j<i; j++){
+      function getCar() {
+        var career = "";
+        for (var j = 0; j < i; j++) {
           career = career + $(`#year${j}`).val() + '|' + $(`#place${j}`).val() + '|';
         }
-        return career ;
-        
+        return career;
+
       }
-      
+
       function saveResume() {
         var choose = $("#stack").val();
         var career = getCar();
@@ -172,13 +164,14 @@
           portfolio: portfolio,
           etc: etc
         };
-    
+
 
         axios({
           url: "/user/saveIntroudce",
           method: "post",
           data: data,
         }).then((response) => {
+          window.location = "/";
         });
       }
 
@@ -198,5 +191,6 @@
         }
       });
     </script>
-  </body>
+</body>
+
 </html>

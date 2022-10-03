@@ -1,63 +1,60 @@
-    <div class="wrap">
-      <div class="content1">
-        <div id="form-register" action="/user/saveIntroudce" method="post">
+<div class="wrap">
+  <div class="content1">
+    <div id="form-register" action="/user/saveIntroudce" method="post">
 
-          <!----- 개인 정보 가져오도록 수정필요 ------>
-          <div class="proCont">
-            <div id="name">신한나</div>
-            <div id="email">data.email</div>
-            <div id="loca">data.loca</div>
-            <br/><hr><br/>
-          </div>
-        
-          
-          <div class="Contt">
-            <div>사용 가능 스택 선택</div>
-          </div>
-          <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
-          "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
-          <% for ( var i=0; i < stackList.length; i++ ) { %>
-            <button
-              type="button"
-              class="normal_btn stackBtn"
-              onclick="addStack(this.value)"
-              value="<%= stackList[i] %>"
-            >
-              <%= stackList[i] %>
-            </button>
-            <% } %>
-            <br /><br /><br />
-         
-        <div class="Contt">
-          <div>Career</div>
-        </div>
-        <div class="career"><button class="normal_btn plusBtn" type="button" onclick="addCar()"> +경력추가</button></div>
-        <br /><br />
-
-        <div class="Contt">
-          <div>Port Folio</div>
-        </div>
-          <input type="text" name="portfolio" value="" id="portfolio" />
-          <br /><br />
-
-          <div class="Contt">
-            <div>짧은 자기소개</div>
-          </div>
-          <input type="text" name="etc" value="" id="etc" />
-          <br />
-
-          <div class="button">
-            <button type="button" class="btnFade btnBlue sendBtn" id="submit" onclick="saveResume()">제출</button>
-          </div>        
-        </div>
+      <!----- 개인 정보 가져오도록 수정필요 ------>
+      <div class="proCont">
+        <div id="name">신한나</div>
+        <div id="email">data.email</div>
+        <div id="loca">data.loca</div>
+        <br />
+        <hr><br />
       </div>
+
+
+      <div class="Contt">
+        <div>사용 가능 스택 선택</div>
+      </div>
+      <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" , "C#" , "PHP" , "Cobol" , "HTML" , "Linux"
+        , "Kotlin" , "Dart" , "Go" ];%>
+        <% for ( var i=0; i < stackList.length; i++ ) { %>
+          <button type="button" class="normal_btn stackBtn" onclick="addStack(this.value)" value="<%= stackList[i] %>">
+            <%= stackList[i] %>
+          </button>
+          <% } %>
+            <br /><br /><br />
+
+            <div class="Contt">
+              <div>Career</div>
+            </div>
+            <div class="career"><button class="normal_btn plusBtn" type="button" onclick="addCar()"> +경력추가</button>
+            </div>
+            <br /><br />
+
+            <div class="Contt">
+              <div>Port Folio</div>
+            </div>
+            <input type="text" name="portfolio" value="" id="portfolio" />
+            <br /><br />
+
+            <div class="Contt">
+              <div>짧은 자기소개</div>
+            </div>
+            <input type="text" name="etc" value="" id="etc" />
+            <br />
+
+            <div class="button">
+              <button type="button" class="btnFade btnBlue sendBtn" id="submit" onclick="saveResume()">제출</button>
+            </div>
+    </div>
   </div>
+</div>
 
 <script>
   // 경력 추가
   var i = 0;
-  function addCar(){
-      $('.career').append(`<div>경력<input id='year${i}' class='inText'>근무지<input id='place${i++}' class='inText'></div>`)
+  function addCar() {
+    $('.career').append(`<div>경력<input id='year${i}' class='inText'>근무지<input id='place${i++}' class='inText'></div>`)
   }
 
   //stack 선택
@@ -116,15 +113,15 @@
   }
 
 
-  function getCar(){
-    var career ="";
-    for(var j=0; j<i; j++){
+  function getCar() {
+    var career = "";
+    for (var j = 0; j < i; j++) {
       career = career + $(`#year${j}`).val() + '|' + $(`#place${j}`).val() + '|';
     }
-    return career ;
-    
+    return career;
+
   }
-  
+
   function saveResume() {
     var choose = $("#stack").val();
     var career = getCar();
@@ -146,6 +143,7 @@
       method: "post",
       data: data,
     }).then((response) => {
+      window.location = '/';
     });
   }
 </script>
