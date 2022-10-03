@@ -9,11 +9,12 @@
 
 #form-register{
     border: 1px solid lightgrey;
-    height: 800px;
+    min-height: 1000px;
     border-radius: 20px;
     margin: 20px;
     padding: 5%;
-    margin: 2% 10% 5% 10%;
+    margin: 2% 15% 5% 15%;
+    box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -42,31 +43,36 @@
 
 .normal_btn{
     padding: 3px 16px;
-      font-size: 16px;
-      line-height: 30px;
-      letter-spacing: -0.5px;
-      border-radius: 20px;
-      border: 1px solid rgb(228, 228, 228);
-      color: rgb(68, 68, 68);
-      cursor: pointer;
-      margin: 5px;
+    letter-spacing: -0.5px;
+    border-radius: 20px;
+    border: 1px solid rgb(228, 228, 228);
+    color: rgb(68, 68, 68);
+    cursor: pointer;
+    margin: 5px;
   }
+
   .normal_btn:hover{
     color: white;
     transition: 0.4s;
     background-color: #444;
   }
 
-.footer{
-    position: relative;
+.stackBtn {
+    font-size: 16px;
+    line-height: 30px;
 }
 
-#sendBtn > button {
-    text-align: right;
+.plusBtn {
+    font-size: 12px;
+    line-height: 25px;
+}
+
+.inText {
+    width: 40%;
+
 }
 
 input {
-    width: 300px;
     height: 30px;
     font-size: 15px;
     border: 0;
@@ -75,3 +81,39 @@ input {
     padding-left: 10px;
     background-color: rgb(233, 233, 233);
   }
+
+#etc, #portfolio {
+    width: 80%;
+}
+
+button.sendBtn {
+    display: block;
+    position: relative;
+    float: left;
+    width: 100px;
+    padding: 0;
+    margin: 60px 20px 10px 0;
+    font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    color: #FFF;
+    border-radius: 15px;
+    transition: all 0.1s ;
+    border: 0px;
+}
+
+.btnBlue {
+    background: #4ea6ab;
+}
+
+.btnFade.btnBlue:hover {
+    background: #016e73;
+}
+
+.button {
+    float: right;
+}
+
+.footer{
+    position: relative;
+}
