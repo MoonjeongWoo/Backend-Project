@@ -1,7 +1,7 @@
  .topnav {
-    width: 95%;
+    width: 100%;
     margin: 0px;
-    padding: 5px;
+    padding-right: 15px;
     position: fixed;
     z-index: 99999;
   }
