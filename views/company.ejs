@@ -25,51 +25,45 @@
 
   <div class="test row">
     <div id="left" class="col-9">
-      <div class="main_list">
+      < class="main_list">
         <div class="choose_stack">
           <h1>Stack</h1>
           <hr />
-          <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" , "C#" , "PHP" , "Cobol" , "HTML"
-            , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
-            <div class="stack_style">
-              <% for ( var i=0; i < stackList.length; i++ ) { %>
-                <button type="button" class="normal_btn" onclick="addStack(this.value)" value="<%= stackList[i] %>">
-                  <%= stackList[i] %>
-                </button>
-                <% } %>
-            </div>
-            <div class="career_style">
-              <h1>Career</h1>
-              <hr />
-              <div class="slidecontainer">
-                <input type="range" min="1" max="20" value="1" class="slider" id="myRange" />
-                <p>Year: <span id="range"></span></p>
-              </div>
-            </div>
+          <% var stackList=["JAVA", "Javascript", "Python", "R", "C", "C++", "C#", "PHP", "Cobol", "HTML", "Linux", "Kotlin", "Dart", "Go" ];%>
+          <div class="stack_style">
+            <% for ( var i=0; i < stackList.length; i++ ) { %>
+            <button type="button" class="normal_btn" onclick="addStack(this.value)" value="<%= stackList[i] %>"><%= stackList[i] %></button>
+            <% } %>
           </div>
-          <div class="location">
-            <h1>Location</h1>
+          <div class="career_style">
+            <h1>Career</h1>
             <hr />
-            <select name="location_select" id="location_select">
-              <option value="">Seoul</option>
-              <option value="">Incheon</option>
-              <option value="">Daejeon</option>
-              <option value="">Daegu</option>
-              <option value="">Pusan</option>
-              <option value="">Ulsan</option>
-              <option value="">Gwangju</option>
-              <option value="">Gyeonggi</option>
-            </select>
-          </div>
-          <!-- 클릭하면 추가되는 자리 -->
-          <div id="selected">조건 : </div>
-          <!-- =================== -->
-
-          <div class="develop_list">
-            <p>Developers</p>
+            <div class="slidecontainer">
+              <input type="range" min="1" max="20" value="1" class="slider" id="myRange" />
+              <p>Year: <span id="range"></span></p>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="location">
+          <h1>Location</h1>
+          <hr />
+          <select name="location_select" id="location_select">
+            <option value="">Seoul</option>
+            <option value="">Incheon</option>
+            <option value="">Daejeon</option>
+            <option value="">Daegu</option>
+            <option value="">Pusan</option>
+            <option value="">Ulsan</option>
+            <option value="">Gwangju</option>
+            <option value="">Gyeonggi</option>
+          </select>
+        </div>
+        <!-- 클릭하면 추가되는 자리 -->
+        <div id="selected">조건 : </div>
+        <!-- =================== -->
+        <div class="develop_list">
+          <p>Developers</p>
+        </div>
     </div>
     <div id="right" class="col-3">
       <div class="bucket">
@@ -77,6 +71,7 @@
         <div class="selected_bucket"></div>
       </div>
     </div>
+  </div>
     <%-include("footer.ejs")%>
   </body>
   
@@ -110,10 +105,6 @@
         .animate({ top: position + currentPosition + 150 +"px" }, 300);
     });
 
-    function selected_devel() {
-      let selected_name = $(".accordion").html();
-      $(".selected_bucket").append(`<p>${selected_name}</p>`);
-    }
     
     // career 선택, 변경
     var slider = document.getElementById("myRange");
@@ -177,20 +168,27 @@
 
         var data = response.data.data;
         var container = $('.develop_list');
+        container.html('');
 
         for (var i = 0; i < data.length; i++ ){
           container.append(`
           <button class="accordion" onclick="accordion()">${data[i].name}</button>
             <div class="panel">
               <p>stack: ${data[i].stack} career: ${data[i].career}; location: ${data[i].location}</p>
-              <button type="button" onclick="selected_devel();">찜하기</button>
+              <button type="button" onclick="selected_devel(this);">찜하기</button>
             </div>
           `)
         }
       })
-
       }
       // -----------------------------
+      //bucket button
+      function selected_devel() {
+        console.log(selected_devel)
+        // let selected_name = $(".accordion").html();
+        // $(".selected_bucket").append(`<p>${selected_name}</p>`);
+      // -----------------------------
+    }
 
       //--------------------
       //navbar scroll backgournd-color
