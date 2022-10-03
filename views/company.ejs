@@ -46,28 +46,34 @@
                 <p>Year: <span id="range"></span></p>
               </div>
             </div>
-          </div>
-          <div class="location">
-            <h1>Location</h1>
-            <hr />
-            <select name="location_select" id="location_select">
-              <option value="">Seoul</option>
-              <option value="">Incheon</option>
-              <option value="">Daejeon</option>
-              <option value="">Daegu</option>
-              <option value="">Pusan</option>
-              <option value="">Ulsan</option>
-              <option value="">Gwangju</option>
-              <option value="">Gyeonggi</option>
-            </select>
-          </div>
-          <!-- 클릭하면 추가되는 자리 -->
-          <div id="selected">조건 : </div>
-          <!-- =================== -->
+        </div>
+        <div class="location">
+          <h1>Location</h1>
+          <hr />
+          <select name="location_select" id="location_select">
+            <option value="">Seoul</option>
+            <option value="">Incheon</option>
+            <option value="">Daejeon</option>
+            <option value="">Daegu</option>
+            <option value="">Pusan</option>
+            <option value="">Ulsan</option>
+            <option value="">Gwangju</option>
+            <option value="">Gyeonggi</option>
+          </select>
+        </div>
+        <!-- 클릭하면 추가되는 자리 -->
+        <div id="selected">조건 : </div>
+        <!-- =================== -->
 
-          <div class="develop_list">
-            <p>Developers</p>
-          </div>
+        <div class="develop_list">
+          <p>Developers</p>
+          <% for(var i=0 ; i < 10; i++) { %>
+            <button class="accordion">name</button>
+            <div class="panel">
+              <p>stack: &nbsp; career: &nbsp; location:</p>
+              <button type="button" onclick="selected_devel();">찜하기</button>
+            </div>
+            <% }%>
         </div>
       </div>
     </div>
@@ -77,15 +83,16 @@
         <div class="selected_bucket"></div>
       </div>
     </div>
-    <%-include("footer.ejs")%>
-  </body>
-  
 
-  <script>
-    var stack_list = "";
+  </div>
+  <%-include("footer.ejs")%>
+    </body>
 
-    //arcodian
-    function accordion(){
+
+    <script>
+      var stack_list = "";
+
+      //arcodian
       var acc = document.getElementsByClassName("accordion");
 
       for (var i = 0; i < acc.length; i++) {
@@ -99,60 +106,59 @@
           }
         });
       }
-    }
 
-    //bucket
-    var currentPosition = parseInt($(".bucket").css("top"));
-    $(window).scroll(function () {
-      var position = $(window).scrollTop();
-      $(".bucket")
-        .stop()
-        .animate({ top: position + currentPosition + 150 +"px" }, 300);
-    });
+      //bucket
+      var currentPosition = parseInt($(".bucket").css("top"));
+      $(window).scroll(function () {
+        var position = $(window).scrollTop();
+        $(".bucket")
+          .stop()
+          .animate({ top: position + currentPosition + 150 + "px" }, 300);
+      });
 
-    function selected_devel() {
-      let selected_name = $(".accordion").html();
-      $(".selected_bucket").append(`<p>${selected_name}</p>`);
-    }
-    
-    // career 선택, 변경
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("range");
-    output.innerHTML = slider.value;
+      function selected_devel() {
+        let selected_name = $(".accordion").html();
+        $(".selected_bucket").append(`<p>${selected_name}</p>`);
+      }
 
-    slider.oninput = function () {
-      output.innerHTML = this.value;
-    };
-    slider.onchange = function () {
-      sendElement("career", slider.value);
-    };
-    // -----------------------------
-    
-    // location 선택, 변경
-    $("#location_select").change(function () {
-      var location_selected = $("#location_select option:selected").text();
-      sendElement("location", location_selected);
-    });
-    // -----------------------------
+      // career 선택, 변경
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("range");
+      output.innerHTML = slider.value;
 
-    // stack 추가
-    function addStack(stack) {
-      $(`button[value$="${stack}"]`).css("background-color", "grey");
-      $("#selected").append(
-        `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
-      );
-      $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
+      slider.oninput = function () {
+        output.innerHTML = this.value;
+      };
+      slider.onchange = function () {
+        sendElement("career", slider.value);
+      };
+      // -----------------------------
 
-      stack_list += stack + "|";
-      sendElement("stack", stack_list);
-    }
-    // -----------------------------
+      // location 선택, 변경
+      $("#location_select").change(function () {
+        var location_selected = $("#location_select option:selected").text();
+        sendElement("location", location_selected);
+      });
+      // -----------------------------
 
-    // stack 제거
-    function delStack(stack) {
-      $(`button[value$="${stack}"]`).css(
-        "background-color",
-        "rgb(228, 228, 228)"
+      // stack 추가
+      function addStack(stack) {
+        $(`button[value$="${stack}"]`).css("background-color", "grey");
+        $("#selected").append(
+          `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
+        );
+        $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
+
+        stack_list += stack + "|";
+        sendElement("stack", stack_list);
+      }
+      // -----------------------------
+
+      // stack 제거
+      function delStack(stack) {
+        $(`button[value$="${stack}"]`).css(
+          "background-color",
+          "rgb(228, 228, 228)"
         );
         $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
         $(`button[value$="${stack}-checked"]`).remove();
@@ -192,26 +198,6 @@
           $(".user").attr("style", "color : white !important");
           $(".Corp").attr("style", "color: white !important");
         }
-      }).then((response) => {
-        var data = response.data.data;
-        var container = $('.develop_list');
-        console.log(container)
-        console.log(data)
-
-        for (var i = 0; i < data.length; i++ ){
-          container.append(`
-          <button class="accordion" onclick="accordion()">${data[i].name}</button>
-            <div class="panel">
-              <p>stack: ${data[i].stack} career: ${data[i].career}; location: ${data[i].location}</p>
-              <button type="button" onclick="selected_devel();">찜하기</button>
-            </div>
-          `)
-          console.log(data[i]);
-        }
-      })
-
-    }
-    // -----------------------------
       });
     </script>
 
