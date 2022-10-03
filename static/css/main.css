@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 .all {
   position: relative;
 }
@@ -22,7 +29,6 @@
 .content {
     position: absolute;
     font-size: 4vw;
-    /* font-family: Georgia, 'Times New Roman', Times, serif; */
     font-weight: 800;
     text-align: left;
     left: 10%;
@@ -38,7 +44,6 @@
 
 .our_ser {
   font-size: 3vw;
-  /* font-family: Georgia, 'Times New Roman', Times, serif; */
   font-weight: 600;
 }
 
@@ -48,8 +53,6 @@
   width: 100%;
   height: 300px;
   margin: auto;
-  /* background-color: rgb(201, 196, 176); */
-
 }
 
 .second-back {
@@ -57,7 +60,6 @@
   width: 100%;
   height: 700px;
   margin: auto;
-  /* background: linear-gradient(rgb(36, 34, 34), rgb(217, 212, 205)); */
   background: linear-gradient(white,rgb(150, 163, 192));
 }
 
@@ -99,10 +101,14 @@
   display: inline-block;
   margin-left: 10%;
   color: white;
+  text-shadow: 2px 2px 2px gray;
+  font-family: 'Pretendard-Regular';
 }
+
 
 /* box2222222 */
 .box2 {
+  margin-top: 5%;
   margin-bottom: 5%;
 }
 
@@ -118,6 +124,8 @@
   display: inline-block;
   margin-right: 10%;
   color: white;
+  text-shadow: 2px 2px 2px gray;
+  font-family: 'Pretendard-Regular';
 }
 
 .con1 {

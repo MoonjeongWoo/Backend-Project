@@ -1,12 +1,50 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Pretendard-Regular';
+}
+
 .userInfoCk {
   width: 90%;
 }
 
 .proImg > img {
-  width: 10%;
-  display: inline-block;
+  width: 200px;
+  float: left;
 }
 
 .user-Login {
-  display: inline-block;
+  float: left;
+}
+
+
+.userInfoCk > h3 {
+  /* font-size: 2.5vw; */
+  font-weight: 600;
+  padding-bottom: 2%;
+  color: rgb(102, 132, 154);
+}
+
+.textInfo {
+  margin-top: 3%;
+}
+
+.neInfo {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+.infoTable {
+  margin: 30px;
+}
+
+.infoTable td {
+  padding: 10px;
 }
