@@ -56,37 +56,39 @@
     </div>
 <div class="all">
     <div class="wrapper">
-        <div class=" sidebar">
-          <div class="list-group " id="list-tab" role="tablist">
-            <!--menu item-->
-            <ul>
-                <li>
-                    <div>
-                        <span class="item">MENU</span>
-                    </div>
-                </li>
-                <li>
-                    <a data-bs-toggle="list" href="#profile">
-                        <span class="icon"><i class="fas fa-user-friends"></i></span>
-                        <span class="item">회원정보 확인</span>
-                    </a>
-                </li>
-                <li>
-                    <a data-bs-toggle="list" data-toggle="modal" href="#profileMod">
-                        <span class="icon"><i class="fas fa-user-shield"></i></span>
-                        <span class="item">회원정보 수정</span>
-                    </a>
-                </li>
+      <div class=" sidebar">
+        <div role="tabpanel">
+          <div class="list-group" id="myList" role="tablist">
+              <!--menu item-->
+              <ul>
+                  <li>
+                      <div>
+                          <span class="itemM">MENU</span>
+                      </div>
+                  </li>
+                  <li>
+                      <a class="list-group-item-action active" data-bs-toggle="list" href="#profile">
+                          <span class="icon"><i class="fa-solid fa-user"></i></span>
+                          <span class="item">회원정보 확인</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a class="list-group-item-action" data-bs-toggle="list" data-toggle="modal" href="#profileMod">
+                          <span class="icon"><i class="fa-solid fa-gear"></i></span>
+                          <span class="item">회원정보 수정</span>
+                      </a>
+                  </li>
 
 
-                <li>
-                    <a data-bs-toggle="list" href="#introduce" role="tab">
-                        <span class="icon"><i class="fas fa-desktop"></i></span>
-                        <span class="item">이력서 관리</span>
-                    </a>
-                </li>
+                  <li>
+                      <a class="list-group-item-action" data-bs-toggle="list" href="#introduce" role="tab">
+                          <span class="icon"><i class="fa-solid fa-file-contract"></i></span>
+                          <span class="item">이력서 추가</span>
+                      </a>
+                  </li>
 
-            </ul>
+              </ul>
+          </div>
         </div>
       </div>
     </div>

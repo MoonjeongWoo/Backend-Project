@@ -1,24 +1,32 @@
-    * {
-    margin: 0px auto;
-    padding: 0px;
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
-    }
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;  
+}
 
-    .cotn_principal {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    height: 100%;
-    top: -20%;
-    right: 20%;
-    }
+  * {
+  font-family: 'Pretendard-Regular';
+  margin: 0px auto;
+  padding: 0px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  }
 
-    .cont_centrar {
-    display: flex;
-    align-self: center;
-    width: 100%;
-    }
+  .cotn_principal {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  height: 100%;
+  top: -20%;
+  right: 20%;
+  }
+
+  .cont_centrar {
+  display: flex;
+  align-self: center;
+  width: 100%;
+  }
 
 .cont_login {
   position: relative;
@@ -147,14 +155,14 @@
 .col_md_login > h2 {
   font-weight: 400;
   margin-top: 70px;
-  color: #757575;
+  color: #6c6e75;
 }
 
 .col_md_login > p {
   font-weight: 400;
   margin-top: 15px;
   width: 80%;
-  color: #37474f;
+  color: #002436;
 }
 
 .btn_login {
@@ -191,7 +199,7 @@ background text
  */
 .cont_ba_opcitiy {
   position: relative;
-  background-color: rgba(120, 144, 156, 0.55);
+  background-color: rgb(164, 180, 193);
   width: 80%;
   border-radius: 3px;
   margin-top: 60px;

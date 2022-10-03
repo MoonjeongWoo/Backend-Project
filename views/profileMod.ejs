@@ -1,74 +1,83 @@
-<h3>회원정보 수정</h3>
-<div class="user-Login">
-
-    <!-- ID -->
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">ID</span>
-        <!-- <input id="id" type="text" class="form-control" placeholder="Nickname"> -->
-        <input id="id" type="text" class="form-control" value="<%= data.id%>">
-        <button type="button" class="btn btn-secondary btn-sm" onclick="idCheck()">중복 확인</button>
-    </div>
-
-    <!-- Password -->
-    <div class="input-group mb-3">
-        <input id="pw" type="password" class="form-control" placeholder="Password" required>
-    </div>
-
-    <div class="input-group mb-3">
-        <input id="confirm_pw" type="password" class="form-control" placeholder="Re Password" required>
-    </div>
-
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Name</span>
-        <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
-        <input id="name" type="text" class="form-control" value="<%= data.name%>">
-    </div>
-
-    <!-- E-mail -->
-    <div class="input-group mb-3">
-        <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
-        <input id="email" type="text" class="form-control" value="<%= data.email%>">
-        <span class="input-group-text">@</span>
-        <select class="form-select">
-            <option selected>선택</option>
-            <option value="1">naver.com</option>
-            <option value="2">gmail.com</option>
-            <option value="3">...</option>
-        </select>
-    </div>
-
-    <!-- Location -->
-    <div class="input-group mb-3">
-        <span class="input-group-text">Location</span>
-        <!-- <input id="location" class="form-control"> -->
-        <select class="form-select" id="location">
-            <option selected value="<%= data.location%>">
-                <%= data.location%>
-            </option>
-            <option value="Seoul">Seoul</option>
-            <option value="Incheon">Incheon</option>
-            <option value="Daejeon">Daejeon</option>
-            <option value="Daegu">Daegu</option>
-            <option value="Pusan">Pusan</option>
-            <option value="Ulsan">Ulsan</option>
-            <option value="Gwangju">Gwangju</option>
-            <option value="Gyeonggi">Gyeonggi</option>
-            <option>...</option>
-        </select>
-    </div>
-
-    <!-- User Identification Picture -->
-    <div id="showPic"></div>
+<div class="userInfoCk">
+    <h3>회원정보 수정</h3>
     <div>
-        <input type="file" name="userIdPic" id="userIdPic" onchange="showPic(event)">
+        고객님의 개인정보를 수정하실 수 있습니다.<br>
+        안전을 위하여 필히 확인 부탁드립니다.
     </div>
+    <div class="textInfo">
 
-    <div class="d-grid gap-2 mb-3">
-        <button class="btn btn-primary" type="button" onclick="modUserProfile()">수정</button>
-    </div>
+        <div class="user-Login">
 
-    <div>
-        <button type="button" class="btn btn-danger" onclick="delAccount()">회원 탈퇴</button>
+            <!-- ID -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">ID</span>
+                <!-- <input id="id" type="text" class="form-control" placeholder="Nickname"> -->
+                <input id="id" type="text" class="form-control" value="<%= data.id%>">
+                <button type="button" class="btn btn-secondary btn-sm" onclick="idCheck()">중복 확인</button>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group mb-3">
+                <input id="pw" type="password" class="form-control" placeholder="Password" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <input id="confirm_pw" type="password" class="form-control" placeholder="Re Password" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Name</span>
+                <!-- <input id="name" type="text" class="form-control" placeholder="Username"> -->
+                <input id="name" type="text" class="form-control" value="<%= data.name%>">
+            </div>
+
+            <!-- E-mail -->
+            <div class="input-group mb-3">
+                <!-- <input id="email" type="text" class="form-control" placeholder="E-mail"> -->
+                <input id="email" type="text" class="form-control" value="<%= data.email%>">
+                <span class="input-group-text">@</span>
+                <select class="form-select">
+                    <option selected>선택</option>
+                    <option value="1">naver.com</option>
+                    <option value="2">gmail.com</option>
+                    <option value="3">...</option>
+                </select>
+            </div>
+
+            <!-- Location -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">Location</span>
+                <!-- <input id="location" class="form-control"> -->
+                <select class="form-select" id="location">
+                    <option selected value="<%= data.location%>">
+                        <%= data.location%>
+                    </option>
+                    <option value="Seoul">Seoul</option>
+                    <option value="Incheon">Incheon</option>
+                    <option value="Daejeon">Daejeon</option>
+                    <option value="Daegu">Daegu</option>
+                    <option value="Pusan">Pusan</option>
+                    <option value="Ulsan">Ulsan</option>
+                    <option value="Gwangju">Gwangju</option>
+                    <option value="Gyeonggi">Gyeonggi</option>
+                    <option>...</option>
+                </select>
+            </div>
+
+            <!-- User Identification Picture -->
+            <div id="showPic"></div>
+            <div>
+                <input type="file" name="userIdPic" id="userIdPic" onchange="showPic(event)">
+            </div>
+
+            <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-primary" type="button" onclick="modUserProfile()">수정</button>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-danger" onclick="delAccount()">회원 탈퇴</button>
+            </div>
+        </div>
     </div>
 </div>
 

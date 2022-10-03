@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;  
+}
+
+*{
+    font-family: 'Pretendard-Regular';
+}   
+
 .wrap{
     margin: 0px;
     width: 100%;
@@ -14,6 +25,7 @@
 h2{
     padding-left: 15px;
 }
+
 .accordion {
   background-color: #eee;
   color: #444;
@@ -92,14 +104,21 @@ h2{
     display: none;
 }
 .footer{
-
-    position: absolute;
+    position: relative;
     height: auto;
     bottom: 0;
+    width: 100%;
 }
 .show{
   display: block;
 }
 .hide{
   display: none;
+}
+@media screen and(max-width: 500px){
+  .topnav{
+  width: 95%;
+  padding: 10px 20px;
+}
+ 
 }

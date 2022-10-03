@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
-    
+
   <title>Bucket</title>
 </head>
 
@@ -28,56 +28,55 @@
       </div>
     </div>
 
-    <div class="footer">
-      <%-include("footer.ejs") %>
-    </div>
+    <%-include("footer.ejs") %>
 
-    <script>
-      function startAccordion(){
-        var acc = document.getElementsByClassName("accordion");
 
-        for (var i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-              panel.style.maxHeight = null;
-            } else {
-              panel.style.maxHeight = panel.scrollHeight + 300 + "px";
-            }
-          });
-        }
-    }
+      <script>
+        function startAccordion() {
+          var acc = document.getElementsByClassName("accordion");
 
-      function resume() {
-        if ($(".content2").css("display") == "none") {
-          $(".content2").show();
-          $(".content2").css("height", "45%");
-          $(".content1").css("height", "45%");
-        } else {
-          $(".content2").hide();
-          $(".wrap").css("height", "800px");
-          $(".content2").css("height", "0%");
-        }
-      }
-      resumeContainer = $('#resumeContainer');
-      axios({
-        url: "/companyBucket",
-        method: "post",
-
-      }).then((result) => {
-        axios({
-          url: "/getViewUserResume",
-          method: "post",
-          data: {
-            userUuid: result.data
+          for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+              this.classList.toggle("active");
+              var panel = this.nextElementSibling;
+              if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+              } else {
+                panel.style.maxHeight = panel.scrollHeight + 300 + "px";
+              }
+            });
           }
-        }).then((result) => {
-          console.log(result.data)
-          for (var i in result.data) {
-            console.log(result.data[i])
+        }
 
-            resumeContainer.append(`
+        function resume() {
+          if ($(".content2").css("display") == "none") {
+            $(".content2").show();
+            $(".content2").css("height", "45%");
+            $(".content1").css("height", "45%");
+          } else {
+            $(".content2").hide();
+            $(".wrap").css("height", "800px");
+            $(".content2").css("height", "0%");
+          }
+        }
+        resumeContainer = $('#resumeContainer');
+        axios({
+          url: "/companyBucket",
+          method: "post",
+
+        }).then((result) => {
+          axios({
+            url: "/getViewUserResume",
+            method: "post",
+            data: {
+              userUuid: result.data
+            }
+          }).then((result) => {
+            console.log(result.data)
+            for (var i in result.data) {
+              console.log(result.data[i])
+
+              resumeContainer.append(`
               <button class="accordion">${result.data[i].name}</button>
                 <div class="panel">
                   <p>stack: ${result.data[i].stack}</p>
@@ -85,13 +84,13 @@
                   <p>location: ${result.data[i].location}</p>
                 </div>
               `)
-          }
-          startAccordion();
+            }
+            startAccordion();
+          })
         })
-      })
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.1.js"
-      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+      </script>
+      <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 </body>
 
 </html>
