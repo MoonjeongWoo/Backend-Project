@@ -33,13 +33,13 @@
   <div class="main-nav">
     <% if( data.isLogin==0 ) { %>
       <%-include("navbar_no_login.ejs") %>
-        <% }else{ %>
-          <% if( data.member==0 ) { %>
-            <%-include("navbar_user.ejs") %>
-              <% }else{ %>
-                <%-include("navbarCom.ejs") %>
-                  <% } %>
-                    <% } %>
+    <% }else{ %>
+      <% if( data.member==0 ) { %>
+        <%-include("navbar_user.ejs") %>
+      <% }else{ %>
+        <%-include("navbarCom.ejs") %>
+      <% } %>
+    <% } %>
   </div>
   <div class="all">
     <div class="content">Your Success <br />Begins With Us</div>
@@ -48,12 +48,6 @@
   </div>
   <div class="first-back"></div>
   <div class="second-back">
-    <div style="background-color: light-blue; font-size: 100px;">
-      <%=data.isLogin %>
-    </div>
-    <div style="background-color: light-blue; font-size: 100px;">
-      <%=data.member %>
-    </div>
     <div class="login_div">
       <% if( data.isLogin==0 ) { %>
         <%-include("login.ejs") %>

@@ -32,6 +32,10 @@ const companyInfo = (Sequelize, DataTypes) => {
           type: DataTypes.STRING(100),
           allowNull: true,
         },
+        bucket: {
+          type: DataTypes.STRING(100),
+          allowNull: true,
+        }
       },
       {
         tableName: "company",
