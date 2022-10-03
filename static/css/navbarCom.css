@@ -1,5 +1,5 @@
  .topnav {
-    width: 100%;
+    width: 95%;
     margin: 0px;
     padding: 5px;
     position: fixed;
@@ -52,5 +52,8 @@
   }
   #selected{
     text-align: left;
+    }
   }
+  body::-webkit-scrollbar{
+    display: none;
   }
