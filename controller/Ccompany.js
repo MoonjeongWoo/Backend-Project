@@ -99,9 +99,9 @@ async function joinQuery(req) {
       query += "elementLocation AS career ";
     } else {
       if (checkElement[0] == 0) {
-        query += "JOIN elementLocation AS location ON career.id = location.id";
+        query += "JOIN elementLocation AS location ON career.id = location.id ";
       } else {
-        query += "JOIN elementLocation AS location ON stack.id = location.id";
+        query += "JOIN elementLocation AS location ON stack.id = location.id ";
       }
     }
     checkElement[2] = 1;
