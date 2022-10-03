@@ -5,6 +5,7 @@ const company = require("../controller/Ccompany");
 const navbar = require("../controller/Cnavbar");
 const joinMember = require("../controller/CjoinMember");
 const myPage = require("../controller/CmyPage");
+const bucket = require("../controller/bucket");
 const multer = require("multer");
 const path = require("path"); // 파일 관리자
 
@@ -69,6 +70,13 @@ router.get("/bucket", company.getBucket);
 router.get("/watchother", company.getOthers);
 // send elements data
 router.post("/sortUserByElement", company.sortUserByElement);
+// add bucket
+router.post("/addBucket", company.addBucket);
+//---------------------------------------
+
+// bucket
+router.post("/companyBucket", bucket.companyBucket)
+router.post("/getViewUserResume", bucket.getViewUserResume)
 //---------------------------------------
 
 // navbar

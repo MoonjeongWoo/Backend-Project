@@ -6,8 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/static/css/bucket.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
+    
   <title>Bucket</title>
 </head>
 
@@ -17,13 +19,7 @@
       <div class="content1">
         <div class="personal">
           <h2>담은 개발자들</h2>
-          <% for(var i=0; i < 10; i++){ %>
-            <button class="accordion">name</button>
-            <div class="panel">
-              <p>stack: &nbsp; career: &nbsp; location:</p>
-              <button type="button" onclick="resume();">상세보기</button>
-            </div>
-            <% } %>
+          <div id="resumeContainer"></div>
         </div>
       </div>
       <div class="content2">
@@ -37,19 +33,22 @@
     </div>
 
     <script>
-      var acc = document.getElementsByClassName("accordion");
+      function startAccordion(){
+        var acc = document.getElementsByClassName("accordion");
 
-      for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + 300 + "px";
-          }
-        });
-      }
+        for (var i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + 300 + "px";
+            }
+          });
+        }
+    }
+
       function resume() {
         if ($(".content2").css("display") == "none") {
           $(".content2").show();
@@ -61,6 +60,35 @@
           $(".content2").css("height", "0%");
         }
       }
+      resumeContainer = $('#resumeContainer');
+      axios({
+        url: "/companyBucket",
+        method: "post",
+
+      }).then((result) => {
+        axios({
+          url: "/getViewUserResume",
+          method: "post",
+          data: {
+            userUuid: result.data
+          }
+        }).then((result) => {
+          console.log(result.data)
+          for (var i in result.data) {
+            console.log(result.data[i])
+
+            resumeContainer.append(`
+              <button class="accordion">${result.data[i].name}</button>
+                <div class="panel">
+                  <p>stack: ${result.data[i].stack}</p>
+                  <p>career: ${result.data[i].career}</p>
+                  <p>location: ${result.data[i].location}</p>
+                </div>
+              `)
+          }
+          startAccordion();
+        })
+      })
     </script>
     <script src="https://code.jquery.com/jquery-3.6.1.js"
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>

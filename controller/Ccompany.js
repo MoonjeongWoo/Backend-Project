@@ -15,6 +15,7 @@ exports.getCompany = (req, res) => {
     로그인 유도
   */
 };
+
 exports.getOthers = (req, res) => {
   if (req.session.uuid !== undefined) {
     res.render("watchother");
@@ -22,6 +23,7 @@ exports.getOthers = (req, res) => {
     res.render("/");
   }
 };
+
 exports.getBucket = (req, res) => {
   res.render("bucket");
 };
@@ -65,6 +67,17 @@ exports.Companysession = (req, res) => {
     res.send(req.session.uuid);
   });
 };
+exports.addBucket = (req, res) => {
+  console.log(req.body.bucket)
+    CompanyInfo.update(
+      {
+        bucket: req.body.bucket
+      },
+      {
+        where: {uuid: req.session.uuid}
+      }
+    )
+}
 
 async function joinQuery(req) {
   var data = req.body.data;
