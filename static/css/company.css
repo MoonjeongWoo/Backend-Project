@@ -57,7 +57,11 @@ div{
     margin: 10px;
 }
 #selected{
-  width: 100%;
+  width: 450px;
+  overflow-x: scroll;
+}
+#selected::-webkit-scrollbar{
+  display: none;
 }
 @media screen and (max-width: 950px){
     #right{
@@ -155,7 +159,19 @@ div{
     width: 100%;
     height: 650px;
     border: 1px;
+    overflow-x: scroll;
+}
+.develop_list::-webkit-scrollbar{
+  display: none;
+}
+@media screen and (max-width: 800px){
+  .develop_list{
+    width: 100%;
+    height: 650px;
+    border: 1px;
     overflow: scroll;
+    margin-top: 150px;
+}
 }
 .stack_style{
       margin-top: 2px;
