@@ -23,7 +23,7 @@ div{
   height: 1500px;
 }
 
-@media screen and (max-width: 950px){
+@media screen and (max-width: 650px){
   #left{
     width: 800px;
   }
@@ -46,7 +46,8 @@ div{
 .bucket:hover{
     box-shadow: 1px 1px 5px;
 }
-@media screen and (max-width: 1050px){
+
+@media screen and (max-width: 650px){ 
   .bucket{
     width: 200px;
     height: 300px;
@@ -56,24 +57,22 @@ div{
     background-color: whitesmoke;
     margin: 10px;
 }
-#selected{
-  width: 450px;
-  overflow-x: scroll;
-}
-#selected::-webkit-scrollbar{
-  display: none;
-}
-@media screen and (max-width: 950px){
+
     #right{
       width: 300px;
       /* padding-left: 0px; */
     }
     #selected{
       position: absolute;
-      width: 100px;
+      width: 450px;
+      margin: 15px;
     }
+    #selected::-webkit-scrollbar{
+  display: none;
+  }
+  
 }
-}
+
 .main_list input{
     width: 80%;
     height: 3px;
@@ -85,7 +84,7 @@ div{
   width: 100%;
   height: 450px;
 }
-@media screen and(max-width: 950px){
+@media screen and(max-width: 650px){
   .choose_stack{
   width: 100%;
   height: 550px;
@@ -164,8 +163,9 @@ div{
 .develop_list::-webkit-scrollbar{
   display: none;
 }
-@media screen and (max-width: 800px){
+@media screen and (max-width: 650px){
   .develop_list{
+    padding-top: 150px;
     width: 100%;
     height: 650px;
     border: 1px;
@@ -188,7 +188,7 @@ div{
   width: 100px;
 }
 
-@media screen and (max-width: 550px){
+@media screen and (max-width: 650px){
   .stack_style{
       overflow-x: scroll;
       display: list-item;
@@ -253,4 +253,30 @@ body::-webkit-scrollbar-track{
   width: 100%;
   padding: 0 25px;
   bottom: 0;
+}
+@media screen and (max-width:400px ){
+  .test{
+    padding: 0px;
+    width: 100%;
+  }
+  .choose_stack{
+    padding-top: 50px;
+    height: 400px;
+  }
+  .stack_style{
+    height: 70px;
+    width: 450px;
+    overflow-x: none;
+    overflow-y: scroll;
+  }
+  #location_select{
+    transform: translate(-340px, 0px);
+  }
+  .career_style{
+    width: 450px;
+  }
+  .bucket{
+    display: none;
+  }
+ 
 }
