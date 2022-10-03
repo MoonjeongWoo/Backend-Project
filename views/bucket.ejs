@@ -15,8 +15,10 @@
   <%-include("navbarCom.ejs") %>
     <div class="wrap">
       <div class="content1">
-        <div class="personal">
+        <div class="h2">
           <h2>담은 개발자들</h2>
+        </div>
+        <div class="personal">
           <% for(var i=0; i < 10; i++){ %>
             <button class="accordion">name</button>
             <div class="panel">
@@ -27,7 +29,6 @@
         </div>
       </div>
       <div class="content2">
-        <h2>이력</h2>
         <div class="bucketlist"></div>
       </div>
     </div>
@@ -52,15 +53,21 @@
       }
       function resume() {
         if ($(".content2").css("display") == "none") {
-          $(".content2").show();
-          $(".content2").css("height", "45%");
-          $(".content1").css("height", "45%");
+          $(".content2").show(function () {
+            $(".content2").css("transition", "all 0.4s");
+            $(".content2").css("height", "45%");
+            $(".content1").css("height", "45%");
+          });
+          /* $(".content2").css("height", "45%");
+           $(".content1").css("height", "45%");*/
+
         } else {
           $(".content2").hide();
           $(".wrap").css("height", "800px");
           $(".content2").css("height", "0%");
         }
       }
+
     </script>
     <script src="https://code.jquery.com/jquery-3.6.1.js"
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>

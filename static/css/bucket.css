@@ -12,7 +12,7 @@
     margin-bottom: 50px;
 }
 h2{
-    padding-left: 15px;
+    padding-left: 75px;
 }
 .accordion {
   background-color: #eee;
@@ -62,6 +62,7 @@ h2{
     transform: translate(-50%, -50%);
     overflow-y: scroll;
     border-radius: 20px;
+    margin-top: 30px;
 }
 .personal::-webkit-scrollbar{
     display: none;
@@ -75,7 +76,8 @@ h2{
     border-radius: 20px;
     margin-bottom: 30px;
     border: 1px solid lightgray;
-    transition: all 0.5s;
+    transition: all 0.4s ease-in-out 0s;
+    transition-duration: 2s;
   }
 .bucketlist{
     position: absolute;

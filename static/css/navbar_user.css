@@ -5,6 +5,7 @@
     overflow: hidden;
     position: fixed;
     z-index: 99999;
+    display: flex;
   }
 
   /* Style the links inside the navigation bar */
@@ -27,15 +28,23 @@
     font-size: 17px;
     display: block;
   }
+  
   /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: whitesmoke;
-    color: black;
+   .topnav a:hover{
+    color: coral;
+    transition: 0.4s;
   }
-
   /* Add a color to the active/current link */
   .topnav a.active {
     background-color: #04aa6d;
     color: white;
   }
- 
+ @media screen and (max-width: 630px){
+  .topnav{
+    flex-direction: column;
+  }
+  #main{
+    display: none;
+  }
+  
+ }

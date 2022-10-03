@@ -25,15 +25,18 @@
 
   <div class="test row">
     <div id="left" class="col-9">
-      < class="main_list">
-        <div class="choose_stack">
-          <h1>Stack</h1>
-          <hr />
-          <% var stackList=["JAVA", "Javascript", "Python", "R", "C", "C++", "C#", "PHP", "Cobol", "HTML", "Linux", "Kotlin", "Dart", "Go" ];%>
+      <!-- < class="main_list"> -->
+      <div class="choose_stack">
+        <h1>Stack</h1>
+        <hr />
+        <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" , "C#" , "PHP" , "Cobol" , "HTML"
+          , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
           <div class="stack_style">
             <% for ( var i=0; i < stackList.length; i++ ) { %>
-            <button type="button" class="normal_btn" onclick="addStack(this.value)" value="<%= stackList[i] %>"><%= stackList[i] %></button>
-            <% } %>
+              <button type="button" class="normal_btn" onclick="addStack(this.value)" value="<%= stackList[i] %>">
+                <%= stackList[i] %>
+              </button>
+              <% } %>
           </div>
           <div class="career_style">
             <h1>Career</h1>
@@ -43,27 +46,27 @@
               <p>Year: <span id="range"></span></p>
             </div>
           </div>
-        </div>
-        <div class="location">
-          <h1>Location</h1>
-          <hr />
-          <select name="location_select" id="location_select">
-            <option value="">Seoul</option>
-            <option value="">Incheon</option>
-            <option value="">Daejeon</option>
-            <option value="">Daegu</option>
-            <option value="">Pusan</option>
-            <option value="">Ulsan</option>
-            <option value="">Gwangju</option>
-            <option value="">Gyeonggi</option>
-          </select>
-        </div>
-        <!-- 클릭하면 추가되는 자리 -->
-        <div id="selected">조건 : </div>
-        <!-- =================== -->
-        <div class="develop_list">
-          <p>Developers</p>
-        </div>
+      </div>
+      <div class="location">
+        <h1>Location</h1>
+        <hr />
+        <select name="location_select" id="location_select">
+          <option value="">Seoul</option>
+          <option value="">Incheon</option>
+          <option value="">Daejeon</option>
+          <option value="">Daegu</option>
+          <option value="">Pusan</option>
+          <option value="">Ulsan</option>
+          <option value="">Gwangju</option>
+          <option value="">Gyeonggi</option>
+        </select>
+      </div>
+      <!-- 클릭하면 추가되는 자리 -->
+      <div id="selected">조건 : </div>
+      <!-- =================== -->
+      <div class="develop_list">
+        <p>Developers</p>
+      </div>
     </div>
     <div id="right" class="col-3">
       <div class="bucket">
@@ -72,78 +75,61 @@
       </div>
     </div>
   </div>
-    <%-include("footer.ejs")%>
-  </body>
-  
+  <%-include("footer.ejs")%>
+    </body>
 
-  <script>
-    var stack_list = "";
 
-    //arcodian
-    function accordion(){
-      var acc = document.getElementsByClassName("accordion");
+    <script>
+      var stack_list = "";
 
-      for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          }
-        });
+      //bucket
+      var currentPosition = parseInt($(".bucket").css("top"));
+      $(window).scroll(function () {
+        var position = $(window).scrollTop();
+        $(".bucket")
+          .stop()
+          .animate({ top: position + currentPosition + 150 + "px" }, 300);
+      });
+
+
+      // career 선택, 변경
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("range");
+      output.innerHTML = slider.value;
+
+      slider.oninput = function () {
+        output.innerHTML = this.value;
+      };
+      slider.onchange = function () {
+        sendElement("career", slider.value);
+      };
+      // -----------------------------
+
+      // location 선택, 변경
+      $("#location_select").change(function () {
+        var location_selected = $("#location_select option:selected").text();
+        sendElement("location", location_selected);
+      });
+      // -----------------------------
+
+      // stack 추가
+      function addStack(stack) {
+        $(`button[value$="${stack}"]`).css("background-color", "grey");
+        $("#selected").append(
+          `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
+        );
+        $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
+
+        stack_list += stack + "|";
+        sendElement("stack", stack_list);
       }
-    }
+      // -----------------------------
 
-    //bucket
-    var currentPosition = parseInt($(".bucket").css("top"));
-    $(window).scroll(function () {
-      var position = $(window).scrollTop();
-      $(".bucket")
-        .stop()
-        .animate({ top: position + currentPosition + 150 +"px" }, 300);
-    });
-
-    
-    // career 선택, 변경
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("range");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function () {
-      output.innerHTML = this.value;
-    };
-    slider.onchange = function () {
-      sendElement("career", slider.value);
-    };
-    // -----------------------------
-    
-    // location 선택, 변경
-    $("#location_select").change(function () {
-      var location_selected = $("#location_select option:selected").text();
-      sendElement("location", location_selected);
-    });
-    // -----------------------------
-
-    // stack 추가
-    function addStack(stack) {
-      $(`button[value$="${stack}"]`).css("background-color", "grey");
-      $("#selected").append(
-        `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
-      );
-      $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
-
-      stack_list += stack + "|";
-      sendElement("stack", stack_list);
-    }
-    // -----------------------------
-
-    // stack 제거
-    function delStack(stack) {
-      $(`button[value$="${stack}"]`).css(
-        "background-color",
-        "rgb(228, 228, 228)"
+      // stack 제거
+      function delStack(stack) {
+        $(`button[value$="${stack}"]`).css(
+          "background-color",
+          "rgb(228, 228, 228)"
         );
         $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
         $(`button[value$="${stack}-checked"]`).remove();
@@ -166,29 +152,52 @@
           }
         }).then((response) => {
 
-        var data = response.data.data;
-        var container = $('.develop_list');
-        container.html('');
+          var data = response.data.data;
+          var container = $('.develop_list');
+          container.html('');
 
-        for (var i = 0; i < data.length; i++ ){
-          container.append(`
-          <button class="accordion" onclick="accordion()">${data[i].name}</button>
+          for (var i = 0; i < data.length; i++) {
+            container.append(`
+          <button class="accordion" onclick="accordion();">${data[i].name}</button>
             <div class="panel">
               <p>stack: ${data[i].stack} career: ${data[i].career}; location: ${data[i].location}</p>
               <button type="button" onclick="selected_devel(this);">찜하기</button>
             </div>
           `)
-        }
-      })
+          }
+
+        })
       }
       // -----------------------------
+
+      //arccodion
+      function accordion() {
+        var acc = document.getElementsByClassName("accordion");
+
+        for (var i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function () {
+            console.log("두번 누르면 실행됌")
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          });
+        }
+      }
+
+
+
       //bucket button
       function selected_devel() {
-        console.log(selected_devel)
+        console.log(selected_devel);
+
         // let selected_name = $(".accordion").html();
         // $(".selected_bucket").append(`<p>${selected_name}</p>`);
-      // -----------------------------
-    }
+        // -----------------------------
+      }
 
       //--------------------
       //navbar scroll backgournd-color
@@ -203,6 +212,8 @@
           $(".Corp").attr("style", "color: white !important");
         }
       })
+
+
     </script>
 
 </html>

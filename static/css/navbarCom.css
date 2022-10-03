@@ -4,6 +4,7 @@
     padding: 5px;
     position: fixed;
     z-index: 99999;
+    display: flex;
   }
   .Corp{
     float: right;
@@ -26,7 +27,7 @@
     color: coral;
     transition: 0.4s;
   }
-  @media screen and (max-width:550){
+  @media screen and (max-width:550px){
     #main{
         display: none;
       } 
@@ -37,6 +38,7 @@
     overflow: hidden;
     position: fixed;
     z-index: 99999;
+    flex-direction: column;
   }
       .Corp{
     float: right;
