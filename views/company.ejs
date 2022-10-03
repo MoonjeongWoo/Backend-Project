@@ -1,118 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.js"
-      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="/static/css/company.css" />
-    <title>Document</title>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  </head>
 
-  
-    <%-include("navbarCom.ejs")%>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="/static/css/company.css" />
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
 
-    <div class="test row">
-      <div id="left" class="col-9">
-        <div class="main_list">
-          <div class="choose_stack">
-            <h1>Stack</h1>
-            <hr />
-            <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" ,
-            "C++" , "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart"
-            , "Go" ];%>
+
+<%-include("navbarCom.ejs")%>
+
+  <div class="test row">
+    <div id="left" class="col-9">
+      <div class="main_list">
+        <div class="choose_stack">
+          <h1>Stack</h1>
+          <hr />
+          <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" , "C#" , "PHP" , "Cobol" , "HTML"
+            , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
             <div class="stack_style">
               <% for ( var i=0; i < stackList.length; i++ ) { %>
-              <button
-                type="button"
-                class="normal_btn"
-                onclick="addStack(this.value)"
-                value="<%= stackList[i] %>"
-              >
-                <%= stackList[i] %>
-              </button>
-              <% } %>
+                <button type="button" class="normal_btn" onclick="addStack(this.value)" value="<%= stackList[i] %>">
+                  <%= stackList[i] %>
+                </button>
+                <% } %>
             </div>
             <div class="career_style">
               <h1>Career</h1>
               <hr />
               <div class="slidecontainer">
-                <input
-                  type="range"
-                  min="1"
-                  max="20"
-                  value="1"
-                  class="slider"
-                  id="myRange"
-                />
+                <input type="range" min="1" max="20" value="1" class="slider" id="myRange" />
                 <p>Year: <span id="range"></span></p>
               </div>
             </div>
-        </div>
-        <div class="location">
-          <h1>Location</h1>
-          <hr />
-          <select name="location_select" id="location_select">
-            <option value="">Seoul</option>
-            <option value="">Incheon</option>
-            <option value="">Daejeon</option>
-            <option value="">Daegu</option>
-            <option value="">Pusan</option>
-            <option value="">Ulsan</option>
-            <option value="">Gwangju</option>
-            <option value="">Gyeonggi</option>
-          </select>
-        </div>
-        <!-- 클릭하면 추가되는 자리 -->
-        <div id="selected">조건 : </div>
-        <!-- =================== -->
+          </div>
+          <div class="location">
+            <h1>Location</h1>
+            <hr />
+            <select name="location_select" id="location_select">
+              <option value="">Seoul</option>
+              <option value="">Incheon</option>
+              <option value="">Daejeon</option>
+              <option value="">Daegu</option>
+              <option value="">Pusan</option>
+              <option value="">Ulsan</option>
+              <option value="">Gwangju</option>
+              <option value="">Gyeonggi</option>
+            </select>
+          </div>
+          <!-- 클릭하면 추가되는 자리 -->
+          <div id="selected">조건 : </div>
+          <!-- =================== -->
 
-
-        <div class="develop_list">
-          <p>Developers</p>
-          <% for(var i=0 ; i < 10; i++) { %>
-            <button class="accordion">name</button>
-            <div class="panel">
-              <p>stack: &nbsp; career: &nbsp; location:</p>
-              <button type="button" onclick="selected_devel();">찜하기</button>
-            </div>
-            <% }%>
+          <div class="develop_list">
+            <p>Developers</p>
+          </div>
         </div>
       </div>
-      <div id="right" class="col-3">
-        <div class="bucket">
-          Bucket
-          <div class="selected_bucket"></div>
-        </div>
-      </div>
-      
     </div>
+    <div id="right" class="col-3">
+      <div class="bucket">
+        Bucket
+        <div class="selected_bucket"></div>
+      </div>
+    </div>
+    <%-include("footer.ejs")%>
+  </body>
+  
 
-  </div>
-  <%-include("footer.ejs")%>
-    </body>
+  <script>
+    var stack_list = "";
 
-    <script>
-      var stack_list = "";
-
-      //arcodian
+    //arcodian
+    function accordion(){
       var acc = document.getElementsByClassName("accordion");
 
       for (var i = 0; i < acc.length; i++) {
@@ -126,59 +99,60 @@
           }
         });
       }
+    }
 
-      //bucket
-      var currentPosition = parseInt($(".bucket").css("top"));
-      $(window).scroll(function () {
-        var position = $(window).scrollTop();
-        $(".bucket")
-          .stop()
-          .animate({ top: position + currentPosition + 150 + "px" }, 300);
-      });
+    //bucket
+    var currentPosition = parseInt($(".bucket").css("top"));
+    $(window).scroll(function () {
+      var position = $(window).scrollTop();
+      $(".bucket")
+        .stop()
+        .animate({ top: position + currentPosition + 150 +"px" }, 300);
+    });
 
-      function selected_devel() {
-        let selected_name = $(".accordion").html();
-        $(".selected_bucket").append(`<p>${selected_name}</p>`);
-      }
+    function selected_devel() {
+      let selected_name = $(".accordion").html();
+      $(".selected_bucket").append(`<p>${selected_name}</p>`);
+    }
+    
+    // career 선택, 변경
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("range");
+    output.innerHTML = slider.value;
 
-      // career 선택, 변경
-      var slider = document.getElementById("myRange");
-      var output = document.getElementById("range");
-      output.innerHTML = slider.value;
+    slider.oninput = function () {
+      output.innerHTML = this.value;
+    };
+    slider.onchange = function () {
+      sendElement("career", slider.value);
+    };
+    // -----------------------------
+    
+    // location 선택, 변경
+    $("#location_select").change(function () {
+      var location_selected = $("#location_select option:selected").text();
+      sendElement("location", location_selected);
+    });
+    // -----------------------------
 
-      slider.oninput = function () {
-        output.innerHTML = this.value;
-      };
-      slider.onchange = function () {
-        sendElement("career", slider.value);
-      };
-      // -----------------------------
+    // stack 추가
+    function addStack(stack) {
+      $(`button[value$="${stack}"]`).css("background-color", "grey");
+      $("#selected").append(
+        `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
+      );
+      $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
 
-      // location 선택, 변경
-      $("#location_select").change(function () {
-        var location_selected = $("#location_select option:selected").text();
-        sendElement("location", location_selected);
-      });
-      // -----------------------------
+      stack_list += stack + "|";
+      sendElement("stack", stack_list);
+    }
+    // -----------------------------
 
-      // stack 추가
-      function addStack(stack) {
-        $(`button[value$="${stack}"]`).css("background-color", "grey");
-        $("#selected").append(
-          `<button type="button" class="normal_btn" onclick="delStack('${stack}')" value="${stack}-checked"> ${stack}</button> %>`
-        );
-        $(`button[value$="${stack}"]`).attr("onclick", "delStack(this.value)");
-
-        stack_list += stack + "|";
-        sendElement("stack", stack_list);
-      }
-      // -----------------------------
-
-      // stack 제거
-      function delStack(stack) {
-        $(`button[value$="${stack}"]`).css(
-          "background-color",
-          "rgb(228, 228, 228)"
+    // stack 제거
+    function delStack(stack) {
+      $(`button[value$="${stack}"]`).css(
+        "background-color",
+        "rgb(228, 228, 228)"
         );
         $(`button[value$="${stack}"]`).attr("onclick", "addStack(this.value)");
         $(`button[value$="${stack}-checked"]`).remove();
