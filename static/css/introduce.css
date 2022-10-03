@@ -2,6 +2,8 @@
 
 .wrap{
     padding: 0;
+    margin: 0;
+
 }
 .content1{
     padding-top: 80px;
@@ -72,7 +74,7 @@
 
 }
 
-input {
+input#portfolio, #etc, .inText{
     height: 30px;
     font-size: 15px;
     border: 0;
@@ -103,11 +105,11 @@ button.sendBtn {
 }
 
 .btnBlue {
-    background: #4ea6ab;
+    background: rgb(102, 132, 154);
 }
 
 .btnFade.btnBlue:hover {
-    background: #016e73;
+    background: rgb(55, 83, 103);
 }
 
 .button {
@@ -116,4 +118,16 @@ button.sendBtn {
 
 .footer{
     position: relative;
+}
+
+body::-webkit-scrollbar{
+    width: 10px;
+  }
+body::-webkit-scrollbar-thumb{
+    height: 50px;
+    background-color: rgb(183, 200, 213);
+    border-radius: 15px;
+}
+body::-webkit-scrollbar-track{
+    background-color: white;
 }

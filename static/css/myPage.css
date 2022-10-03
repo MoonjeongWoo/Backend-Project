@@ -1,20 +1,93 @@
 .all {
-    width: 100%;
     margin-top: 60px;
 }
 
-.sideBar {
+
+*{
+    list-style: none;
+    text-decoration: none !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f5f6fa;
+}
+
+.sidebar{
+    background: rgb(5, 68, 104);
     position: fixed;
-    padding: 0% 5% 5% 2%;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
 }
 
-.sideBar > a {
-    font-weight: 500;
-    color: black;
-    text-decoration-line: none;
-    margin-bottom: 10%;
+ol,ul {
+  padding-left: 0;
 }
 
-a:hover{
-    background-color: lightblue;
+div > .item {
+    color: white;
+    margin: 20px 30px 30px 30px;
 }
+
+.sidebar ul li a{
+display: block;
+padding: 13px 30px;
+border-bottom: 1px solid #10558d;
+color: rgb(241, 237, 237);
+font-size: 16px;
+position: relative;
+}
+
+.icon{
+color: #dee4ec;
+width: 30px;
+display: inline-block;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active{
+color: #0c7db1;
+background:white;
+border-right: 2px solid rgb(5, 68, 104);
+}
+
+.sidebar ul li a:hover .icon,
+.sidebar ul li a.active .icon{
+color: #0c7db1;
+}
+
+.sidebar ul li a:hover:before,
+.sidebar ul li a.active:before{
+display: block;
+}
+
+
+body.active .wrapper .sidebar{
+left: -225px;
+}
+
+
+.conttt {
+    margin-left: 230px;
+}
+
+
+
+body::-webkit-scrollbar{
+    width: 10px;
+  }
+body::-webkit-scrollbar-thumb{
+    height: 50px;
+    background-color: rgb(183, 200, 213);
+    border-radius: 15px;
+}
+body::-webkit-scrollbar-track{
+    background-color: white;
+}
+
