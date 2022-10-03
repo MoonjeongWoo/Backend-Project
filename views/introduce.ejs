@@ -24,6 +24,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <link rel="stylesheet" href="/static/css/introduce.css" />
+
   </head>
 
   <body>
@@ -32,7 +34,19 @@
     <div class="wrap">
       <div class="content1">
         <form id="form-register" action="/user/saveIntroudce" method="post">
-          <label>stack</label>
+
+          <!----- 개인 정보 가져오도록 수정필요 ------>
+          <div class="proCont">
+            <div id="name">신한나</div>
+            <div id="email">data.email</div>
+            <div id="loca">data.loca</div>
+            <hr><br/>
+          </div>
+        
+          
+          <div class="Contt">
+            <div>사용 가능 스택 선택</div>
+          </div>
           <% var stackList=["JAVA", "Javascript" , "Python" , "R" , "C" , "C++" ,
           "C#", "PHP" , "Cobol" , "HTML" , "Linux" , "Kotlin" , "Dart" , "Go" ];%>
           <% for ( var i=0; i < stackList.length; i++ ) { %>
@@ -48,16 +62,20 @@
             <br />
           <div class="selected_list"></div>
           <br />
-          <label>career</label>
-
+         
+        <div class="Contt">
+          <div>사용 가능 스택 선택</div>
+        </div>
         <div class="career"><button type="button" onclick="addCar()"> +경력추가</button></div></br>
           
 
-          <label>port folio</label>
+          <label class="Contt">port folio</label>
           <input type="text" name="portfolio" value="" id="portfolio" /><br />
-          <label etc>짧은 자기소개</label>
+          <label class="Contt" etc>짧은 자기소개</label>
           <input type="text" name="etc" value="" id="etc" /><br />
-          <button type="button" id="submit" onclick="saveResume()">제출</button>
+          <div class="sendBtn">
+            <button type="button" id="submit" onclick="saveResume()">제출</button>
+          </div>        
         </form>
       </div>
   </div>
