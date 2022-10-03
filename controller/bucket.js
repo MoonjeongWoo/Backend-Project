@@ -5,7 +5,9 @@ exports.companyBucket = (req, res) => {
         attributes: ['bucket'],
         where: { uuid: req.session.uuid }
     }).then((result) => {
-        res.send(result.bucket)
+        if (result.bucket != null){
+            res.send(result.bucket)
+        }
     })
 }
 
@@ -16,6 +18,7 @@ exports.getViewUserResume = async (req, res) => {
         await ViewUserResume.findAll({
             where: { uuid: req.body.userUuid[i] },
         }).then((result) => {
+            console.log(result)
             var userResume = {
                 name: result[0].dataValues.name,
                 email: result[0].dataValues.email,
@@ -29,6 +32,7 @@ exports.getViewUserResume = async (req, res) => {
         })
     }
     res.send(resume)
+    // res.send(1)
 }
 
 
