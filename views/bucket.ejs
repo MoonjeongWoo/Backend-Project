@@ -82,7 +82,7 @@
                   <p>stack: ${result.data[i].stack}</p>
                   <p>career: ${result.data[i].career}</p>
                   <p>location: ${result.data[i].location}</p>
-                  <button type="button" onclick=ruleOut("${[i]}")>제외</button>
+                  <button type="button" onclick=ruleOut("${result.data[i].uuid}")>제외</button>
                 </div>
               `)
             }
@@ -92,18 +92,19 @@
 
 
         function ruleOut(ev) {
-          // console.log(ev)
-          var whoIndex = ev;
-          data = { index: whoIndex };
+          console.log(ev);
+          // var whoIndex = Number(ev);
+          data = { uuid: ev };
           axios({
             url: "/companyBucket/ruleout",
             method: "post",
             data: data
-          }).then(() => {
-            window.location = '/bucket';
-            // window.location.reload();
+          }).then((response => {
+            console.log("레스폰체크", response);
+            // window.location = '/bucket';
+            window.location.reload();
           })
-
+          )
         }
       </script>
       <script src="https://code.jquery.com/jquery-3.6.1.js"
