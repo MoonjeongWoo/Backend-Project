@@ -9,10 +9,16 @@
     font-family: 'Pretendard-Regular';
 }
 
+.w1111 {
+  position: fixed;
+  z-index: 999;
+}
+
 #wrap{
     padding: 0;
     margin: 0;
 }
+
 .content1{
     width: 100%;
     height: 1000px;
