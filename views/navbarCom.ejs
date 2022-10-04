@@ -1,19 +1,29 @@
 <link rel="stylesheet" href="/static/css/navbarCom.css" />
-<nav class="topnav">
-  <div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<nav>
+  <div class="topnav">
     <a href="/" id="main">PickMe</a>
     <a href="/myPage" class="Corp">Mypage</a>
-    <a href="/process/logout" class="Corp" onclick="Delete_session(name);"
-      >logout</a
-    >
+    <a href="/process/logout" class="Corp" onclick="Delete_session(name);">logout</a>
 
     <a href="/company" class="Corp">개발자들 보기</a>
     <!-- <a href="/bucket" class="Corp">담은 개발자들</a> -->
     <a href="/bucket" class="Corp">담은 개발자들</a>
   </div>
+  <a class="navbar_toggler">
+    <i class="fa-solid fa-bars"></i>
+  </a>
 </nav>
-<script
-  src="https://code.jquery.com/jquery-3.6.1.js"
-  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-  crossorigin="anonymous"
-></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+<script>
+  $(".navbar_toggler").on("click", function () {
+    $(".topnav").toggle(function () {
+      $(".topnav").show(function () {
+        $(".topnav").css("background-color", "rgb(22, 38, 60)")
+      });
+    })
+  })
+</script>
