@@ -76,6 +76,7 @@ router.post("/addBucket", company.addBucket);
 
 // bucket
 router.post("/companyBucket", bucket.companyBucket)
+router.post("/companyBucket/ruleOut", bucket.ruleOut)
 router.post("/getViewUserResume", bucket.getViewUserResume)
 //---------------------------------------
 
