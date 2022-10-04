@@ -19,7 +19,6 @@
 }
 
 
-
 .sidebar{
     position: fixed;
     top: 60px;
@@ -98,12 +97,12 @@ body::-webkit-scrollbar-track{
 
 @media screen and (max-width: 650px){
     .sidebar{
-        width: 80px;
+        width: 72px;
         background: rgb(102, 132, 154);
     }
 
     .conttt {
-        margin-left: 100px;
+        margin-left: 90px;
     }
     
     .sidebar ul li a{

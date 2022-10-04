@@ -131,3 +131,14 @@ body::-webkit-scrollbar-thumb{
 body::-webkit-scrollbar-track{
     background-color: white;
 }
+
+@media screen and (max-width: 650px){
+    #form-register{
+        margin: 2% 5% 5% 5%;
+    }
+
+    .stackBtn {
+        font-size: 12px;
+        line-height: 22px;
+    }
+}

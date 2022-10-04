@@ -19,7 +19,8 @@
   float: left;
 }
 
-.user-Login {
+.useLogin {
+  width: 230px;
   float: left;
 }
 
@@ -47,4 +48,15 @@
 
 .infoTable td {
   padding: 10px;
+}
+
+@media screen and (max-width: 650px){
+  .useLogin {
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  .fontt {
+    font-size: 13px;
+  }
 }

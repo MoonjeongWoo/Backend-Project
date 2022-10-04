@@ -94,7 +94,8 @@
   border-radius: 10px;
   max-width: 35%;
   height: auto;
-  margin-left: -10%;
+  margin-left: -4.5%;
+  box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 .serCont1 {
@@ -117,7 +118,8 @@
   border-radius: 10px;
   max-width: 35%;
   height: auto;
-  margin-right: -10%;
+  margin-right: -7.3%;
+  box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 .serCont2 {
