@@ -83,7 +83,7 @@
     <script>
       var stackList = "";
       var bucketList = [];
-   //arcodian
+      //arcodian
       function startAccordion() {
         var acc = document.getElementsByClassName("accordion");
         for (var i = 0; i < acc.length; i++) {
@@ -172,39 +172,46 @@
           var data = response.data.data;
           var container = $('.develop_list');
           container.html('');
-
+          //<!-- data.stack.replace(/[|]/g, ' '); -->
           for (var i = 0; i < data.length; i++) {
+            /*datae.stack.replace(/\s/g, '|');*/
+            var a = data[i].stack
+            var a = a.replace(/[|]/gi, ' ');
+            var b = data[i].career
+            var b = b.replace(/[|]/gi, ' ');
+
             container.append(`
           <button class="accordion">${data[i].name}</button>
             <div class="panel">
-              <p>stack: ${data[i].stack}</p>
-              <p>career: ${data[i].career}</p>
+              <p>stack: ${a}}</p> 
+              <p>career: ${b}</p>
               <p>location: ${data[i].location}</p>
               <button type="button" onclick=selected_devel("${data[i].name}","${data[i].uuid}")>찜하기</button>
             </div>
           `)
-        }
-        startAccordion()
-      })
-    }
-    // -----------------------------
-    //bucket button
-    function selected_devel(name, uuid) {
-      let selected_name = $(".selected_bucket");
-      if (bucketList.includes(uuid) == false) {
-        bucketList.push(uuid)
-        selected_name.append(`<p>${name}</p>`);
-
-        axios({
-          url: "/addBucket",
-          method: "post",
-          data: {
-            bucket: JSON.stringify(bucketList)
-
           }
+          startAccordion()
         })
+
       }
-    }
+      // -----------------------------
+      //bucket button
+      function selected_devel(name, uuid) {
+        let selected_name = $(".selected_bucket");
+        if (bucketList.includes(uuid) == false) {
+          bucketList.push(uuid)
+          selected_name.append(`<p>${name}</p>`);
+
+          axios({
+            url: "/addBucket",
+            method: "post",
+            data: {
+              bucket: JSON.stringify(bucketList)
+
+            }
+          })
+        }
+      }
       // -----------------------------
       //bucket button
       function selected_devel(name, uuid) {
