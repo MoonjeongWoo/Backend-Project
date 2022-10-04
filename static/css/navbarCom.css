@@ -1,9 +1,12 @@
  .topnav {
-    width: 100%;
-    margin: 0px;
-    padding-right: 15px;
-    position: fixed;
-    z-index: 99999;
+  position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 20px;
   }
   .Corp{
     float: right;
@@ -15,19 +18,28 @@
     display: block;
   }
   #main{
-    float: left;
-    color: lightgray;
+ float: left;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 19px;
+    display: block;
+    font-family: 'Hahmlet-Bold';
   }
   .topnav a:hover{
     color: coral;
     transition: 0.4s;
   }
-  @media screen and (max-width:360px){
-    #main{
+  .toggle{
+  display: block;
+  display: none;
+}
+ .navbar_toggler{
+  display: none;
+ }
+  @media screen and (max-width:650px){
+    /* #main{
         display: none;
       } 
     .topnav {
@@ -52,7 +64,20 @@
   }
   #selected{
     text-align: left;
-    }
+    } */
+      nav{
+    display: flex;
+  }
+  .topnav{
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    position: fixed;
+  }
+  .navbar_toggler{
+    display: block;
+    font-size: 24px;
+  }
   }
   body::-webkit-scrollbar{
     display: none;

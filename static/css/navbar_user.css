@@ -7,12 +7,14 @@
 
  
  .topnav {
-    width: 100%;
-    margin: 0px;
-    padding: 5px;
-    overflow: hidden;
-    position: fixed;
-    z-index: 99999;
+   position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 20px;
   }
 
   /* Style the links inside the navigation bar */
@@ -40,13 +42,31 @@
   .topnav a:hover {
     color: black;
   }
+   .navbar_toggler{
+  display: none;
+ }
   #main:hover{
     background-color: white;
   }
 
   /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: #04aa6d;
-    color: white;
+.toggle{
+  display: block;
+  display: none;
+}
+ @media screen and (max-width: 650px){
+  nav{
+    display: flex;
   }
- 
+  .topnav{
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    position: fixed;
+  }
+  .navbar_toggler{
+    display: block;
+    font-size: 24px;
+  }
+  
+}

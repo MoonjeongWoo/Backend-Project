@@ -1,21 +1,19 @@
 <link rel="stylesheet" href="/static/css/navbar_user.css" />
-<nav class="topnav">
-  <div>
+<nav>
+  <div class="topnav">
     <a href="/" id="main">PickMe</a>
-    <a href="/process/logout" class="user" onclick="Delete_session(name);"
-      >logout</a
-    >
+    <a href="/process/logout" class="user" onclick="Delete_session(name);">logout</a>
     <a href="/myPage" class="user">Mypage</a>
 
     <a href="/introduce" class="user">이력 등록</a>
     <a href="/watchother" class="user">다른 이력들 보기</a>
   </div>
+  <a class="navbar_toggler">
+    <i class="fa-solid fa-bars"></i>
+  </a>
 </nav>
-<script
-  src="https://code.jquery.com/jquery-3.6.1.js"
-  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-  crossorigin="anonymous"
-></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
 
 <!-- scroll 시 navbar 배경 화면 보이기 필요시 복붙-->
 <script>
@@ -30,6 +28,14 @@
         $(".Corp").attr("style", "color: white !important");
       }
     });*/
+  $(".navbar_toggler").on("click", function () {
+    $(".topnav").toggle(function () {
+      $(".topnav").show(function () {
+        $(".topnav").css("background-color", "rgb(22, 38, 60)")
+      });
+    })
+  })
+
   function Delete_session(name) {
     sessionStorage.clear();
     document.cookie = name + "=; expires=Thu, 01 Jan 1999 00:00:10 GMT;";
