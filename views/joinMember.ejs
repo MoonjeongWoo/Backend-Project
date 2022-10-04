@@ -114,7 +114,7 @@
             <button class="accordion" id="userarc">User용</button>
             <div class="panel">
               <div class="border">
-                <%-include("joinMemberUser.ejs") %>
+                <%-include("joinmemberUser.ejs") %>
               </div>
             </div>
             <button class="accordion" id="comparc">Company</button>
@@ -144,7 +144,7 @@
           method: "POST",
           data: data,
         }).then((response) => {
-          if ( response.data.result == 1){
+          if (response.data.result == 1) {
             alert('사용 불가 Id');
           }
         });
@@ -234,7 +234,7 @@
           method: "POST",
           data: data,
         }).then((response) => {
-          if ( response.data.result == 1){
+          if (response.data.result == 1) {
             alert('사용 불가 Id');
           }
         });
