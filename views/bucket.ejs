@@ -92,16 +92,16 @@
 
 
         function ruleOut(ev) {
-          // console.log(ev)
-          var whoIndex = ev;
+          // console.log(ev);
+          var whoIndex = Number(ev);
           data = { index: whoIndex };
           axios({
             url: "/companyBucket/ruleout",
             method: "post",
             data: data
           }).then(() => {
-            window.location = '/bucket';
-            // window.location.reload();
+            // window.location = '/bucket';
+            window.location.reload();
           })
 
         }
