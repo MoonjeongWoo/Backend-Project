@@ -35,8 +35,8 @@
     font-size: 19px;
     display: block;
     font-family: 'Hahmlet-Bold';
-
-  .topnav div{
+  }
+  .topnav{
     display: flex;
     align-items: center;
     padding-left: 0px;
