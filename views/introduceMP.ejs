@@ -1,7 +1,7 @@
-<div class="userInfoCk">
-  <h3>이력서 추가</h3>
+<div class="userInfoCk MP">
+  <h3>이력서 추가</h3><hr><br />
   <div class="wrap">
-    <div class="content1">
+    <div class="content2">
       <div id="form-register" action="/user/saveIntroudce" method="post">
 
         <!----- 개인 정보 가져오도록 수정필요 ------>
@@ -45,7 +45,7 @@
               <input type="text" name="etc" value="" id="etc" />
               <br />
 
-              <div class="button">
+              <div class="button modbtn">
                 <button type="button" class="btnFade btnBlue sendBtn" id="submit" onclick="saveResume()">제출</button>
               </div>
       </div>
@@ -57,7 +57,7 @@
   // 경력 추가
   var i = 0;
   function addCar() {
-    $('.career').append(`<div>경력<input id='year${i}' class='inText'>근무지<input id='place${i++}' class='inText'></div>`)
+    $('.career').append(`<div>경력<input id='year${i}' class='inText'>근무지<input id='place${i++}' class='inText'></div><br>`)
   }
 
   //stack 선택

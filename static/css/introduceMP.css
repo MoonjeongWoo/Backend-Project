@@ -1,0 +1,11 @@
+
+.content2 {
+    padding-top: 0;
+}
+
+@media screen and (max-width: 650px){
+    .stackBtn {
+        font-size: 12px;
+        line-height: 22px;
+    }
+}
