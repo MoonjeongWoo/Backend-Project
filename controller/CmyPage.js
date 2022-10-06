@@ -4,6 +4,7 @@ const { ElementLocation } = require("../model");
 
 exports.updateProfile = async (req, res) => {
     var pw = strToSha256(req.body.id, req.body.pw)
+    console.log('gogogogogogo------------')
     
     if ( req.file != undefined){
         var filename = req.file.filename;
