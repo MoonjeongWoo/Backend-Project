@@ -71,18 +71,18 @@ a.button {
 }
 
 .btnBlue {
-  background: #4ea6ab;
+  background: #4a898c;
 }
 
 .btnFade.btnBlue:hover {
-  background: #016e73;
+  background: #2e6265;
 }
 
 .btnRed {
-  background: #b69393;
+  background: #975858;
 }
 
 .btnFade.btnRed:hover {
-  background: #62514e;
+  background: #5f4440;
 }
 
