@@ -1,44 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>myPage</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/9376e8eed8.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>myPage</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/9376e8eed8.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="/static/css/myPage.css" />
@@ -52,90 +37,103 @@
 <body>
   <form>
     <div class="nav">
-      <% if(data.isLogin ==1){ %> <%-include("navbar_user.ejs") %> <% }else { %>
-      <%-include("navbar_no_login.ejs")%> <% } %>
+      <% if(data.isLogin==1){ %>
+        <% if(data.member==0)%>
+          <%-include("navbar_user.ejs") %>
+            <% }else if(data.member==1) { %>
+              <%-include("navbarCom.ejs") %>
+                <%} else { %>
+                  <%-include("navbar_no_login.ejs")%>
+                    <% } %>
     </div>
-<div class="all">
-    <div class="wrapper">
-      <div class=" sidebar">
-        <div role="tabpanel">
-          <div class="list-group" id="myList" role="tablist">
+    <div class="all">
+      <div class="wrapper">
+        <div class=" sidebar">
+          <div role="tabpanel">
+            <div class="list-group" id="myList" role="tablist">
               <!--menu item-->
               <ul>
-                  <li>
-                      <div>
-                          <span class="itemM">MENU</span>
-                      </div>
-                  </li>
-                  <li>
-                      <a class="list-group-item-action active" data-bs-toggle="list" href="#profile">
-                          <span class="icon"><i class="fa-solid fa-user"></i></span>
-                          <span class="item">회원정보 확인</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a class="list-group-item-action" data-bs-toggle="list" data-toggle="modal" href="#profileMod">
-                          <span class="icon"><i class="fa-solid fa-gear"></i></span>
-                          <span class="item">회원정보 수정</span>
-                      </a>
-                  </li>
+                <li>
+                  <div>
+                    <span class="itemM">MENU</span>
+                  </div>
+                </li>
+                <li>
+                  <a class="list-group-item-action active" data-bs-toggle="list" href="#profile">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <span class="item">회원정보 확인</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="list-group-item-action" data-bs-toggle="list" data-toggle="modal" href="#profileMod">
+                    <span class="icon"><i class="fa-solid fa-gear"></i></span>
+                    <span class="item">회원정보 수정</span>
+                  </a>
+                </li>
 
 
-                  <li>
-                      <a class="list-group-item-action" data-bs-toggle="list" href="#introduce" role="tab">
-                          <span class="icon"><i class="fa-solid fa-file-contract"></i></span>
-                          <span class="item">이력서 추가</span>
-                      </a>
-                  </li>
+                <li>
+                  <a class="list-group-item-action" data-bs-toggle="list" href="#introduce" role="tab">
+                    <span class="icon"><i class="fa-solid fa-file-contract"></i></span>
+                    <span class="item">이력서 추가</span>
+                  </a>
+                </li>
 
               </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    
-        <div class="conttt">
-            <div class="tab-content" id="nav-tabContent">
-              <!-- 회원정보 확인 -->
-              <div class="tab-pane fade show active" id="profile" role="tabpanel">
-                
-                <div><%-include("profile.ejs") %></div>
-                <!-- <button>정보 수정</button> -->
-              </div>
-              <!-- 회원정보 수정 -->
-              <!-- PW 입력 -> O 수정창 (profileMod) / X alert 다시입력하시오 -->
-              <div class="tab-pane fade" id="profileMod" role="tabpanel">
-                <div><%-include("profileMod.ejs") %></div>
-              </div>
-              <!-- 이력서 관리 -->
-              <div class="tab-pane fade" id="introduce" role="tabpanel">
-                <div class="introMP"><%-include("introduceMP.ejs") %></div>
-              </div>
+
+      <div class="conttt">
+        <div class="tab-content" id="nav-tabContent">
+          <!-- 회원정보 확인 -->
+          <div class="tab-pane fade show active" id="profile" role="tabpanel">
+
+            <div>
+              <%-include("profile.ejs") %>
             </div>
+            <!-- <button>정보 수정</button> -->
+          </div>
+          <!-- 회원정보 수정 -->
+          <!-- PW 입력 -> O 수정창 (profileMod) / X alert 다시입력하시오 -->
+          <div class="tab-pane fade" id="profileMod" role="tabpanel">
+            <div>
+              <%-include("profileMod.ejs") %>
+            </div>
+          </div>
+          <!-- 이력서 관리 -->
+          <div class="tab-pane fade" id="introduce" role="tabpanel">
+            <div class="introMP">
+              <%-include("introduceMP.ejs") %>
+            </div>
+          </div>
         </div>
+      </div>
 
-</div>
-    </form>
-    <script>
-      //-------------------
-      // pw check modal
+    </div>
+  </form>
+  <script>
+    //-------------------
+    // pw check modal
 
-      //--------------------
-      //navbar scroll backgournd-color
-      window.addEventListener("scroll", function () {
-        if (scrollY <= 1 && scrollY >= 0) {
-          $(".topnav").attr("style", "background-color: transparent !import");
-          $(".user").attr("style", "color : black !important");
-          $(".Corp").attr("style", "color: black !important");
-        } else {
-          $(".topnav").attr(
-            "style",
-            "background-color:  rgb(22, 38, 60) !important"
-          );
-          $(".user").attr("style", "color : white !important");
-          $(".Corp").attr("style", "color: white !important");
-        }
-      });
-    </script>
-  </body>
+    //--------------------
+    //navbar scroll backgournd-color
+    window.addEventListener("scroll", function () {
+      if (scrollY <= 1 && scrollY >= 0) {
+        $(".topnav").attr("style", "background-color: transparent !import");
+        $(".user").attr("style", "color : black !important");
+        $(".Corp").attr("style", "color: black !important");
+      } else {
+        $(".topnav").attr(
+          "style",
+          "background-color:  rgb(22, 38, 60) !important"
+        );
+        $(".user").attr("style", "color : white !important");
+        $(".Corp").attr("style", "color: white !important");
+      }
+    });
+  </script>
+</body>
+
 </html>
