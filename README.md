@@ -21,7 +21,7 @@ Back - axios, MYSQL, Sequelize, ERD
 
 
 🔗 Link : [Pick me](http://118.67.130.161:8000/) &nbsp;&nbsp;&nbsp;
-[프로젝트 개요](https://sangsunno.github.io/pick%20me/pick-me-1-%EA%B0%9C%EC%9A%94/ "프로젝트 개요")
+
 
 <br/>
 
