@@ -25,7 +25,7 @@
 |:---:|:---:|---|:---:|
 |[sangsun No](https://github.com/sangsunNo "sangsun No")|Back| - 백엔드&DB 구조 설계 <br/> - 백엔드 파일&데이터 처리 <br/> - 비밀번호 암호화 <br/> - UUID&Session 설정 <br/> - 프론트엔드 Script&데이터 처리|[Description](https://sangsunno.github.io/categories/pickme "Description")|
 |[JayGrit](https://github.com/jaydive "JayGrit")|Back| - 회원가입&유저 데이터 처리 <br/> - 로그아웃 <br/> - 회원탈퇴||
-|[MoonjeongWoo](https://github.com/MoonjeongWoo "MoonjeongWoo")|Front| - Navbar&Footer <br/> - Company ( [1](http://118.67.130.161:8000/company "company"), [2](http://118.67.130.161:8000/bucket "bucket") )( **login 필요 )<br/> -Watch(http://118.67.130.161:8000/watchother "watchother")||
+|[MoonjeongWoo](https://github.com/MoonjeongWoo "MoonjeongWoo")|Front| - Navbar&Footer <br/> - Company ( [1](http://118.67.130.161:8000/company "company"), [2](http://118.67.130.161:8000/bucket "bucket") )( **login 필요 )<br/> -[Watch](http://118.67.130.161:8000/watchother "watchother")||
 |[ShinHanna98](https://github.com/ShinHanna98 "ShinHanna98")|Front| - [Main](http://118.67.130.161:8000/ "Main") <br/> - [Mypage](http://118.67.130.161:8000/myPage "Mypage") ( **login 필요 ) ||
 
 <br/>
