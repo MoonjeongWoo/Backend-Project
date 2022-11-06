@@ -46,6 +46,6 @@ Back - axios, MYSQL, Sequelize, ERD
 <br/><br/>
 
 🔗 Link : [Pick me](http://118.67.130.161:8000/) &nbsp;&nbsp;&nbsp;
-[Front-end 개요](https://www.notion.so/moonjeongwoo/JW-s-notion-4b964b567dfb4129b73ce4fcf363a3c3?p=bd2d202cc8b3417cbb7cf6683bf3994d&pm=c/ "Front-end 개요")
+[Front-end 개요](https://www.notion.so/moonjeongwoo/JW-s-notion-4b964b567dfb4129b73ce4fcf363a3c3?p=bd2d202cc8b3417cbb7cf6683bf3994d&pm=c/ "Front-end 개요") &nbsp;&nbsp;
 [BACK-end 개요](https://sangsunno.github.io/pick%20me/pick-me-1-%EA%B0%9C%EC%9A%94/ " 개요")
 
